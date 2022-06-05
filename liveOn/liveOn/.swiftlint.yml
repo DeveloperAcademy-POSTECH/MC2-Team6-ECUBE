@@ -12,3 +12,4 @@ disabled_rules: # Default Rules에서 비활성화할 규칙
     - identifier_name
     
     - line_length
+    - orphaned_doc_comment
