@@ -9,11 +9,10 @@ import SwiftUI
 
 @main
 struct LiveOnApp: App {
-    @StateObject var ImageModel = ImageViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            PictureGiftView()
-                .environmentObject(ImageModel)
+            ContentView()
         }
     }
 }

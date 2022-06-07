@@ -8,43 +8,43 @@
 
 /* Begin PBXBuildFile section */
 		3E9206B4284AE2B700D064E6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206B3284AE2B700D064E6 /* Model.swift */; };
-		3E9206B6284AE2C400D064E6 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206B5284AE2C400D064E6 /* ImageViewModel.swift */; };
+		3E9206B6284AE2C400D064E6 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206B5284AE2C400D064E6 /* ViewModel.swift */; };
 		3E9206C0284B249C00D064E6 /* VoicemailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206BF284B249C00D064E6 /* VoicemailView.swift */; };
 		3E9206C2284B24CF00D064E6 /* DateToStringVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206C1284B24CF00D064E6 /* DateToStringVM.swift */; };
 		3EBE43782849B6D30085C7C6 /* liveOnApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBE43772849B6D30085C7C6 /* liveOnApp.swift */; };
-		3EBE437A2849B6D30085C7C6 /* PictureGiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBE43792849B6D30085C7C6 /* PictureGiftView.swift */; };
+		3EBE437A2849B6D30085C7C6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBE43792849B6D30085C7C6 /* ContentView.swift */; };
 		3EBE437C2849B6D50085C7C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EBE437B2849B6D50085C7C6 /* Assets.xcassets */; };
 		3EBE437F2849B6D50085C7C6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EBE437E2849B6D50085C7C6 /* Preview Assets.xcassets */; };
 		77196611284B3E61002E6AC0 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 77196610284B3E61002E6AC0 /* .swiftlint.yml */; };
 		77196614284B41E8002E6AC0 /* GiftBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77196613284B41E8002E6AC0 /* GiftBoxView.swift */; };
 		77196616284B4DC7002E6AC0 /* CreateGiftListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77196615284B4DC7002E6AC0 /* CreateGiftListView.swift */; };
-		A9F03BBB284DE5470086CF80 /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F03BBA284DE5470086CF80 /* KeyboardHandler.swift */; };
-		A9F03BBE284DE6780086CF80 /* Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F03BBD284DE6780086CF80 /* Picker.swift */; };
-		A9F03BC0284DE6D60086CF80 /* MyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F03BBF284DE6D60086CF80 /* MyImage.swift */; };
-		A9F03BC2284DE6F00086CF80 /* MyImageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F03BC1284DE6F00086CF80 /* MyImageError.swift */; };
-		A9F03BC4284DE72F0086CF80 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F03BC3284DE72F0086CF80 /* ImagePicker.swift */; };
+		77A5D297284CA7180099B261 /* GettingStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A5D296284CA7180099B261 /* GettingStart.swift */; };
+		77A5D29A284DBFC00099B261 /* Letter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A5D299284DBFC00099B261 /* Letter.swift */; };
+		77A5D29C284DC1C00099B261 /* LetterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A5D29B284DC1C00099B261 /* LetterListView.swift */; };
+		77A5D29E284DC4BB0099B261 /* CreateLetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A5D29D284DC4BB0099B261 /* CreateLetterView.swift */; };
+		77A5D2A0284DCFDF0099B261 /* TextLimiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A5D29F284DCFDF0099B261 /* TextLimiter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3E9206B3284AE2B700D064E6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		3E9206B5284AE2C400D064E6 /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
+		3E9206B5284AE2C400D064E6 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		3E9206BF284B249C00D064E6 /* VoicemailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicemailView.swift; sourceTree = "<group>"; };
 		3E9206C1284B24CF00D064E6 /* DateToStringVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateToStringVM.swift; sourceTree = "<group>"; };
 		3E9206C7284C2A3100D064E6 /* VoiceRecorderVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceRecorderVM.swift; sourceTree = "<group>"; };
 		3EBE43742849B6D30085C7C6 /* liveOn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = liveOn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EBE43772849B6D30085C7C6 /* liveOnApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = liveOnApp.swift; sourceTree = "<group>"; };
-		3EBE43792849B6D30085C7C6 /* PictureGiftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureGiftView.swift; sourceTree = "<group>"; };
+		3EBE43792849B6D30085C7C6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3EBE437B2849B6D50085C7C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EBE437E2849B6D50085C7C6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		77196610284B3E61002E6AC0 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; name = .swiftlint.yml; path = liveOn/.swiftlint.yml; sourceTree = "<group>"; };
 		77196613284B41E8002E6AC0 /* GiftBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftBoxView.swift; sourceTree = "<group>"; };
 		77196615284B4DC7002E6AC0 /* CreateGiftListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGiftListView.swift; sourceTree = "<group>"; };
 		77196618284C6FA9002E6AC0 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
-		A9F03BBA284DE5470086CF80 /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
-		A9F03BBD284DE6780086CF80 /* Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picker.swift; sourceTree = "<group>"; };
-		A9F03BBF284DE6D60086CF80 /* MyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyImage.swift; sourceTree = "<group>"; };
-		A9F03BC1284DE6F00086CF80 /* MyImageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyImageError.swift; sourceTree = "<group>"; };
-		A9F03BC3284DE72F0086CF80 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		77A5D296284CA7180099B261 /* GettingStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GettingStart.swift; sourceTree = "<group>"; };
+		77A5D299284DBFC00099B261 /* Letter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letter.swift; sourceTree = "<group>"; };
+		77A5D29B284DC1C00099B261 /* LetterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterListView.swift; sourceTree = "<group>"; };
+		77A5D29D284DC4BB0099B261 /* CreateLetterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLetterView.swift; sourceTree = "<group>"; };
+		77A5D29F284DCFDF0099B261 /* TextLimiter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLimiter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +61,10 @@
 		3E9206B0284AE1CC00D064E6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A9F03BC5284DE9E60086CF80 /* PictureGift */,
+				77A5D298284DBFB30099B261 /* Letter */,
+				77A5D295284CA6D50099B261 /* SignUp */,
 				3E9206BE284B248E00D064E6 /* Voicemail */,
+				3EBE43792849B6D30085C7C6 /* ContentView.swift */,
 				77196613284B41E8002E6AC0 /* GiftBoxView.swift */,
 				77196615284B4DC7002E6AC0 /* CreateGiftListView.swift */,
 			);
@@ -73,9 +75,6 @@
 			isa = PBXGroup;
 			children = (
 				3E9206B3284AE2B700D064E6 /* Model.swift */,
-				A9F03BBD284DE6780086CF80 /* Picker.swift */,
-				A9F03BBF284DE6D60086CF80 /* MyImage.swift */,
-				A9F03BC1284DE6F00086CF80 /* MyImageError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -83,10 +82,10 @@
 		3E9206B2284AE1D700D064E6 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				3E9206B5284AE2C400D064E6 /* ImageViewModel.swift */,
-				A9F03BC3284DE72F0086CF80 /* ImagePicker.swift */,
+				3E9206B5284AE2C400D064E6 /* ViewModel.swift */,
 				3E9206C1284B24CF00D064E6 /* DateToStringVM.swift */,
 				3E9206C7284C2A3100D064E6 /* VoiceRecorderVM.swift */,
+				77A5D29F284DCFDF0099B261 /* TextLimiter.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -119,12 +118,11 @@
 		3EBE43762849B6D30085C7C6 /* liveOn */ = {
 			isa = PBXGroup;
 			children = (
-				A9F03BBC284DE6140086CF80 /* Helper */,
 				77196617284C6F8D002E6AC0 /* Extensions */,
 				3E9206B2284AE1D700D064E6 /* ViewModels */,
 				3E9206B1284AE1D200D064E6 /* Models */,
 				3E9206B0284AE1CC00D064E6 /* Views */,
-				A9F03BC6284DEECE0086CF80 /* System */,
+				3EBE43772849B6D30085C7C6 /* liveOnApp.swift */,
 				3EBE437B2849B6D50085C7C6 /* Assets.xcassets */,
 				3EBE437D2849B6D50085C7C6 /* Preview Content */,
 			);
@@ -147,28 +145,22 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		A9F03BBC284DE6140086CF80 /* Helper */ = {
+		77A5D295284CA6D50099B261 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				A9F03BBA284DE5470086CF80 /* KeyboardHandler.swift */,
+				77A5D296284CA7180099B261 /* GettingStart.swift */,
 			);
-			path = Helper;
+			path = SignUp;
 			sourceTree = "<group>";
 		};
-		A9F03BC5284DE9E60086CF80 /* PictureGift */ = {
+		77A5D298284DBFB30099B261 /* Letter */ = {
 			isa = PBXGroup;
 			children = (
-				3EBE43792849B6D30085C7C6 /* PictureGiftView.swift */,
+				77A5D299284DBFC00099B261 /* Letter.swift */,
+				77A5D29B284DC1C00099B261 /* LetterListView.swift */,
+				77A5D29D284DC4BB0099B261 /* CreateLetterView.swift */,
 			);
-			path = PictureGift;
-			sourceTree = "<group>";
-		};
-		A9F03BC6284DEECE0086CF80 /* System */ = {
-			isa = PBXGroup;
-			children = (
-				3EBE43772849B6D30085C7C6 /* liveOnApp.swift */,
-			);
-			path = System;
+			path = Letter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,18 +256,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9F03BC4284DE72F0086CF80 /* ImagePicker.swift in Sources */,
-				A9F03BBB284DE5470086CF80 /* KeyboardHandler.swift in Sources */,
 				77196616284B4DC7002E6AC0 /* CreateGiftListView.swift in Sources */,
 				3E9206B4284AE2B700D064E6 /* Model.swift in Sources */,
-				A9F03BBE284DE6780086CF80 /* Picker.swift in Sources */,
-				3EBE437A2849B6D30085C7C6 /* PictureGiftView.swift in Sources */,
-				3E9206B6284AE2C400D064E6 /* ImageViewModel.swift in Sources */,
+				77A5D2A0284DCFDF0099B261 /* TextLimiter.swift in Sources */,
+				3EBE437A2849B6D30085C7C6 /* ContentView.swift in Sources */,
+				3E9206B6284AE2C400D064E6 /* ViewModel.swift in Sources */,
+				77A5D29E284DC4BB0099B261 /* CreateLetterView.swift in Sources */,
+				77A5D29C284DC1C00099B261 /* LetterListView.swift in Sources */,
 				3EBE43782849B6D30085C7C6 /* liveOnApp.swift in Sources */,
 				77196614284B41E8002E6AC0 /* GiftBoxView.swift in Sources */,
-				A9F03BC2284DE6F00086CF80 /* MyImageError.swift in Sources */,
-				A9F03BC0284DE6D60086CF80 /* MyImage.swift in Sources */,
 				3E9206C2284B24CF00D064E6 /* DateToStringVM.swift in Sources */,
+				77A5D29A284DBFC00099B261 /* Letter.swift in Sources */,
+				77A5D297284CA7180099B261 /* GettingStart.swift in Sources */,
 				3E9206C0284B249C00D064E6 /* VoicemailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
