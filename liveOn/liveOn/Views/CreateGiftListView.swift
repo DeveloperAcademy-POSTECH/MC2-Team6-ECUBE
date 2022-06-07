@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct CreateGiftListView: View {
-
     var body: some View {
         ScrollView(.vertical) {
             VStack {
@@ -26,28 +25,26 @@ struct CreateGiftListView: View {
 
 extension CreateGiftListView {
     struct GiftItem: View {
-        @EnvironmentObject var store: LetterStore
+        
         var body: some View {
-            NavigationLink(destination: CreateLetterView() .environmentObject(store)) {
-                HStack(alignment: .top, spacing: 08) {
-                    Image("letter")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .padding(5)
-                        .frame(width: 50, height: 50, alignment: .center)
-                        .background(RoundedRectangle(cornerRadius: 5).fill(.regularMaterial))
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("쪽지")
-                            .font(.headline)
-                        Text("손글씨가 담긴 편지를 보내요")
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
+            HStack(alignment: .top, spacing: 08) {
+                Image("letter")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .padding(5)
+                    .frame(width: 50, height: 50, alignment: .center)
+                    .background(RoundedRectangle(cornerRadius: 5).fill(.regularMaterial))
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("쪽지")
+                        .font(.headline)
+                    Text("손글씨가 담긴 편지를 보내요")
                 }
-                
-                .padding()
-                .background(.thickMaterial)
-            .padding()
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
+            
+            .padding()
+            .background(.thickMaterial)
+            .padding()
         }
     }
 }

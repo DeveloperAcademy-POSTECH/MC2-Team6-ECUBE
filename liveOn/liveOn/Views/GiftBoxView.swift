@@ -6,13 +6,9 @@
 //
 
 import SwiftUI
-extension Color {
-    static let background = Color("background")
-    static let bodyTextColor = Color("bodyText")
-}
 
 struct GiftBoxView: View {
-    @StateObject var storedLetter = LetterStore()
+    
     var body: some View {
         GeometryReader { proxy in
             // 줄로 나눠서 변수로 만든 뒤, 일정 비율만큼의 크기로 그려지도록 함
@@ -37,7 +33,7 @@ struct GiftBoxView: View {
         HStack(alignment: .center, spacing: 0) {
             coupleInfo
             Spacer()
-            NavigationLink(destination: CreateGiftListView().environmentObject(storedLetter)) {
+            NavigationLink(destination: CreateGiftListView()) {
                 Image(systemName: "gift")
                     .font(.title2)
                     .foregroundColor(.bodyTextColor)
@@ -91,7 +87,7 @@ struct GiftBoxView: View {
                     .padding()
             }
             Spacer()
-            NavigationLink(destination: LetterListView().environmentObject(storedLetter)) {
+            NavigationLink(destination: Text("voiceMailListView")) {
                 Image("letters")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
