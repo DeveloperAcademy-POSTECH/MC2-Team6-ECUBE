@@ -73,7 +73,7 @@ struct PictureGiftView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct PictureGiftView_Previews: PreviewProvider {
     static var previews: some View {
         PictureGiftView()
             .environmentObject(ViewModel())
