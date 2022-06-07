@@ -23,7 +23,7 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
     func startRecording() {
         
         let recordingSession = AVAudioSession.sharedInstance()
-        do{
+        do {
             try recordingSession.setCategory(.playAndRecord, mode: .default)
             try recordingSession.setActive(true)
         } catch {
