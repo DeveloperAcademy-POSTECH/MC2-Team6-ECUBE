@@ -12,6 +12,7 @@
 		3E9206C0284B249C00D064E6 /* VoicemailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206BF284B249C00D064E6 /* VoicemailView.swift */; };
 		3E9206C2284B24CF00D064E6 /* DateToStringVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206C1284B24CF00D064E6 /* DateToStringVM.swift */; };
 		3E9206CC284F343200D064E6 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206CB284F343200D064E6 /* Recording.swift */; };
+		3E9206D0284F3BA300D064E6 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206CF284F3BA300D064E6 /* Test.swift */; };
 		3EBE43782849B6D30085C7C6 /* liveOnApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBE43772849B6D30085C7C6 /* liveOnApp.swift */; };
 		3EBE437A2849B6D30085C7C6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBE43792849B6D30085C7C6 /* ContentView.swift */; };
 		3EBE437C2849B6D50085C7C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EBE437B2849B6D50085C7C6 /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 		3E9206C1284B24CF00D064E6 /* DateToStringVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateToStringVM.swift; sourceTree = "<group>"; };
 		3E9206C7284C2A3100D064E6 /* VoiceRecorderVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceRecorderVM.swift; sourceTree = "<group>"; };
 		3E9206CB284F343200D064E6 /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
+		3E9206CF284F3BA300D064E6 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		3EBE43742849B6D30085C7C6 /* liveOn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = liveOn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EBE43772849B6D30085C7C6 /* liveOnApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = liveOnApp.swift; sourceTree = "<group>"; };
 		3EBE43792849B6D30085C7C6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				A932622C284F2AA900E5C0A3 /* MyImage.swift */,
 				A932622E284F2AD400E5C0A3 /* ImagePicker.swift */,
 				3E9206CB284F343200D064E6 /* Recording.swift */,
+				3E9206CF284F3BA300D064E6 /* Test.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				A932622F284F2AD400E5C0A3 /* ImagePicker.swift in Sources */,
 				3E9206B4284AE2B700D064E6 /* Model.swift in Sources */,
 				C9CEAECB284F15DA00769E4E /* CalendarMain.swift in Sources */,
+				3E9206D0284F3BA300D064E6 /* Test.swift in Sources */,
 				C9CEAECE284F17E300769E4E /* ColorExtension.swift in Sources */,
 				3EBE437A2849B6D30085C7C6 /* ContentView.swift in Sources */,
 				773C1A52284F37E400E93BFE /* Letter.swift in Sources */,
