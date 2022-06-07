@@ -8,7 +8,7 @@
 import SwiftUI
 
 class ViewModel: ObservableObject {
-    @Published var image: UIImage?  //그냥 이미지랑 UI 이미지 차이는 뭘까??
+    @Published var image: UIImage?  // 그냥 이미지랑 UI 이미지 차이는 뭘까??
     @Published var showPicker = false
     @Published var source: Picker.Source = .library
     @Published var showCameraAlert = false
@@ -27,14 +27,13 @@ class ViewModel: ObservableObject {
     }
 }
 
-
 extension Color {
     static let mainBackGround = Color(hex: "#FCFAFA")
     static let primaryColor = Color(hex: "#A5726F")
     
     init(hex: String) {
         let scanner = Scanner(string: hex)
-        let _ = scanner.scanString("#")
+        _ = scanner.scanString("#")
         
         var rgb: UInt64 = 0
         scanner.scanHexInt64(&rgb)

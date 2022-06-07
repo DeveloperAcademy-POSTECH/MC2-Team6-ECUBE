@@ -51,7 +51,7 @@ struct PictureGiftView: View {
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: Text("선물하기")){
+                    NavigationLink(destination: Text("선물하기")) {
                         Text("선물하기")
                             .foregroundColor(.black)
                     }
