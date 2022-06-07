@@ -152,7 +152,7 @@ struct CalendarMain: View {
                         .font(.title3)
                         .foregroundColor(plusColor)
                         .sheet(isPresented: $showSheet, content: {
-                            PlusSetting()
+                            PlusSetting(currentDate: $currentDate)
                         })
                     }
                 }
@@ -296,12 +296,6 @@ struct CalendarMain: View {
         }
         
         return days
-    }
-}
-
-struct PlusSetting: View {
-    var body: some View {
-        Text("다가오는 기념일")
     }
 }
 
