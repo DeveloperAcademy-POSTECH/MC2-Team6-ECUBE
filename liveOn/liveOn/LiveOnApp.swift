@@ -9,7 +9,9 @@ import SwiftUI
 
 @main
 struct LiveOnApp: App {
+ 
     @StateObject var imageModel = ViewModel()
+
     var body: some Scene {
         WindowGroup {
             ContentView()
