@@ -19,6 +19,8 @@
 		77196611284B3E61002E6AC0 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 77196610284B3E61002E6AC0 /* .swiftlint.yml */; };
 		77196614284B41E8002E6AC0 /* GiftBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77196613284B41E8002E6AC0 /* GiftBoxView.swift */; };
 		77196616284B4DC7002E6AC0 /* CreateGiftListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77196615284B4DC7002E6AC0 /* CreateGiftListView.swift */; };
+		773C1A52284F37E400E93BFE /* Letter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773C1A51284F37E400E93BFE /* Letter.swift */; };
+		773C1A54284F37F700E93BFE /* LetterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773C1A53284F37F700E93BFE /* LetterListView.swift */; };
 		A9326229284F2A2800E5C0A3 /* PictureGiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9326228284F2A2800E5C0A3 /* PictureGiftView.swift */; };
 		A932622B284F2A9600E5C0A3 /* Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932622A284F2A9600E5C0A3 /* Picker.swift */; };
 		A932622D284F2AA900E5C0A3 /* MyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932622C284F2AA900E5C0A3 /* MyImage.swift */; };
@@ -47,6 +49,8 @@
 		77196613284B41E8002E6AC0 /* GiftBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftBoxView.swift; sourceTree = "<group>"; };
 		77196615284B4DC7002E6AC0 /* CreateGiftListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGiftListView.swift; sourceTree = "<group>"; };
 		77196618284C6FA9002E6AC0 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		773C1A51284F37E400E93BFE /* Letter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letter.swift; sourceTree = "<group>"; };
+		773C1A53284F37F700E93BFE /* LetterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterListView.swift; sourceTree = "<group>"; };
 		A9326228284F2A2800E5C0A3 /* PictureGiftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureGiftView.swift; sourceTree = "<group>"; };
 		A932622A284F2A9600E5C0A3 /* Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picker.swift; sourceTree = "<group>"; };
 		A932622C284F2AA900E5C0A3 /* MyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyImage.swift; sourceTree = "<group>"; };
@@ -72,6 +76,7 @@
 		3E9206B0284AE1CC00D064E6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				773C1A50284F37D600E93BFE /* Letter */,
 				A9326227284F2A1300E5C0A3 /* PictureGift */,
 				C9CEAEC9284F159400769E4E /* Calendar */,
 				3E9206BE284B248E00D064E6 /* Voicemail */,
@@ -160,6 +165,15 @@
 				A9326230284F2B0700E5C0A3 /* FileManager+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		773C1A50284F37D600E93BFE /* Letter */ = {
+			isa = PBXGroup;
+			children = (
+				773C1A51284F37E400E93BFE /* Letter.swift */,
+				773C1A53284F37F700E93BFE /* LetterListView.swift */,
+			);
+			path = Letter;
 			sourceTree = "<group>";
 		};
 		A9326227284F2A1300E5C0A3 /* PictureGift */ = {
@@ -279,12 +293,14 @@
 				C9CEAECB284F15DA00769E4E /* CalendarMain.swift in Sources */,
 				C9CEAECE284F17E300769E4E /* ColorExtension.swift in Sources */,
 				3EBE437A2849B6D30085C7C6 /* ContentView.swift in Sources */,
+				773C1A52284F37E400E93BFE /* Letter.swift in Sources */,
 				C9CEAED0284F18FA00769E4E /* CalendarBack.swift in Sources */,
 				3E9206B6284AE2C400D064E6 /* ViewModel.swift in Sources */,
 				3EBE43782849B6D30085C7C6 /* liveOnApp.swift in Sources */,
 				A9326229284F2A2800E5C0A3 /* PictureGiftView.swift in Sources */,
 				C9CEAECD284F164100769E4E /* Memo.swift in Sources */,
 				77196614284B41E8002E6AC0 /* GiftBoxView.swift in Sources */,
+				773C1A54284F37F700E93BFE /* LetterListView.swift in Sources */,
 				3E9206CC284F343200D064E6 /* Recording.swift in Sources */,
 				3E9206C2284B24CF00D064E6 /* DateToStringVM.swift in Sources */,
 				C9CEAEC8284F151A00769E4E /* DateValue.swift in Sources */,
