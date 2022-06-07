@@ -28,7 +28,7 @@ class LetterStore: ObservableObject {
     init() {
         list = [
             Letter(content: "재허나 뭐해앵", createdDate: Date.now, writer: "유진"),
-            Letter(content: "유지나 뭐해앵", createdDate: Date.distantPast,  writer: "재헌"),
+            Letter(content: "유지나 뭐해앵", createdDate: Date.distantPast, writer: "재헌"),
             Letter(content: "재허나 뭐해앵", createdDate: Date.distantPast, writer: "유진")
             
         ]
