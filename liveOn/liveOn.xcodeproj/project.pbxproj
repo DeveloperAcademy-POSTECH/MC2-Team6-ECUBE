@@ -16,6 +16,7 @@
 		3EBE437C2849B6D50085C7C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EBE437B2849B6D50085C7C6 /* Assets.xcassets */; };
 		3EBE437F2849B6D50085C7C6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EBE437E2849B6D50085C7C6 /* Preview Assets.xcassets */; };
 		77196611284B3E61002E6AC0 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 77196610284B3E61002E6AC0 /* .swiftlint.yml */; };
+		A44B2974284F11A200CE3740 /* FlowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44B2973284F11A200CE3740 /* FlowerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		3EBE437B2849B6D50085C7C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EBE437E2849B6D50085C7C6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		77196610284B3E61002E6AC0 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; name = .swiftlint.yml; path = liveOn/.swiftlint.yml; sourceTree = "<group>"; };
+		A44B2973284F11A200CE3740 /* FlowerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FlowerView.swift; path = Flower/FlowerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 			children = (
 				3E9206BE284B248E00D064E6 /* Voicemail */,
 				3EBE43792849B6D30085C7C6 /* ContentView.swift */,
+				A44B2973284F11A200CE3740 /* FlowerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				3E9206B6284AE2C400D064E6 /* ViewModel.swift in Sources */,
 				3EBE43782849B6D30085C7C6 /* liveOnApp.swift in Sources */,
 				3E9206C2284B24CF00D064E6 /* DateToStringVM.swift in Sources */,
+				A44B2974284F11A200CE3740 /* FlowerView.swift in Sources */,
 				3E9206C0284B249C00D064E6 /* VoicemailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
