@@ -1,7 +1,7 @@
 import SwiftUI
 import AVFoundation
 
-// 이미지 에러처리 
+//이미지 에러처리 
 enum Picker {
     enum Source: String {
         case library, camera

@@ -19,15 +19,13 @@ class TextLimiter: ObservableObject {
     
     @Published var value = ""
     @Published var hasReachedLimit = false
-    @Published var inputEntered = false {
+    @Published var inputEntered = false
+    {
         didSet {
             // 사용자가 입력했는지 체크
             if value.count > 0 &&  value != placeholder {
-                self.inputEntered = true
-                print(inputEntered)
-            } else {
+                self.inputEntered = true } else {
                     self.inputEntered = false
-                print(inputEntered)
                 }
             
             // 제한글자를 넘어서면 더 이상 쳐지지 않게 하기
@@ -56,6 +54,5 @@ extension View {
   func limitInputLength(value: Binding<String>, length: Int) -> some View {
     self.modifier(TextFieldLimitModifer(value: value, length: length))
   }
-    
 }
  

@@ -4,7 +4,8 @@ struct PictureGiftView: View {
     @EnvironmentObject var imageViewModel: imageViewModel
     @Environment(\.dismiss) private var dismiss
     @State private var comment: String = ""
-    var commentLimit: Int = 20
+    var commentLimit : Int = 20
+    
 
     var body: some View {
         ZStack {
@@ -72,7 +73,7 @@ struct PictureGiftView: View {
                 ImagePicker(sourceType: imageViewModel.source == .library ? .photoLibrary : .camera, selectedImage: $imageViewModel.image)
                     .ignoresSafeArea()
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .frame(maxWidth:.infinity, maxHeight: .infinity)
             .background(Color.background)
         } // 화면 내 다른 곳 터치시 키보드 숨기기
         
