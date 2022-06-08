@@ -1,6 +1,7 @@
 import UIKit
 import SwiftUI
 
+// 이미지 가져오기 
 struct ImagePicker: UIViewControllerRepresentable {
     var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @Binding var selectedImage: UIImage?
