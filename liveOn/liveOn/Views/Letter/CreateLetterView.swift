@@ -47,7 +47,10 @@ struct CreateLetterView: View {
                 leading: Button { dismiss()} label: {Text("취소")},
                 trailing: Button {
                     showAlertforSend = true
-                } label: {Text("보내기").fontWeight(.bold)}.disabled(!input.inputEntered)
+                } label: {
+                    Text("보내기")
+                    .fontWeight(.bold)}
+                    .disabled(!isitEntered)
                 // MARK: 보내기 전 alert창
                 // TODO: 오늘의선물함(달력상세)뷰로 이동시키기, 1개 제한 두기, 작성자 연결하기
                     .alert(isPresented: $showAlertforSend) {
@@ -55,13 +58,15 @@ struct CreateLetterView: View {
                             store.insert(letter: input.value, writer: "재헌")
                             dismiss()
                         })
-                        
                     })
             .navigationBarTitle("쪽지 쓰기", displayMode: .inline)
             .navigationBarBackButtonHidden(true)
             .accentColor(.bodyTextColor)
             .background(Color.bodyTextColor)
         }
+//        .onTapGesture {
+//            hideKeyboard()
+//        }
         
     }
     
