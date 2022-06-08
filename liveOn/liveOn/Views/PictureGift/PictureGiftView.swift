@@ -1,10 +1,12 @@
 import SwiftUI
 
 struct PictureGiftView: View {
-    @EnvironmentObject var imageViewModel: ViewModel
+    @EnvironmentObject var imageViewModel: imageViewModel
     @Environment(\.dismiss) private var dismiss
     @State private var comment: String = ""
+    var commentLimit : Int = 20
     
+
     var body: some View {
         ZStack {
             Rectangle().foregroundColor(Color.white)
@@ -23,15 +25,19 @@ struct PictureGiftView: View {
                     } else {
                         Text("사진을 선택해주세요!")
                             .frame(width: 300, height: 400, alignment: .center)
-                            .foregroundColor(.black)
                             .background(.gray)
+                            .foregroundColor(.bodyTextColor).opacity(0.5)
                     }
                 }
                 TextField("Comment", text: $comment, prompt: Text("한 줄 편지를 써주세요!"))
+                    .limitInputLength(value: $comment, length: 20)
+                    .foregroundColor(.bodyTextColor)
                     .frame(width: 300, height: 20, alignment: .leading)
                 HStack {
-                    Text(comment.count <= 20 ? "\(comment.count)/20" : "20/20")
+
+                    Text("\(comment.count)/20")
                         .frame(width: 300, height: 20, alignment: .trailing)
+                        .foregroundColor(.bodyTextColor).opacity(0.5)
                 }
             }
             .padding()
@@ -61,12 +67,16 @@ struct PictureGiftView: View {
                         .foregroundColor(.black)
                 }
             }
+            
             // 앨범 접근 및 사진선택
             .sheet(isPresented: $imageViewModel.showPicker) {
                 ImagePicker(sourceType: imageViewModel.source == .library ? .photoLibrary : .camera, selectedImage: $imageViewModel.image)
                     .ignoresSafeArea()
             }
+            .frame(maxWidth:.infinity, maxHeight: .infinity)
+            .background(Color.background)
         } // 화면 내 다른 곳 터치시 키보드 숨기기
+        
         .onTapGesture {
             hideKeyboard()
         }
@@ -76,6 +86,6 @@ struct PictureGiftView: View {
 struct PictureGiftView_Previews: PreviewProvider {
     static var previews: some View {
         PictureGiftView()
-            .environmentObject(ViewModel())
+            .environmentObject(imageViewModel())
     }
 }
