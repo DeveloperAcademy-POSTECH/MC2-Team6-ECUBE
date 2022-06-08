@@ -132,7 +132,7 @@ struct GiftBoxView: View {
                 Image("calendar")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(maxWidth: UIScreen.main.bounds.width*0.5)
+                    .frame(maxWidth: UIScreen.main.bounds.width*0.5, alignment: .bottomTrailing)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
