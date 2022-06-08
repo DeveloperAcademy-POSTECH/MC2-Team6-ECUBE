@@ -9,6 +9,7 @@ import SwiftUI
 
 struct GiftBoxView: View {
     @StateObject var storedLetter = LetterStore()
+    @State private var isActive = true
     var body: some View {
         GeometryReader { proxy in
             // 줄로 나눠서 변수로 만든 뒤, 일정 비율만큼의 크기로 그려지도록 함
@@ -33,7 +34,8 @@ struct GiftBoxView: View {
         HStack(alignment: .center, spacing: 0) {
             coupleInfo
             Spacer()
-            NavigationLink(destination: CreateGiftListView().environmentObject(storedLetter)) {
+            NavigationLink(destination: CreateGiftListView()
+                .environmentObject(storedLetter)) {
                 Image(systemName: "gift")
                     .font(.title2)
                     .foregroundColor(.bodyTextColor)
@@ -122,7 +124,7 @@ struct GiftBoxView: View {
     // MARK: 앨범과 캘린더
     var albumAndCalendar: some View {
         HStack(alignment: .bottom, spacing: 0) {
-            NavigationLink(destination: Text("photocardsView")) {
+            NavigationLink(destination: PhotoCardsView()) {
                 Image("album")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -141,6 +143,6 @@ struct GiftBoxView: View {
 
 struct GiftBoxView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(imageViewModel())
     }
 }

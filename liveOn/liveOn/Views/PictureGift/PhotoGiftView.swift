@@ -1,12 +1,14 @@
 import SwiftUI
 
-struct PictureGiftView: View {
+struct PhotoGiftView: View {
     @EnvironmentObject var imageViewModel: imageViewModel
     @Environment(\.dismiss) private var dismiss
     @State private var comment: String = ""
+    @State private var showAlertforSend: Bool = false
+    @State private var isTapped : Bool = false
     var commentLimit : Int = 20
     
-
+    
     var body: some View {
         ZStack {
             Rectangle().foregroundColor(Color.white)
@@ -34,11 +36,13 @@ struct PictureGiftView: View {
                     .foregroundColor(.bodyTextColor)
                     .frame(width: 300, height: 20, alignment: .leading)
                 HStack {
-
+                    
                     Text("\(comment.count)/20")
                         .frame(width: 300, height: 20, alignment: .trailing)
                         .foregroundColor(.bodyTextColor).opacity(0.5)
                 }
+                
+                NavigationLink("", destination: PhotoCardsView(), isActive: $isTapped)
             }
             .padding()
             .background(Color.white
@@ -57,9 +61,18 @@ struct PictureGiftView: View {
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: Text("선물하기")) {
+                    Button(action: {
+                        showAlertforSend = true
+                    }) {
                         Text("선물하기")
                             .foregroundColor(.black)
+                    }
+                    .alert(isPresented: $showAlertforSend) {
+                        Alert(title: Text("선물 보내기"), message: Text("선물은 하루에 하나만 보낼 수 있어요. 사진을 보낼까요?"), primaryButton: .cancel(Text("취소")), secondaryButton: .default(Text("보내기"))
+                              {
+                            isTapped.toggle()
+                        }
+                        )
                     }
                 }
                 ToolbarItem(placement: .principal) {
@@ -85,7 +98,7 @@ struct PictureGiftView: View {
 
 struct PictureGiftView_Previews: PreviewProvider {
     static var previews: some View {
-        PictureGiftView()
+        PhotoGiftView()
             .environmentObject(imageViewModel())
     }
 }

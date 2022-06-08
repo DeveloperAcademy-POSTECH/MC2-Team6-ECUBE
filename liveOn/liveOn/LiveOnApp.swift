@@ -14,6 +14,7 @@ struct LiveOnApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(imageModel)
+                .environmentObject(LetterStore())
 
         }
     }

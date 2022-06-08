@@ -23,7 +23,8 @@
 		773C1A54284F37F700E93BFE /* LetterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773C1A53284F37F700E93BFE /* LetterListView.swift */; };
 		773C1A56284F3A5800E93BFE /* CreateLetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773C1A55284F3A5800E93BFE /* CreateLetterView.swift */; };
 		773C1A58284F3B5500E93BFE /* TextLimiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773C1A57284F3B5500E93BFE /* TextLimiter.swift */; };
-		A9326229284F2A2800E5C0A3 /* PictureGiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9326228284F2A2800E5C0A3 /* PictureGiftView.swift */; };
+		A92A88C728506B8700A71FCC /* PhotoCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92A88C628506B8700A71FCC /* PhotoCardsView.swift */; };
+		A9326229284F2A2800E5C0A3 /* PhotoGiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9326228284F2A2800E5C0A3 /* PhotoGiftView.swift */; };
 		A932622B284F2A9600E5C0A3 /* Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932622A284F2A9600E5C0A3 /* Picker.swift */; };
 		A932622D284F2AA900E5C0A3 /* MyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932622C284F2AA900E5C0A3 /* MyImage.swift */; };
 		A932622F284F2AD400E5C0A3 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932622E284F2AD400E5C0A3 /* ImagePicker.swift */; };
@@ -56,7 +57,8 @@
 		773C1A53284F37F700E93BFE /* LetterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterListView.swift; sourceTree = "<group>"; };
 		773C1A55284F3A5800E93BFE /* CreateLetterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLetterView.swift; sourceTree = "<group>"; };
 		773C1A57284F3B5500E93BFE /* TextLimiter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLimiter.swift; sourceTree = "<group>"; };
-		A9326228284F2A2800E5C0A3 /* PictureGiftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureGiftView.swift; sourceTree = "<group>"; };
+		A92A88C628506B8700A71FCC /* PhotoCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCardsView.swift; sourceTree = "<group>"; };
+		A9326228284F2A2800E5C0A3 /* PhotoGiftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGiftView.swift; sourceTree = "<group>"; };
 		A932622A284F2A9600E5C0A3 /* Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picker.swift; sourceTree = "<group>"; };
 		A932622C284F2AA900E5C0A3 /* MyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyImage.swift; sourceTree = "<group>"; };
 		A932622E284F2AD400E5C0A3 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
@@ -187,7 +189,8 @@
 		A9326227284F2A1300E5C0A3 /* PictureGift */ = {
 			isa = PBXGroup;
 			children = (
-				A9326228284F2A2800E5C0A3 /* PictureGiftView.swift */,
+				A92A88C628506B8700A71FCC /* PhotoCardsView.swift */,
+				A9326228284F2A2800E5C0A3 /* PhotoGiftView.swift */,
 			);
 			path = PictureGift;
 			sourceTree = "<group>";
@@ -308,11 +311,12 @@
 				C9CEAED0284F18FA00769E4E /* CalendarBack.swift in Sources */,
 				3E9206B6284AE2C400D064E6 /* imageViewModel.swift in Sources */,
 				3EBE43782849B6D30085C7C6 /* liveOnApp.swift in Sources */,
-				A9326229284F2A2800E5C0A3 /* PictureGiftView.swift in Sources */,
+				A9326229284F2A2800E5C0A3 /* PhotoGiftView.swift in Sources */,
 				773C1A58284F3B5500E93BFE /* TextLimiter.swift in Sources */,
 				C9CEAECD284F164100769E4E /* Memo.swift in Sources */,
 				77196614284B41E8002E6AC0 /* GiftBoxView.swift in Sources */,
 				773C1A54284F37F700E93BFE /* LetterListView.swift in Sources */,
+				A92A88C728506B8700A71FCC /* PhotoCardsView.swift in Sources */,
 				3E9206CC284F343200D064E6 /* Recording.swift in Sources */,
 				3E9206C2284B24CF00D064E6 /* DateToStringVM.swift in Sources */,
 				C9CEAEC8284F151A00769E4E /* DateValue.swift in Sources */,
