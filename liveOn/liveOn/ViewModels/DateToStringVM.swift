@@ -16,4 +16,3 @@ func DateToString(_ date: Date) -> String {
     
     return dateString
 }
-
