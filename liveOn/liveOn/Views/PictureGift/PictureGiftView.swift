@@ -25,15 +25,19 @@ struct PictureGiftView: View {
                     } else {
                         Text("사진을 선택해주세요!")
                             .frame(width: 300, height: 400, alignment: .center)
-                            .foregroundColor(.black)
                             .background(.gray)
+                            .foregroundColor(.bodyTextColor).opacity(0.5)
                     }
                 }
                 TextField("Comment", text: $comment, prompt: Text("한 줄 편지를 써주세요!"))
+                    .limitInputLength(value: $comment, length: 20)
+                    .foregroundColor(.bodyTextColor)
                     .frame(width: 300, height: 20, alignment: .leading)
                 HStack {
-                    Text(comment.count <= 20 ? "\(comment.count)/\(commentLimit)" : "\(commentLimit)/\(commentLimit)")
+
+                    Text("\(comment.count)/20")
                         .frame(width: 300, height: 20, alignment: .trailing)
+                        .foregroundColor(.bodyTextColor).opacity(0.5)
                 }
             }
             .padding()
@@ -63,12 +67,16 @@ struct PictureGiftView: View {
                         .foregroundColor(.black)
                 }
             }
+            
             // 앨범 접근 및 사진선택
             .sheet(isPresented: $imageViewModel.showPicker) {
                 ImagePicker(sourceType: imageViewModel.source == .library ? .photoLibrary : .camera, selectedImage: $imageViewModel.image)
                     .ignoresSafeArea()
             }
+            .frame(maxWidth:.infinity, maxHeight: .infinity)
+            .background(Color.background)
         } // 화면 내 다른 곳 터치시 키보드 숨기기
+        
         .onTapGesture {
             hideKeyboard()
         }

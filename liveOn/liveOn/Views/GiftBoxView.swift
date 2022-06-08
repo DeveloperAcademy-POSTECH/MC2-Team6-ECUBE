@@ -128,11 +128,11 @@ struct GiftBoxView: View {
                     .aspectRatio(contentMode: .fit)
             }
             Spacer()
-            NavigationLink(destination: Text("calenderView")) {
+            NavigationLink(destination: CalendarBack()) {
                 Image("calendar")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(maxWidth: UIScreen.main.bounds.width*0.5)
+                    .frame(maxWidth: UIScreen.main.bounds.width*0.5, alignment: .bottomTrailing)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
