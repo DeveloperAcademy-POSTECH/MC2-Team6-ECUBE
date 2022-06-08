@@ -42,7 +42,6 @@ struct CreateLetterView: View {
             .frame(maxWidth: UIScreen.main.bounds.width*0.8, maxHeight: UIScreen.main.bounds.width*0.8)
             .padding()
             .background(Image("letter_01").resizable().shadow(color: Color(uiColor: .systemGray4), radius: 4, x: 1, y: 3))
-            
             .navigationBarItems(
                 leading: Button { dismiss()} label: {Text("취소")},
                 trailing: Button {
@@ -61,6 +60,7 @@ struct CreateLetterView: View {
             .navigationBarBackButtonHidden(true)
             .accentColor(.bodyTextColor)
             .background(Color.bodyTextColor)
+            
         }
         
     }

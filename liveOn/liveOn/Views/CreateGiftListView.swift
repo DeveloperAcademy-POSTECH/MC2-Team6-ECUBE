@@ -27,7 +27,6 @@ let items = [
 ]
 
 struct CreateGiftListView: View {
-    
     var body: some View {
         ScrollView(.vertical) {
             VStack {

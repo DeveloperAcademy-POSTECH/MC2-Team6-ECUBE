@@ -23,6 +23,10 @@
 		773C1A54284F37F700E93BFE /* LetterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773C1A53284F37F700E93BFE /* LetterListView.swift */; };
 		773C1A56284F3A5800E93BFE /* CreateLetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773C1A55284F3A5800E93BFE /* CreateLetterView.swift */; };
 		773C1A58284F3B5500E93BFE /* TextLimiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773C1A57284F3B5500E93BFE /* TextLimiter.swift */; };
+		773C1A5B2850695600E93BFE /* GettingStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773C1A5A2850695600E93BFE /* GettingStartView.swift */; };
+		773C1A5E28506AA800E93BFE /* SetNicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773C1A5D28506AA800E93BFE /* SetNicknameView.swift */; };
+		773C1A6128506BF900E93BFE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773C1A6028506BF900E93BFE /* User.swift */; };
+		773C1A662850812300E93BFE /* SetBirthdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773C1A652850812300E93BFE /* SetBirthdayView.swift */; };
 		A9326229284F2A2800E5C0A3 /* PictureGiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9326228284F2A2800E5C0A3 /* PictureGiftView.swift */; };
 		A932622B284F2A9600E5C0A3 /* Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932622A284F2A9600E5C0A3 /* Picker.swift */; };
 		A932622D284F2AA900E5C0A3 /* MyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932622C284F2AA900E5C0A3 /* MyImage.swift */; };
@@ -56,6 +60,10 @@
 		773C1A53284F37F700E93BFE /* LetterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterListView.swift; sourceTree = "<group>"; };
 		773C1A55284F3A5800E93BFE /* CreateLetterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLetterView.swift; sourceTree = "<group>"; };
 		773C1A57284F3B5500E93BFE /* TextLimiter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLimiter.swift; sourceTree = "<group>"; };
+		773C1A5A2850695600E93BFE /* GettingStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GettingStartView.swift; sourceTree = "<group>"; };
+		773C1A5D28506AA800E93BFE /* SetNicknameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNicknameView.swift; sourceTree = "<group>"; };
+		773C1A6028506BF900E93BFE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		773C1A652850812300E93BFE /* SetBirthdayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetBirthdayView.swift; sourceTree = "<group>"; };
 		A9326228284F2A2800E5C0A3 /* PictureGiftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureGiftView.swift; sourceTree = "<group>"; };
 		A932622A284F2A9600E5C0A3 /* Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picker.swift; sourceTree = "<group>"; };
 		A932622C284F2AA900E5C0A3 /* MyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyImage.swift; sourceTree = "<group>"; };
@@ -82,6 +90,7 @@
 		3E9206B0284AE1CC00D064E6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				773C1A592850693F00E93BFE /* SignIn */,
 				773C1A50284F37D600E93BFE /* Letter */,
 				A9326227284F2A1300E5C0A3 /* PictureGift */,
 				C9CEAEC9284F159400769E4E /* Calendar */,
@@ -182,6 +191,17 @@
 				773C1A57284F3B5500E93BFE /* TextLimiter.swift */,
 			);
 			path = Letter;
+			sourceTree = "<group>";
+		};
+		773C1A592850693F00E93BFE /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				773C1A5A2850695600E93BFE /* GettingStartView.swift */,
+				773C1A5D28506AA800E93BFE /* SetNicknameView.swift */,
+				773C1A652850812300E93BFE /* SetBirthdayView.swift */,
+				773C1A6028506BF900E93BFE /* User.swift */,
+			);
+			path = SignIn;
 			sourceTree = "<group>";
 		};
 		A9326227284F2A1300E5C0A3 /* PictureGift */ = {
@@ -300,6 +320,7 @@
 				C9CEAED6284F394A00769E4E /* PlusSetting.swift in Sources */,
 				A932622F284F2AD400E5C0A3 /* ImagePicker.swift in Sources */,
 				3E9206B4284AE2B700D064E6 /* Model.swift in Sources */,
+				773C1A6128506BF900E93BFE /* User.swift in Sources */,
 				C9CEAECB284F15DA00769E4E /* CalendarMain.swift in Sources */,
 				C9CEAECE284F17E300769E4E /* ColorExtension.swift in Sources */,
 				3EBE437A2849B6D30085C7C6 /* ContentView.swift in Sources */,
@@ -307,13 +328,16 @@
 				773C1A56284F3A5800E93BFE /* CreateLetterView.swift in Sources */,
 				C9CEAED0284F18FA00769E4E /* CalendarBack.swift in Sources */,
 				3E9206B6284AE2C400D064E6 /* imageViewModel.swift in Sources */,
+				773C1A5B2850695600E93BFE /* GettingStartView.swift in Sources */,
 				3EBE43782849B6D30085C7C6 /* liveOnApp.swift in Sources */,
 				A9326229284F2A2800E5C0A3 /* PictureGiftView.swift in Sources */,
+				773C1A5E28506AA800E93BFE /* SetNicknameView.swift in Sources */,
 				773C1A58284F3B5500E93BFE /* TextLimiter.swift in Sources */,
 				C9CEAECD284F164100769E4E /* Memo.swift in Sources */,
 				77196614284B41E8002E6AC0 /* GiftBoxView.swift in Sources */,
 				773C1A54284F37F700E93BFE /* LetterListView.swift in Sources */,
 				3E9206CC284F343200D064E6 /* Recording.swift in Sources */,
+				773C1A662850812300E93BFE /* SetBirthdayView.swift in Sources */,
 				3E9206C2284B24CF00D064E6 /* DateToStringVM.swift in Sources */,
 				C9CEAEC8284F151A00769E4E /* DateValue.swift in Sources */,
 				A932622B284F2A9600E5C0A3 /* Picker.swift in Sources */,
