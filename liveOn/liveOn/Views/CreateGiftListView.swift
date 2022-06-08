@@ -56,7 +56,7 @@ extension CreateGiftListView {
         let item: Item
         @EnvironmentObject var store: LetterStore
         var body: some View {
-            NavigationLink(destination: CreateLetterView() .environmentObject(store)) {
+            NavigationLink(destination: item.createItemView .environmentObject(store)) {
                 HStack(alignment: .center, spacing: 16) {
                     Image(item.itemImage)
                         .resizable()
