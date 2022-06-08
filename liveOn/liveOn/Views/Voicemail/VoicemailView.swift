@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct VoicemailView: View {
-    @State var title: String
+    @State var title: String = ""
     
     let nowDate = Date.now
     
