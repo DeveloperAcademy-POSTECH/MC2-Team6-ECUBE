@@ -32,7 +32,6 @@ struct PillBodyView: View {
     var body: some View {
         
         Text("I'm the body")
-        
 
     }
 }
