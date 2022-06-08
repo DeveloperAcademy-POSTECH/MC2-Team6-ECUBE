@@ -74,16 +74,9 @@ struct FlowerBodyView: View {
     var body: some View {
         
         VStack {
-            
-            ScrollView(.horizontal) {
-                HStack {
-                    // 가로 스크롤로 꽃 3종 보여주고 Snap 적용할것
-                    ForEach(flowerList[0..<flowerList.count], id: \.self) {
-                        flower in
-                        FlowerCardView(content: flower)
-                    }
-                }
-            }
+
+            FlowerCardView(content: flowerList[Int.random(in: 0..<3)])
+
             
             VStack {
                 // 메시지 카드
@@ -96,10 +89,10 @@ struct FlowerBodyView: View {
                         .padding(.bottom, 24)
                         .frame(height: 240)
                     VStack {
-                    TextField("짧은 메시지도 남겨볼까요?", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
-                        .border(.gray)
-                        .padding(.horizontal, horizontalPaddingValue)
-                    Text("(0/40)")
+                        TextField("짧은 메시지도 남겨볼까요?", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+                            .border(.gray)
+                            .padding(.horizontal, horizontalPaddingValue)
+                        Text("(\(message.count)/40)")
                             .foregroundColor(.gray)
                             .multilineTextAlignment(.trailing)
                     }
@@ -143,6 +136,8 @@ struct FlowerCardView: View {
 // MARK: FlowerView Preview
 struct FlowerView_Previews: PreviewProvider {
     static var previews: some View {
+        
         FlowerView()
+        
     }
 }
