@@ -47,7 +47,6 @@ struct PhotoGiftView: View {
             .padding()
             .background(Color.white
                 .shadow(color: Color.black.opacity(0.25), radius: 4, x: 0, y: 4))
-            .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
             // 상단바 커스텀
             .toolbar {

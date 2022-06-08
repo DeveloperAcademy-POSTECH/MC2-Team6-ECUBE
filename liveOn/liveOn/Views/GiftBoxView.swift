@@ -9,6 +9,7 @@ import SwiftUI
 
 struct GiftBoxView: View {
     @StateObject var storedLetter = LetterStore()
+    @EnvironmentObject var imageModel : imageViewModel
     @State private var isActive = true
     var body: some View {
         GeometryReader { proxy in
@@ -35,7 +36,7 @@ struct GiftBoxView: View {
             coupleInfo
             Spacer()
             NavigationLink(destination: CreateGiftListView()
-                .environmentObject(storedLetter)) {
+                .environmentObject(storedLetter), isActive: $imageModel.backToFirst) {
                 Image(systemName: "gift")
                     .font(.title2)
                     .foregroundColor(.bodyTextColor)

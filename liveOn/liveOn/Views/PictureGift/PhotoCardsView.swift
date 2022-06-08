@@ -10,18 +10,31 @@ import SwiftUI
 struct PhotoCardsView: View {
     @EnvironmentObject var imageModel : imageViewModel
     var body: some View {
-        GeometryReader { geo in
         ScrollView{
             VStack{
                 PhotoCard(imageName: "exampleImage1", text: "테스트1")
                 PhotoCard(imageName: "exampleImage2", text: "테스트2")
-                NavigationLink(destination: GiftBoxView(), isActive: $imageModel.backToFirst) {
-                    Text("")
+            }
+            .frame(maxWidth : .infinity)
+        }
+        .background(Color.background)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                    imageModel.backToFirst = false
+                } label: {
+                    Image(systemName: "chevron.left")
+                        .font(.system(size: 20))
+                        .foregroundColor(.black)
                 }
             }
+            
+            ToolbarItem(placement: .principal) {
+                Text("사진 선물함")
+                    .foregroundColor(.black)
+            }
         }
-        .frame(width: geo.size.width, height: geo.size.height * 0.95, alignment: .center)
-    }
     }
 }
 
@@ -36,11 +49,12 @@ struct PhotoCard: View {
     var imageName : String
     var text: String
     var body: some View {
+        
         VStack{
             Image(imageName)
                 .resizable()
                 .scaledToFit()
-                .frame(width: 300, height: 400)
+                .frame(width: 280, height: 400)
             
             Text(text)
                 .foregroundColor(.bodyTextColor)
