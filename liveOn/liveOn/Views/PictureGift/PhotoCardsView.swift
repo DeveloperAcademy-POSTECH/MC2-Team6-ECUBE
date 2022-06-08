@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct PhotoCardsView: View {
-
     @EnvironmentObject var imageModel: imageViewModel
+    @Environment(\.dismiss) private var dismiss
+    
     var body: some View {
         ScrollView {
             VStack {
@@ -25,6 +26,7 @@ struct PhotoCardsView: View {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button {
                     imageModel.backToFirst = false
+                    dismiss()
                 } label: {
                     Image(systemName: "chevron.left")
                         .font(.system(size: 20))
