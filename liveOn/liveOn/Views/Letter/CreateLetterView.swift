@@ -28,6 +28,7 @@ struct CreateLetterView: View {
                             isitEntered = true
                         }
                     }
+                
                     .alert("쪽지는 \(input.limit)글자까지만 쓸 수 있어요.", isPresented: $input.hasReachedLimit) {
                         Button("확인", role: .cancel) {}
                     }
