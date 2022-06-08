@@ -10,33 +10,6 @@ import SwiftUI
 // MARK: Property
 let horizontalPaddingValue: CGFloat = 48
 
-struct Flower: Hashable {
-    let name: String
-    let color: String
-    let meaning: String
-    let lastsfor: Int
-}
-
-let flowerList: [Flower] = [
-    // Sample data
-    Flower(
-        name: "리시안셔스",
-        color: "붉은색",
-        meaning: "변치않는 사랑",
-        lastsfor: 2),
-    Flower(
-        name: "금목서",
-        color: "붉은색",
-        meaning: "당신의 마음을 끌다",
-        lastsfor: 8),
-    Flower(
-        name: "안개꽃",
-        color: "노란색",
-        meaning: "성공",
-        lastsfor: 6)
-]
-
-
 struct FlowerView: View {
     var body: some View {
         VStack {
