@@ -75,6 +75,7 @@ struct FlowerBodyView: View {
         VStack {
 
             FlowerCardView(content: flowerList[Int.random(in: 0..<3)])
+
             
             VStack {
                 // 메시지 카드
@@ -124,6 +125,7 @@ struct FlowerCardView: View {
             RoundedRectangle(cornerRadius: 12)
                 .stroke(Color.blue)
                 .padding(.horizontal, 64)
+
                 .padding(.bottom, 32)
                 .frame(width: 280, height: 300, alignment: .center)
             

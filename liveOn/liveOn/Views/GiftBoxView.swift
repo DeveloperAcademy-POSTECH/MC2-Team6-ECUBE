@@ -9,7 +9,9 @@ import SwiftUI
 
 struct GiftBoxView: View {
     @StateObject var storedLetter = LetterStore()
+
     @EnvironmentObject var imageModel: imageViewModel
+
     @State private var isActive = true
     var body: some View {
         GeometryReader { proxy in

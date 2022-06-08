@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PhotoCardsView: View {
+
     @EnvironmentObject var imageModel: imageViewModel
     var body: some View {
         ScrollView {
@@ -16,6 +17,7 @@ struct PhotoCardsView: View {
                 PhotoCard(imageName: "exampleImage2", text: "테스트2")
             }
             .frame(maxWidth: .infinity)
+
         }
         .background(Color.background)
         .navigationBarBackButtonHidden(true)
@@ -46,11 +48,13 @@ struct photoCardsView_Previews: PreviewProvider {
 }
 
 struct PhotoCard: View {
+
     var imageName: String
     var text: String
     var body: some View {
         
         VStack {
+
             Image(imageName)
                 .resizable()
                 .scaledToFit()
