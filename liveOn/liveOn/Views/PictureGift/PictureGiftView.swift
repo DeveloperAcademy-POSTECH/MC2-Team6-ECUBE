@@ -1,10 +1,12 @@
 import SwiftUI
 
 struct PictureGiftView: View {
-    @EnvironmentObject var imageViewModel: ViewModel
+    @EnvironmentObject var imageViewModel: imageViewModel
     @Environment(\.dismiss) private var dismiss
     @State private var comment: String = ""
+    var commentLimit : Int = 20
     
+
     var body: some View {
         ZStack {
             Rectangle().foregroundColor(Color.white)
@@ -30,7 +32,7 @@ struct PictureGiftView: View {
                 TextField("Comment", text: $comment, prompt: Text("한 줄 편지를 써주세요!"))
                     .frame(width: 300, height: 20, alignment: .leading)
                 HStack {
-                    Text(comment.count <= 20 ? "\(comment.count)/20" : "20/20")
+                    Text(comment.count <= 20 ? "\(comment.count)/\(commentLimit)" : "\(commentLimit)/\(commentLimit)")
                         .frame(width: 300, height: 20, alignment: .trailing)
                 }
             }
@@ -76,6 +78,6 @@ struct PictureGiftView: View {
 struct PictureGiftView_Previews: PreviewProvider {
     static var previews: some View {
         PictureGiftView()
-            .environmentObject(ViewModel())
+            .environmentObject(imageViewModel())
     }
 }

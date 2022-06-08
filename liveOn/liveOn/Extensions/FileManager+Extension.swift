@@ -2,6 +2,7 @@ import UIKit
 
 let fileName = "MyImages.json"
 
+// 이미지 파일 저장 
 extension FileManager {
     static var docDirURL: URL {
         return Self.default.urls(for: .documentDirectory, in: .userDomainMask).first!
