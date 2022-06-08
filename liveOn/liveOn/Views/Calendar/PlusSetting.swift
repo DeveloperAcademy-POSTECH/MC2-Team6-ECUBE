@@ -31,15 +31,20 @@ struct PlusSetting: View {
                     .foregroundColor(Color("Burgundy"))
                     .padding(.top, 14)
                     .padding(.leading, 90)
+                
             }
-            
+                                    
             VStack {
+            
+            Color.gray.frame(height: CGFloat(1) / UIScreen.main.scale)
+                    .padding(.top, 55)
+                
             DatePicker("기념일 추가", selection: $currentDate, displayedComponents: .date)
                     .datePickerStyle(GraphicalDatePickerStyle())
                     .applyTextColor(Color("Burgundy"))
                     .frame(maxHeight: 400)
+                    .padding(.top, -20)
             }
-            .padding(.top, 30)
         }
     }
 }

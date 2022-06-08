@@ -9,6 +9,20 @@ import SwiftUI
 
 struct CalendarMain: View {
         
+    @Environment(\.presentationMode) var presentationMode: Binding
+  
+    var btBack : some View { Button(action: {
+        self.presentationMode.wrappedValue.dismiss()
+    }) {
+        HStack {
+            Image(systemName: "chevron.left")
+                .font(.footnote)
+                .aspectRatio(contentMode: .fit)
+                .foregroundColor(.black)
+        }
+        }
+    }
+    
     @Binding var currentDate: Date
 
     // 기념일 추가 Button
@@ -21,11 +35,7 @@ struct CalendarMain: View {
     @State private var datecircleColor = Color("Orange")
     @State private var yearColor = Color("Burgundy")
     @State private var monthColor = Color("Burgundy")
-    @State private var chevronColor = Color.black
-    @State private var plusColor = Color.black
     @State private var dayoftheweekColor = Color.gray
-    @State private var dateColor = Color.gray
-    
     @Binding var bgColor: Color
 
     var body: some View {
@@ -45,7 +55,7 @@ struct CalendarMain: View {
                 } label: {
                     Image(systemName: "chevron.left")
                     // 색상 변경 요소 chevron 통일
-                        .foregroundColor(chevronColor)
+                        .foregroundColor(.black)
                         .font(.title2)
                 }
                 
@@ -87,11 +97,13 @@ struct CalendarMain: View {
                 } label: {
                     Image(systemName: "chevron.right")
                     // 색상 변경 요소 chevron 통일
-                        .foregroundColor(chevronColor)
+                        .foregroundColor(.black)
                         .font(.title2)
                 }
             }
-            
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(leading: btBack)
             .padding(.horizontal)
             
             // Day View
@@ -150,7 +162,7 @@ struct CalendarMain: View {
                     }) {
                         Image(systemName: "plus")
                         .font(.title3)
-                        .foregroundColor(plusColor)
+                        .foregroundColor(.black)
                         .sheet(isPresented: $showSheet, content: {
                             PlusSetting(currentDate: $currentDate)
                         })
@@ -179,7 +191,7 @@ struct CalendarMain: View {
 //                }
             }
             .padding()
-            
+
         }
         .onChange(of: currentMonth) { _ in
             
@@ -203,7 +215,7 @@ struct CalendarMain: View {
                         .font(.callout)
                         .foregroundColor(isSameDay(date1: memo.memoDate, date2: currentDate) ?
                                          // 색상 변경 요소 (메모 있는 특별 날짜 글자)
-                            .white : dateColor)
+                            .white : .gray)
                         .padding(.leading, 8)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
@@ -215,7 +227,7 @@ struct CalendarMain: View {
                         .font(.callout)
                         .foregroundColor(isSameDay(date1: value.date, date2: currentDate) ?
                                          // 색상 변경 요소 (메모 없는 기본 날짜 글자)
-                            .white : dateColor)
+                            .white : .gray)
                         .padding(.leading, 8)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
