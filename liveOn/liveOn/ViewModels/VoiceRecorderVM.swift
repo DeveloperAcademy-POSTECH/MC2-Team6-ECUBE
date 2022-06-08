@@ -32,8 +32,8 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
             print("Can not setup the recording")
         }
         
-        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let fileName = path.description.appendingPathComponent("live-On: \(Date().toString(dateFormat: "dd-MM-YY 'at' HH:mm:ss")).m4a")
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let fileName = path.appendingPathComponent("live-On: \(Date().toString(dateFormat: "dd-MM-YY 'at' HH:mm:ss")).m4a")
         
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -61,14 +61,14 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
     // Recording 내역 가져오기
     func fetchAllRecordings() {
         
-        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let directoryContents = try! FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)
         
         for i in directoryContents {
             recordingsList.append(Recording(fileURL: i, createdAt: getFileDate(for: i), isPlaying: false))
         }
         
-        recordingsList.sort(by: { $0.createdAt.compare($1.createdAt) == .orderdDescending })
+        recordingsList.sort(by: { $0.createdAt.compare($1.createdAt) == .orderedDescending })
     }
     
     // 제작한 Recordings 재생하기
