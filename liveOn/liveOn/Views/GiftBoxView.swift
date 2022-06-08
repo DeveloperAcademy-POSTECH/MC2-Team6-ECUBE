@@ -11,7 +11,7 @@ struct GiftBoxView: View {
     @StateObject var storedLetter = LetterStore()
 
     @EnvironmentObject var imageModel: imageViewModel
-
+    @EnvironmentObject var currnetUser: User
     @State private var isActive = true
     var body: some View {
         GeometryReader { proxy in
@@ -59,7 +59,7 @@ struct GiftBoxView: View {
     var coupleInfo: some View {
         NavigationLink(destination: Text("CoupleInformationView")) {
             HStack(alignment: .center, spacing: 12) {
-                Text("재헌")
+                Text("\(currnetUser.nickname)")
                 Image("heart")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -146,6 +146,8 @@ struct GiftBoxView: View {
 
 struct GiftBoxView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environmentObject(imageViewModel())
+        GiftBoxView()
+            .environmentObject(imageViewModel())
+            .environmentObject(User())
     }
 }
