@@ -12,7 +12,6 @@ struct VoicemailView: View {
     
     @ObservedObject var voiceMail = VoiceRecorderVM()
     
-    @State var showingList = false
     @State var title: String = ""
     
     let nowDate = Date.now
@@ -46,7 +45,7 @@ struct VoicemailView: View {
                             .frame(width: 80, height: 80)
                             .foregroundColor(Color.recordingBtnBackground)
                         
-                        if voiceMail.isRecorded == false {
+                        if voiceMail.isRecording == false && voiceMail.isRecorded == false {
                             
                             // MARK: 녹음하지 않은 경우
                             Image(systemName: "circle.fill")
@@ -56,8 +55,10 @@ struct VoicemailView: View {
                                 .onTapGesture {
                                     voiceMail.startRecording()
                                     voiceMail.isRecording = true
+//                                    voiceMail.isRecorded = true
                                 }
-                        } else if voiceMail.isRecording == true {
+                            
+                        } else if voiceMail.isRecorded == false && voiceMail.isRecording == true {
                             
                             // MARK: 녹음하고 있는 경우
                             Image(systemName: "stop.fill")
@@ -69,31 +70,62 @@ struct VoicemailView: View {
                                     voiceMail.isRecording = false
                                     voiceMail.isRecorded = true
                                 }
+                            
                         } else {
                             
                             // MARK: 녹음하고 난 다음 재생해보고 싶을 때
-                            Image(systemName: "play.fill")
-                                .resizable()
-                                .foregroundColor(Color.recordingBtn)
-                                .frame(width: 40, height: 40)
-                                .onTapGesture {
-                                    
+                            ZStack {
+                                HStack {
+                                    Spacer()
+                                    Image(systemName: "play.fill")
+                                        .resizable()
+                                        .foregroundColor(Color.recordingBtn)
+                                        .frame(width: 40, height: 40)
+                                        .onTapGesture {
+                                            voiceMail.startPlaying(url: voiceMail.recordingsList[0].fileURL)
+                                    }
+                                    Spacer()
                                 }
+                                
+                                HStack {
+                                    Spacer()
+                                        .frame(width: 30)
+                                    
+                                    Image(systemName: "gobackward")
+                                        .resizable()
+                                        .frame(width: 30, height: 30)
+                                        .onTapGesture {
+                                            voiceMail.stopPlaying(url: voiceMail.recordingsList[0].fileURL)
+                                            voiceMail.deleteRecording(url: voiceMail.recordingsList[0].fileURL)
+                                            voiceMail.isRecorded = false
+                                            voiceMail.isRecording = false
+                                        }
+                                    
+                                    Spacer()
+                                }
+                                
+                            }
                         }
                     }
                     
-//                    Button(action: {
-//                        if voiceMail.isRecording == true {
-//                            voiceMail.stopRecording()
+//                    ScrollView(.horizontal) {
+//                        VStack {
+//                            ForEach(voiceMail.recordingsList, id: \.createdAt) { recording in
+//                                Text("\(recording.fileURL)")
+//                            }
 //                        }
-//                        voiceMail.fetchRecording()
-//                        showingList.toggle()
-//                    }) {
-//                        Image(systemName: "list.bullet")
-//                            .foregroundColor(.black)
-//                    }.sheet(isPresented: $showingList, content: {
-//
-//                    })
+//                    }
+                    Button(action: {
+                        voiceMail.showFiles()
+                    }) {
+                        Text("show files")
+                    }
+                    
+                    Button(action: {
+                        voiceMail.deleteAllRecordings()
+                    }) {
+                        Text("delete files")
+                    }
                 }
                 
                 Spacer()
