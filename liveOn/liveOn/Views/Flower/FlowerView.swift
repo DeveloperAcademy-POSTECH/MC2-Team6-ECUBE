@@ -29,7 +29,7 @@ struct FlowerView: View {
         .background(.background)
         .navigationBarItems(trailing: Button {
             showAlertforSend = true
-        } label: {Text("보내기").fontWeight(.bold)}.disabled(!input.inputEntered))
+        } label: {Text("선물하기").fontWeight(.bold)}.disabled(!input.inputEntered))
     }
 }
 
