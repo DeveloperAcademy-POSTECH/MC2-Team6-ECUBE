@@ -8,42 +8,28 @@
 import SwiftUI
 
 struct PillView: View {
+    
+    // MARK: Property
+    @ObservedObject var input =  TextLimiter(limit: 40, placeholder: "짧은 메시지도 남겨볼까요?")
+    @State var showAlertforSend: Bool = false
+    @State var isitEntered: Bool = false
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         
         VStack {
-            
-            PillHeaderView()
+
             PillBodyView()
             
-        }
+        } // VStack
         .navigationTitle("영양제")
         .navigationBarTitleDisplayMode(.inline)
         .background(.background)
-    }
-}
-
-struct PillHeaderView: View {
-    var body: some View {
-        
-        HStack {
-            
-            Button {
-                
-            } label: {
-                Text("<")
-            }
-            
-            Spacer()
-            
-            
-            Button {
-                // Submit 기능
-            } label: {
-                Text("Send")
-            }
-            
-        } // HStack
-    } // body}
+        .navigationBarItems(trailing: Button {
+            showAlertforSend = true
+        } label: {Text("보내기").fontWeight(.bold)}.disabled(!input.inputEntered))
+        .padding(.horizontal, 32)
+    } // VStack
 }
 
 struct PillBodyView: View {
@@ -59,6 +45,8 @@ struct PillBodyView: View {
         // TODO: 알약 이미지 OnTapGesture
         let pillColorList: [Color] = [.blue, .red, .black]
         
+        ZStack{
+            
         // 약 이미지 들어갈 곳을 잠시 둥글려진 사각형이 차지
         RoundedRectangle(cornerRadius: 12)
             .frame(width: 240, height: 240, alignment: .center)
@@ -71,15 +59,16 @@ struct PillBodyView: View {
                 }
                 
             }
+            
+            Image("medicine")
+                .resizable()
+                .frame(width: 180, height: 180, alignment: .center)
+        }
         
         VStack {
             
             ZStack {
                 
-                // [임시] 호버링 메시지카드
-                RoundedRectangle(cornerRadius: 12)
-                    .frame(width: 160, height: 40, alignment: .center)
-                    .foregroundColor(.gray)
                 Text("탭해서 다른 약으로 바꾸기")
                     .foregroundColor(.white)
                     .font(.system(size: 12))
@@ -94,10 +83,8 @@ struct PillBodyView: View {
                 Text("(\(pillName.count)/12)")
                     .foregroundColor(.gray)
                 
-                Divider()
-                    .frame(height: 1)
-                    .padding(.horizontal, 32)
-                    .background(Color.gray)
+                BarUnderTextField()
+                
             } // Group
             
             Group {
@@ -108,10 +95,8 @@ struct PillBodyView: View {
                 Text("(\(pillEffect.count)/40)")
                     .foregroundColor(.gray)
                 
-                Divider()
-                    .frame(height: 1)
-                    .padding(.horizontal, 32)
-                    .background(Color.gray)
+                BarUnderTextField()
+                
             } // Group
             
             Spacer()
@@ -122,6 +107,15 @@ struct PillBodyView: View {
     } // body
 }
 
+struct BarUnderTextField: View {
+    var body: some View {
+        Divider()
+            .frame(height: 1)
+            .padding(.horizontal, 32)
+            .background(Color(uiColor: .systemGray4))
+    }
+}
+
 struct PillView_Previews: PreviewProvider {
     static var previews: some View {
         
@@ -129,3 +123,4 @@ struct PillView_Previews: PreviewProvider {
         
     }
 }
+

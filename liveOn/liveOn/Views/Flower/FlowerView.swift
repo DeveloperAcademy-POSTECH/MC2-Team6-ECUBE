@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-// MARK: Property
+// Values for UI Adjustment
+let horizontalPaddingValue: CGFloat = 48
 
 struct FlowerView: View {
     
@@ -17,36 +18,19 @@ struct FlowerView: View {
     @State var isitEntered: Bool = false
     @Environment(\.dismiss) var dismiss
     
-    // Values for UI Adjustment
-    let horizontalPaddingValue: CGFloat = 48
-    
     var body: some View {
         VStack {
-            
-            FlowerHeaderView()
+
             FlowerBodyView()
             
         }
         .navigationTitle("꽃")
         .navigationBarTitleDisplayMode(.inline)
         .background(.background)
-        .navigationBarItems(leading: Button { dismiss()} label: {Text("취소")},
-                            trailing: Button {
+        .navigationBarItems(trailing: Button {
             showAlertforSend = true
         } label: {Text("보내기").fontWeight(.bold)}.disabled(!input.inputEntered))
     }
-}
-
-// MARK: Flower Header
-struct FlowerHeaderView: View {
-    var body: some View {
-        
-        HStack(alignment: .top) {
-            
-            Text("<")
-            
-        } // HStack
-    } // body
 }
 
 // MARK: Flower Body
