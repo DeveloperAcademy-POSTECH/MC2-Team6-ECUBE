@@ -75,7 +75,6 @@ struct FlowerBodyView: View {
         VStack {
 
             FlowerCardView(content: flowerList[Int.random(in: 0..<3)])
-
             
             VStack {
                 // 메시지 카드
