@@ -5,9 +5,8 @@ struct PhotoGiftView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var comment: String = ""
     @State private var showAlertforSend: Bool = false
-    @State private var isTapped : Bool = false
-    var commentLimit : Int = 20
-    
+    @State private var isTapped: Bool = false
+    var commentLimit: Int = 20
     
     var body: some View {
         ZStack {
@@ -67,8 +66,7 @@ struct PhotoGiftView: View {
                             .foregroundColor(.black)
                     }
                     .alert(isPresented: $showAlertforSend) {
-                        Alert(title: Text("선물 보내기"), message: Text("선물은 하루에 하나만 보낼 수 있어요. 사진을 보낼까요?"), primaryButton: .cancel(Text("취소")), secondaryButton: .default(Text("보내기"))
-                              {
+                        Alert(title: Text("선물 보내기"), message: Text("선물은 하루에 하나만 보낼 수 있어요. 사진을 보낼까요?"), primaryButton: .cancel(Text("취소")), secondaryButton: .default(Text("보내기")) {
                             isTapped.toggle()
                         }
                         )
@@ -85,7 +83,7 @@ struct PhotoGiftView: View {
                 ImagePicker(sourceType: imageViewModel.source == .library ? .photoLibrary : .camera, selectedImage: $imageViewModel.image)
                     .ignoresSafeArea()
             }
-            .frame(maxWidth:.infinity, maxHeight: .infinity)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.background)
         } // 화면 내 다른 곳 터치시 키보드 숨기기
         

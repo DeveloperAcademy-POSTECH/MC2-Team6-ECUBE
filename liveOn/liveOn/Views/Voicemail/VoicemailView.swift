@@ -16,7 +16,7 @@ struct VoicemailView: View {
     let nowDate = Date.now
     
     var body: some View {
-        GeometryReader{ frame in
+        GeometryReader { frame in
             VStack {
                 Spacer()
                 

@@ -19,7 +19,6 @@ struct PillView: View {
     }
 }
 
-
 struct PillHeaderView: View {
     var body: some View {
         
