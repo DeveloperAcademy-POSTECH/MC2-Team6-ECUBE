@@ -42,13 +42,12 @@ struct PillBodyView: View {
     var body: some View {
         
         // Sample data
-        let pillColorList: [Color] = [.blue, .red, .black]
+        let pillColorList: [Color] = [.yellow, .background, .green, .orange]
         
         ZStack{
-            
             // 약 이미지 들어갈 곳을 잠시 둥글려진 사각형이 차지
             RoundedRectangle(cornerRadius: 24)
-                .frame(width: 320, height: 320, alignment: .center)
+                .frame(width: 280, height: 280, alignment: .center)
                 .foregroundColor(pillColorList[pillImageCounter])
                 .onTapGesture {
                     if pillImageCounter < 3 {
@@ -112,6 +111,7 @@ struct PillBodyView: View {
                     .foregroundColor(.gray)
                 
             } // Group
+            .padding(.top, 24)
             .padding(.horizontal, 18)
             .frame(width: 360, height: 12, alignment: .trailing)
             

@@ -20,7 +20,7 @@ struct FlowerView: View {
     
     var body: some View {
         VStack {
-
+            
             FlowerBodyView()
             
         }
@@ -43,7 +43,7 @@ struct FlowerBodyView: View {
         VStack {
             
             FlowerCardView(content: flowerList[Int.random(in: 0..<3)])
-                        
+            
             VStack {
                 // 메시지 카드
                 ZStack {
@@ -54,18 +54,24 @@ struct FlowerBodyView: View {
                         .padding(.horizontal, 20)
                         .padding(.bottom, 24)
                         .frame(height: 240)
-                    VStack {
-                        TextField("짧은 메시지도 남겨볼까요?", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
-                            .border(.gray)
-                            .padding(.horizontal, horizontalPaddingValue)
-                            .frame(width: 300, height: 80, alignment: .center)
-                        HStack{
-                        Text("(\(message.count)/40)")
-                            .foregroundColor(.gray)
-                            .frame(width: 300, height: 20, alignment: .trailing)
+                    
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 12)
+                            .foregroundColor(.background)
+                            .frame(width: 360, height: 150, alignment: .center)
+                        
+                        VStack(alignment: .center) {
+                            TextField("짧은 메시지도 남겨볼까요?", text: .constant(""))
+                                .padding(.horizontal, horizontalPaddingValue)
+                                .frame(width: 300, height: 80, alignment: .center)
+                            Text("(\(message.count)/40)")
+                                .font(.system(size: 15))
+                                .foregroundColor(.gray)
+                                .frame(width: 360, height: 20, alignment: .trailing)
+                                .padding(.trailing, 36)
                             
-                        } // HStack
-                    } // VStack
+                        } // VStack
+                    } // ZStack
                 } // ZStack
             } // VStack
         } // VStack
@@ -85,18 +91,18 @@ struct FlowerCardView: View {
             Text("\(content.name)")
                 .font(.title)
                 .fontWeight(.bold)
-                .padding(.top)
+                .padding(.bottom, 2)
+                .foregroundColor(.bodyTextColor)
             
             // 꽃 설명
             Text("\(content.meaning)")
                 .foregroundColor(.gray)
-                .padding(.bottom)
             
             // 꽃 대신 잠깐 둥글려진 사각형
             Image("flower")
                 .resizable()
-                .frame(width: 300, height: 172, alignment: .center)
-                .padding(.top, 48)
+                .frame(width: 280, height: 168, alignment: .center)
+                .padding(.top, 42)
             
         } // VStack
     } // body
