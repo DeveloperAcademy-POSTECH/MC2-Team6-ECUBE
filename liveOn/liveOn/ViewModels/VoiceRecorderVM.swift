@@ -137,6 +137,8 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
         
     }
     
+
+    // 제작한 Recordings 재생중인 것 멈추기
     func stopPlaying(url: URL) {
         
         audioPlayer.stop()
