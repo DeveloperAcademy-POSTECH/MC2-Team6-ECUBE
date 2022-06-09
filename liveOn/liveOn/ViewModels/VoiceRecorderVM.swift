@@ -15,7 +15,8 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
     var audioPlayer: AVAudioPlayer!
     
     @Published var isRecording: Bool = false
-    @Published var recordingsList = [Recording]()
+    @Published var isRecorded: Bool = false
+    @Published var recording = Recording(fileURL: URL(string: "")!, createdAt: Date.now, isPlaying: false)
     
     override init() {
         super.init()
@@ -33,7 +34,7 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
         }
         
         let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let fileName = path.appendingPathComponent("live-On: \(Date().toString(dateFormat: "dd-MM-YY 'at' HH:mm:ss")).m4a")
+        let fileName = path.appendingPathComponent("\(Date().toString(dateFormat: "dd-MM-YY 'at' HH:mm:ss")).m4a")
         
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -59,16 +60,15 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
     }
     
     // Recording 내역 가져오기
-    func fetchAllRecordings() {
+    func fetchRecording() {
         
         let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let directoryContents = try! FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)
+        let directoryContent = try! FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)[0]
         
-        for i in directoryContents {
-            recordingsList.append(Recording(fileURL: i, createdAt: getFileDate(for: i), isPlaying: false))
-        }
+//        for i in directoryContents {
+        recording = Recording(fileURL: directoryContent, createdAt: getFileDate(for: directoryContent), isPlaying: false)
         
-        recordingsList.sort(by: { $0.createdAt.compare($1.createdAt) == .orderedDescending })
+//        recording.sort(by: { $0.createdAt.compare($1.createdAt) == .orderedDescending })
     }
     
     // 제작한 Recordings 재생하기
@@ -87,29 +87,26 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
             audioPlayer.prepareToPlay()
             audioPlayer.play()
             
-            for i in 0..<recordingsList.count {
-                if recordingsList[i].fileURL == url {
-                    recordingsList[i].isPlaying = true
-                }
-            }
+            recording.isPlaying = true
+            
         } catch {
             print("Playing Failed")
         }
     }
     
     // 제작한 Recordings 재생중인 것 멈추기
-    func stopPlaying(url : URL) {
+    func stopPlaying(url: URL) {
         
         audioPlayer.stop()
         
-        for i in 0..<recordingsList.count {
-            if recordingsList[i].fileURL == url {
-                recordingsList[i].isPlaying = false
-            }
-        }
+//        for i in 0..<recordingsList.count {
+//            if recordingsList[i].fileURL == url {
+        recording.isPlaying = false
+//            }
+//        }
     }
 
-    // 제작한 당시의 날짜 가져옴
+    // MARK: 제작한 당시의 날짜 가져옴
     func getFileDate(for file: URL) -> Date {
         if let attributes = try? FileManager.default.attributesOfItem(atPath: file.path) as [FileAttributeKey: Any],
             let creationDate = attributes[FileAttributeKey.creationDate] as? Date {
@@ -120,4 +117,3 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
     }
     
 }
-

@@ -13,7 +13,6 @@ extension Color {
 
     static let recordingBtn = Color("Orange")
     static let recordingBtnBackground = Color("Grey")
-
     
     static let primaryColor = Color(hex: "#A5726F")
     

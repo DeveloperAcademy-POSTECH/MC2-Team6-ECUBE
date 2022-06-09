@@ -11,12 +11,14 @@ import AVFoundation
 struct VoicemailView: View {
     
     @ObservedObject var voiceMail = VoiceRecorderVM()
+    
+    @State var showingList = false
     @State var title: String = ""
     
     let nowDate = Date.now
     
     var body: some View {
-        GeometryReader{ frame in
+        GeometryReader { frame in
             VStack {
                 Spacer()
                 
@@ -37,41 +39,61 @@ struct VoicemailView: View {
                 Spacer()
                     .frame(height: 80)
                 
-                ZStack {
-                    Image(systemName: "circle.fill")
-                        .resizable()
-                        .frame(width: 80, height: 80)
-                        .foregroundColor(Color.recordingBtnBackground)
-                    
-//                    Image(systemName: voiceMail.isRecording ? "stop.fill" : "circle.fill")
-//                        .resizable()
-//                        .foregroundColor(Color.recordingBtn)
-//                        .frame(width: 50, height: 50)
-//                        .onTapGesture {
-//                            if voiceMail.isRecording == true {
-//                                voiceMail.stopRecording()
-//                            } else {
-//                                voiceMail.startRecording()
-//                            }
-//                        }
-                    
-                    if voiceMail.isRecording == true {
-                        Image(systemName: "stop.fill")
-                            .resizable()
-                            .foregroundColor(Color.recordingBtn)
-                            .frame(width: 40, height: 40)
-                            .onTapGesture {
-                                voiceMail.stopRecording()
-                            }
-                    } else {
+                HStack {
+                    ZStack {
                         Image(systemName: "circle.fill")
                             .resizable()
-                            .foregroundColor(Color.recordingBtn)
-                            .frame(width: 50, height: 50)
-                            .onTapGesture {
-                                voiceMail.startRecording()
-                            }
+                            .frame(width: 80, height: 80)
+                            .foregroundColor(Color.recordingBtnBackground)
+                        
+                        if voiceMail.isRecorded == false {
+                            
+                            // MARK: 녹음하지 않은 경우
+                            Image(systemName: "circle.fill")
+                                .resizable()
+                                .foregroundColor(Color.recordingBtn)
+                                .frame(width: 50, height: 50)
+                                .onTapGesture {
+                                    voiceMail.startRecording()
+                                    voiceMail.isRecording = true
+                                }
+                        } else if voiceMail.isRecording == true {
+                            
+                            // MARK: 녹음하고 있는 경우
+                            Image(systemName: "stop.fill")
+                                .resizable()
+                                .foregroundColor(Color.recordingBtn)
+                                .frame(width: 40, height: 40)
+                                .onTapGesture {
+                                    voiceMail.stopRecording()
+                                    voiceMail.isRecording = false
+                                    voiceMail.isRecorded = true
+                                }
+                        } else {
+                            
+                            // MARK: 녹음하고 난 다음 재생해보고 싶을 때
+                            Image(systemName: "play.fill")
+                                .resizable()
+                                .foregroundColor(Color.recordingBtn)
+                                .frame(width: 40, height: 40)
+                                .onTapGesture {
+                                    
+                                }
+                        }
                     }
+                    
+//                    Button(action: {
+//                        if voiceMail.isRecording == true {
+//                            voiceMail.stopRecording()
+//                        }
+//                        voiceMail.fetchRecording()
+//                        showingList.toggle()
+//                    }) {
+//                        Image(systemName: "list.bullet")
+//                            .foregroundColor(.black)
+//                    }.sheet(isPresented: $showingList, content: {
+//
+//                    })
                 }
                 
                 Spacer()
