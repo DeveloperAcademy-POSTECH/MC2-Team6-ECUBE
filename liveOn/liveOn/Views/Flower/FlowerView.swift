@@ -8,9 +8,18 @@
 import SwiftUI
 
 // MARK: Property
-let horizontalPaddingValue: CGFloat = 48
 
 struct FlowerView: View {
+    
+    // MARK: Property
+    @ObservedObject var input =  TextLimiter(limit: 40, placeholder: "짧은 메시지도 남겨볼까요?")
+    @State var showAlertforSend: Bool = false
+    @State var isitEntered: Bool = false
+    @Environment(\.dismiss) var dismiss
+    
+    // Values for UI Adjustment
+    let horizontalPaddingValue: CGFloat = 48
+    
     var body: some View {
         VStack {
             
