@@ -25,8 +25,9 @@ class Pill: Identifiable, ObservableObject {
     }
 }
 
+// Sample data
 let piilList: [Pill] = [
-    // Sample data
+    
     Pill(
         name: "비타민 C",
         color: "붉은색",
@@ -39,5 +40,6 @@ let piilList: [Pill] = [
         name: "진통제",
         color: "노란색",
         effect: "통증을 가라앉힙니다")
+    
 ]
 

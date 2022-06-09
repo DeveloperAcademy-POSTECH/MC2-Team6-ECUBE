@@ -18,6 +18,13 @@ struct FlowerView: View {
             FlowerBodyView()
             
         }
+        .navigationTitle("꽃")
+        .navigationBarTitleDisplayMode(.inline)
+        .background(.background)
+        .navigationBarItems(leading: Button { dismiss()} label: {Text("취소")},
+                            trailing: Button {
+            showAlertforSend = true
+        } label: {Text("보내기").fontWeight(.bold)}.disabled(!input.inputEntered))
     }
 }
 
@@ -26,15 +33,9 @@ struct FlowerHeaderView: View {
     var body: some View {
         
         HStack(alignment: .top) {
+            
             Text("<")
             
-            Text("꽃")
-                .font(.headline)
-            
-            Button("선물하기") {
-                /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
-                // Submit 기능
-            }
         } // HStack
     } // body
 }
@@ -47,9 +48,9 @@ struct FlowerBodyView: View {
     var body: some View {
         
         VStack {
-
+            
             FlowerCardView(content: flowerList[Int.random(in: 0..<3)])
-
+            
             
             VStack {
                 // 메시지 카드
