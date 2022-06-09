@@ -43,8 +43,7 @@ struct FlowerBodyView: View {
         VStack {
             
             FlowerCardView(content: flowerList[Int.random(in: 0..<3)])
-            
-            
+                        
             VStack {
                 // 메시지 카드
                 ZStack {
@@ -59,10 +58,14 @@ struct FlowerBodyView: View {
                         TextField("짧은 메시지도 남겨볼까요?", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
                             .border(.gray)
                             .padding(.horizontal, horizontalPaddingValue)
+                            .frame(width: 300, height: 80, alignment: .center)
+                        HStack{
                         Text("(\(message.count)/40)")
                             .foregroundColor(.gray)
-                            .multilineTextAlignment(.trailing)
-                    }
+                            .frame(width: 300, height: 20, alignment: .trailing)
+                            
+                        } // HStack
+                    } // VStack
                 } // ZStack
             } // VStack
         } // VStack
@@ -90,11 +93,10 @@ struct FlowerCardView: View {
                 .padding(.bottom)
             
             // 꽃 대신 잠깐 둥글려진 사각형
-            RoundedRectangle(cornerRadius: 12)
-                .stroke(Color.blue)
-                .padding(.horizontal,64)
-                .padding(.bottom, 32)
-                .frame(width: 280, height: 300, alignment: .center)
+            Image("flower")
+                .resizable()
+                .frame(width: 300, height: 172, alignment: .center)
+                .padding(.top, 48)
             
         } // VStack
     } // body
