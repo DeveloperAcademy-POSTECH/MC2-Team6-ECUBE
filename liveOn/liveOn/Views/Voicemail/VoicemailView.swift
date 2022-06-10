@@ -56,7 +56,6 @@ struct VoicemailView: View {
                                 .onTapGesture {
                                     voiceMail.startRecording()
                                     voiceMail.isRecording = true
-//                                    voiceMail.isRecorded = true
                                 }
                             
                         } else if voiceMail.isRecorded == false && voiceMail.isRecording == true {
@@ -68,6 +67,7 @@ struct VoicemailView: View {
                                 .frame(width: 40, height: 40)
                                 .onTapGesture {
                                     voiceMail.stopRecording()
+                                    voiceMail.fetchAllRecording()
                                     voiceMail.isRecording = false
                                     voiceMail.isRecorded = true
                                 }
@@ -117,17 +117,17 @@ struct VoicemailView: View {
 //                            }
 //                        }
 //                    }
-                    Button(action: {
-                        voiceMail.showFiles()
-                    }) {
-                        Text("show files")
-                    }
-                    
-                    Button(action: {
-                        voiceMail.deleteAllRecordings()
-                    }) {
-                        Text("delete files")
-                    }
+//                    Button(action: {
+//                        voiceMail.showFiles()
+//                    }) {
+//                        Text("show files")
+//                    }
+//
+//                    Button(action: {
+//                        voiceMail.deleteAllRecordings()
+//                    }) {
+//                        Text("delete files")
+//                    }
                 }
                 
                 Spacer()
