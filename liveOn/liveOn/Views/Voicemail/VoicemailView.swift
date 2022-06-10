@@ -13,6 +13,7 @@ struct VoicemailView: View {
     @ObservedObject var voiceMail = VoiceRecorderVM()
     
     @State var title: String = ""
+//    @State var recordingIndex: Int = voiceMail.recordingsList.count
     
     let nowDate = Date.now
     
@@ -82,7 +83,7 @@ struct VoicemailView: View {
                                         .foregroundColor(Color.recordingBtn)
                                         .frame(width: 40, height: 40)
                                         .onTapGesture {
-                                            voiceMail.startPlaying(url: voiceMail.recordingsList[0].fileURL)
+                                            voiceMail.startPlaying(url: voiceMail.recordingsList[voiceMail.recordingsList.count - 1].fileURL)
                                     }
                                     Spacer()
                                 }
@@ -95,8 +96,9 @@ struct VoicemailView: View {
                                         .resizable()
                                         .frame(width: 30, height: 30)
                                         .onTapGesture {
-                                            voiceMail.stopPlaying(url: voiceMail.recordingsList[0].fileURL)
-                                            voiceMail.deleteRecording(url: voiceMail.recordingsList[0].fileURL)
+                                            
+                                            voiceMail.stopPlaying(url: voiceMail.recordingsList[voiceMail.recordingsList.count - 1].fileURL)
+                                            voiceMail.deleteRecording(url: voiceMail.recordingsList[voiceMail.recordingsList.count - 1].fileURL)
                                             voiceMail.isRecorded = false
                                             voiceMail.isRecording = false
                                         }

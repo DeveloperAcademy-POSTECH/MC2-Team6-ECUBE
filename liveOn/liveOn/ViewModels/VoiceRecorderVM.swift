@@ -32,7 +32,6 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
         super.init()
         
         fetchAllRecording()
-        
     }
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
