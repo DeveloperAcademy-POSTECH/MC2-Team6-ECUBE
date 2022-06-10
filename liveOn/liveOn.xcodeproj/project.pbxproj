@@ -25,15 +25,15 @@
 		773C1A54284F37F700E93BFE /* LetterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773C1A53284F37F700E93BFE /* LetterListView.swift */; };
 		773C1A56284F3A5800E93BFE /* CreateLetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773C1A55284F3A5800E93BFE /* CreateLetterView.swift */; };
 		773C1A58284F3B5500E93BFE /* TextLimiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773C1A57284F3B5500E93BFE /* TextLimiter.swift */; };
-
-
 		77403C832850AA60000A21EE /* SetBirthdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77403C7F2850AA60000A21EE /* SetBirthdayView.swift */; };
 		77403C842850AA60000A21EE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77403C802850AA60000A21EE /* User.swift */; };
 		77403C852850AA60000A21EE /* SetNicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77403C812850AA60000A21EE /* SetNicknameView.swift */; };
 		77403C862850AA60000A21EE /* GettingStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77403C822850AA60000A21EE /* GettingStartView.swift */; };
 		77403C882850AFEE000A21EE /* SetFirstDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77403C872850AFEE000A21EE /* SetFirstDayView.swift */; };
 		77403C8A2850B7E9000A21EE /* SelectWhatToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77403C892850B7E9000A21EE /* SelectWhatToDoView.swift */; };
-
+		77403C8C285193FE000A21EE /* QuickSignInWithApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77403C8B285193FE000A21EE /* QuickSignInWithApple.swift */; };
+		77403C8F28519B04000A21EE /* SignInWithAppleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77403C8E28519B04000A21EE /* SignInWithAppleViewModel.swift */; };
+		77403C9228524487000A21EE /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 77403C9128524487000A21EE /* FSCalendar */; };
 		A44B2974284F11A200CE3740 /* FlowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44B2973284F11A200CE3740 /* FlowerView.swift */; };
 		A44B297A284F6E0900CE3740 /* PillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44B2979284F6E0900CE3740 /* PillView.swift */; };
 		A92A88C728506B8700A71FCC /* PhotoCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92A88C628506B8700A71FCC /* PhotoCardsView.swift */; };
@@ -71,15 +71,15 @@
 		773C1A53284F37F700E93BFE /* LetterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterListView.swift; sourceTree = "<group>"; };
 		773C1A55284F3A5800E93BFE /* CreateLetterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLetterView.swift; sourceTree = "<group>"; };
 		773C1A57284F3B5500E93BFE /* TextLimiter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLimiter.swift; sourceTree = "<group>"; };
-
-
 		77403C7F2850AA60000A21EE /* SetBirthdayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetBirthdayView.swift; sourceTree = "<group>"; };
 		77403C802850AA60000A21EE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		77403C812850AA60000A21EE /* SetNicknameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetNicknameView.swift; sourceTree = "<group>"; };
 		77403C822850AA60000A21EE /* GettingStartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GettingStartView.swift; sourceTree = "<group>"; };
 		77403C872850AFEE000A21EE /* SetFirstDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetFirstDayView.swift; sourceTree = "<group>"; };
 		77403C892850B7E9000A21EE /* SelectWhatToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWhatToDoView.swift; sourceTree = "<group>"; };
- 
+		77403C8B285193FE000A21EE /* QuickSignInWithApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSignInWithApple.swift; sourceTree = "<group>"; };
+		77403C8D28519991000A21EE /* liveOn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = liveOn.entitlements; sourceTree = "<group>"; };
+		77403C8E28519B04000A21EE /* SignInWithAppleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleViewModel.swift; sourceTree = "<group>"; };
 		A44B2973284F11A200CE3740 /* FlowerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FlowerView.swift; path = Flower/FlowerView.swift; sourceTree = "<group>"; };
 		A44B2979284F6E0900CE3740 /* PillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PillView.swift; path = Pill/PillView.swift; sourceTree = "<group>"; };
 		A92A88C628506B8700A71FCC /* PhotoCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCardsView.swift; sourceTree = "<group>"; };
@@ -100,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77403C9228524487000A21EE /* FSCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +145,8 @@
 				3E9206B5284AE2C400D064E6 /* imageViewModel.swift */,
 				3E9206C1284B24CF00D064E6 /* DateToStringVM.swift */,
 				3E9206C7284C2A3100D064E6 /* VoiceRecorderVM.swift */,
+				77403C8B285193FE000A21EE /* QuickSignInWithApple.swift */,
+				77403C8E28519B04000A21EE /* SignInWithAppleViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 		3EBE43762849B6D30085C7C6 /* liveOn */ = {
 			isa = PBXGroup;
 			children = (
+				77403C8D28519991000A21EE /* liveOn.entitlements */,
 				77196617284C6F8D002E6AC0 /* Extensions */,
 				3E9206B2284AE1D700D064E6 /* ViewModels */,
 				3E9206B1284AE1D200D064E6 /* Models */,
@@ -264,6 +268,9 @@
 			dependencies = (
 			);
 			name = liveOn;
+			packageProductDependencies = (
+				77403C9128524487000A21EE /* FSCalendar */,
+			);
 			productName = liveOn;
 			productReference = 3EBE43742849B6D30085C7C6 /* liveOn.app */;
 			productType = "com.apple.product-type.application";
@@ -292,6 +299,9 @@
 				Base,
 			);
 			mainGroup = 3EBE436B2849B6D30085C7C6;
+			packageReferences = (
+				77403C9028524487000A21EE /* XCRemoteSwiftPackageReference "FSCalendar" */,
+			);
 			productRefGroup = 3EBE43752849B6D30085C7C6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -349,6 +359,7 @@
 				77403C842850AA60000A21EE /* User.swift in Sources */,
 				A932622F284F2AD400E5C0A3 /* ImagePicker.swift in Sources */,
 				3E9206B4284AE2B700D064E6 /* Model.swift in Sources */,
+				77403C8F28519B04000A21EE /* SignInWithAppleViewModel.swift in Sources */,
 				C9CEAECB284F15DA00769E4E /* CalendarMain.swift in Sources */,
 				3E9206D0284F3BA300D064E6 /* Test.swift in Sources */,
 				C9CEAECE284F17E300769E4E /* ColorExtension.swift in Sources */,
@@ -360,12 +371,7 @@
 				C9CEAED0284F18FA00769E4E /* CalendarBack.swift in Sources */,
 				3E9206B6284AE2C400D064E6 /* imageViewModel.swift in Sources */,
 				3EBE43782849B6D30085C7C6 /* liveOnApp.swift in Sources */,
- 
-
-				A9326229284F2A2800E5C0A3 /* PhotoGiftView.swift in Sources */,
 				77403C852850AA60000A21EE /* SetNicknameView.swift in Sources */,
-				A9326229284F2A2800E5C0A3 /* PhotoGiftView.swift in Sources */,
- 
 				773C1A58284F3B5500E93BFE /* TextLimiter.swift in Sources */,
 				C9CEAECD284F164100769E4E /* Memo.swift in Sources */,
 				77196614284B41E8002E6AC0 /* GiftBoxView.swift in Sources */,
@@ -373,6 +379,7 @@
 				A92A88C728506B8700A71FCC /* PhotoCardsView.swift in Sources */,
 				3E9206CC284F343200D064E6 /* Recording.swift in Sources */,
 				3E9206C2284B24CF00D064E6 /* DateToStringVM.swift in Sources */,
+				77403C8C285193FE000A21EE /* QuickSignInWithApple.swift in Sources */,
 				A44B297A284F6E0900CE3740 /* PillView.swift in Sources */,
 				A44B2974284F11A200CE3740 /* FlowerView.swift in Sources */,
 				C9CEAEC8284F151A00769E4E /* DateValue.swift in Sources */,
@@ -505,10 +512,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = liveOn/liveOn.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"liveOn/Preview Content\"";
-				DEVELOPMENT_TEAM = S9G6YGQ76H;
+				DEVELOPMENT_TEAM = VHT56LS632;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -534,10 +542,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = liveOn/liveOn.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"liveOn/Preview Content\"";
-				DEVELOPMENT_TEAM = S9G6YGQ76H;
+				DEVELOPMENT_TEAM = VHT56LS632;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -580,6 +589,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		77403C9028524487000A21EE /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		77403C9128524487000A21EE /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77403C9028524487000A21EE /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3EBE436C2849B6D30085C7C6 /* Project object */;
 }
