@@ -33,7 +33,6 @@
 		A4733F6C2850802200FBC400 /* Pill.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4733F6B2850802200FBC400 /* Pill.swift */; };
 		A4DF52782851E23800FCC586 /* FlowerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF52772851E23800FCC586 /* FlowerListView.swift */; };
 		A4DF527A2851E2BD00FCC586 /* PillListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF52792851E2BD00FCC586 /* PillListView.swift */; };
-		A9326229284F2A2800E5C0A3 /* PictureGiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9326228284F2A2800E5C0A3 /* PictureGiftView.swift */; };
 		77403C832850AA60000A21EE /* SetBirthdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77403C7F2850AA60000A21EE /* SetBirthdayView.swift */; };
 		77403C842850AA60000A21EE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77403C802850AA60000A21EE /* User.swift */; };
 		77403C852850AA60000A21EE /* SetNicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77403C812850AA60000A21EE /* SetNicknameView.swift */; };
@@ -85,7 +84,6 @@
 		A4733F6B2850802200FBC400 /* Pill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pill.swift; sourceTree = "<group>"; };
 		A4DF52772851E23800FCC586 /* FlowerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerListView.swift; sourceTree = "<group>"; };
 		A4DF52792851E2BD00FCC586 /* PillListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillListView.swift; sourceTree = "<group>"; };
-		A9326228284F2A2800E5C0A3 /* PictureGiftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureGiftView.swift; sourceTree = "<group>"; };
 		77403C7F2850AA60000A21EE /* SetBirthdayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetBirthdayView.swift; sourceTree = "<group>"; };
 		77403C802850AA60000A21EE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		77403C812850AA60000A21EE /* SetNicknameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetNicknameView.swift; sourceTree = "<group>"; };
