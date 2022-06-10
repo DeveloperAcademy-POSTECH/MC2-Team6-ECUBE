@@ -14,8 +14,6 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
     var audioRecorder: AVAudioRecorder!
     var audioPlayer: AVAudioPlayer!
     
-    var indexOfPlayer = 0
-    
     @Published var isRecording: Bool = false
     @Published var isRecorded: Bool = false
     @Published var recordingsList = [Recording]()
@@ -25,6 +23,8 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
     @Published var blinkingCount: Timer?
     @Published var timer: String = "0:00"
     @Published var toggleColor: Bool = false
+    
+    @Published var title: String = ""
     
     var playingURL: URL?
     
@@ -99,7 +99,7 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
         let directoryContents = try! FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)
 
         for i in directoryContents {
-            recordingsList.append(Recording(fileURL: i, createdAt: getFileDate(for: i), isPlaying: false))
+            recordingsList.append(Recording(fileURL: i, createdAt: getFileDate(for: i), isPlaying: false, title: title))
         }
         
         recordingsList.sort(by: { $0.createdAt.compare($1.createdAt) == .orderedDescending})
@@ -135,7 +135,6 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
         }
         
     }
-    
 
     // 제작한 Recordings 재생중인 것 멈추기
     func stopPlaying(url: URL) {
@@ -227,8 +226,15 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
 //        recordingsList.removeAll()
     }
     
-    func deleteFirstRecording() {
+    func canSend() -> Bool {
+        var check: Bool = false
         
+        if !title.isEmpty && !recordingsList.isEmpty {
+            check = true
+        } else {
+            check = false
+        }
+        return check
     }
     
 }
