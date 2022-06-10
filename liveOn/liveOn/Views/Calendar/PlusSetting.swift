@@ -34,6 +34,14 @@ struct PlusSetting: View {
                     .foregroundColor(Color("Burgundy"))
                     .padding(.top, 14)
                     .padding(.leading, 90)
+                
+                Button("확인") {
+                    
+                }
+                .font(.title3)
+                .foregroundColor(.primary)
+                .padding(.top, 15)
+                .padding(.leading, 85)
             }
             
             VStack {
