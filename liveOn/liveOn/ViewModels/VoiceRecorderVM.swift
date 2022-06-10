@@ -73,7 +73,6 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
                 self.countSec += 1
                 self.timer = self.covertSecToMinAndHour(seconds: self.countSec)
             })
-            blinkColor()
             
         } catch {
             print("Failed to Setup the Recording")
@@ -89,7 +88,7 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
         self.countSec = 0
         
         timerCount!.invalidate()
-        blinkingCount!.invalidate()
+//        blinkingCount!.invalidate()
         
     }
     
@@ -169,13 +168,13 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
         }
     }
     
-    func blinkColor() {
-        
-        blinkingCount = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true, block: { (_) in
-            self.toggleColor.toggle()
-        })
-        
-    }
+//    func blinkColor() {
+//
+//        blinkingCount = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true, block: { (_) in
+//            self.toggleColor.toggle()
+//        })
+//
+//    }
     
     func getFileDate(for file: URL) -> Date {
         if let attributes = try? FileManager.default.attributesOfItem(atPath: file.path) as [FileAttributeKey: Any],
@@ -202,28 +201,7 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
                 print("can't delete")
             }
         }
-        
         recordingsList.removeAll()
-        
-//        do {
-//            try FileManager.default.removeItem(at: url)
-//        } catch {
-//            print("Can't delete")
-//        }
-        
-//        for i in 0..<recordingsList.count {
-//            do {
-//                if recordingsList[i].isPlaying == true {
-//                    stopPlaying(url: recordingsList[i].fileURL)
-//                }
-//                recordingsList.remove(at: i)
-//                print("\(i) removed")
-//            } catch {
-//                print("\(i) removing error")
-//            }
-//
-//        }
-//        recordingsList.removeAll()
     }
     
     func canSend() -> Bool {
