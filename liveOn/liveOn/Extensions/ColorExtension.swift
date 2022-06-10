@@ -10,6 +10,9 @@ import SwiftUI
 extension Color {
     static let background = Color("background")
     static let bodyTextColor = Color("bodyText")
+
+    static let recordingBtn = Color("Orange")
+    static let recordingBtnBackground = Color("Grey")
     
     static let primaryColor = Color(hex: "#A5726F")
     
@@ -25,4 +28,5 @@ extension Color {
         let b = Double((rgb >> 0) & 0xFF) / 255.0
         self.init(red: r, green: g, blue: b)
     }
+
 }

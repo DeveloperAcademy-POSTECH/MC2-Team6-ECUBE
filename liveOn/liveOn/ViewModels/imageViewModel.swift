@@ -1,4 +1,3 @@
-
 import SwiftUI
 
 class imageViewModel: ObservableObject {
@@ -13,7 +12,9 @@ class imageViewModel: ObservableObject {
     @Published var myImages: [MyImage] = []
     @Published var showFileAlert = false
     @Published var appError: MyImageError.ErrorType?
-    
+
+    @Published var backToFirst: Bool = false
+
     // MARK: 파일저장 시 경로를 프린트해줌
     init() {
         print(FileManager.docDirURL.path)
@@ -67,7 +68,6 @@ class imageViewModel: ObservableObject {
         }
     }
 }
-
 
 import Combine
 import SwiftUI

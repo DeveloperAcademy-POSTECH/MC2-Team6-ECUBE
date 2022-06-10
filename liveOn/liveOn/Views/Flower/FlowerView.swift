@@ -98,11 +98,12 @@ struct FlowerCardView: View {
             Text("\(content.meaning)")
                 .foregroundColor(.gray)
             
-            // 꽃 대신 잠깐 둥글려진 사각형
+            // 꽃
             Image("flower")
                 .resizable()
                 .frame(width: 280, height: 168, alignment: .center)
                 .padding(.top, 42)
+
             
         } // VStack
     } // body

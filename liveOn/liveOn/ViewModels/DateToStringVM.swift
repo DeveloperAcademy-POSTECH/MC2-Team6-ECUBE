@@ -16,3 +16,28 @@ func DateToString(_ date: Date) -> String {
     
     return dateString
 }
+
+
+
+
+func DateToStringKR(_ date: Date) -> String {
+    let dateFormatter = DateFormatter()
+    
+    dateFormatter.dateFormat = "YYYY년 M월 d일"
+    
+    let dateString = dateFormatter.string(from: date)
+    
+    return dateString
+}
+
+
+extension Date {
+    func toString(dateFormat format: String ) -> String {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: self)
+        
+    }
+
+}

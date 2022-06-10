@@ -19,8 +19,7 @@ class TextLimiter: ObservableObject {
     
     @Published var value = ""
     @Published var hasReachedLimit = false
-    @Published var inputEntered = false
-    {
+    @Published var inputEntered = false {
         didSet {
             // 사용자가 입력했는지 체크
             if value.count > 0 &&  value != placeholder {
