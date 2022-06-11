@@ -59,6 +59,7 @@ struct PillHeaderView: View {
             } // ZStack
             .padding(.bottom, 24)
             
+            
             Group {
                 TextField("어떤 약인가요?", text: .constant(""))
                     .multilineTextAlignment(.center)
