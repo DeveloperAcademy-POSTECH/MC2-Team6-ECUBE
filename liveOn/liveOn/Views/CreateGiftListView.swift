@@ -19,11 +19,11 @@ let items = [
     
     Item(itemImage: "picture", itemName: "폴라로이드", itemDescription: "폴라로이드 형태의 사진과 짧은 메세지", createItemView: AnyView(PhotoGiftView())),
     
-    Item(itemImage: "cassettes", itemName: "음성메세지", itemDescription: "짧은 음성메세지를 담은 카세트테이프", createItemView: AnyView(VoicemailView())),
+    Item(itemImage: "cassettes", itemName: "음성메세지", itemDescription: "짧은 음성메세지를 담은 카세트테이프", createItemView: AnyView(VoicemailView(title: " "))),
     
-    Item(itemImage: "medicine", itemName: "영양제", itemDescription: "직접 이름을 지은 영양제와 짧은 메세지", createItemView: AnyView(PillView())),
+    Item(itemImage: "medicine", itemName: "영양제", itemDescription: "직접 이름을 지은 영양제와 짧은 메세지", createItemView: AnyView(Text("영양제뷰"))),
     
-    Item(itemImage: "flower", itemName: "꽃", itemDescription: "따뜻한 꽃말과 함께 짧은 메세지.", createItemView: AnyView(FlowerView()))
+    Item(itemImage: "flower", itemName: "꽃", itemDescription: "따뜻한 꽃말과 함께 짧은 메세지.", createItemView: AnyView(Text("꽃뷰")))
 ]
 
 struct CreateGiftListView: View {

@@ -8,43 +8,23 @@
 import SwiftUI
 
 struct PillView: View {
-    
-    // MARK: Property
-    @ObservedObject var input =  TextLimiter(limit: 40, placeholder: "짧은 메시지도 남겨볼까요?")
-    @State var showAlertforSend: Bool = false
-    @State var isitEntered: Bool = false
-    @Environment(\.dismiss) var dismiss
-    
     var body: some View {
         
         VStack {
             
+            PillHeaderView()
             PillBodyView()
             
-        } // VStack
-        .navigationTitle("영양제")
-        .navigationBarTitleDisplayMode(.inline)
-        .background(.background)
-        .navigationBarItems(trailing: Button {
-            showAlertforSend = true
-        } label: {Text("보내기").fontWeight(.bold)}.disabled(!input.inputEntered))
-        .padding(.horizontal, 32)
-    } // body
+        }
+    }
 }
 
-struct PillBodyView: View {
-    
-    // MARK: Property
-    @State private var pillImageCounter: Int = 0
-    @State private var pillName: String = ""
-    @State private var pillEffect: String = ""
-    
+struct PillHeaderView: View {
     var body: some View {
         
-        // Sample data
-        let pillColorList: [Color] = [.yellow, .background, .green, .orange]
+        Text("I'm the header")
         
-        ZStack{
+        ZStack {
             // 약 이미지 들어갈 곳을 잠시 둥글려진 사각형이 차지
             RoundedRectangle(cornerRadius: 24)
                 .frame(width: 280, height: 280, alignment: .center)
@@ -123,12 +103,11 @@ struct PillBodyView: View {
     } // body
 }
 
-struct BarUnderTextField: View {
+struct PillBodyView: View {
     var body: some View {
-        Divider()
-            .frame(height: 1)
-            .padding(.horizontal, 32)
-            .background(Color.gray)
+        
+        Text("I'm the body")
+
     }
 }
 
