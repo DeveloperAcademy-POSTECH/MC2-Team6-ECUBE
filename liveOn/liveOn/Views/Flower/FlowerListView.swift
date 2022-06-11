@@ -26,7 +26,9 @@ struct FlowerListView: View {
                     ZStack {
                         Image("flower")
                             .resizable()
-                            
+                            .onTapGesture {
+                                ShowFlowerCardPopUp(clickedFlower: flowerList[0])
+                            }
                     }
                     .frame(width: UIScreen.main.bounds.width * 0.3, height: UIScreen.main.bounds.width * 0.18)
                 }
@@ -45,4 +47,12 @@ struct FlowerListView_Previews: PreviewProvider {
     static var previews: some View {
         FlowerListView()
     }
+}
+
+func ShowFlowerCardPopUp(clickedFlower: Flower) {
+    
+    // Blur the background behind flower card
+    // Show Flower card on top of the FlowerListView
+    FlowerCardView(content: clickedFlower)
+    
 }
