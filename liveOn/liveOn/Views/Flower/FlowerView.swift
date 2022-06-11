@@ -120,13 +120,11 @@ struct FlowerCardView: View {
                 .foregroundColor(.gray)
                 .padding(.bottom)
             
-            // 꽃 대신 잠깐 둥글려진 사각형
-            RoundedRectangle(cornerRadius: 12)
-                .stroke(Color.blue)
-                .padding(.horizontal, 64)
-
-                .padding(.bottom, 32)
-                .frame(width: 280, height: 300, alignment: .center)
+            // 꽃
+            Image("flower")
+                .resizable()
+                .frame(width: 280, height: 168, alignment: .center)
+                .padding(.top, 42)
             
         } // VStack
     } // body
