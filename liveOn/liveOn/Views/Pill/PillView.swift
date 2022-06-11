@@ -74,7 +74,6 @@ struct PillBodyView: View {
         
         VStack {
             if (isShowingPopover) {
-                
                 ZStack(alignment: .center) {
                     
                     // 임시입니다... 말풍선
@@ -88,41 +87,51 @@ struct PillBodyView: View {
                         .foregroundColor(.gray)
                         .font(.system(size: 12))
                         .fontWeight(.medium)
+                    
                 }
             } // if
         } // ZStack
         .padding(.bottom, 24)
         
         Group {
-            TextField("어떤 약인가요?", text: .constant(""))
+            TextField("어떤 약인가요?", text: $pillName)
                 .multilineTextAlignment(.center)
                 .font(.system(size: 16))
                 .padding(.vertical, 12)
             
-            BarUnderTextField()
+            Divider()
+                .frame(height: 1)
+                .padding(.horizontal, 32)
+                .background(pillName.count < 12 ? .gray : .red)
                 .padding(.bottom, -24)
             
             // Message string counter
             Text("(\(pillName.count)/12)")
                 .font(.system(size: 12))
-                .foregroundColor(.gray)
+                .foregroundColor(pillName.count < 12 ? .gray : .red)
+                .fontWeight(pillName.count < 12 ? .medium : .bold)
             
         } // Group
         .padding(.horizontal, 100)
         .frame(width: 360, height: 12, alignment: .trailing)
         
         Group {
-            TextField("약 효과를 적어보세요", text: .constant(""))
+            TextField("약 효과를 적어보세요", text: $pillEffect)
                 .foregroundColor(Color(uiColor: .systemGray4))
                 .font(.system(size: 16))
                 .multilineTextAlignment(.center)
             
-            BarUnderTextField()
+            Divider()
+                .frame(height: 1)
+                .padding(.horizontal, 32)
+                .background(pillEffect.count < 40 ? .gray : .red)
+                .padding(.bottom, -24)
             
             // Message string counter
             Text("(\(pillEffect.count)/40)")
                 .font(.system(size: 12))
-                .foregroundColor(.gray)
+                .foregroundColor(pillEffect.count < 40 ? .gray : .red)
+                .fontWeight(pillEffect.count < 40 ? .medium : .bold)
             
         } // Group
         .padding(.top, 24)
@@ -133,16 +142,6 @@ struct PillBodyView: View {
         
     } // VStack
 } // body
-
-
-struct BarUnderTextField: View {
-    var body: some View {
-        Divider()
-            .frame(height: 1)
-            .padding(.horizontal, 32)
-            .background(Color.gray)
-    }
-}
 
 struct PillView_Previews: PreviewProvider {
     static var previews: some View {
