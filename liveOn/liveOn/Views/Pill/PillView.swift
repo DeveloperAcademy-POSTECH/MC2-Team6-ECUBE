@@ -44,7 +44,7 @@ struct PillBodyView: View {
         // Sample data
         let pillColorList: [Color] = [.yellow, .background, .green, .orange]
         
-        ZStack {
+        ZStack{
             // 약 이미지 들어갈 곳을 잠시 둥글려진 사각형이 차지
             RoundedRectangle(cornerRadius: 24)
                 .frame(width: 280, height: 280, alignment: .center)

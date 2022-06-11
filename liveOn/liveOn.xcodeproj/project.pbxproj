@@ -31,11 +31,27 @@
 		77403C862850AA60000A21EE /* GettingStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77403C822850AA60000A21EE /* GettingStartView.swift */; };
 		77403C882850AFEE000A21EE /* SetFirstDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77403C872850AFEE000A21EE /* SetFirstDayView.swift */; };
 		77403C8A2850B7E9000A21EE /* SelectWhatToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77403C892850B7E9000A21EE /* SelectWhatToDoView.swift */; };
+
 		77403C8C285193FE000A21EE /* QuickSignInWithApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77403C8B285193FE000A21EE /* QuickSignInWithApple.swift */; };
 		77403C8F28519B04000A21EE /* SignInWithAppleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77403C8E28519B04000A21EE /* SignInWithAppleViewModel.swift */; };
-		77956D22285469BC00EB7855 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 77956D21285469BC00EB7855 /* FSCalendar */; };
-		77956D2728546BF800EB7855 /* PillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77956D2628546BF800EB7855 /* PillView.swift */; };
+		77403C9228524487000A21EE /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 77403C9128524487000A21EE /* FSCalendar */; };
 		A44B2974284F11A200CE3740 /* FlowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44B2973284F11A200CE3740 /* FlowerView.swift */; };
+		A44B297A284F6E0900CE3740 /* PillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44B2979284F6E0900CE3740 /* PillView.swift */; };
+
+		A4EEF74C2852F0A000160A52 /* FlowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EEF7482852F0A000160A52 /* FlowerView.swift */; };
+		A4EEF74D2852F0A000160A52 /* PillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EEF74A2852F0A000160A52 /* PillView.swift */; };
+		A4EEF74E2852F0A000160A52 /* Pill.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EEF74B2852F0A000160A52 /* Pill.swift */; };
+		A4EEF7502852F20000160A52 /* PillListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EEF74F2852F20000160A52 /* PillListView.swift */; };
+		A4EEF7522852F20D00160A52 /* Flower.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EEF7512852F20D00160A52 /* Flower.swift */; };
+		A4EEF7542852F21E00160A52 /* FlowerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EEF7532852F21E00160A52 /* FlowerListView.swift */; };
+
+		77403C8C285193FE000A21EE /* QuickSignInWithApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77403C8B285193FE000A21EE /* QuickSignInWithApple.swift */; };
+		77403C8F28519B04000A21EE /* SignInWithAppleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77403C8E28519B04000A21EE /* SignInWithAppleViewModel.swift */; };
+		77403C9228524487000A21EE /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 77403C9128524487000A21EE /* FSCalendar */; };
+		A44B2974284F11A200CE3740 /* FlowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44B2973284F11A200CE3740 /* FlowerView.swift */; };
+		A44B297A284F6E0900CE3740 /* PillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44B2979284F6E0900CE3740 /* PillView.swift */; };
+
+
 		A92A88C728506B8700A71FCC /* PhotoCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92A88C628506B8700A71FCC /* PhotoCardsView.swift */; };
 		A932622B284F2A9600E5C0A3 /* Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932622A284F2A9600E5C0A3 /* Picker.swift */; };
 		A932622D284F2AA900E5C0A3 /* MyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932622C284F2AA900E5C0A3 /* MyImage.swift */; };
@@ -77,12 +93,26 @@
 		77403C822850AA60000A21EE /* GettingStartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GettingStartView.swift; sourceTree = "<group>"; };
 		77403C872850AFEE000A21EE /* SetFirstDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetFirstDayView.swift; sourceTree = "<group>"; };
 		77403C892850B7E9000A21EE /* SelectWhatToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWhatToDoView.swift; sourceTree = "<group>"; };
+
 		77403C8B285193FE000A21EE /* QuickSignInWithApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSignInWithApple.swift; sourceTree = "<group>"; };
 		77403C8D28519991000A21EE /* liveOn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = liveOn.entitlements; sourceTree = "<group>"; };
 		77403C8E28519B04000A21EE /* SignInWithAppleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleViewModel.swift; sourceTree = "<group>"; };
-		77956D2628546BF800EB7855 /* PillView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PillView.swift; path = liveOn/Views/PillView.swift; sourceTree = SOURCE_ROOT; };
 		A44B2973284F11A200CE3740 /* FlowerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FlowerView.swift; path = Flower/FlowerView.swift; sourceTree = "<group>"; };
+		A44B2979284F6E0900CE3740 /* PillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PillView.swift; path = Pill/PillView.swift; sourceTree = "<group>"; };
+
+		A4EEF7482852F0A000160A52 /* FlowerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowerView.swift; sourceTree = "<group>"; };
 		A4EEF74A2852F0A000160A52 /* PillView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PillView.swift; sourceTree = "<group>"; };
+		A4EEF74B2852F0A000160A52 /* Pill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pill.swift; sourceTree = "<group>"; };
+		A4EEF74F2852F20000160A52 /* PillListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillListView.swift; sourceTree = "<group>"; };
+		A4EEF7512852F20D00160A52 /* Flower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flower.swift; sourceTree = "<group>"; };
+		A4EEF7532852F21E00160A52 /* FlowerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerListView.swift; sourceTree = "<group>"; };
+
+		77403C8B285193FE000A21EE /* QuickSignInWithApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSignInWithApple.swift; sourceTree = "<group>"; };
+		77403C8D28519991000A21EE /* liveOn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = liveOn.entitlements; sourceTree = "<group>"; };
+		77403C8E28519B04000A21EE /* SignInWithAppleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleViewModel.swift; sourceTree = "<group>"; };
+		A44B2973284F11A200CE3740 /* FlowerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FlowerView.swift; path = Flower/FlowerView.swift; sourceTree = "<group>"; };
+		A44B2979284F6E0900CE3740 /* PillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PillView.swift; path = Pill/PillView.swift; sourceTree = "<group>"; };
+
 		A92A88C628506B8700A71FCC /* PhotoCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCardsView.swift; sourceTree = "<group>"; };
 		A9326228284F2A2800E5C0A3 /* PhotoGiftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGiftView.swift; sourceTree = "<group>"; };
 		A932622A284F2A9600E5C0A3 /* Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picker.swift; sourceTree = "<group>"; };
@@ -101,7 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77956D22285469BC00EB7855 /* FSCalendar in Frameworks */,
+				77403C9228524487000A21EE /* FSCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,8 +147,8 @@
 				C9CEAEC9284F159400769E4E /* Calendar */,
 				3E9206BE284B248E00D064E6 /* Voicemail */,
 				3EBE43792849B6D30085C7C6 /* ContentView.swift */,
-				77956D2528546BEC00EB7855 /* Pill */,
 				A44B2973284F11A200CE3740 /* FlowerView.swift */,
+				A44B2979284F6E0900CE3740 /* PillView.swift */,
 				77196613284B41E8002E6AC0 /* GiftBoxView.swift */,
 				77196615284B4DC7002E6AC0 /* CreateGiftListView.swift */,
 			);
@@ -166,7 +196,6 @@
 				77196610284B3E61002E6AC0 /* .swiftlint.yml */,
 				3EBE43762849B6D30085C7C6 /* liveOn */,
 				3EBE43752849B6D30085C7C6 /* Products */,
-				77956D1F285466E300EB7855 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -234,22 +263,6 @@
 			path = SignIn;
 			sourceTree = "<group>";
 		};
-		77956D1F285466E300EB7855 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				A4EEF74A2852F0A000160A52 /* PillView.swift */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
-		77956D2528546BEC00EB7855 /* Pill */ = {
-			isa = PBXGroup;
-			children = (
-				77956D2628546BF800EB7855 /* PillView.swift */,
-			);
-			path = Pill;
-			sourceTree = "<group>";
-		};
 		A9326227284F2A1300E5C0A3 /* PictureGift */ = {
 			isa = PBXGroup;
 			children = (
@@ -287,7 +300,7 @@
 			);
 			name = liveOn;
 			packageProductDependencies = (
-				77956D21285469BC00EB7855 /* FSCalendar */,
+				77403C9128524487000A21EE /* FSCalendar */,
 			);
 			productName = liveOn;
 			productReference = 3EBE43742849B6D30085C7C6 /* liveOn.app */;
@@ -319,7 +332,6 @@
 			mainGroup = 3EBE436B2849B6D30085C7C6;
 			packageReferences = (
 				77403C9028524487000A21EE /* XCRemoteSwiftPackageReference "FSCalendar" */,
-				77956D20285469BC00EB7855 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 			);
 			productRefGroup = 3EBE43752849B6D30085C7C6 /* Products */;
 			projectDirPath = "";
@@ -398,11 +410,17 @@
 				A92A88C728506B8700A71FCC /* PhotoCardsView.swift in Sources */,
 				3E9206CC284F343200D064E6 /* Recording.swift in Sources */,
 				3E9206C2284B24CF00D064E6 /* DateToStringVM.swift in Sources */,
+
 				77403C8C285193FE000A21EE /* QuickSignInWithApple.swift in Sources */,
+				A44B297A284F6E0900CE3740 /* PillView.swift in Sources */,
 				A44B2974284F11A200CE3740 /* FlowerView.swift in Sources */,
-				77956D2728546BF800EB7855 /* PillView.swift in Sources */,
+
+				A4EEF74D2852F0A000160A52 /* PillView.swift in Sources */,
+
 				77403C8C285193FE000A21EE /* QuickSignInWithApple.swift in Sources */,
+				A44B297A284F6E0900CE3740 /* PillView.swift in Sources */,
 				A44B2974284F11A200CE3740 /* FlowerView.swift in Sources */,
+
 				C9CEAEC8284F151A00769E4E /* DateValue.swift in Sources */,
 				77403C8A2850B7E9000A21EE /* SelectWhatToDoView.swift in Sources */,
 				A932622B284F2A9600E5C0A3 /* Picker.swift in Sources */,
@@ -620,20 +638,12 @@
 				minimumVersion = 2.0.0;
 			};
 		};
-		77956D20285469BC00EB7855 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		77956D21285469BC00EB7855 /* FSCalendar */ = {
+		77403C9128524487000A21EE /* FSCalendar */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 77956D20285469BC00EB7855 /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			package = 77403C9028524487000A21EE /* XCRemoteSwiftPackageReference "FSCalendar" */;
 			productName = FSCalendar;
 		};
 /* End XCSwiftPackageProductDependency section */
