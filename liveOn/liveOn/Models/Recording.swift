@@ -9,8 +9,9 @@ import Foundation
 
 struct Recording: Equatable {
     
-    let fileURL: URL
+    var fileURL: URL
     let createdAt: Date
     var isPlaying: Bool
+    var title: String
     
 }

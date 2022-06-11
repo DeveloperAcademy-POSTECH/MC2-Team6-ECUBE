@@ -17,8 +17,6 @@ func DateToString(_ date: Date) -> String {
     return dateString
 }
 
-
-
 func DateToStringKR(_ date: Date) -> String {
     let dateFormatter = DateFormatter()
     
@@ -29,7 +27,6 @@ func DateToStringKR(_ date: Date) -> String {
     return dateString
 }
 
- 
 extension Date {
     func toString(dateFormat format: String ) -> String {
         
