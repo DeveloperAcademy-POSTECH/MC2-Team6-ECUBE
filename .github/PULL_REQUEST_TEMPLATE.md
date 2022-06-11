@@ -1,4 +1,4 @@
-## What does this PR do?
+## What is this PR do?
 - `Introduction`: ex) 로그인 API에서 password validation error 수정 pull request 
 - `Notion Ticket`: [notion link]()
 - `Figma`: [figma link]()

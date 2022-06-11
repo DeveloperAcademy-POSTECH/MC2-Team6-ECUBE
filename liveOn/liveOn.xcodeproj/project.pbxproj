@@ -14,8 +14,6 @@
 		3E9206CC284F343200D064E6 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206CB284F343200D064E6 /* Recording.swift */; };
 		3E9206D0284F3BA300D064E6 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206CF284F3BA300D064E6 /* Test.swift */; };
 		3E9206D3285035D900D064E6 /* VoiceRecorderVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206C7284C2A3100D064E6 /* VoiceRecorderVM.swift */; };
-		3E9206D82851957300D064E6 /* convertSecToMinAndHour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206D72851957300D064E6 /* convertSecToMinAndHour.swift */; };
-		3E9206DA28532E3A00D064E6 /* VoicemailMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206D928532E3A00D064E6 /* VoicemailMainView.swift */; };
 		3EBE43782849B6D30085C7C6 /* liveOnApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBE43772849B6D30085C7C6 /* liveOnApp.swift */; };
 		3EBE437A2849B6D30085C7C6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBE43792849B6D30085C7C6 /* ContentView.swift */; };
 		3EBE437C2849B6D50085C7C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EBE437B2849B6D50085C7C6 /* Assets.xcassets */; };
@@ -39,6 +37,11 @@
 		A4EEF7502852F20000160A52 /* PillListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EEF74F2852F20000160A52 /* PillListView.swift */; };
 		A4EEF7522852F20D00160A52 /* Flower.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EEF7512852F20D00160A52 /* Flower.swift */; };
 		A4EEF7542852F21E00160A52 /* FlowerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EEF7532852F21E00160A52 /* FlowerListView.swift */; };
+		77403C8C285193FE000A21EE /* QuickSignInWithApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77403C8B285193FE000A21EE /* QuickSignInWithApple.swift */; };
+		77403C8F28519B04000A21EE /* SignInWithAppleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77403C8E28519B04000A21EE /* SignInWithAppleViewModel.swift */; };
+		77403C9228524487000A21EE /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 77403C9128524487000A21EE /* FSCalendar */; };
+		A44B2974284F11A200CE3740 /* FlowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44B2973284F11A200CE3740 /* FlowerView.swift */; };
+		A44B297A284F6E0900CE3740 /* PillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44B2979284F6E0900CE3740 /* PillView.swift */; };
 		A92A88C728506B8700A71FCC /* PhotoCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92A88C628506B8700A71FCC /* PhotoCardsView.swift */; };
 		A932622B284F2A9600E5C0A3 /* Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932622A284F2A9600E5C0A3 /* Picker.swift */; };
 		A932622D284F2AA900E5C0A3 /* MyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932622C284F2AA900E5C0A3 /* MyImage.swift */; };
@@ -61,8 +64,6 @@
 		3E9206C7284C2A3100D064E6 /* VoiceRecorderVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceRecorderVM.swift; sourceTree = "<group>"; };
 		3E9206CB284F343200D064E6 /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
 		3E9206CF284F3BA300D064E6 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
-		3E9206D72851957300D064E6 /* convertSecToMinAndHour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = convertSecToMinAndHour.swift; sourceTree = "<group>"; };
-		3E9206D928532E3A00D064E6 /* VoicemailMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicemailMainView.swift; sourceTree = "<group>"; };
 		3EBE43742849B6D30085C7C6 /* liveOn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = liveOn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EBE43772849B6D30085C7C6 /* liveOnApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = liveOnApp.swift; sourceTree = "<group>"; };
 		3EBE43792849B6D30085C7C6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,6 +89,11 @@
 		A4EEF74F2852F20000160A52 /* PillListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillListView.swift; sourceTree = "<group>"; };
 		A4EEF7512852F20D00160A52 /* Flower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flower.swift; sourceTree = "<group>"; };
 		A4EEF7532852F21E00160A52 /* FlowerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerListView.swift; sourceTree = "<group>"; };
+		77403C8B285193FE000A21EE /* QuickSignInWithApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSignInWithApple.swift; sourceTree = "<group>"; };
+		77403C8D28519991000A21EE /* liveOn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = liveOn.entitlements; sourceTree = "<group>"; };
+		77403C8E28519B04000A21EE /* SignInWithAppleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleViewModel.swift; sourceTree = "<group>"; };
+		A44B2973284F11A200CE3740 /* FlowerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FlowerView.swift; path = Flower/FlowerView.swift; sourceTree = "<group>"; };
+		A44B2979284F6E0900CE3740 /* PillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PillView.swift; path = Pill/PillView.swift; sourceTree = "<group>"; };
 		A92A88C628506B8700A71FCC /* PhotoCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCardsView.swift; sourceTree = "<group>"; };
 		A9326228284F2A2800E5C0A3 /* PhotoGiftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGiftView.swift; sourceTree = "<group>"; };
 		A932622A284F2A9600E5C0A3 /* Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picker.swift; sourceTree = "<group>"; };
@@ -115,14 +121,14 @@
 		3E9206B0284AE1CC00D064E6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A4EEF7472852F0A000160A52 /* Flower */,
-				A4EEF7492852F0A000160A52 /* Pill */,
 				77403C7E2850AA60000A21EE /* SignIn */,
 				773C1A50284F37D600E93BFE /* Letter */,
 				A9326227284F2A1300E5C0A3 /* PictureGift */,
 				C9CEAEC9284F159400769E4E /* Calendar */,
 				3E9206BE284B248E00D064E6 /* Voicemail */,
 				3EBE43792849B6D30085C7C6 /* ContentView.swift */,
+				A44B2973284F11A200CE3740 /* FlowerView.swift */,
+				A44B2979284F6E0900CE3740 /* PillView.swift */,
 				77196613284B41E8002E6AC0 /* GiftBoxView.swift */,
 				77196615284B4DC7002E6AC0 /* CreateGiftListView.swift */,
 			);
@@ -158,7 +164,6 @@
 			isa = PBXGroup;
 			children = (
 				3E9206BF284B249C00D064E6 /* VoicemailView.swift */,
-				3E9206D928532E3A00D064E6 /* VoicemailMainView.swift */,
 			);
 			path = Voicemail;
 			sourceTree = "<group>";
@@ -207,7 +212,6 @@
 			children = (
 				77196618284C6FA9002E6AC0 /* ColorExtension.swift */,
 				A9326230284F2B0700E5C0A3 /* FileManager+Extension.swift */,
-				3E9206D72851957300D064E6 /* convertSecToMinAndHour.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -234,26 +238,6 @@
 				77403C892850B7E9000A21EE /* SelectWhatToDoView.swift */,
 			);
 			path = SignIn;
-			sourceTree = "<group>";
-		};
-		A4EEF7472852F0A000160A52 /* Flower */ = {
-			isa = PBXGroup;
-			children = (
-				A4EEF7482852F0A000160A52 /* FlowerView.swift */,
-				A4EEF7512852F20D00160A52 /* Flower.swift */,
-				A4EEF7532852F21E00160A52 /* FlowerListView.swift */,
-			);
-			path = Flower;
-			sourceTree = "<group>";
-		};
-		A4EEF7492852F0A000160A52 /* Pill */ = {
-			isa = PBXGroup;
-			children = (
-				A4EEF74A2852F0A000160A52 /* PillView.swift */,
-				A4EEF74B2852F0A000160A52 /* Pill.swift */,
-				A4EEF74F2852F20000160A52 /* PillListView.swift */,
-			);
-			path = Pill;
 			sourceTree = "<group>";
 		};
 		A9326227284F2A1300E5C0A3 /* PictureGift */ = {
@@ -371,7 +355,6 @@
 				C92B3BE5285175070010C49A /* PhotoGiftView.swift in Sources */,
 				77196616284B4DC7002E6AC0 /* CreateGiftListView.swift in Sources */,
 				A932622D284F2AA900E5C0A3 /* MyImage.swift in Sources */,
-				3E9206DA28532E3A00D064E6 /* VoicemailMainView.swift in Sources */,
 				C9CEAED6284F394A00769E4E /* PlusSetting.swift in Sources */,
 				77403C882850AFEE000A21EE /* SetFirstDayView.swift in Sources */,
 				77403C832850AA60000A21EE /* SetBirthdayView.swift in Sources */,
@@ -379,7 +362,6 @@
 				A932622F284F2AD400E5C0A3 /* ImagePicker.swift in Sources */,
 				3E9206B4284AE2B700D064E6 /* Model.swift in Sources */,
 				C9CEAECB284F15DA00769E4E /* CalendarMain.swift in Sources */,
-				3E9206D82851957300D064E6 /* convertSecToMinAndHour.swift in Sources */,
 				3E9206D0284F3BA300D064E6 /* Test.swift in Sources */,
 				C9CEAECE284F17E300769E4E /* ColorExtension.swift in Sources */,
 				77403C862850AA60000A21EE /* GettingStartView.swift in Sources */,
@@ -392,22 +374,20 @@
 				3EBE43782849B6D30085C7C6 /* liveOnApp.swift in Sources */,
 				77403C852850AA60000A21EE /* SetNicknameView.swift in Sources */,
 				773C1A58284F3B5500E93BFE /* TextLimiter.swift in Sources */,
-				A4EEF7502852F20000160A52 /* PillListView.swift in Sources */,
 				C9CEAECD284F164100769E4E /* Memo.swift in Sources */,
 				77196614284B41E8002E6AC0 /* GiftBoxView.swift in Sources */,
-				A4EEF7522852F20D00160A52 /* Flower.swift in Sources */,
 				773C1A54284F37F700E93BFE /* LetterListView.swift in Sources */,
-				A4EEF74C2852F0A000160A52 /* FlowerView.swift in Sources */,
-				A4EEF7542852F21E00160A52 /* FlowerListView.swift in Sources */,
 				A92A88C728506B8700A71FCC /* PhotoCardsView.swift in Sources */,
 				3E9206CC284F343200D064E6 /* Recording.swift in Sources */,
 				3E9206C2284B24CF00D064E6 /* DateToStringVM.swift in Sources */,
 				A4EEF74D2852F0A000160A52 /* PillView.swift in Sources */,
+				77403C8C285193FE000A21EE /* QuickSignInWithApple.swift in Sources */,
+				A44B297A284F6E0900CE3740 /* PillView.swift in Sources */,
+				A44B2974284F11A200CE3740 /* FlowerView.swift in Sources */,
 				C9CEAEC8284F151A00769E4E /* DateValue.swift in Sources */,
 				77403C8A2850B7E9000A21EE /* SelectWhatToDoView.swift in Sources */,
 				A932622B284F2A9600E5C0A3 /* Picker.swift in Sources */,
 				3E9206C0284B249C00D064E6 /* VoicemailView.swift in Sources */,
-				A4EEF74E2852F0A000160A52 /* Pill.swift in Sources */,
 				A9326231284F2B0700E5C0A3 /* FileManager+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -540,8 +520,6 @@
 				DEVELOPMENT_TEAM = S9G6YGQ76H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSAppleMusicUsageDescription = "";
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -571,8 +549,6 @@
 				DEVELOPMENT_TEAM = S9G6YGQ76H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSAppleMusicUsageDescription = "";
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
