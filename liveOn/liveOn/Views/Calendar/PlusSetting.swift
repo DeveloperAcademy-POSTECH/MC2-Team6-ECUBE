@@ -14,10 +14,6 @@ struct PlusSetting: View {
     @State private var emojitxt: String = ""
     @State private var showani = false
     @State var show = false
-
-    var holidaytitlelimit: Int = 20
-    var holidaymemolimit: Int = 20
-    var iconlimit: Int = 1
     
     @Binding var currentDate: Date
     
@@ -77,13 +73,13 @@ struct PlusSetting: View {
                             .padding(.leading, 16)
                         
                         HStack {
-                            TextField("Emoji", text: $emojitxt, prompt: Text(" "))
+                            TextField("Emoji", text: $emojitxt, prompt: Text("☺︎"))
                                 .limitInputLength(value: $emojitxt, length: 1)
                                 .multilineTextAlignment(TextAlignment.center)
                                 .font(.system(size: 70))
                                 .frame(width: 80, height: 100)
                                 .padding(.top, -108)
-                                .padding(.leading, 17)
+                                .padding(.leading, 20)
                             
                         }
                         
