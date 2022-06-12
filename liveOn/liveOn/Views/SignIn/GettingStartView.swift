@@ -14,14 +14,32 @@ struct GettingStartView: View {
             VStack {
                 Text("liveOn")
                 Spacer()
-                SignInWithApple()
-                  .frame( height: 60)
+                QuickSignInWithApple()
+                    .frame(height: 60, alignment: .center)
+//                    .onTapGesture(perform: showAppleLoginView)
+//
+                    .onTapGesture {
+                        print("임시 다음 버튼 누르셈")
+                    }
                   .padding()
                 NavigationLink(destination: SetNicknameView().environmentObject(User())) {
                     Text("임시 다음 버튼")
                 }
             }
-        }
+        } // NavigationView
+    }
+    private func showAppleLoginView() {
+
+            let provider = ASAuthorizationAppleIDProvider()
+
+            let request = provider.createRequest()
+
+            request.requestedScopes = [.fullName, .email]
+
+            let controller = ASAuthorizationController(authorizationRequests: [request])
+        
+            controller.performRequests()
+        
     }
 }
 
@@ -29,17 +47,4 @@ struct GettingStart_Previews: PreviewProvider {
     static var previews: some View {
         GettingStartView()
     }
-}
-
-// 1
-final class SignInWithApple: UIViewRepresentable {
-  // 2
-  func makeUIView(context: Context) -> ASAuthorizationAppleIDButton {
-    // 3
-    return ASAuthorizationAppleIDButton()
-  }
-  
-  // 4
-  func updateUIView(_ uiView: ASAuthorizationAppleIDButton, context: Context) {
-  }
 }
