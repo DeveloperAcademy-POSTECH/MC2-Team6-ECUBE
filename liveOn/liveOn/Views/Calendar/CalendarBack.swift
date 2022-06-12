@@ -10,8 +10,6 @@ import SwiftUI
 struct CalendarBack: View {
     
     @State var currentDate: Date = Date()
-    
-    // 색상 변경할려면 이거 참고해서 여기에 추가하기
     @State private var bgColor = Color("background")
     
     var body: some View {

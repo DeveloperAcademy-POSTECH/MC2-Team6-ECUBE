@@ -11,118 +11,133 @@ struct PlusSetting: View {
     
     @State private var holidaytitle: String = ""
     @State private var holidaymemo: String = ""
-    @State private var emojitxt = ""
+    @State private var emojitxt: String = ""
+    @State private var showani = false
+    @State var show = false
+
     var holidaytitlelimit: Int = 20
     var holidaymemolimit: Int = 20
-    var iconLimit: Int = 1
+    var iconlimit: Int = 1
+    
     @Binding var currentDate: Date
+    
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
-        ZStack(alignment: .topLeading) {
-            Color("Ivory")
+        
+        let scenes = UIApplication.shared.connectedScenes
+        let windowScene = scenes.first as? UIWindowScene
+        let window = windowScene?.windows.first
+        
+        ScrollView(.vertical, showsIndicators: false) {
             
-            HStack {
-                Button("취소") {
-                    dismiss()
-                }
-                .font(.title3)
-                .foregroundColor(.primary)
-                .padding(.top, 15)
-                .padding(.leading, 15)
+            ZStack {
                 
-                Text("기념일 추가")
-                    .font(.title2.bold())
-                    .foregroundColor(Color("Burgundy"))
-                    .padding(.top, 14)
-                    .padding(.leading, 90)
-                
-                Button("확인") {
+                GeometryReader {_ in
+                    HStack {
+                        Button("취소") {
+                            dismiss()
+                        }
+                        .font(.title3)
+                        .foregroundColor(.primary)
+                        .padding(.top, 15)
+                        .padding(.leading, 15)
+                        
+                        Text("기념일 추가")
+                            .font(.title2.bold())
+                            .foregroundColor(Color("Burgundy"))
+                            .padding(.top, 14)
+                            .padding(.leading, 90)
+                        
+                        Button("확인") {
+                            // 추가한 기념일 저장하는 기능 들어가는 곳
+                        }
+                        .font(.title3)
+                        .foregroundColor(.primary)
+                        .padding(.top, 15)
+                        .padding(.leading, 85)
+                    }
                     
-                }
-                .font(.title3)
-                .foregroundColor(.primary)
-                .padding(.top, 15)
-                .padding(.leading, 85)
-            }
-            
-            VStack {
-                Color.gray.frame(height: CGFloat(1) / UIScreen.main.scale)
-                    .padding(.top, 55)
-                
-                DatePicker("기념일 추가", selection: $currentDate, displayedComponents: .date)
-                    .datePickerStyle(GraphicalDatePickerStyle())
-                    .applyTextColor(Color("Burgundy"))
-                    .frame(maxHeight: 400)
-                    .padding(.top, -20)
-            }
-            
-            VStack {
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(Color.gray)
-                    .frame(width: 100, height: 100)
-                    .padding(.top, 470)
-                    .padding(.leading, 16)
-                
-                HStack {
-                    TextField("Emoji", text: $emojitxt)
-                        .limitInputLength(value: $holidaymemo, length: 1)
-                        .multilineTextAlignment(TextAlignment.center)
-                        .foregroundColor(.bodyTextColor)
-                        .background(Color.indigo)
-                        .font(.system(size: 40))
-                        .frame(width: 80, height: 100)
-                        .padding(.top, -108)
+                    VStack {
+                        Color.gray.frame(height: CGFloat(1) / UIScreen.main.scale)
+                            .padding(.top, 55)
+                        
+                        DatePicker("기념일 추가", selection: $currentDate, displayedComponents: .date)
+                            .datePickerStyle(GraphicalDatePickerStyle())
+                            .applyTextColor(Color("Burgundy"))
+                            .frame(maxHeight: 400)
+                            .padding(.top, -20)
+                    }
+                    
+                    VStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color.gray)
+                            .frame(width: 100, height: 100)
+                            .padding(.top, 470)
+                            .padding(.leading, 16)
+                        
+                        HStack {
+                            TextField("Emoji", text: $emojitxt, prompt: Text(" "))
+                                .limitInputLength(value: $emojitxt, length: 1)
+                                .multilineTextAlignment(TextAlignment.center)
+                                .font(.system(size: 70))
+                                .frame(width: 80, height: 100)
+                                .padding(.top, -108)
+                                .padding(.leading, 17)
+                            
+                        }
+                        
+                        Button(action: {
+                            window?.rootViewController?.view.endEditing(true)
+                            self.show.toggle()
+                        }) {
+                            Text("아이콘 변경")
+                                .font(.callout)
+                                .foregroundColor(.gray)
+                        }
+                        .padding(.top, -6)
                         .padding(.leading, 17)
-
-                }
-                
-                Button(action: {
+                    }
                     
-                }) {
-                    Text("아이콘 변경")
-                        .font(.callout)
-                        .foregroundColor(.gray)
-                }
-                .padding(.top, 5)
-                .padding(.leading, 17)
-            }
-            
-            VStack {
-                TextField("Comment", text: $holidaytitle, prompt: Text("어떤 기념일인가요?"))
-                    .limitInputLength(value: $holidaytitle, length: 20)
-                    .multilineTextAlignment(TextAlignment.leading)
-                    .foregroundColor(.bodyTextColor)
-                    .frame(width: 250, height: 20)
-                    .font(.system(size: 18))
-                    .padding(.top, 475)
-                    .padding(.leading, 130)
-                
-                VStack {
-                    Text("(\(holidaytitle.count)/20)")
-                        .frame(width: 300, height: 20, alignment: .trailing)
-                        .foregroundColor(.bodyTextColor).opacity(0.5)
-                    .padding(.trailing, -82)
-                    .padding(.top, -8)
-                }
-                
-                TextField("Comment", text: $holidaymemo, prompt: Text("메모를 입력해주세요."))
-                    .limitInputLength(value: $holidaymemo, length: 20)
-                    .multilineTextAlignment(TextAlignment.leading)
-                    .foregroundColor(.bodyTextColor)
-                    .frame(width: 250, height: 20)
-                    .font(.system(size: 18))
-                    .padding(.top, 8)
-                    .padding(.leading, 130)
-            
-                VStack {
-                    Text("(\(holidaymemo.count)/20)")
-                        .frame(width: 300, height: 20, alignment: .trailing)
-                        .foregroundColor(.bodyTextColor).opacity(0.5)
-                    .padding(.trailing, -82)
-                    .padding(.top, -8)
+                    VStack {
+                        TextField("Comment", text: $holidaytitle, prompt: Text("어떤 기념일인가요?"))
+                            .limitInputLength(value: $holidaytitle, length: 20)
+                            .multilineTextAlignment(TextAlignment.leading)
+                            .foregroundColor(.bodyTextColor)
+                            .frame(width: 250, height: 20)
+                            .font(.system(size: 18))
+                            .padding(.top, 475)
+                            .padding(.leading, 130)
+                        
+                        VStack {
+                            Text("(\(holidaytitle.count)/20)")
+                                .frame(width: 300, height: 20, alignment: .trailing)
+                                .foregroundColor(.bodyTextColor).opacity(0.5)
+                                .padding(.trailing, -82)
+                                .padding(.top, -8)
+                        }
+                        
+                        TextField("Comment", text: $holidaymemo, prompt: Text("메모를 입력해주세요."))
+                            .limitInputLength(value: $holidaymemo, length: 20)
+                            .multilineTextAlignment(TextAlignment.leading)
+                            .foregroundColor(.bodyTextColor)
+                            .frame(width: 250, height: 20)
+                            .font(.system(size: 18))
+                            .padding(.top, 8)
+                            .padding(.leading, 130)
+                        
+                        VStack {
+                            Text("(\(holidaymemo.count)/20)")
+                                .frame(width: 300, height: 20, alignment: .trailing)
+                                .foregroundColor(.bodyTextColor).opacity(0.5)
+                                .padding(.trailing, -82)
+                                .padding(.top, -8)
+                        }
+                    }
                 }
             }
+            EmojiView(show: self.$show, txt: self.$emojitxt).offset(y: self.show ?  (window?.safeAreaInsets.bottom)! : UIScreen.main.bounds.height)
+                .padding(.top, 455)
         }
     }
 }
@@ -134,10 +149,6 @@ struct EmojiView: View {
     @Binding var txt: String
     
     var body : some View {
-        
-        let scenes = UIApplication.shared.connectedScenes
-        let windowScene = scenes.first as? UIWindowScene
-        let window = windowScene?.windows.first
         
         ZStack(alignment: .topLeading) {
             
@@ -152,16 +163,11 @@ struct EmojiView: View {
                             ForEach(i, id: \.self) {j in
                                 
                                 Button(action: {
-                                    
                                     self.txt += String(UnicodeScalar(j)!)
-                                    
                                 }) {
-                                    
                                     if (UnicodeScalar(j)?.properties.isEmoji)! {
-                                        
                                         Text(String(UnicodeScalar(j)!)).font(.system(size: 55))
                                     } else {
-                                        
                                         Text("")
                                     }
                                 }
@@ -170,21 +176,17 @@ struct EmojiView: View {
                     }
                 }
                 .padding(.top)
-                
-            }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 3)
-            .padding(.bottom, window?.safeAreaInsets.bottom)
+            }
+            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 3)
             .background(Color("Ivory"))
             .cornerRadius(25)
             
             Button(action: {
-                
                 self.show.toggle()
-                
             }) {
-                
                 Image(systemName: "xmark").foregroundColor(.black)
-                
-            }.padding()
+            }
+            .padding()
         }
     }
     
@@ -193,7 +195,8 @@ struct EmojiView: View {
         
         var emojis: [[Int]] = []
         
-        for i in stride(from: 0x1f302, through: 0x1F600, by: 4) {
+        // 이모지 유니코드 리스트
+        for i in stride(from: 0x1f302, through: 0x1F6F3, by: 4) {
             
             var temp: [Int] = []
             
