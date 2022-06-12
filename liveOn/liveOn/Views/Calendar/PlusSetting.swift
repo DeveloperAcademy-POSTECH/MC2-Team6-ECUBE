@@ -9,13 +9,13 @@ import SwiftUI
 
 struct PlusSetting: View {
     
-    @State private var holidaytitle: String = ""
-    @State private var holidaymemo: String = ""
-    @State private var emojitxt: String = ""
     @State private var showani = false
     @State var show = false
     
     @Binding var currentDate: Date
+    @Binding var holidaytitle: String
+    @Binding var holidaymemo: String
+    @Binding var emojitxt: String
     
     @Environment(\.dismiss) private var dismiss
     
@@ -62,7 +62,7 @@ struct PlusSetting: View {
                             .datePickerStyle(GraphicalDatePickerStyle())
                             .applyTextColor(Color("Burgundy"))
                             .frame(maxHeight: 400)
-                            .padding(.top, -20)
+                            .padding(.top, -15)
                     }
                     
                     VStack {
@@ -92,7 +92,7 @@ struct PlusSetting: View {
                                 .foregroundColor(.gray)
                         }
                         .padding(.top, -6)
-                        .padding(.leading, 17)
+                        .padding(.leading, 18)
                     }
                     
                     VStack {

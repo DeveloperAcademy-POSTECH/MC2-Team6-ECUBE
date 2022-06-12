@@ -11,27 +11,19 @@ struct CalendarBack: View {
     
     @State var currentDate: Date = Date()
     @State private var bgColor = Color("background")
-    
+        
     var body: some View {
         
         ScrollView(.vertical, showsIndicators: false) {
             
             VStack(spacing: 20) {
-                CalendarMain(currentDate: $currentDate,
-                                 bgColor: $bgColor)
+                CalendarMain(bgColor: $bgColor,
+                currentDate: $currentDate)
             }
             .padding(.vertical)
             .background(bgColor)
         }
         .background(bgColor)
-        
-        // Safe Area Status Bar
-//        .overlay(alignment: .top, content: {
-//            Color("backgournd")
-//                .background(.ultraThinMaterial)
-//                .edgesIgnoringSafeArea(.top)
-//                .frame(height: 0)
-//        })
     }
 }
 
