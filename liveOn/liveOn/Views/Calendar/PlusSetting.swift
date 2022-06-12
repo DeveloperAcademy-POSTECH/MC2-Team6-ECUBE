@@ -11,8 +11,10 @@ struct PlusSetting: View {
     
     @State private var holidaytitle: String = ""
     @State private var holidaymemo: String = ""
+    @State private var emojitxt = ""
     var holidaytitlelimit: Int = 20
     var holidaymemolimit: Int = 20
+    var iconLimit: Int = 1
     @Binding var currentDate: Date
     @Environment(\.dismiss) private var dismiss
     
@@ -59,8 +61,21 @@ struct PlusSetting: View {
                 RoundedRectangle(cornerRadius: 10)
                     .fill(Color.gray)
                     .frame(width: 100, height: 100)
-                    .padding(.top, 415)
-                    .padding(.leading, 20)
+                    .padding(.top, 470)
+                    .padding(.leading, 16)
+                
+                HStack {
+                    TextField("Emoji", text: $emojitxt)
+                        .limitInputLength(value: $holidaymemo, length: 1)
+                        .multilineTextAlignment(TextAlignment.center)
+                        .foregroundColor(.bodyTextColor)
+                        .background(Color.indigo)
+                        .font(.system(size: 40))
+                        .frame(width: 80, height: 100)
+                        .padding(.top, -108)
+                        .padding(.leading, 17)
+
+                }
                 
                 Button(action: {
                     
@@ -70,7 +85,7 @@ struct PlusSetting: View {
                         .foregroundColor(.gray)
                 }
                 .padding(.top, 5)
-                .padding(.leading, 21)
+                .padding(.leading, 17)
             }
             
             VStack {
@@ -80,7 +95,7 @@ struct PlusSetting: View {
                     .foregroundColor(.bodyTextColor)
                     .frame(width: 250, height: 20)
                     .font(.system(size: 18))
-                    .padding(.top, 420)
+                    .padding(.top, 475)
                     .padding(.leading, 130)
                 
                 VStack {
@@ -112,6 +127,89 @@ struct PlusSetting: View {
     }
 }
 
+// 이모지 키보드 뷰
+struct EmojiView: View {
+    
+    @Binding var show: Bool
+    @Binding var txt: String
+    
+    var body : some View {
+        
+        let scenes = UIApplication.shared.connectedScenes
+        let windowScene = scenes.first as? UIWindowScene
+        let window = windowScene?.windows.first
+        
+        ZStack(alignment: .topLeading) {
+            
+            ScrollView(.vertical, showsIndicators: false) {
+                
+                VStack(spacing: 15) {
+                    
+                    ForEach(self.getEmojiList(), id: \.self) {i in
+                        
+                        HStack(spacing: 25) {
+                            
+                            ForEach(i, id: \.self) {j in
+                                
+                                Button(action: {
+                                    
+                                    self.txt += String(UnicodeScalar(j)!)
+                                    
+                                }) {
+                                    
+                                    if (UnicodeScalar(j)?.properties.isEmoji)! {
+                                        
+                                        Text(String(UnicodeScalar(j)!)).font(.system(size: 55))
+                                    } else {
+                                        
+                                        Text("")
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .padding(.top)
+                
+            }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 3)
+            .padding(.bottom, window?.safeAreaInsets.bottom)
+            .background(Color("Ivory"))
+            .cornerRadius(25)
+            
+            Button(action: {
+                
+                self.show.toggle()
+                
+            }) {
+                
+                Image(systemName: "xmark").foregroundColor(.black)
+                
+            }.padding()
+        }
+    }
+    
+    // 이모지 키보드에 뜨는 이모지 종류 리스트
+    func getEmojiList() -> [[Int]] {
+        
+        var emojis: [[Int]] = []
+        
+        for i in stride(from: 0x1f302, through: 0x1F600, by: 4) {
+            
+            var temp: [Int] = []
+            
+            for j in i...i+3 {
+                
+                temp.append(j)
+            }
+            
+            emojis.append(temp)
+        }
+        
+        return emojis
+    }
+}
+
+// 다가오는 기념일 화면에 있는 DatePicker의 색상 변경
 extension View {
   @ViewBuilder func applyTextColor(_ color: Color) -> some View {
     if UITraitCollection.current.userInterfaceStyle == .light {
