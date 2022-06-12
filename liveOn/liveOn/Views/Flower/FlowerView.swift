@@ -16,6 +16,7 @@ struct FlowerView: View {
     @ObservedObject var input =  TextLimiter(limit: 40, placeholder: "짧은 메시지도 남겨볼까요?")
     @State var showAlertforSend: Bool = false
     @State var isitEntered: Bool = false
+    @State private var isTapped: Bool = false
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -31,7 +32,8 @@ struct FlowerView: View {
                     VStack(alignment: .center) {
                         
                         TextEditor(text: $input.value)
-                            .foregroundColor(isitEntered ? .black : .gray)
+                            .foregroundColor(input.value.count < input.limit ? .black : .red)
+                        
                         // MARK: placeholder 사라지게
                             .onTapGesture {
                                 if input.value == input.placeholder {
@@ -45,11 +47,12 @@ struct FlowerView: View {
                         // TODO: 배경이 허옇게 나오는 것.. 해결하기..
                         
                         Text("(\(isitEntered ? input.value.count : 0)/\(input.limit))")
+                            .foregroundColor(input.value.count < input.limit ? .bodyTextColor : .red)
+                            .fontWeight(input.value.count < input.limit ? .medium : .bold)
                             .frame(maxWidth: .infinity, alignment: .trailing)
                             .foregroundColor(.bodyTextColor)
                             .opacity(0.6)
-                            .padding(.trailing, 12)
-                        
+                            
                     } // VStack
                     .frame(maxWidth: UIScreen.main.bounds.width*0.8, maxHeight: UIScreen.main.bounds.width*0.4)
                     .padding()
@@ -57,7 +60,7 @@ struct FlowerView: View {
                 } // ZStack
                 .background(.gray)
                 .padding(.top, 24)
-
+                
             } // VStack
         } // VStack
         .navigationTitle("꽃")
@@ -65,7 +68,15 @@ struct FlowerView: View {
         .background(.background)
         .navigationBarItems(trailing: Button {
             showAlertforSend = true
-        } label: {Text("선물하기").fontWeight(.bold)}.disabled(!input.inputEntered))
+        } label: {
+            Text("선물하기")
+                .fontWeight(.bold)
+                .alert(isPresented: $showAlertforSend) {
+                    Alert(title: Text("선물 보내기"), message: Text("선물은 하루에 하나만 보낼 수 있어요. 사진을 보낼까요?"), primaryButton: .cancel(Text("취소")), secondaryButton: .default(Text("보내기")) {
+                        isTapped.toggle()}
+                    )
+                }
+        }.disabled(!input.inputEntered))
         
     } // body
 }
