@@ -7,96 +7,77 @@
 
 import SwiftUI
 
-// MARK: Property
+// Values for UI Adjustment
 let horizontalPaddingValue: CGFloat = 48
 
-struct Flower: Hashable {
-    let name: String
-    let color: String
-    let meaning: String
-    let lastsfor: Int
-}
-
-let flowerList: [Flower] = [
-    // Sample data
-    Flower(
-        name: "리시안셔스",
-        color: "붉은색",
-        meaning: "변치않는 사랑",
-        lastsfor: 2),
-    Flower(
-        name: "금목서",
-        color: "붉은색",
-        meaning: "당신의 마음을 끌다",
-        lastsfor: 8),
-    Flower(
-        name: "안개꽃",
-        color: "노란색",
-        meaning: "성공",
-        lastsfor: 6)
-]
-
 struct FlowerView: View {
-    var body: some View {
-        VStack {
-            
-            FlowerHeaderView()
-            FlowerBodyView()
-            
-        }
-    }
-}
-
-// MARK: Flower Header
-struct FlowerHeaderView: View {
-    var body: some View {
-        
-        HStack(alignment: .top) {
-            Text("<")
-            
-            Text("꽃")
-                .font(.headline)
-            
-            Button("선물하기") {
-                /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
-                // Submit 기능
-            }
-        } // HStack
-    } // body
-}
-
-// MARK: Flower Body
-struct FlowerBodyView: View {
     
-    var message: String = ""
+    // MARK: Property
+    @ObservedObject var input =  TextLimiter(limit: 40, placeholder: "짧은 메시지도 남겨볼까요?")
+    @State var showAlertforSend: Bool = false
+    @State var isitEntered: Bool = false
+    @State private var isTapped: Bool = false
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         
         VStack {
-
+            
             FlowerCardView(content: flowerList[Int.random(in: 0..<3)])
             
             VStack {
                 // 메시지 카드
                 ZStack {
-                    // 메시지 이미지 대신 잠시 둥글린 사각형
-                    RoundedRectangle(cornerRadius: 12)
-                        .stroke(lineWidth: 2)
-                        .foregroundColor(.white)
-                        .padding(.horizontal, 20)
-                        .padding(.bottom, 24)
-                        .frame(height: 240)
-                    VStack {
-                        TextField("짧은 메시지도 남겨볼까요?", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
-                            .border(.gray)
-                            .padding(.horizontal, horizontalPaddingValue)
-                        Text("(\(message.count)/40)")
-                            .foregroundColor(.gray)
-                            .multilineTextAlignment(.trailing)
-                    }
+                    
+                    VStack(alignment: .center) {
+                        
+                        TextEditor(text: $input.value)
+                            .foregroundColor(input.value.count < input.limit ? .black : .red)
+                        
+                        // MARK: placeholder 사라지게
+                            .onTapGesture {
+                                if input.value == input.placeholder {
+                                    input.value = ""
+                                    isitEntered = true
+                                }
+                            }
+                            .alert("쪽지는 \(input.limit)글자까지만 쓸 수 있어요.", isPresented: $input.hasReachedLimit) {
+                                Button("확인", role: .cancel) {}
+                            }
+                        // TODO: 배경이 허옇게 나오는 것.. 해결하기..
+                        
+                        Text("(\(isitEntered ? input.value.count : 0)/\(input.limit))")
+                            .foregroundColor(input.value.count < input.limit ? .bodyTextColor : .red)
+                            .fontWeight(input.value.count < input.limit ? .medium : .bold)
+                            .frame(maxWidth: .infinity, alignment: .trailing)
+                            .foregroundColor(.bodyTextColor)
+                            .opacity(0.6)
+                            
+                    } // VStack
+                    .frame(maxWidth: UIScreen.main.bounds.width*0.8, maxHeight: UIScreen.main.bounds.width*0.4)
+                    .padding()
+                    
                 } // ZStack
+                .background(.gray)
+                .padding(.top, 24)
+                
             } // VStack
         } // VStack
+        .navigationTitle("꽃")
+        .navigationBarTitleDisplayMode(.inline)
+        .background(.background)
+        .navigationBarItems(trailing: Button {
+            showAlertforSend = true
+        } label: {
+            Text("선물하기")
+                .fontWeight(.bold)
+                .alert(isPresented: $showAlertforSend) {
+                    Alert(title: Text("선물 보내기"), message: Text("선물은 하루에 하나만 보낼 수 있어요. 사진을 보낼까요?"), primaryButton: .cancel(Text("취소")), secondaryButton: .default(Text("보내기")) {
+                        isTapped.toggle()}
+                    )
+                }
+        }.disabled(!input.inputEntered))
+        
     } // body
 }
 
@@ -113,20 +94,19 @@ struct FlowerCardView: View {
             Text("\(content.name)")
                 .font(.title)
                 .fontWeight(.bold)
-                .padding(.top)
+                .padding(.bottom, 2)
+                .foregroundColor(.bodyTextColor)
             
             // 꽃 설명
             Text("\(content.meaning)")
                 .foregroundColor(.gray)
-                .padding(.bottom)
             
-            // 꽃 대신 잠깐 둥글려진 사각형
-            RoundedRectangle(cornerRadius: 12)
-                .stroke(Color.blue)
-                .padding(.horizontal, 64)
-
-                .padding(.bottom, 32)
-                .frame(width: 280, height: 300, alignment: .center)
+            // 꽃
+            Image("flower")
+                .resizable()
+                .frame(width: 280, height: 168, alignment: .center)
+                .padding(.top, 42)
+            
             
         } // VStack
     } // body
