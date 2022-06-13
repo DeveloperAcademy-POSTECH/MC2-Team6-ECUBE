@@ -30,29 +30,35 @@ struct PlusSetting: View {
             ZStack {
                 
                 GeometryReader {_ in
-                    HStack {
+                    HStack(alignment: .center, spacing: 0) {
                         Button("취소") {
                             dismiss()
                         }
                         .font(.title3)
                         .foregroundColor(.primary)
-                        .padding(.top, 15)
-                        .padding(.leading, 15)
+//                        .padding(.top, 15)
+//                        .padding(.leading, 15)
+                        
+                        Spacer()
                         
                         Text("기념일 추가")
                             .font(.title2.bold())
                             .foregroundColor(Color("Burgundy"))
-                            .padding(.top, 14)
-                            .padding(.leading, 90)
+//                            .padding(.top, 14)
+//                            .padding(.leading, 90)
+                        
+                        Spacer()
                         
                         Button("확인") {
                             // 추가한 기념일 저장하는 기능 들어가는 곳
                         }
                         .font(.title3)
                         .foregroundColor(.primary)
-                        .padding(.top, 15)
-                        .padding(.leading, 85)
+//                        .padding(.top, 15)
+//                        .padding(.leading, 85)
                     }
+                    .padding(15)
+                    .frame(maxWidth: .infinity, alignment: .center)
                     
                     VStack {
                         Color.gray.frame(height: CGFloat(1) / UIScreen.main.scale)

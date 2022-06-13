@@ -126,9 +126,9 @@ struct CalendarMain: View {
             
             // Dates
             // Lazy Grid
-            let columns = Array(repeating: GridItem(.flexible()), count: 7)
+            let columns = Array(repeating: GridItem(.flexible(), spacing: 0, alignment: nil), count: 7)
             
-            LazyVGrid(columns: columns) {
+            LazyVGrid(columns: columns, spacing: 0) {
                 
                 ForEach(extractDate(currentDate: self.currentDate)) { value in
                     
@@ -305,7 +305,7 @@ struct CalendarMain: View {
         }
         .padding(.vertical, 6)
         .frame(height: 80, alignment: .top)
-        .border(Color.gray, width: 1)
+        .border(Color(uiColor: .systemGray3), width: 0.16)
     }
     
     // Checking dates
