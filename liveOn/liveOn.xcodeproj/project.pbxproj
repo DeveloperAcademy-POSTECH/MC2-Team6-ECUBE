@@ -31,11 +31,9 @@
 		77403C862850AA60000A21EE /* GettingStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77403C822850AA60000A21EE /* GettingStartView.swift */; };
 		77403C882850AFEE000A21EE /* SetFirstDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77403C872850AFEE000A21EE /* SetFirstDayView.swift */; };
 		77403C8A2850B7E9000A21EE /* SelectWhatToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77403C892850B7E9000A21EE /* SelectWhatToDoView.swift */; };
-		77403C8C285193FE000A21EE /* QuickSignInWithApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77403C8B285193FE000A21EE /* QuickSignInWithApple.swift */; };
 		77403C8F28519B04000A21EE /* SignInWithAppleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77403C8E28519B04000A21EE /* SignInWithAppleViewModel.swift */; };
 		77403C9228524487000A21EE /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 77403C9128524487000A21EE /* FSCalendar */; };
 		77813AE22855B4B40084828D /* PillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77813AE12855B4B40084828D /* PillView.swift */; };
-		A44B2974284F11A200CE3740 /* FlowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44B2973284F11A200CE3740 /* FlowerView.swift */; };
 		A92A88C728506B8700A71FCC /* PhotoCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92A88C628506B8700A71FCC /* PhotoCardsView.swift */; };
 		A932622B284F2A9600E5C0A3 /* Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932622A284F2A9600E5C0A3 /* Picker.swift */; };
 		A932622D284F2AA900E5C0A3 /* MyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932622C284F2AA900E5C0A3 /* MyImage.swift */; };
@@ -397,11 +395,7 @@
 				A92A88C728506B8700A71FCC /* PhotoCardsView.swift in Sources */,
 				3E9206CC284F343200D064E6 /* Recording.swift in Sources */,
 				3E9206C2284B24CF00D064E6 /* DateToStringVM.swift in Sources */,
-				77403C8C285193FE000A21EE /* QuickSignInWithApple.swift in Sources */,
-				A44B2974284F11A200CE3740 /* FlowerView.swift in Sources */,
 				77813AE22855B4B40084828D /* PillView.swift in Sources */,
-				77403C8C285193FE000A21EE /* QuickSignInWithApple.swift in Sources */,
-				A44B2974284F11A200CE3740 /* FlowerView.swift in Sources */,
 				C9CEAEC8284F151A00769E4E /* DateValue.swift in Sources */,
 				77403C8A2850B7E9000A21EE /* SelectWhatToDoView.swift in Sources */,
 				A932622B284F2A9600E5C0A3 /* Picker.swift in Sources */,
@@ -537,7 +531,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"liveOn/Preview Content\"";
 				DEVELOPMENT_TEAM = C95YD9G273;
-				DEVELOPMENT_TEAM = VHT56LS632;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -545,6 +538,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -568,7 +562,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"liveOn/Preview Content\"";
 				DEVELOPMENT_TEAM = C95YD9G273;
-				DEVELOPMENT_TEAM = VHT56LS632;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -576,6 +569,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -22,7 +22,7 @@ struct FlowerListView: View {
                 .padding()
             
             LazyVGrid(columns: [GridItem(), GridItem(), GridItem()], spacing: 42) {
-                ForEach(0..<9, id: \.self) { value in
+                ForEach(0..<9, id: \.self) { _ in
                     ZStack {
                         Image("flower")
                             .resizable()

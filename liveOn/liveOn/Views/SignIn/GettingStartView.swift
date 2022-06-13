@@ -14,7 +14,7 @@ struct GettingStartView: View {
             VStack {
                 Text("liveOn")
                 Spacer()
-                QuickSignInWithApple()
+//                QuickSignInWithApple()
                     .frame(height: 60, alignment: .center)
 //                    .onTapGesture(perform: showAppleLoginView)
 //
