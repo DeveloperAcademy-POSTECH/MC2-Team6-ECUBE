@@ -12,13 +12,14 @@ struct CalendarMain: View {
     // 기념일 추가 Button
     @State var showSheet: Bool = false
     
+    // 달력에서 Date Picker로 날짜 이동 Button
+    @State var showDatePicker: Bool = false
+    
     // Month update on arrow button clicks
     @State var currentMonth: Int = 0
     
-    @State private var datecircleColor = Color("Orange")
-    @State private var yearColor = Color("Burgundy")
-    @State private var monthColor = Color("Burgundy")
-    @State private var dayoftheweekColor = Color.gray
+    @State private var orangeColor = Color("Orange")
+    @State private var burgundyColor = Color("Burgundy")
     
     @State private var holidaytitle: String = ""
     @State private var holidaymemo: String = ""
@@ -29,19 +30,7 @@ struct CalendarMain: View {
     @Binding var currentDate: Date
     
     @Environment(\.presentationMode) var presentationMode: Binding
-    
-    var btBack : some View { Button(action: {
-        self.presentationMode.wrappedValue.dismiss()
-    }) {
-        HStack {
-            Image(systemName: "chevron.left")
-                .font(.footnote)
-                .aspectRatio(contentMode: .fit)
-                .foregroundColor(.black)
-        }
-    }
-    }
-    
+        
     var body: some View {
         
         VStack(spacing: 20) {
@@ -58,7 +47,6 @@ struct CalendarMain: View {
                     }
                 } label: {
                     Image(systemName: "chevron.left")
-                    // 색상 변경 요소 chevron 통일
                         .foregroundColor(.black)
                         .font(.title2)
                 }
@@ -67,28 +55,29 @@ struct CalendarMain: View {
                 
                 Text(extraDate(currentDate: self.currentDate)[0])
                     .font(.title.bold())
-                // 색상 변경 요소
-                    .foregroundColor(yearColor)
+                    .foregroundColor(burgundyColor)
                 
                 Text(".")
                     .font(.title.bold())
-                    .foregroundColor(yearColor)
+                    .foregroundColor(burgundyColor)
                 
                 Text(extraDate(currentDate: self.currentDate)[1])
                     .font(.title.bold())
-                // 색상 변경 요소
-                    .foregroundColor(monthColor)
+                    .foregroundColor(burgundyColor)
                 
-                // 휠피커 구현하기
+                // 피커 구현하기
                 Button {
-                    withAnimation {
-                        self.currentDate =  self.moveCurrentMonth(isUp: true)
-                    }
+                    showDatePicker.toggle()
                 } label: {
-                    Image(systemName: "chevron.down")
-                    // 색상 변경 요소 chevron 통일
-                        .foregroundColor(yearColor)
-                        .font(.caption2)
+                    Image(systemName: "calendar")
+                        .foregroundColor(burgundyColor)
+                        .font(.subheadline)
+                        .fullScreenCover(isPresented: $showDatePicker, content: {
+                            MoveDateButton(autoDate: self.currentDate,
+                                           currentDate: $currentDate,
+                                           showDatePicker: $showDatePicker
+                            )
+                        })
                 }
                 .padding(.leading, 6)
                 
@@ -100,7 +89,6 @@ struct CalendarMain: View {
                     }
                 } label: {
                     Image(systemName: "chevron.right")
-                    // 색상 변경 요소 chevron 통일
                         .foregroundColor(.black)
                         .font(.title2)
                 }
@@ -111,24 +99,22 @@ struct CalendarMain: View {
             .padding(.horizontal)
             
             // Day View
-            
             HStack(spacing: 0) {
                 ForEach(days, id: \.self) {day in
                     
                     Text(day)
                         .font(.callout)
                         .fontWeight(.semibold)
-                    // 색상 변경 요소
-                        .foregroundColor(dayoftheweekColor)
+                        .foregroundColor(.gray)
                         .frame(maxWidth: .infinity)
                 }
             }
             
             // Dates
             // Lazy Grid
-            let columns = Array(repeating: GridItem(.flexible()), count: 7)
+            let columns = Array(repeating: GridItem(.flexible(), spacing: 0, alignment: nil), count: 7)
             
-            LazyVGrid(columns: columns) {
+            LazyVGrid(columns: columns, spacing: 0) {
                 
                 ForEach(extractDate(currentDate: self.currentDate)) { value in
                     
@@ -136,10 +122,10 @@ struct CalendarMain: View {
                         .background(
                             
                             Circle()
-                                .fill(datecircleColor)
+                                .fill(orangeColor)
                                 .padding(.bottom, 49)
-                                .padding(.trailing, 27.8)
-                                .padding(.leading, 4)
+                                .padding(.trailing, 26)
+                                .padding(.leading, 5)
                                 .opacity(isSameDay(date1: value.date, date2: currentDate) ? 1 : 0)
                         )
                         .onTapGesture {
@@ -154,7 +140,6 @@ struct CalendarMain: View {
                     
                     Text("다가오는 기념일")
                         .font(.title2.bold())
-                    // 색상 변경 요소
                         .foregroundColor(Color("Burgundy"))
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.vertical, -10)
@@ -168,10 +153,11 @@ struct CalendarMain: View {
                             .font(.title3)
                             .foregroundColor(.black)
                             .sheet(isPresented: $showSheet, content: {
-                                PlusSetting(currentDate: $currentDate,
-                                holidaytitle: $holidaytitle,
-                                holidaymemo: $holidaymemo,
-                                emojitxt: $emojitxt)
+                                PlusSetting(moveDate: self.currentDate,
+                                            currentDate: $currentDate,
+                                            holidaytitle: $holidaytitle,
+                                            holidaymemo: $holidaymemo,
+                                            emojitxt: $emojitxt)
                             })
                     }
                 }
@@ -286,6 +272,20 @@ struct CalendarMain: View {
         }
     }
     
+    // 뒤로가기 버튼 커스텀
+    var btBack : some View {
+        Button(action: {
+            self.presentationMode.wrappedValue.dismiss()
+        }) {
+            HStack {
+                Image(systemName: "chevron.left")
+                    .font(.footnote)
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundColor(.black)
+            }
+        }
+    }
+    
     @ViewBuilder
     func CardView(value: DateValue)->some View {
         
@@ -293,37 +293,19 @@ struct CalendarMain: View {
             
             if value.day != -1 {
                 
-                if let memo = memos.first(where: { memo in
-                    
-                    return isSameDay(date1: memo.memoDate, date2: value.date)
-                }) {
-                    Text("\(value.day)")
-                        .font(.callout)
-                        .foregroundColor(isSameDay(date1: memo.memoDate, date2: currentDate) ?
-                                         // 색상 변경 요소 (메모 있는 특별 날짜 글자)
-                            .white : .gray)
-                        .padding(.leading, 8)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    
-                    Spacer()
-                    
-                } else {
-                    
-                    Text("\(value.day)")
-                        .font(.callout)
-                        .foregroundColor(isSameDay(date1: value.date, date2: currentDate) ?
-                                         // 색상 변경 요소 (메모 없는 기본 날짜 글자)
-                            .white : .gray)
-                        .padding(.leading, 8)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    
-                    Spacer()
-                }
+                Text("\(value.day)")
+                    .font(.callout)
+                    .foregroundColor(isSameDay(date1: value.date, date2: currentDate) ?
+                        .white : .gray)
+                    .padding(.leading, 8)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                
+                Spacer()
             }
         }
         .padding(.vertical, 6)
         .frame(height: 80, alignment: .top)
-        .border(Color.gray, width: 1)
+        .border(Color(uiColor: .systemGray3), width: 0.16)
     }
     
     // Checking dates

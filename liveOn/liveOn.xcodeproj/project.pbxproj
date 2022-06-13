@@ -50,10 +50,10 @@
 		C92B3BE5285175070010C49A /* PhotoGiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9326228284F2A2800E5C0A3 /* PhotoGiftView.swift */; };
 		C9CEAEC8284F151A00769E4E /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAEC7284F151A00769E4E /* DateValue.swift */; };
 		C9CEAECB284F15DA00769E4E /* CalendarMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAECA284F15DA00769E4E /* CalendarMain.swift */; };
-		C9CEAECD284F164100769E4E /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAECC284F164100769E4E /* Memo.swift */; };
 		C9CEAECE284F17E300769E4E /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77196618284C6FA9002E6AC0 /* ColorExtension.swift */; };
 		C9CEAED0284F18FA00769E4E /* CalendarBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAECF284F18FA00769E4E /* CalendarBack.swift */; };
 		C9CEAED6284F394A00769E4E /* PlusSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAED5284F394A00769E4E /* PlusSetting.swift */; };
+		C9FE9E0828571F71007B6EA5 /* MoveDateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FE9E0728571F71007B6EA5 /* MoveDateButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,9 +103,9 @@
 		A9326230284F2B0700E5C0A3 /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
 		C9CEAEC7284F151A00769E4E /* DateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
 		C9CEAECA284F15DA00769E4E /* CalendarMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMain.swift; sourceTree = "<group>"; };
-		C9CEAECC284F164100769E4E /* Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
 		C9CEAECF284F18FA00769E4E /* CalendarBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarBack.swift; sourceTree = "<group>"; };
 		C9CEAED5284F394A00769E4E /* PlusSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusSetting.swift; sourceTree = "<group>"; };
+		C9FE9E0728571F71007B6EA5 /* MoveDateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveDateButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,7 +145,6 @@
 				A932622A284F2A9600E5C0A3 /* Picker.swift */,
 				A932622E284F2AD400E5C0A3 /* ImagePicker.swift */,
 				A932622C284F2AA900E5C0A3 /* MyImage.swift */,
-				C9CEAECC284F164100769E4E /* Memo.swift */,
 				3E9206CB284F343200D064E6 /* Recording.swift */,
 				3E9206CF284F3BA300D064E6 /* Test.swift */,
 			);
@@ -291,6 +290,7 @@
 				C9CEAECF284F18FA00769E4E /* CalendarBack.swift */,
 				C9CEAECA284F15DA00769E4E /* CalendarMain.swift */,
 				C9CEAED5284F394A00769E4E /* PlusSetting.swift */,
+				C9FE9E0728571F71007B6EA5 /* MoveDateButton.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -425,11 +425,11 @@
 				A44EE04D2856C74B00CC25A0 /* PillListView.swift in Sources */,
 				77403C852850AA60000A21EE /* SetNicknameView.swift in Sources */,
 				773C1A58284F3B5500E93BFE /* TextLimiter.swift in Sources */,
-				C9CEAECD284F164100769E4E /* Memo.swift in Sources */,
 				77196614284B41E8002E6AC0 /* GiftBoxView.swift in Sources */,
 				773C1A54284F37F700E93BFE /* LetterListView.swift in Sources */,
 				A92A88C728506B8700A71FCC /* PhotoCardsView.swift in Sources */,
 				3E9206CC284F343200D064E6 /* Recording.swift in Sources */,
+				C9FE9E0828571F71007B6EA5 /* MoveDateButton.swift in Sources */,
 				3E9206C2284B24CF00D064E6 /* DateToStringVM.swift in Sources */,
 				77813AE22855B4B40084828D /* PillView.swift in Sources */,
 				C9CEAEC8284F151A00769E4E /* DateValue.swift in Sources */,
@@ -563,7 +563,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = liveOn/liveOn.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"liveOn/Preview Content\"";
 				DEVELOPMENT_TEAM = C95YD9G273;
@@ -582,6 +583,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alsehfdl.liveOn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = Min_liveon;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -594,7 +596,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = liveOn/liveOn.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"liveOn/Preview Content\"";
 				DEVELOPMENT_TEAM = C95YD9G273;
@@ -613,6 +616,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alsehfdl.liveOn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = Min_liveon;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
