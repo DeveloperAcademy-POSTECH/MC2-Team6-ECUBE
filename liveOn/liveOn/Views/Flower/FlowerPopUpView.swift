@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FlowerPopUpView: View {
+struct FlowerPopUpViewTest: View {
     
     @State var showPopUp: Bool = false
     
@@ -15,7 +15,7 @@ struct FlowerPopUpView: View {
         ZStack {
             Button(
                 action: {
-                    withAnimation(.linear(duration: 0.3)) {
+                    withAnimation(.linear(duration: 0.2)) {
                         showPopUp.toggle()
                     }},
                 label: {
@@ -23,42 +23,57 @@ struct FlowerPopUpView: View {
                 })
             
             if showPopUp {
-                PopUpView(popUpBoolean: $showPopUp)
+                FlowerPopUpView(popUpBoolean: $showPopUp)
             }
         }
         .background(.background)
     } // body
 }
 
-struct PopUpView: View {
+struct FlowerPopUpView: View {
     
     @Binding var popUpBoolean: Bool
     
     var body: some View {
         ZStack {
             
-            Color.white.opacity(popUpBoolean ? 0.3 : 0).edgesIgnoringSafeArea(.all)
+            Color.white.opacity(popUpBoolean ? 0.88 : 0).edgesIgnoringSafeArea(.all)
             
             VStack(alignment: .center) {
                 Button {
-                    withAnimation(.linear(duration: 0.3)) {
+                    withAnimation(.linear(duration: 0.24)) {
                         popUpBoolean = false
                     }
                 } label: {
                     Text("Dismiss")
                 }
                 
-                ZStack {
-                    RoundedRectangle(cornerRadius: 12)
-                        .stroke()
-                        .background(Color.white)
-                    
-                    FlowerCardView(content: flowerList[0])
-                        .padding()
+                VStack {
+                    ZStack {
+                            
+                        VStack {
+                            FlowerCardView(content: flowerList[0])
+                                .padding()
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 4)
+                                    .foregroundColor(.white)
+                                    .shadow(color: .gray, radius: 2, x: 2, y: 2)
+                                    .frame(height: 128, alignment: .center)
+                                VStack {
+                                    Text("엄지 손가락으로 장미 꽃을 피워")
+                                        .foregroundColor(.bodyTextColor)
+                                                                        
+                                    Text("20220613")
+                                        .foregroundColor(.bodyTextColor)
+                                        .padding(.top, 8)
+                                    
+                                } // VStack
+                            } // ZStack
+                        } // VStack
+                    } // VStack
+                    .frame(width: UIScreen.main.bounds.width * 0.7, height: UIScreen.main.bounds.height * 0.64, alignment: .center)
                     
                 } // VStack
-                .frame(width: UIScreen.main.bounds.width * 0.6, height: UIScreen.main.bounds.height * 0.64, alignment: .center)
-                
             } // VStack
         } // ZStack
     } // body
@@ -67,7 +82,7 @@ struct PopUpView: View {
 struct FlowerPopUpView_Previews: PreviewProvider {
     static var previews: some View {
         
-        FlowerPopUpView()
+        FlowerPopUpViewTest()
         
     }
 }

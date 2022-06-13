@@ -9,6 +9,8 @@ import SwiftUI
 
 struct FlowerListView: View {
     
+    @State var flowerClicked: Bool = false
+    
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
     
     var body: some View {
@@ -24,16 +26,21 @@ struct FlowerListView: View {
             LazyVGrid(columns: [GridItem(), GridItem(), GridItem()], spacing: 42) {
                 ForEach(0..<9, id: \.self) { _ in
                     ZStack {
-                        Image("flower")
-                            .resizable()
-                            .onTapGesture {
-                                ShowFlowerCardPopUp(clickedFlower: flowerList[0])
-                            }
+                        Button {
+                            flowerClicked.toggle()
+                        } label: {
+                            Image("flower")
+                                .resizable()
+                        }
                     }
                     .frame(width: UIScreen.main.bounds.width * 0.3, height: UIScreen.main.bounds.width * 0.18)
                 }
             }
             .padding()
+            
+            if flowerClicked {
+                FlowerPopUpView(popUpBoolean: $flowerClicked)
+            }
             
         } // ZStack
         .navigationTitle("꽃")
@@ -45,16 +52,8 @@ struct FlowerListView: View {
 
 struct FlowerListView_Previews: PreviewProvider {
     static var previews: some View {
-
+        
         FlowerListView()
-
+        
     }
 }
-
- func ShowFlowerCardPopUp(clickedFlower: Flower) {
-    
-    // Blur the background behind flower card
-    // Show Flower card on top of the FlowerListView
-    FlowerCardView(content: clickedFlower)
-    
- }
