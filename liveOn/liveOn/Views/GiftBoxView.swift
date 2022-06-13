@@ -114,7 +114,7 @@ struct GiftBoxView: View {
                     .padding(.top, 30)
             }
             Spacer()
-            NavigationLink(destination: Text("voiceMailListView")) {
+            NavigationLink(destination: FlowerListView()) {
                 Image("flowers")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
