@@ -18,6 +18,8 @@
 		3EBE437A2849B6D30085C7C6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBE43792849B6D30085C7C6 /* ContentView.swift */; };
 		3EBE437C2849B6D50085C7C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EBE437B2849B6D50085C7C6 /* Assets.xcassets */; };
 		3EBE437F2849B6D50085C7C6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EBE437E2849B6D50085C7C6 /* Preview Assets.xcassets */; };
+		3EC5EA8A2856C38100DEBA44 /* VoicemailCassetteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC5EA892856C38100DEBA44 /* VoicemailCassetteView.swift */; };
+		3EC5EA8C2856C6E400DEBA44 /* ConvertSecToMinAndHour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC5EA8B2856C6E400DEBA44 /* ConvertSecToMinAndHour.swift */; };
 		77196611284B3E61002E6AC0 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 77196610284B3E61002E6AC0 /* .swiftlint.yml */; };
 		77196614284B41E8002E6AC0 /* GiftBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77196613284B41E8002E6AC0 /* GiftBoxView.swift */; };
 		77196616284B4DC7002E6AC0 /* CreateGiftListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77196615284B4DC7002E6AC0 /* CreateGiftListView.swift */; };
@@ -61,6 +63,8 @@
 		3EBE43792849B6D30085C7C6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3EBE437B2849B6D50085C7C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EBE437E2849B6D50085C7C6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3EC5EA892856C38100DEBA44 /* VoicemailCassetteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicemailCassetteView.swift; sourceTree = "<group>"; };
+		3EC5EA8B2856C6E400DEBA44 /* ConvertSecToMinAndHour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertSecToMinAndHour.swift; sourceTree = "<group>"; };
 		77196610284B3E61002E6AC0 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; name = .swiftlint.yml; path = liveOn/.swiftlint.yml; sourceTree = "<group>"; };
 		77196613284B41E8002E6AC0 /* GiftBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftBoxView.swift; sourceTree = "<group>"; };
 		77196615284B4DC7002E6AC0 /* CreateGiftListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGiftListView.swift; sourceTree = "<group>"; };
@@ -154,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				3E9206BF284B249C00D064E6 /* VoicemailView.swift */,
+				3EC5EA892856C38100DEBA44 /* VoicemailCassetteView.swift */,
 			);
 			path = Voicemail;
 			sourceTree = "<group>";
@@ -204,6 +209,7 @@
 			children = (
 				77196618284C6FA9002E6AC0 /* ColorExtension.swift */,
 				A9326230284F2B0700E5C0A3 /* FileManager+Extension.swift */,
+				3EC5EA8B2856C6E400DEBA44 /* ConvertSecToMinAndHour.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -370,8 +376,10 @@
 				77196616284B4DC7002E6AC0 /* CreateGiftListView.swift in Sources */,
 				A932622D284F2AA900E5C0A3 /* MyImage.swift in Sources */,
 				C9CEAED6284F394A00769E4E /* PlusSetting.swift in Sources */,
+				3EC5EA8C2856C6E400DEBA44 /* ConvertSecToMinAndHour.swift in Sources */,
 				77403C882850AFEE000A21EE /* SetFirstDayView.swift in Sources */,
 				77403C832850AA60000A21EE /* SetBirthdayView.swift in Sources */,
+				3EC5EA8A2856C38100DEBA44 /* VoicemailCassetteView.swift in Sources */,
 				77403C842850AA60000A21EE /* User.swift in Sources */,
 				A932622F284F2AD400E5C0A3 /* ImagePicker.swift in Sources */,
 				3E9206B4284AE2B700D064E6 /* Model.swift in Sources */,

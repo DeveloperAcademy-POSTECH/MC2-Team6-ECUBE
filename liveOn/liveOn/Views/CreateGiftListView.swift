@@ -19,7 +19,7 @@ let items = [
     
     Item(itemImage: "picture", itemName: "폴라로이드", itemDescription: "폴라로이드 형태의 사진과 짧은 메세지", createItemView: AnyView(PhotoGiftView())),
     
-    Item(itemImage: "cassettes", itemName: "음성메세지", itemDescription: "짧은 음성메세지를 담은 카세트테이프", createItemView: AnyView(VoicemailView(title: " "))),
+    Item(itemImage: "cassettes", itemName: "음성메세지", itemDescription: "짧은 음성메세지를 담은 카세트테이프", createItemView: AnyView(VoicemailView())),
     
     Item(itemImage: "medicine", itemName: "영양제", itemDescription: "직접 이름을 지은 영양제와 짧은 메세지", createItemView: AnyView(Text("영양제뷰"))),
     
