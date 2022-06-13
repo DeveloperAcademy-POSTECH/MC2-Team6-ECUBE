@@ -23,8 +23,9 @@ let items = [
     
     Item(itemImage: "medicine", itemName: "영양제", itemDescription: "직접 이름을 지은 영양제와 짧은 메세지", createItemView: AnyView(PillView())),
     
-    Item(itemImage: "flower", itemName: "꽃", itemDescription: "따뜻한 꽃말과 함께 짧은 메세지.", createItemView: AnyView(FlowerView()))
-    ]
+    Item(itemImage: "flower", itemName: "꽃", itemDescription: "따뜻한 꽃말과 함께 짧은 메세지.", createItemView: AnyView(Text("꽃 선물 제작 뷰")))
+    // TODO: [teemo] FlowerView가 들어가도 This struct may not be available 이라는 메시지가 뜹니다..
+]
 
 struct CreateGiftListView: View {
     
