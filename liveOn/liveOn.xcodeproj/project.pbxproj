@@ -39,6 +39,9 @@
 		A44EE0492856C6E900CC25A0 /* Flower.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE0482856C6E900CC25A0 /* Flower.swift */; };
 		A44EE04B2856C71000CC25A0 /* Pill.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE04A2856C71000CC25A0 /* Pill.swift */; };
 		A44EE04D2856C74B00CC25A0 /* PillListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE04C2856C74B00CC25A0 /* PillListView.swift */; };
+		A44EE04F2856CF8600CC25A0 /* FlowerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE04E2856CF8600CC25A0 /* FlowerDetailView.swift */; };
+		A44EE0502856DEEB00CC25A0 /* FlowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE0472856C15400CC25A0 /* FlowerView.swift */; };
+		A44EE05128570DA900CC25A0 /* FlowerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE0462856C15400CC25A0 /* FlowerListView.swift */; };
 		A92A88C728506B8700A71FCC /* PhotoCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92A88C628506B8700A71FCC /* PhotoCardsView.swift */; };
 		A932622B284F2A9600E5C0A3 /* Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932622A284F2A9600E5C0A3 /* Picker.swift */; };
 		A932622D284F2AA900E5C0A3 /* MyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932622C284F2AA900E5C0A3 /* MyImage.swift */; };
@@ -91,6 +94,7 @@
 		A44EE0482856C6E900CC25A0 /* Flower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flower.swift; sourceTree = "<group>"; };
 		A44EE04A2856C71000CC25A0 /* Pill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pill.swift; sourceTree = "<group>"; };
 		A44EE04C2856C74B00CC25A0 /* PillListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillListView.swift; sourceTree = "<group>"; };
+		A44EE04E2856CF8600CC25A0 /* FlowerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerDetailView.swift; sourceTree = "<group>"; };
 		A92A88C628506B8700A71FCC /* PhotoCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCardsView.swift; sourceTree = "<group>"; };
 		A9326228284F2A2800E5C0A3 /* PhotoGiftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGiftView.swift; sourceTree = "<group>"; };
 		A932622A284F2A9600E5C0A3 /* Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picker.swift; sourceTree = "<group>"; };
@@ -267,6 +271,7 @@
 				A44EE0462856C15400CC25A0 /* FlowerListView.swift */,
 				A44EE0472856C15400CC25A0 /* FlowerView.swift */,
 				A44EE0482856C6E900CC25A0 /* Flower.swift */,
+				A44EE04E2856CF8600CC25A0 /* FlowerDetailView.swift */,
 			);
 			path = Flower;
 			sourceTree = "<group>";
@@ -393,6 +398,7 @@
 				77196616284B4DC7002E6AC0 /* CreateGiftListView.swift in Sources */,
 				A44EE0492856C6E900CC25A0 /* Flower.swift in Sources */,
 				A932622D284F2AA900E5C0A3 /* MyImage.swift in Sources */,
+				A44EE04F2856CF8600CC25A0 /* FlowerDetailView.swift in Sources */,
 				A44EE04B2856C71000CC25A0 /* Pill.swift in Sources */,
 				C9CEAED6284F394A00769E4E /* PlusSetting.swift in Sources */,
 				3EC5EA8C2856C6E400DEBA44 /* ConvertSecToMinAndHour.swift in Sources */,
@@ -407,6 +413,7 @@
 				3E9206D0284F3BA300D064E6 /* Test.swift in Sources */,
 				C9CEAECE284F17E300769E4E /* ColorExtension.swift in Sources */,
 				77403C862850AA60000A21EE /* GettingStartView.swift in Sources */,
+				A44EE0502856DEEB00CC25A0 /* FlowerView.swift in Sources */,
 				3EBE437A2849B6D30085C7C6 /* ContentView.swift in Sources */,
 				773C1A52284F37E400E93BFE /* Letter.swift in Sources */,
 				773C1A56284F3A5800E93BFE /* CreateLetterView.swift in Sources */,
@@ -419,6 +426,7 @@
 				773C1A58284F3B5500E93BFE /* TextLimiter.swift in Sources */,
 				C9CEAECD284F164100769E4E /* Memo.swift in Sources */,
 				77196614284B41E8002E6AC0 /* GiftBoxView.swift in Sources */,
+				A44EE05128570DA900CC25A0 /* FlowerListView.swift in Sources */,
 				773C1A54284F37F700E93BFE /* LetterListView.swift in Sources */,
 				A92A88C728506B8700A71FCC /* PhotoCardsView.swift in Sources */,
 				3E9206CC284F343200D064E6 /* Recording.swift in Sources */,
