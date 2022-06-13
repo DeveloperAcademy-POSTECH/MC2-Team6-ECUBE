@@ -36,6 +36,7 @@ struct CreateGiftListView: View {
                     .foregroundColor(.bodyTextColor)
                     .multilineTextAlignment(.center)
                     .padding(12)
+                
                 VStack(alignment: .leading, spacing: 18) {
                     ForEach(items) { item in
                         GiftItem(item: item)
@@ -55,9 +56,8 @@ struct CreateGiftListView: View {
 extension CreateGiftListView {
     struct GiftItem: View {
         let item: Item
-        @EnvironmentObject var store: LetterStore
         var body: some View {
-            NavigationLink(destination: item.createItemView .environmentObject(store)) {
+            NavigationLink(destination: item.createItemView) {
                 HStack(alignment: .center, spacing: 16) {
                     Image(item.itemImage)
                         .resizable()
