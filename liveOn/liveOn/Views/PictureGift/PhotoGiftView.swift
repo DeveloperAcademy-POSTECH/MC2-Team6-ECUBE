@@ -1,8 +1,9 @@
 import SwiftUI
 
 struct PhotoGiftView: View {
-    @StateObject var imageModel = imageViewModel()
+    @EnvironmentObject var imageModeling: imageViewModel
     @Environment(\.dismiss) private var dismiss
+    @StateObject var imageModel = imageViewModel()
     @State private var comment: String = ""
     @State private var showAlertforSend: Bool = false
     @State private var isTapped: Bool = false
@@ -47,7 +48,6 @@ struct PhotoGiftView: View {
             .background(Color.white
                 .shadow(color: Color.black.opacity(0.25), radius: 4, x: 0, y: 4))
             .navigationBarBackButtonHidden(true)
-            // 상단바 커스텀
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
@@ -67,9 +67,7 @@ struct PhotoGiftView: View {
                     }
                     .alert(isPresented: $showAlertforSend) {
                         Alert(title: Text("선물 보내기"), message: Text("선물은 하루에 하나만 보낼 수 있어요. 사진을 보낼까요?"), primaryButton: .cancel(Text("취소")), secondaryButton: .default(Text("보내기")) {
-                            isTapped.toggle()
-                            imageModel.backToFirst.toggle()
-                        }
+                            isTapped.toggle()                        }
                         )
                     }
                 }
@@ -78,16 +76,13 @@ struct PhotoGiftView: View {
                         .foregroundColor(.black)
                 }
             }
-            
-            // 앨범 접근 및 사진선택
             .sheet(isPresented: $imageModel.showPicker) {
                 ImagePicker(sourceType: imageModel.source == .library ? .photoLibrary : .camera, selectedImage: $imageModel.image)
                     .ignoresSafeArea()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.background)
-        } // 화면 내 다른 곳 터치시 키보드 숨기기
-        
+        }
         .onTapGesture {
             hideKeyboard()
         }
