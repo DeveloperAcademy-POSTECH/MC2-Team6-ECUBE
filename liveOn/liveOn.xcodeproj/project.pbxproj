@@ -50,6 +50,7 @@
 		C9CEAECE284F17E300769E4E /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77196618284C6FA9002E6AC0 /* ColorExtension.swift */; };
 		C9CEAED0284F18FA00769E4E /* CalendarBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAECF284F18FA00769E4E /* CalendarBack.swift */; };
 		C9CEAED6284F394A00769E4E /* PlusSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAED5284F394A00769E4E /* PlusSetting.swift */; };
+		C9FE9E0828571F71007B6EA5 /* MoveDateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FE9E0728571F71007B6EA5 /* MoveDateButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +101,7 @@
 		C9CEAECA284F15DA00769E4E /* CalendarMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMain.swift; sourceTree = "<group>"; };
 		C9CEAECF284F18FA00769E4E /* CalendarBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarBack.swift; sourceTree = "<group>"; };
 		C9CEAED5284F394A00769E4E /* PlusSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusSetting.swift; sourceTree = "<group>"; };
+		C9FE9E0728571F71007B6EA5 /* MoveDateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveDateButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,6 +285,7 @@
 				C9CEAECF284F18FA00769E4E /* CalendarBack.swift */,
 				C9CEAECA284F15DA00769E4E /* CalendarMain.swift */,
 				C9CEAED5284F394A00769E4E /* PlusSetting.swift */,
+				C9FE9E0728571F71007B6EA5 /* MoveDateButton.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				773C1A54284F37F700E93BFE /* LetterListView.swift in Sources */,
 				A92A88C728506B8700A71FCC /* PhotoCardsView.swift in Sources */,
 				3E9206CC284F343200D064E6 /* Recording.swift in Sources */,
+				C9FE9E0828571F71007B6EA5 /* MoveDateButton.swift in Sources */,
 				3E9206C2284B24CF00D064E6 /* DateToStringVM.swift in Sources */,
 				77813AE22855B4B40084828D /* PillView.swift in Sources */,
 				C9CEAEC8284F151A00769E4E /* DateValue.swift in Sources */,
