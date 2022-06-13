@@ -45,7 +45,9 @@ struct SelectWhatToDoView: View {
             )
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                NavigationLink(destination: GiftBoxView().environmentObject(currentUser)) {
+                NavigationLink(destination: GiftBoxView()
+                    .navigationBarHidden(true)
+                    .environmentObject(currentUser)) {
                     Text("다음")
                 }
                 .buttonStyle(.plain)
