@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct PhotoGiftView: View {
-    @EnvironmentObject var imageViewModel: imageViewModel
+    @StateObject var imageModel = imageViewModel()
     @Environment(\.dismiss) private var dismiss
     @State private var comment: String = ""
     @State private var showAlertforSend: Bool = false
@@ -15,10 +15,10 @@ struct PhotoGiftView: View {
             
             VStack {
                 Button {
-                    imageViewModel.source = .library
-                    imageViewModel.showPhotoPicker()
+                    imageModel.source = .library
+                    imageModel.showPhotoPicker()
                 } label: {
-                    if let image = imageViewModel.image {
+                    if let image = imageModel.image {
                         Image(uiImage: image)
                             .resizable()
                             .scaledToFit()
@@ -68,6 +68,7 @@ struct PhotoGiftView: View {
                     .alert(isPresented: $showAlertforSend) {
                         Alert(title: Text("선물 보내기"), message: Text("선물은 하루에 하나만 보낼 수 있어요. 사진을 보낼까요?"), primaryButton: .cancel(Text("취소")), secondaryButton: .default(Text("보내기")) {
                             isTapped.toggle()
+                            imageModel.backToFirst.toggle()
                         }
                         )
                     }
@@ -79,8 +80,8 @@ struct PhotoGiftView: View {
             }
             
             // 앨범 접근 및 사진선택
-            .sheet(isPresented: $imageViewModel.showPicker) {
-                ImagePicker(sourceType: imageViewModel.source == .library ? .photoLibrary : .camera, selectedImage: $imageViewModel.image)
+            .sheet(isPresented: $imageModel.showPicker) {
+                ImagePicker(sourceType: imageModel.source == .library ? .photoLibrary : .camera, selectedImage: $imageModel.image)
                     .ignoresSafeArea()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
