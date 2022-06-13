@@ -169,9 +169,9 @@ struct CalendarMain: View {
                             .foregroundColor(.black)
                             .sheet(isPresented: $showSheet, content: {
                                 PlusSetting(currentDate: $currentDate,
-                                holidaytitle: $holidaytitle,
-                                holidaymemo: $holidaymemo,
-                                emojitxt: $emojitxt)
+                                            holidaytitle: $holidaytitle,
+                                            holidaymemo: $holidaymemo,
+                                            emojitxt: $emojitxt)
                             })
                     }
                 }
@@ -293,32 +293,14 @@ struct CalendarMain: View {
             
             if value.day != -1 {
                 
-                if let memo = memos.first(where: { memo in
-                    
-                    return isSameDay(date1: memo.memoDate, date2: value.date)
-                }) {
-                    Text("\(value.day)")
-                        .font(.callout)
-                        .foregroundColor(isSameDay(date1: memo.memoDate, date2: currentDate) ?
-                                         // 색상 변경 요소 (메모 있는 특별 날짜 글자)
-                            .white : .gray)
-                        .padding(.leading, 8)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    
-                    Spacer()
-                    
-                } else {
-                    
-                    Text("\(value.day)")
-                        .font(.callout)
-                        .foregroundColor(isSameDay(date1: value.date, date2: currentDate) ?
-                                         // 색상 변경 요소 (메모 없는 기본 날짜 글자)
-                            .white : .gray)
-                        .padding(.leading, 8)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    
-                    Spacer()
-                }
+                Text("\(value.day)")
+                    .font(.callout)
+                    .foregroundColor(isSameDay(date1: value.date, date2: currentDate) ?
+                        .white : .gray)
+                    .padding(.leading, 8)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                
+                Spacer()
             }
         }
         .padding(.vertical, 6)
