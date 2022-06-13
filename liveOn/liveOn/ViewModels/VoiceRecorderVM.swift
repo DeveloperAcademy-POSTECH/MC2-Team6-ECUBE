@@ -33,6 +33,7 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
         fetchAllRecording()
     }
     
+    
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
        
         for i in 0..<recordingsList.count {
@@ -42,6 +43,8 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
         }
     }
     
+    
+    // MARK: 녹음 시작하는 함수
     func startRecording() {
         
         let recordingSession = AVAudioSession.sharedInstance()
@@ -53,13 +56,14 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
         }
         
         let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let fileName = path.appendingPathComponent("CO-Voice : \(Date().toString(dateFormat: "dd-MM-YY 'at' HH:mm:ss")).m4a")
+        let fileName = path.appendingPathComponent("live-On : \(Date().toString(dateFormat: "dd-MM-YY 'at' HH:mm:ss")).m4a")
         
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
             AVSampleRateKey: 12000,
             AVNumberOfChannelsKey: 1,
             AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
+            
         ]
         
         do {
@@ -78,6 +82,8 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
         }
     }
     
+    
+    // MARK: 녹음 완료했을 시 녹음 멈추는 함수
     func stopRecording() {
         
         audioRecorder.stop()
@@ -87,10 +93,11 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
         self.countSec = 0
         
         timerCount!.invalidate()
-//        blinkingCount!.invalidate()
         
     }
     
+    
+    // MARK: 녹음한 파일들 모두 가져오기
     func fetchAllRecording() {
         
         let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -104,6 +111,8 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
         
     }
     
+    
+    // MARK: 녹음한 파일 다시 들어보는 함수
     func startPlaying(url: URL) {
         
         playingURL = url
@@ -133,8 +142,9 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
         }
         
     }
-
-    // 제작한 Recordings 재생중인 것 멈추기
+    
+    
+    // MARK: 제작한 Recordings 재생 후 멈추기
     func stopPlaying(url: URL) {
         
         audioPlayer.stop()
@@ -145,7 +155,10 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
             }
         }
     }
- 
+    
+    
+    // MARK: recordingsList에 있는 녹음 파일 하나를 삭제하는 함수
+    // 테스트 과정에서만 사용
     func deleteRecording(url: URL) {
         
         do {
@@ -167,14 +180,8 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
         }
     }
     
-//    func blinkColor() {
-//
-//        blinkingCount = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true, block: { (_) in
-//            self.toggleColor.toggle()
-//        })
-//
-//    }
     
+    // MARK: 녹음된 날짜 YYMMDD 형식으로 가져오는 함수
     func getFileDate(for file: URL) -> Date {
         if let attributes = try? FileManager.default.attributesOfItem(atPath: file.path) as [FileAttributeKey: Any],
             let creationDate = attributes[FileAttributeKey.creationDate] as? Date {
@@ -184,6 +191,18 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
         }
     }
     
+    
+    // MARK: 녹음 파일 이름 가져오는 함수
+    func getFileName(for file: URL) -> String {
+        
+        print(file.lastPathComponent)
+        return file.lastPathComponent
+        
+    }
+    
+    
+    // MARK: recordingsList에 어떤 파일들 있는지 terminal에 보여주는 함수
+    // 테스트 과정에서만 사용
     func showFiles() {
         for recording in recordingsList {
             print(DateToString(recording.createdAt))
@@ -191,6 +210,9 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
         print(recordingsList.count)
     }
     
+    
+    // MARK: recordingsList에 있는 녹음 파일들 다 삭제하는 함수
+    // 녹음 완료 후 다시 녹음 버튼 누르면 실행됨
     func deleteAllRecordings() {
         
         for i in 0..<recordingsList.count {
@@ -203,6 +225,9 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
         recordingsList.removeAll()
     }
     
+    
+    // MARK: 현재 녹음파일을 보낼 수 있는 상태인지 확인
+    // 제목 & 녹음파일 모두 있어야지 보낼 수 있음
     func canSend() -> Bool {
         var check: Bool = false
         
@@ -214,4 +239,7 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
         return check
     }
     
+    func uploadRecording() {
+        
+    }
 }
