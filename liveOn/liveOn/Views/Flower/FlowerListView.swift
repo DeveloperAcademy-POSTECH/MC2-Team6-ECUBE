@@ -51,10 +51,10 @@ struct FlowerListView_Previews: PreviewProvider {
     }
 }
 
-func ShowFlowerCardPopUp(clickedFlower: Flower) {
+ func ShowFlowerCardPopUp(clickedFlower: Flower) {
     
     // Blur the background behind flower card
     // Show Flower card on top of the FlowerListView
     FlowerCardView(content: clickedFlower)
     
-}
+ }
