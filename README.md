@@ -7,7 +7,8 @@
 
 ## :people_hugging: Authors
 
-- []() | [@Seongmin Lee](https://www.github.com/seongmin221) | [@teemo](https://www.github.com/teethemoji) | []() | []() | []()
+
+- [@Minseok Keum](https://github.com/italsehf) | [@Seongmin Lee](https://www.github.com/seongmin221) | [@teemo](https://www.github.com/teethemoji) | []() | []() | []()
 
 
 ## :framed_picture: Demo

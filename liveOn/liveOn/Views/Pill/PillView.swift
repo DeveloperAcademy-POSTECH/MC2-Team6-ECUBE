@@ -73,7 +73,7 @@ struct PillBodyView: View {
         .padding(.vertical, 36)
         
         VStack {
-            if (isShowingPopover) {
+            if isShowingPopover {
                 ZStack(alignment: .center) {
                     
                     // 임시입니다... 말풍선
