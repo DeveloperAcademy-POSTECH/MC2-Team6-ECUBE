@@ -17,8 +17,10 @@ struct CalendarBack: View {
         ScrollView(.vertical, showsIndicators: false) {
             
             VStack(spacing: 20) {
-                CalendarMain(bgColor: $bgColor,
-                currentDate: $currentDate)
+                CalendarMain(
+//                    autoDate: self.currentDate,
+                             bgColor: $bgColor,
+                             currentDate: $currentDate)
             }
             .padding(.vertical)
             .background(bgColor)

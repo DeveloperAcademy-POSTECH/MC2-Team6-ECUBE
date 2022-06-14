@@ -25,250 +25,254 @@ struct CalendarMain: View {
     @State private var holidaymemo: String = ""
     @State private var emojitxt: String = ""
     @State var holidaydate: String = ""
-    
+        
     @Binding var bgColor: Color
     @Binding var currentDate: Date
     
-    @Environment(\.presentationMode) var presentationMode: Binding
-        
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         
-        VStack(spacing: 20) {
-            
-            // Days
-            let days: [String] =
-            ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
-            
-            HStack(spacing: 1) {
-                
-                Button {
-                    withAnimation {
-                        self.currentDate = self.moveCurrentMonth(isUp: false)
-                    }
-                } label: {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.black)
-                        .font(.title2)
-                }
-                
-                Spacer(minLength: 0)
-                
-                Text(extraDate(currentDate: self.currentDate)[0])
-                    .font(.title.bold())
-                    .foregroundColor(burgundyColor)
-                
-                Text(".")
-                    .font(.title.bold())
-                    .foregroundColor(burgundyColor)
-                
-                Text(extraDate(currentDate: self.currentDate)[1])
-                    .font(.title.bold())
-                    .foregroundColor(burgundyColor)
-                
-                // 피커 구현하기
-                Button {
-                    showDatePicker.toggle()
-                } label: {
-                    Image(systemName: "calendar")
-                        .foregroundColor(burgundyColor)
-                        .font(.subheadline)
-                        .fullScreenCover(isPresented: $showDatePicker, content: {
-                            MoveDateButton(autoDate: self.currentDate,
-                                           currentDate: $currentDate,
-                                           showDatePicker: $showDatePicker
-                            )
-                        })
-                }
-                .padding(.leading, 6)
-                
-                Spacer(minLength: 0)
-                
-                Button {
-                    withAnimation {
-                        self.currentDate =  self.moveCurrentMonth(isUp: true)
-                    }
-                } label: {
-                    Image(systemName: "chevron.right")
-                        .foregroundColor(.black)
-                        .font(.title2)
-                }
-            }
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarBackButtonHidden(true)
-            .navigationBarItems(leading: btBack)
-            .padding(.horizontal)
-            
-            // Day View
-            HStack(spacing: 0) {
-                ForEach(days, id: \.self) {day in
+        ZStack {
+            VStack(spacing: 20) {
                     
-                    Text(day)
-                        .font(.callout)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.gray)
-                        .frame(maxWidth: .infinity)
-                }
-            }
-            
-            // Dates
-            // Lazy Grid
-            let columns = Array(repeating: GridItem(.flexible(), spacing: 0, alignment: nil), count: 7)
-            
-            LazyVGrid(columns: columns, spacing: 0) {
-                
-                ForEach(extractDate(currentDate: self.currentDate)) { value in
+                    // Days
+                    let days: [String] =
+                    ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
                     
-                    CardView(value: value)
-                        .background(
-                            
-                            Circle()
-                                .fill(orangeColor)
-                                .padding(.bottom, 49)
-                                .padding(.trailing, 26)
-                                .padding(.leading, 5)
-                                .opacity(isSameDay(date1: value.date, date2: currentDate) ? 1 : 0)
-                        )
-                        .onTapGesture {
-                            currentDate = value.date
+                    HStack(spacing: 1) {
+                        
+                        Button {
+                            withAnimation {
+                                self.currentDate = self.moveCurrentMonth(isUp: false)
+                            }
+                        } label: {
+                            Image(systemName: "chevron.left")
+                                .foregroundColor(.black)
+                                .font(.title2)
                         }
-                }
-            }
-            
-            VStack(spacing: 10) {
-                
-                HStack {
-                    
-                    Text("다가오는 기념일")
-                        .font(.title2.bold())
-                        .foregroundColor(Color("Burgundy"))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.vertical, -10)
-                    
-                    Spacer(minLength: 0)
-                    
-                    Button(action: {
-                        showSheet.toggle()
-                    }) {
-                        Image(systemName: "plus")
-                            .font(.title3)
-                            .foregroundColor(.black)
-                            .sheet(isPresented: $showSheet, content: {
-                                PlusSetting(moveDate: self.currentDate,
-                                            currentDate: $currentDate,
-                                            holidaytitle: $holidaytitle,
-                                            holidaymemo: $holidaymemo,
-                                            emojitxt: $emojitxt)
-                            })
+                        
+                        Spacer(minLength: 0)
+                        
+                        Text(extraDate(currentDate: self.currentDate)[0])
+                            .font(.title.bold())
+                            .foregroundColor(burgundyColor)
+                        
+                        Text(".")
+                            .font(.title.bold())
+                            .foregroundColor(burgundyColor)
+                        
+                        Text(extraDate(currentDate: self.currentDate)[1])
+                            .font(.title.bold())
+                            .foregroundColor(burgundyColor)
+                        
+                        // 메인 달력 날짜 고르는 DatePicker
+                        Button {
+                            showDatePicker.toggle()
+                        } label: {
+                            Image(systemName: "calendar")
+                                .foregroundColor(burgundyColor)
+                                .font(.subheadline)
+                        }
+                        .padding(.leading, 6)
+
+                        Spacer(minLength: 0)
+                        
+                        Button {
+                            withAnimation {
+                                self.currentDate =  self.moveCurrentMonth(isUp: true)
+                            }
+                        } label: {
+                            Image(systemName: "chevron.right")
+                                .foregroundColor(.black)
+                                .font(.title2)
+                        }
                     }
+                    .navigationBarTitleDisplayMode(.inline)
+                    .navigationBarBackButtonHidden(true)
+                    .navigationBarItems(leading: btBack)
+                    .padding(.horizontal)
+                    
+                    // Day View
+                    HStack(spacing: 0) {
+                        ForEach(days, id: \.self) {day in
+                            
+                            Text(day)
+                                .font(.callout)
+                                .fontWeight(.semibold)
+                                .foregroundColor(.gray)
+                                .frame(maxWidth: .infinity)
+                        }
+                    }
+                    
+                    // Dates
+                    // Lazy Grid
+                    let columns = Array(repeating: GridItem(.flexible(), spacing: 0, alignment: nil), count: 7)
+                    
+                    LazyVGrid(columns: columns, spacing: 0) {
+                        
+                        ForEach(extractDate(currentDate: self.currentDate)) { value in
+                            
+                            CardView(value: value)
+                                .background(
+                                    
+                                    Circle()
+                                        .fill(orangeColor)
+                                        .padding(.bottom, 49)
+                                        .padding(.trailing, 26)
+                                        .padding(.leading, 5)
+                                        .opacity(isSameDay(date1: value.date, date2: currentDate) ? 1 : 0)
+                                )
+                                .onTapGesture {
+                                    currentDate = value.date
+                                }
+                        }
+                    }
+                    
+                    // 다가오는 기념일
+                    VStack(spacing: 10) {
+                        
+                        HStack {
+                            
+                            Text("다가오는 기념일")
+                                .font(.title2.bold())
+                                .foregroundColor(Color("Burgundy"))
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(.vertical, -10)
+                            
+                            Spacer(minLength: 0)
+                            
+                            Button(action: {
+                                showSheet.toggle()
+                            }) {
+                                Image(systemName: "plus")
+                                    .font(.title3)
+                                    .foregroundColor(.black)
+                                    .sheet(isPresented: $showSheet, content: {
+                                        PlusSetting(moveDate: self.currentDate,
+                                                    currentDate: $currentDate,
+                                                    holidaytitle: $holidaytitle,
+                                                    holidaymemo: $holidaymemo,
+                                                    emojitxt: $emojitxt)
+                                    })
+                            }
+                        }
+                        
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(Color.white)
+                                .frame(width: 355, height: 66)
+                            
+                            Capsule()
+                                .fill(Color("Burgundy"))
+                                .frame(width: 38, height: 8)
+                                .rotationEffect(Angle(degrees: 90))
+                                .offset(x: -173, y: 0)
+                            
+                            TextField("Emoji", text: $emojitxt, prompt: Text("🍫"))
+                                .limitInputLength(value: $emojitxt, length: 1)
+                                .multilineTextAlignment(TextAlignment.center)
+                                .font(.system(size: 28))
+                                .offset(x: -135, y: -8)
+                            
+                            Text("06/16") // 여기에 holidaydate 들어가면 될 듯
+                                .font(.system(size: 14))
+                                .foregroundColor(Color("Burgundy"))
+                                .offset(x: -135, y: 20)
+                            
+                            Text("초콜릿 먹는 날") // 여기에 holidaytitle 들어가면 될 듯
+                                .font(.system(size: 18).bold())
+                                .foregroundColor(Color("Burgundy"))
+                                .offset(x: -50, y: -12)
+                            
+                            Text("서로를 위해 허쉬 초콜릿 사오는 날") // 여기에 holidaymemo 들어가면 될 듯
+                                .font(.system(size: 14))
+                                .foregroundColor(Color.gray)
+                                .offset(x: -7, y: 16)
+                        }
+                        .padding(.top, 10)
+                        
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(Color.white)
+                                .frame(width: 355, height: 66)
+                            
+                            Capsule()
+                                .fill(Color("Burgundy"))
+                                .frame(width: 38, height: 8)
+                                .rotationEffect(Angle(degrees: 90))
+                                .offset(x: -173, y: 0)
+                            
+                            TextField("Emoji", text: $emojitxt, prompt: Text("🥂"))
+                                .limitInputLength(value: $emojitxt, length: 1)
+                                .multilineTextAlignment(TextAlignment.center)
+                                .font(.system(size: 28))
+                                .offset(x: -135, y: -8)
+                            
+                            Text("06/20") // 여기에 holidaydate 들어가면 될 듯
+                                .font(.system(size: 14))
+                                .foregroundColor(Color("Burgundy"))
+                                .offset(x: -135, y: 20)
+                            
+                            Text("칵테일 마시는 날") // 여기에 holidaytitle 들어가면 될 듯
+                                .font(.system(size: 18).bold())
+                                .foregroundColor(Color("Burgundy"))
+                                .offset(x: -42, y: -12)
+                            
+                            Text("분위기 있는 바 가서 칵테일 마시는 날") // 여기에 holidaymemo 들어가면 될 듯
+                                .font(.system(size: 14))
+                                .foregroundColor(Color.gray)
+                                .offset(x: 2, y: 16)
+                        }
+                        .padding(.top, 2)
+                        
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(Color.white)
+                                .frame(width: 355, height: 66)
+                            
+                            Capsule()
+                                .fill(Color("Burgundy"))
+                                .frame(width: 38, height: 8)
+                                .rotationEffect(Angle(degrees: 90))
+                                .offset(x: -173, y: 0)
+                            
+                            TextField("Emoji", text: $emojitxt, prompt: Text("🌉"))
+                                .limitInputLength(value: $emojitxt, length: 1)
+                                .multilineTextAlignment(TextAlignment.center)
+                                .font(.system(size: 28))
+                                .offset(x: -135, y: -8)
+                            
+                            Text("06/24") // 여기에 holidaydate 들어가면 될 듯
+                                .font(.system(size: 14))
+                                .foregroundColor(Color("Burgundy"))
+                                .offset(x: -135, y: 20)
+                            
+                            Text("부산 놀러가는 날") // 여기에 holidaytitle 들어가면 될 듯
+                                .font(.system(size: 18).bold())
+                                .foregroundColor(Color("Burgundy"))
+                                .offset(x: -42, y: -12)
+                            
+                            Text("서로의 휴식을 위해 부산 놀러가는 날") // 여기에 holidaymemo 들어가면 될 듯
+                                .font(.system(size: 14))
+                                .foregroundColor(Color.gray)
+                                .offset(x: 0, y: 16)
+                        }
+                        .padding(.top, 2)
+                    }
+                    .padding()
                 }
-                
-                ZStack {
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(Color.white)
-                        .frame(width: 355, height: 66)
-                    
-                    Capsule()
-                        .fill(Color("Burgundy"))
-                        .frame(width: 38, height: 8)
-                        .rotationEffect(Angle(degrees: 90))
-                        .offset(x: -173, y: 0)
-                    
-                    TextField("Emoji", text: $emojitxt, prompt: Text("🍫"))
-                        .limitInputLength(value: $emojitxt, length: 1)
-                        .multilineTextAlignment(TextAlignment.center)
-                        .font(.system(size: 28))
-                        .offset(x: -135, y: -8)
-                    
-                    Text("06/16") // 여기에 holidaydate 들어가면 될 듯
-                        .font(.system(size: 14))
-                        .foregroundColor(Color("Burgundy"))
-                        .offset(x: -135, y: 20)
-                    
-                    Text("초콜릿 먹는 날") // 여기에 holidaytitle 들어가면 될 듯
-                        .font(.system(size: 18).bold())
-                        .foregroundColor(Color("Burgundy"))
-                        .offset(x: -50, y: -12)
-                    
-                    Text("서로를 위해 허쉬 초콜릿 사오는 날") // 여기에 holidaymemo 들어가면 될 듯
-                        .font(.system(size: 14))
-                        .foregroundColor(Color.gray)
-                        .offset(x: -7, y: 16)
-                }
-                .padding(.top, 10)
-                
-                ZStack {
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(Color.white)
-                        .frame(width: 355, height: 66)
-                    
-                    Capsule()
-                        .fill(Color("Burgundy"))
-                        .frame(width: 38, height: 8)
-                        .rotationEffect(Angle(degrees: 90))
-                        .offset(x: -173, y: 0)
-                    
-                    TextField("Emoji", text: $emojitxt, prompt: Text("🥂"))
-                        .limitInputLength(value: $emojitxt, length: 1)
-                        .multilineTextAlignment(TextAlignment.center)
-                        .font(.system(size: 28))
-                        .offset(x: -135, y: -8)
-                    
-                    Text("06/20") // 여기에 holidaydate 들어가면 될 듯
-                        .font(.system(size: 14))
-                        .foregroundColor(Color("Burgundy"))
-                        .offset(x: -135, y: 20)
-                    
-                    Text("칵테일 마시는 날") // 여기에 holidaytitle 들어가면 될 듯
-                        .font(.system(size: 18).bold())
-                        .foregroundColor(Color("Burgundy"))
-                        .offset(x: -42, y: -12)
-                    
-                    Text("분위기 있는 바 가서 칵테일 마시는 날") // 여기에 holidaymemo 들어가면 될 듯
-                        .font(.system(size: 14))
-                        .foregroundColor(Color.gray)
-                        .offset(x: 2, y: 16)
-                }
-                .padding(.top, 2)
-                
-                ZStack {
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(Color.white)
-                        .frame(width: 355, height: 66)
-                    
-                    Capsule()
-                        .fill(Color("Burgundy"))
-                        .frame(width: 38, height: 8)
-                        .rotationEffect(Angle(degrees: 90))
-                        .offset(x: -173, y: 0)
-                    
-                    TextField("Emoji", text: $emojitxt, prompt: Text("🌉"))
-                        .limitInputLength(value: $emojitxt, length: 1)
-                        .multilineTextAlignment(TextAlignment.center)
-                        .font(.system(size: 28))
-                        .offset(x: -135, y: -8)
-                    
-                    Text("06/24") // 여기에 holidaydate 들어가면 될 듯
-                        .font(.system(size: 14))
-                        .foregroundColor(Color("Burgundy"))
-                        .offset(x: -135, y: 20)
-                    
-                    Text("부산 놀러가는 날") // 여기에 holidaytitle 들어가면 될 듯
-                        .font(.system(size: 18).bold())
-                        .foregroundColor(Color("Burgundy"))
-                        .offset(x: -42, y: -12)
-                    
-                    Text("서로의 휴식을 위해 부산 놀러가는 날") // 여기에 holidaymemo 들어가면 될 듯
-                        .font(.system(size: 14))
-                        .foregroundColor(Color.gray)
-                        .offset(x: 0, y: 16)
-                }
-                .padding(.top, 2)
+                // updating Month...
+                .onChange(of: currentMonth) { _ in
+                    currentDate =  getCurrentMonth()
             }
-            .padding()
-        }
-        .onChange(of: currentMonth) { _ in
-            // updating Month...
-            currentDate =  getCurrentMonth()
+            // PopUpView 띄우는 코드
+            if showDatePicker {
+                MoveDateButton(autoDate: self.currentDate,
+                               currentDate: $currentDate,
+                               showDatePicker: $showDatePicker,
+                               popUpBoolean: $showDatePicker)
+            }
         }
     }
     
