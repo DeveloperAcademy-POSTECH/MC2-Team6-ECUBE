@@ -10,10 +10,9 @@ struct GeneralAPI {
     static let token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpbmciLCJyb2xlIjoiVVNFUiIsImV4cCI6MTY1NTA4ODY1NywiaWF0IjoxNjU1MDgzMjU3fQ.tJarmSRIK8vigZ_j3Mz_leFLVHPi1B3vvHCOGBqVzC8"
 }
 
-
 // API 목록들
 enum TestServices {
-    case login(param: LoginRequest) //파라미터로 스트럭트가 들어갑니다.
+    case login(param: LoginRequest) // 파라미터로 스트럭트가 들어갑니다.
     case imagePost(content: String, image: UIImage)
     case getTest
 }
