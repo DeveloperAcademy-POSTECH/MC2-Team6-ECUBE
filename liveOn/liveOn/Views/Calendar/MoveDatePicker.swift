@@ -22,6 +22,7 @@ struct MoveDatePicker: View {
             VStack {
                 DatePicker("Test", selection: $autoDate, displayedComponents: [.date])
                     .datePickerStyle(GraphicalDatePickerStyle())
+                    .applyTextColor(Color("Burgundy"))
                 
                 Color.gray.frame(height: CGFloat(1) / UIScreen.main.scale)
                     .padding(.top, -20)
