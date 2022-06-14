@@ -47,6 +47,10 @@
 		A932622D284F2AA900E5C0A3 /* MyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932622C284F2AA900E5C0A3 /* MyImage.swift */; };
 		A932622F284F2AD400E5C0A3 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932622E284F2AD400E5C0A3 /* ImagePicker.swift */; };
 		A9326231284F2B0700E5C0A3 /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9326230284F2B0700E5C0A3 /* FileManager+Extension.swift */; };
+		A96DE308285859FF00A06E1D /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = A96DE307285859FF00A06E1D /* CombineMoya */; };
+		A96DE30A285859FF00A06E1D /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = A96DE309285859FF00A06E1D /* Moya */; };
+		A96DE30C285859FF00A06E1D /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = A96DE30B285859FF00A06E1D /* ReactiveMoya */; };
+		A96DE30E285859FF00A06E1D /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = A96DE30D285859FF00A06E1D /* RxMoya */; };
 		C92B3BE5285175070010C49A /* PhotoGiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9326228284F2A2800E5C0A3 /* PhotoGiftView.swift */; };
 		C9CEAEC8284F151A00769E4E /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAEC7284F151A00769E4E /* DateValue.swift */; };
 		C9CEAECB284F15DA00769E4E /* CalendarMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAECA284F15DA00769E4E /* CalendarMain.swift */; };
@@ -113,7 +117,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A96DE30E285859FF00A06E1D /* RxMoya in Frameworks */,
+				A96DE308285859FF00A06E1D /* CombineMoya in Frameworks */,
+				A96DE30C285859FF00A06E1D /* ReactiveMoya in Frameworks */,
 				77403C9228524487000A21EE /* FSCalendar in Frameworks */,
+				A96DE30A285859FF00A06E1D /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +322,10 @@
 			name = liveOn;
 			packageProductDependencies = (
 				77403C9128524487000A21EE /* FSCalendar */,
+				A96DE307285859FF00A06E1D /* CombineMoya */,
+				A96DE309285859FF00A06E1D /* Moya */,
+				A96DE30B285859FF00A06E1D /* ReactiveMoya */,
+				A96DE30D285859FF00A06E1D /* RxMoya */,
 			);
 			productName = liveOn;
 			productReference = 3EBE43742849B6D30085C7C6 /* liveOn.app */;
@@ -345,6 +357,7 @@
 			mainGroup = 3EBE436B2849B6D30085C7C6;
 			packageReferences = (
 				77403C9028524487000A21EE /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				A96DE306285859FF00A06E1D /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = 3EBE43752849B6D30085C7C6 /* Products */;
 			projectDirPath = "";
@@ -655,6 +668,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		A96DE306285859FF00A06E1D /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -662,6 +683,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 77403C9028524487000A21EE /* XCRemoteSwiftPackageReference "FSCalendar" */;
 			productName = FSCalendar;
+		};
+		A96DE307285859FF00A06E1D /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A96DE306285859FF00A06E1D /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
+		};
+		A96DE309285859FF00A06E1D /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A96DE306285859FF00A06E1D /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		A96DE30B285859FF00A06E1D /* ReactiveMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A96DE306285859FF00A06E1D /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = ReactiveMoya;
+		};
+		A96DE30D285859FF00A06E1D /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A96DE306285859FF00A06E1D /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
