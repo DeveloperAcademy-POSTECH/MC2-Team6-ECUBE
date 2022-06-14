@@ -99,10 +99,10 @@ struct PhotoGiftView: View {
              switch response {
                  // 응답이 성공한다면
              case .success(let result):
-                 do{
+                 do {
                      print("전송되는 이미지 데이터는 다음과 같습니다 : \(imageViewModel.image!)")
                      testImageData = try result.map(ImageTestResponse.self)
-                 } catch(let err) {
+                 } catch let err {
                      print(err.localizedDescription)
                  }
              case .failure(let err):
@@ -111,4 +111,3 @@ struct PhotoGiftView: View {
          }
      }
 }
-

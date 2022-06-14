@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3E9206B4284AE2B700D064E6 /* ServerCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206B3284AE2B700D064E6 /* ServerCommunication.swift */; };
 		3E9206B6284AE2C400D064E6 /* imageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206B5284AE2C400D064E6 /* imageViewModel.swift */; };
 		3E9206C0284B249C00D064E6 /* VoicemailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206BF284B249C00D064E6 /* VoicemailView.swift */; };
 		3E9206C2284B24CF00D064E6 /* DateToStringVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206C1284B24CF00D064E6 /* DateToStringVM.swift */; };
@@ -39,8 +38,6 @@
 		A44EE0492856C6E900CC25A0 /* Flower.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE0482856C6E900CC25A0 /* Flower.swift */; };
 		A44EE04B2856C71000CC25A0 /* Pill.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE04A2856C71000CC25A0 /* Pill.swift */; };
 		A44EE04D2856C74B00CC25A0 /* PillListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE04C2856C74B00CC25A0 /* PillListView.swift */; };
-		A45BCC2828585465008279BB /* FlowerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE0462856C15400CC25A0 /* FlowerListView.swift */; };
-		A4DA9D2A28571ACE0038B34D /* FlowerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE0462856C15400CC25A0 /* FlowerListView.swift */; };
 		A4DA9D2B28571AD60038B34D /* FlowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE0472856C15400CC25A0 /* FlowerView.swift */; };
 		A4DA9D2D28571B4C0038B34D /* FlowerPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DA9D2C28571B4C0038B34D /* FlowerPopUpView.swift */; };
 		A92A88C728506B8700A71FCC /* PhotoCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92A88C628506B8700A71FCC /* PhotoCardsView.swift */; };
@@ -52,6 +49,8 @@
 		A96DE30A285859FF00A06E1D /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = A96DE309285859FF00A06E1D /* Moya */; };
 		A96DE30C285859FF00A06E1D /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = A96DE30B285859FF00A06E1D /* ReactiveMoya */; };
 		A96DE30E285859FF00A06E1D /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = A96DE30D285859FF00A06E1D /* RxMoya */; };
+		C91EB94A285868F100EB648B /* FlowerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE0462856C15400CC25A0 /* FlowerListView.swift */; };
+		C91EB94B2858692A00EB648B /* ServerCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206B3284AE2B700D064E6 /* ServerCommunication.swift */; };
 		C92B3BE5285175070010C49A /* PhotoGiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9326228284F2A2800E5C0A3 /* PhotoGiftView.swift */; };
 		C9CEAEC8284F151A00769E4E /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAEC7284F151A00769E4E /* DateValue.swift */; };
 		C9CEAECB284F15DA00769E4E /* CalendarMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAECA284F15DA00769E4E /* CalendarMain.swift */; };
@@ -408,6 +407,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C91EB94B2858692A00EB648B /* ServerCommunication.swift in Sources */,
+				C91EB94A285868F100EB648B /* FlowerListView.swift in Sources */,
 				C92B3BE5285175070010C49A /* PhotoGiftView.swift in Sources */,
 				77196616284B4DC7002E6AC0 /* CreateGiftListView.swift in Sources */,
 				A44EE0492856C6E900CC25A0 /* Flower.swift in Sources */,
@@ -421,10 +422,6 @@
 				77403C842850AA60000A21EE /* User.swift in Sources */,
 				A4DA9D2D28571B4C0038B34D /* FlowerPopUpView.swift in Sources */,
 				A932622F284F2AD400E5C0A3 /* ImagePicker.swift in Sources */,
-				A45BCC2828585465008279BB /* FlowerListView.swift in Sources */,
-				3E9206B4284AE2B700D064E6 /* Model.swift in Sources */,
-				A4DA9D2A28571ACE0038B34D /* FlowerListView.swift in Sources */,
-				3E9206B4284AE2B700D064E6 /* ServerCommunication.swift in Sources */,
 				77403C8F28519B04000A21EE /* SignInWithAppleViewModel.swift in Sources */,
 				C9CEAECB284F15DA00769E4E /* CalendarMain.swift in Sources */,
 				3E9206D0284F3BA300D064E6 /* Test.swift in Sources */,
