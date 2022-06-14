@@ -268,7 +268,7 @@ struct CalendarMain: View {
             }
             // PopUpView 띄우는 코드
             if showDatePicker {
-                MoveDateButton(autoDate: self.currentDate,
+                MoveDatePicker(autoDate: self.currentDate,
                                currentDate: $currentDate,
                                showDatePicker: $showDatePicker,
                                popUpBoolean: $showDatePicker)

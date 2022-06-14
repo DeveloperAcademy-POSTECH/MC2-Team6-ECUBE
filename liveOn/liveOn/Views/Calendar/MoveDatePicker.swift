@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MoveDateButton: View {
+struct MoveDatePicker: View {
     
     @State var autoDate: Date = Date()
     
