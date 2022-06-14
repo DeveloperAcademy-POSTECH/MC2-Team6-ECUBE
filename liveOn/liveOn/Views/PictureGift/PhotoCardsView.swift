@@ -24,6 +24,7 @@ struct PhotoCardsView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 NavigationLink(destination: GiftBoxView()
+                    .navigationBarHidden(true)
                     .environmentObject(User())){
                     Image(systemName: "chevron.left")
                         .font(.system(size: 20))

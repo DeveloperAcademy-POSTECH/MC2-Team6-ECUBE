@@ -13,8 +13,7 @@ struct GiftBoxView: View {
     @EnvironmentObject var currnetUser: User
     
     var body: some View {
-        
-        NavigationView {
+
             GeometryReader { proxy in
                 // 줄로 나눠서 변수로 만든 뒤, 일정 비율만큼의 크기로 그려지도록 함
                 VStack(alignment: .leading, spacing: 0) {
@@ -33,17 +32,15 @@ struct GiftBoxView: View {
                 .background(Color.background)
             }
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarHidden(true)
-//            .edgesIgnoringSafeArea(.all)
+            .edgesIgnoringSafeArea(.all)
         }
-    }
     
     // MARK: 상단 헤더 영역
     var header: some View {
         HStack(alignment: .center, spacing: 0) {
             coupleInfo
             Spacer()
-            NavigationLink(destination: CreateGiftListView(), isActive: $imageModel.backToFirst) {
+            NavigationLink(destination: CreateGiftListView()) {
                 Image(systemName: "gift")
                     .font(.title2)
                     .foregroundColor(.bodyTextColor)
