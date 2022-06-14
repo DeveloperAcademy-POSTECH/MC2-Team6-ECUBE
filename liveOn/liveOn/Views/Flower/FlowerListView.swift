@@ -25,7 +25,7 @@ struct FlowerListView: View {
             
             LazyVGrid(columns: [GridItem(), GridItem(), GridItem()], spacing: 42) {
                 ForEach(0..<9, id: \.self) { _ in
-                    ZStack{
+                    ZStack {
                         Button {
                             flowerClicked.toggle()
                         } label: {
