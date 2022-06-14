@@ -9,10 +9,9 @@ import SwiftUI
 
 struct GiftBoxView: View {
     @StateObject var storedLetter = LetterStore()
-
     @EnvironmentObject var imageModel: imageViewModel
     @EnvironmentObject var currnetUser: User
-    @State private var isActive = true
+    
     var body: some View {
         GeometryReader { proxy in
             // 줄로 나눠서 변수로 만든 뒤, 일정 비율만큼의 크기로 그려지도록 함
@@ -38,7 +37,7 @@ struct GiftBoxView: View {
             coupleInfo
             Spacer()
             NavigationLink(destination: CreateGiftListView()
-                .environmentObject(storedLetter), isActive: $imageModel.backToFirst) {
+                .environmentObject(storedLetter)) {
                 Image(systemName: "gift")
                     .font(.title2)
                     .foregroundColor(.bodyTextColor)

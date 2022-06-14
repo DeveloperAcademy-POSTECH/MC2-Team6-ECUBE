@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct PhotoGiftView: View {
-    @EnvironmentObject var imageViewModel: imageViewModel
+    @StateObject var imageViewModel: imageViewModel
     @Environment(\.dismiss) private var dismiss
     @State private var comment: String = ""
     @State private var showAlertforSend: Bool = false
@@ -93,9 +93,3 @@ struct PhotoGiftView: View {
     }
 }
 
-struct PictureGiftView_Previews: PreviewProvider {
-    static var previews: some View {
-        PhotoGiftView()
-            .environmentObject(imageViewModel())
-    }
-}

@@ -17,7 +17,7 @@ struct Item: Identifiable {
 let items = [
     Item(itemImage: "letters", itemName: "쪽지", itemDescription: "감성 꾹꾹 담은 메세지", createItemView: AnyView(CreateLetterView())),
     
-    Item(itemImage: "picture", itemName: "폴라로이드", itemDescription: "폴라로이드 형태의 사진과 짧은 메세지", createItemView: AnyView(PhotoGiftView())),
+    Item(itemImage: "picture", itemName: "폴라로이드", itemDescription: "폴라로이드 형태의 사진과 짧은 메세지", createItemView: AnyView(PhotoGiftView(imageViewModel: imageViewModel()))),
     
     Item(itemImage: "cassettes", itemName: "음성메세지", itemDescription: "짧은 음성메세지를 담은 카세트테이프", createItemView: AnyView(VoicemailView())),
     
