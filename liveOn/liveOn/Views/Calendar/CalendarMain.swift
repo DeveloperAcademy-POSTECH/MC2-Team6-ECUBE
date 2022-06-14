@@ -283,7 +283,7 @@ struct CalendarMain: View {
         }) {
             HStack {
                 Image(systemName: "chevron.left")
-                    .font(.footnote)
+                    .font(.subheadline)
                     .aspectRatio(contentMode: .fit)
                     .foregroundColor(.black)
             }
