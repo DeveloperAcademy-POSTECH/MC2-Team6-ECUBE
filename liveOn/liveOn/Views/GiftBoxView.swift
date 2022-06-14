@@ -111,7 +111,7 @@ struct GiftBoxView: View {
     // MARK: 약이랑 꽃
     var medicineAndFlower: some View {
         HStack(alignment: .top) {
-            NavigationLink(destination: Text("voiceMailListView")) {
+            NavigationLink(destination: PillListView()) {
                 Image("medicines")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -119,7 +119,7 @@ struct GiftBoxView: View {
                     .padding(.top, 30)
             }
             Spacer()
-            NavigationLink(destination: Text("voiceMailListView")) {
+            NavigationLink(destination: FlowerListView()) {
                 Image("flowers")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -149,10 +149,10 @@ struct GiftBoxView: View {
     }
 }
 
-//struct GiftBoxView_Previews: PreviewProvider {
+// struct GiftBoxView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        GiftBoxView()
 //            .environmentObject(imageViewModel())
 //            .environmentObject(User())
 //    }
-//}
+// }
