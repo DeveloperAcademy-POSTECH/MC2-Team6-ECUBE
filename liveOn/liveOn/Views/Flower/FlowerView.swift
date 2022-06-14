@@ -41,9 +41,6 @@ struct FlowerView: View {
                                     isitEntered = true
                                 }
                             }
-                            .alert("쪽지는 \(input.limit)글자까지만 쓸 수 있어요.", isPresented: $input.hasReachedLimit) {
-                                Button("확인", role: .cancel) {}
-                            }
                         
                         Text("(\(isitEntered ? input.value.count : 0)/\(input.limit))")
                             .foregroundColor(input.value.count < input.limit ? .bodyTextColor : .red)

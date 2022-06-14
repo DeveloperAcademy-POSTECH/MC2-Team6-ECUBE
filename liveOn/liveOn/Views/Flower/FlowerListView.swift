@@ -54,7 +54,7 @@ struct FlowerListView: View {
                 Text("이전에 받은 꽃은\n달력에서 확인할 수 있어요.")
                     .foregroundColor(Color(uiColor: .systemGray2))
                     .multilineTextAlignment(.center)
-                    .padding(.bottom, 96)
+                    .padding(.bottom, 32)
                                     
             } // VStack
             
