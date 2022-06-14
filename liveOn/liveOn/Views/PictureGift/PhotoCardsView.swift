@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct PhotoCardsView: View {
-    @EnvironmentObject var imageModel: imageViewModel
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
@@ -18,19 +17,14 @@ struct PhotoCardsView: View {
                 PhotoCard(imageName: "exampleImage2", text: "테스트2")
             }
             .frame(maxWidth: .infinity)
-            
+
         }
         .background(Color.background)
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
-                Button {
-                    if imageModel.backToFirst == true {
-                        imageModel.backToFirst.toggle()
-                    } else {
-                        dismiss()
-                    }
-                } label: {
+                NavigationLink(destination: GiftBoxView()
+                    .environmentObject(User())){
                     Image(systemName: "chevron.left")
                         .font(.system(size: 20))
                         .foregroundColor(.black)
@@ -45,21 +39,14 @@ struct PhotoCardsView: View {
     }
 }
 
-struct photoCardsView_Previews: PreviewProvider {
-    static var previews: some View {
-        PhotoCardsView()
-            .environmentObject(imageViewModel())
-    }
-}
-
 struct PhotoCard: View {
-    
+
     var imageName: String
     var text: String
     var body: some View {
         
         VStack {
-            
+
             Image(imageName)
                 .resizable()
                 .scaledToFit()
