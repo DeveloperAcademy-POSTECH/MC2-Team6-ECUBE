@@ -12,7 +12,7 @@ struct FlowerPopUpViewTest: View {
     @State var showPopUp: Bool = false
     
     var body: some View {
-        ZStack{
+        ZStack {
             Button(
                 action: {
                     withAnimation(.linear(duration: 0.2)) {

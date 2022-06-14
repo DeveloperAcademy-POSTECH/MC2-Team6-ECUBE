@@ -44,7 +44,6 @@ struct FlowerView: View {
                             .alert("쪽지는 \(input.limit)글자까지만 쓸 수 있어요.", isPresented: $input.hasReachedLimit) {
                                 Button("확인", role: .cancel) {}
                             }
-                        // TODO: 배경이 허옇게 나오는 것.. 해결하기..
                         
                         Text("(\(isitEntered ? input.value.count : 0)/\(input.limit))")
                             .foregroundColor(input.value.count < input.limit ? .bodyTextColor : .red)
@@ -52,7 +51,7 @@ struct FlowerView: View {
                             .frame(maxWidth: .infinity, alignment: .trailing)
                             .foregroundColor(.bodyTextColor)
                             .opacity(0.6)
-                            
+                        
                     } // VStack
                     .frame(maxWidth: UIScreen.main.bounds.width*0.8, maxHeight: UIScreen.main.bounds.width*0.4)
                     .padding()
@@ -92,13 +91,14 @@ struct FlowerCardView: View {
             
             // 꽃 이름
             Text("\(content.name)")
-                .font(.title)
+                .font(.system(size: 20))
                 .fontWeight(.bold)
                 .padding(.bottom, 2)
                 .foregroundColor(.bodyTextColor)
             
             // 꽃 설명
             Text("\(content.meaning)")
+                .font(.system(size: 12))
                 .foregroundColor(.gray)
             
             // 꽃
