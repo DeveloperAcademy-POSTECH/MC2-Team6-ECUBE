@@ -66,9 +66,12 @@ struct PhotoGiftView: View {
                             .foregroundColor(.black)
                     }
                     .alert(isPresented: $showAlertforSend) {
-                        Alert(title: Text("선물 보내기"), message: Text("선물은 하루에 하나만 보낼 수 있어요. 사진을 보낼까요?"), primaryButton: .cancel(Text("취소")), secondaryButton: .default(Text("보내기")) {
-                            isTapped.toggle()                        }
-                        )
+                        Alert(title: Text("선물 보내기"), message: Text("선물은 하루에 하나만 보낼 수 있어요. 사진을 보낼까요?"),
+                              primaryButton: .cancel(Text("취소")),
+                              secondaryButton: .default(Text("보내기")) {
+                            isTapped.toggle()
+                            imagePost()
+                        })
                     }
                 }
                 ToolbarItem(placement: .principal) {
@@ -87,6 +90,24 @@ struct PhotoGiftView: View {
             hideKeyboard()
         }
     }
+    
+    func imagePost() {
+        moyaService.request( .imagePost(content: "ddd", image: imageModel.image!)) { response in
+//            print(imageModel.image)
+            switch response {
+                // 응답이 성공한다면
+            case .success(let result):
+                do{
+                    print("전송되는 이미지 데이터는 다음과 같습니다 : \(imageModel.image!)")
+                    testImageData = try result.map(ImageTestResponse.self)
+                } catch(let err) {
+                    print(err.localizedDescription)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
 }
 
 struct PictureGiftView_Previews: PreviewProvider {
@@ -95,3 +116,4 @@ struct PictureGiftView_Previews: PreviewProvider {
             .environmentObject(imageViewModel())
     }
 }
+ 
