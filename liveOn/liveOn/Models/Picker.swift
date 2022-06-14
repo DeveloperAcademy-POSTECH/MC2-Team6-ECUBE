@@ -6,7 +6,6 @@ enum Picker {
     enum Source: String {
         case library, camera
     }
-    
     enum PickerError: Error, LocalizedError {
         case unavailable
         case restricted
