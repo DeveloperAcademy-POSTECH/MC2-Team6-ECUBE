@@ -47,11 +47,6 @@
 		A932622D284F2AA900E5C0A3 /* MyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932622C284F2AA900E5C0A3 /* MyImage.swift */; };
 		A932622F284F2AD400E5C0A3 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932622E284F2AD400E5C0A3 /* ImagePicker.swift */; };
 		A9326231284F2B0700E5C0A3 /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9326230284F2B0700E5C0A3 /* FileManager+Extension.swift */; };
-		A98F749B2857FC060065BB10 /* ServerCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98F749A2857FC060065BB10 /* ServerCommunication.swift */; };
-		A98F749E2857FC8D0065BB10 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = A98F749D2857FC8D0065BB10 /* CombineMoya */; };
-		A98F74A02857FC8D0065BB10 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = A98F749F2857FC8D0065BB10 /* Moya */; };
-		A98F74A22857FC8D0065BB10 /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = A98F74A12857FC8D0065BB10 /* ReactiveMoya */; };
-		A98F74A42857FC8D0065BB10 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = A98F74A32857FC8D0065BB10 /* RxMoya */; };
 		C92B3BE5285175070010C49A /* PhotoGiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9326228284F2A2800E5C0A3 /* PhotoGiftView.swift */; };
 		C9CEAEC8284F151A00769E4E /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAEC7284F151A00769E4E /* DateValue.swift */; };
 		C9CEAECB284F15DA00769E4E /* CalendarMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAECA284F15DA00769E4E /* CalendarMain.swift */; };
@@ -106,7 +101,6 @@
 		A932622C284F2AA900E5C0A3 /* MyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyImage.swift; sourceTree = "<group>"; };
 		A932622E284F2AD400E5C0A3 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		A9326230284F2B0700E5C0A3 /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
-		A98F749A2857FC060065BB10 /* ServerCommunication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerCommunication.swift; sourceTree = "<group>"; };
 		C9CEAEC7284F151A00769E4E /* DateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
 		C9CEAECA284F15DA00769E4E /* CalendarMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMain.swift; sourceTree = "<group>"; };
 		C9CEAECF284F18FA00769E4E /* CalendarBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarBack.swift; sourceTree = "<group>"; };
@@ -119,11 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A98F74A42857FC8D0065BB10 /* RxMoya in Frameworks */,
-				A98F749E2857FC8D0065BB10 /* CombineMoya in Frameworks */,
-				A98F74A22857FC8D0065BB10 /* ReactiveMoya in Frameworks */,
 				77403C9228524487000A21EE /* FSCalendar in Frameworks */,
-				A98F74A02857FC8D0065BB10 /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,7 +140,6 @@
 		3E9206B1284AE1D200D064E6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A98F749A2857FC060065BB10 /* ServerCommunication.swift */,
 				3E9206B3284AE2B700D064E6 /* Model.swift */,
 				C9CEAEC7284F151A00769E4E /* DateValue.swift */,
 				A932622A284F2A9600E5C0A3 /* Picker.swift */,
@@ -325,10 +314,6 @@
 			name = liveOn;
 			packageProductDependencies = (
 				77403C9128524487000A21EE /* FSCalendar */,
-				A98F749D2857FC8D0065BB10 /* CombineMoya */,
-				A98F749F2857FC8D0065BB10 /* Moya */,
-				A98F74A12857FC8D0065BB10 /* ReactiveMoya */,
-				A98F74A32857FC8D0065BB10 /* RxMoya */,
 			);
 			productName = liveOn;
 			productReference = 3EBE43742849B6D30085C7C6 /* liveOn.app */;
@@ -360,7 +345,6 @@
 			mainGroup = 3EBE436B2849B6D30085C7C6;
 			packageReferences = (
 				77403C9028524487000A21EE /* XCRemoteSwiftPackageReference "FSCalendar" */,
-				A98F749C2857FC8D0065BB10 /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = 3EBE43752849B6D30085C7C6 /* Products */;
 			projectDirPath = "";
@@ -413,7 +397,6 @@
 				C92B3BE5285175070010C49A /* PhotoGiftView.swift in Sources */,
 				77196616284B4DC7002E6AC0 /* CreateGiftListView.swift in Sources */,
 				A44EE0492856C6E900CC25A0 /* Flower.swift in Sources */,
-				A98F749B2857FC060065BB10 /* ServerCommunication.swift in Sources */,
 				A932622D284F2AA900E5C0A3 /* MyImage.swift in Sources */,
 				A44EE04B2856C71000CC25A0 /* Pill.swift in Sources */,
 				C9CEAED6284F394A00769E4E /* PlusSetting.swift in Sources */,
@@ -672,14 +655,6 @@
 				minimumVersion = 2.0.0;
 			};
 		};
-		A98F749C2857FC8D0065BB10 /* XCRemoteSwiftPackageReference "Moya" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Moya/Moya.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -687,26 +662,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 77403C9028524487000A21EE /* XCRemoteSwiftPackageReference "FSCalendar" */;
 			productName = FSCalendar;
-		};
-		A98F749D2857FC8D0065BB10 /* CombineMoya */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A98F749C2857FC8D0065BB10 /* XCRemoteSwiftPackageReference "Moya" */;
-			productName = CombineMoya;
-		};
-		A98F749F2857FC8D0065BB10 /* Moya */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A98F749C2857FC8D0065BB10 /* XCRemoteSwiftPackageReference "Moya" */;
-			productName = Moya;
-		};
-		A98F74A12857FC8D0065BB10 /* ReactiveMoya */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A98F749C2857FC8D0065BB10 /* XCRemoteSwiftPackageReference "Moya" */;
-			productName = ReactiveMoya;
-		};
-		A98F74A32857FC8D0065BB10 /* RxMoya */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A98F749C2857FC8D0065BB10 /* XCRemoteSwiftPackageReference "Moya" */;
-			productName = RxMoya;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

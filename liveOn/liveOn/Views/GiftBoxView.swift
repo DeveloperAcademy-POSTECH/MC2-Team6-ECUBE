@@ -9,11 +9,11 @@ import SwiftUI
 
 struct GiftBoxView: View {
     @StateObject var storedLetter = LetterStore()
-    @State private var isActive : Bool = false
+
     @EnvironmentObject var imageModel: imageViewModel
-
+    @EnvironmentObject var currnetUser: User
+    @State private var isActive = true
     var body: some View {
-
         GeometryReader { proxy in
             // 줄로 나눠서 변수로 만든 뒤, 일정 비율만큼의 크기로 그려지도록 함
             VStack(alignment: .leading, spacing: 0) {
@@ -25,12 +25,11 @@ struct GiftBoxView: View {
                     .frame(height: proxy.size.height*0.25)
                 albumAndCalendar
                     .frame(height: proxy.size.height*0.3)
-
-                Spacer()
             }
             .background(Color.background)
         }
         .edgesIgnoringSafeArea(.all)
+        .navigationBarHidden(true)
     }
     
     // MARK: 상단 헤더 영역
@@ -38,16 +37,13 @@ struct GiftBoxView: View {
         HStack(alignment: .center, spacing: 0) {
             coupleInfo
             Spacer()
-            NavigationLink(destination: CreateGiftListView(), isActive: $isActive) {
-                Button(action: {
-                    isActive.toggle()
-                }) {
-                    Image(systemName: "gift")
-                        .font(.title2)
-                        .foregroundColor(.bodyTextColor)
-                        .frame(width: 48, height: 48, alignment: .bottom)
-                        .padding(.vertical)
-                }
+            NavigationLink(destination: CreateGiftListView()
+                .environmentObject(storedLetter), isActive: $imageModel.backToFirst) {
+                Image(systemName: "gift")
+                    .font(.title2)
+                    .foregroundColor(.bodyTextColor)
+                    .frame(width: 48, height: 48, alignment: .bottom)
+                    .padding(.vertical)
             }
             .background(.yellow)
             .onTapGesture {
