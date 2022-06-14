@@ -126,6 +126,12 @@ struct VoicemailView: View {
 //                    }) {
 //                        Text("delete files")
 //                    }
+                        
+//                        Button(action: {
+//                            vm.getFileName(for: vm.recordingsList[vm.recordingsList.count - 1].fileURL)
+//                        }) {
+//                            Text("get file name")
+//                        }
                     
                     }
                     Spacer()

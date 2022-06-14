@@ -10,14 +10,13 @@ import SwiftUI
 struct GiftBoxView: View {
     @StateObject var storedLetter = LetterStore()
     @State private var isActive : Bool = false
-    @EnvironmentObject var currnetUser: User
-    
+    @EnvironmentObject var imageModel: imageViewModel
+
     var body: some View {
-        
+
         GeometryReader { proxy in
             // 줄로 나눠서 변수로 만든 뒤, 일정 비율만큼의 크기로 그려지도록 함
             VStack(alignment: .leading, spacing: 0) {
-                
                 header
                     .frame(height: proxy.size.height*0.2)
                 voicemailAndLetter
@@ -26,7 +25,7 @@ struct GiftBoxView: View {
                     .frame(height: proxy.size.height*0.25)
                 albumAndCalendar
                     .frame(height: proxy.size.height*0.3)
-                
+
                 Spacer()
             }
             .background(Color.background)
@@ -119,7 +118,7 @@ struct GiftBoxView: View {
                     .padding(.top, 30)
             }
             Spacer()
-            NavigationLink(destination: Text("voiceMailListView")) {
+            NavigationLink(destination: FlowerListView()) {
                 Image("flowers")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -149,10 +148,10 @@ struct GiftBoxView: View {
     }
 }
 
-//struct GiftBoxView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        GiftBoxView()
-//            .environmentObject(imageViewModel())
-//            .environmentObject(User())
-//    }
-//}
+struct GiftBoxView_Previews: PreviewProvider {
+    static var previews: some View {
+        GiftBoxView()
+            .environmentObject(imageViewModel())
+            .environmentObject(User())
+    }
+}

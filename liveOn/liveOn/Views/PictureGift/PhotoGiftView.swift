@@ -16,10 +16,10 @@ struct PhotoGiftView: View {
             
             VStack {
                 Button {
-                    imageModel.source = .library
-                    imageModel.showPhotoPicker()
+                    imageViewModel.source = .library
+                    imageViewModel.showPhotoPicker()
                 } label: {
-                    if let image = imageModel.image {
+                    if let image = imageViewModel.image {
                         Image(uiImage: image)
                             .resizable()
                             .scaledToFit()

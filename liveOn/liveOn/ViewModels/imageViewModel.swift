@@ -8,8 +8,7 @@ class imageViewModel: ObservableObject {
     @Published var showCameraAlert = false
     @Published var cameraError: Picker.CameraErrorType?
     @Published var imageName: String = ""
-    
-    // 파일 저장시 경로 print
+
     init() {
         print(FileManager.docDirURL.path)
     }
