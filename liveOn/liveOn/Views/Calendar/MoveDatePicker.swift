@@ -32,20 +32,20 @@ struct MoveDatePicker: View {
                         showDatePicker = false
                     }, label: {
                         Text("취소")
-                            .font(.system(size: 18))
-                            .foregroundColor(.blue)
+                            .font(.system(size: 18).bold())
+                            .foregroundColor(Color("Burgundy"))
                             .padding(.top, -16)
                     })
                     
                     Spacer()
                     
-                    Button("이동") {
+                    Button("확인") {
                         self.currentDate = autoDate
                         presentationMode.wrappedValue.dismiss()
                         showDatePicker = false
                     }
-                    .font(.system(size: 18))
-                    .foregroundColor(.blue)
+                    .font(.system(size: 18).bold())
+                    .foregroundColor(Color("Burgundy"))
                     .padding(.top, -16)
                 }
                 .padding(.horizontal)

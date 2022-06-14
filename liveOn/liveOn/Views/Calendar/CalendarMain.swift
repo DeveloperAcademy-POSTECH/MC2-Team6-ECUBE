@@ -21,10 +21,10 @@ struct CalendarMain: View {
     @State private var orangeColor = Color("Orange")
     @State private var burgundyColor = Color("Burgundy")
     
-    @State private var holidaytitle: String = ""
-    @State private var holidaymemo: String = ""
-    @State private var emojitxt: String = ""
-    @State var holidaydate: String = ""
+//    @State var eventDate: String = ""
+    @State private var eventTitle: String = ""
+    @State private var eventMemo: String = ""
+    @State private var emoji: String = ""
         
     @Binding var bgColor: Color
     @Binding var currentDate: Date
@@ -72,7 +72,7 @@ struct CalendarMain: View {
                         } label: {
                             Image(systemName: "calendar")
                                 .foregroundColor(burgundyColor)
-                                .font(.subheadline)
+                                .font(.title3)
                         }
                         .padding(.leading, 6)
 
@@ -149,11 +149,11 @@ struct CalendarMain: View {
                                     .font(.title3)
                                     .foregroundColor(.black)
                                     .sheet(isPresented: $showSheet, content: {
-                                        PlusSetting(moveDate: self.currentDate,
+                                        PlusSetting(eventDate: self.currentDate,
                                                     currentDate: $currentDate,
-                                                    holidaytitle: $holidaytitle,
-                                                    holidaymemo: $holidaymemo,
-                                                    emojitxt: $emojitxt)
+                                                    eventTitle: $eventTitle,
+                                                    eventMemo: $eventMemo,
+                                                    emoji: $emoji)
                                     })
                             }
                         }
@@ -169,18 +169,18 @@ struct CalendarMain: View {
                                 .rotationEffect(Angle(degrees: 90))
                                 .offset(x: -173, y: 0)
                             
-                            TextField("Emoji", text: $emojitxt, prompt: Text("🍫"))
-                                .limitInputLength(value: $emojitxt, length: 1)
+                            TextField("Emoji", text: $emoji, prompt: Text("🍫"))
+                                .limitInputLength(value: $emoji, length: 1)
                                 .multilineTextAlignment(TextAlignment.center)
                                 .font(.system(size: 28))
                                 .offset(x: -135, y: -8)
                             
-                            Text("06/16") // 여기에 holidaydate 들어가면 될 듯
+                            Text("06/16") // 여기에 eventDate 들어가면 될 듯
                                 .font(.system(size: 14))
                                 .foregroundColor(Color("Burgundy"))
                                 .offset(x: -135, y: 20)
                             
-                            Text("초콜릿 먹는 날") // 여기에 holidaytitle 들어가면 될 듯
+                            Text("초콜릿 먹는 날") // 여기에 eventTitle 들어가면 될 듯
                                 .font(.system(size: 18).bold())
                                 .foregroundColor(Color("Burgundy"))
                                 .offset(x: -50, y: -12)
@@ -203,18 +203,18 @@ struct CalendarMain: View {
                                 .rotationEffect(Angle(degrees: 90))
                                 .offset(x: -173, y: 0)
                             
-                            TextField("Emoji", text: $emojitxt, prompt: Text("🥂"))
-                                .limitInputLength(value: $emojitxt, length: 1)
+                            TextField("Emoji", text: $emoji, prompt: Text("🥂"))
+                                .limitInputLength(value: $emoji, length: 1)
                                 .multilineTextAlignment(TextAlignment.center)
                                 .font(.system(size: 28))
                                 .offset(x: -135, y: -8)
                             
-                            Text("06/20") // 여기에 holidaydate 들어가면 될 듯
+                            Text("06/20") // 여기에 eventDate 들어가면 될 듯
                                 .font(.system(size: 14))
                                 .foregroundColor(Color("Burgundy"))
                                 .offset(x: -135, y: 20)
                             
-                            Text("칵테일 마시는 날") // 여기에 holidaytitle 들어가면 될 듯
+                            Text("칵테일 마시는 날") // 여기에 eventTitle 들어가면 될 듯
                                 .font(.system(size: 18).bold())
                                 .foregroundColor(Color("Burgundy"))
                                 .offset(x: -42, y: -12)
@@ -237,23 +237,23 @@ struct CalendarMain: View {
                                 .rotationEffect(Angle(degrees: 90))
                                 .offset(x: -173, y: 0)
                             
-                            TextField("Emoji", text: $emojitxt, prompt: Text("🌉"))
-                                .limitInputLength(value: $emojitxt, length: 1)
+                            TextField("Emoji", text: $emoji, prompt: Text("🌉"))
+                                .limitInputLength(value: $emoji, length: 1)
                                 .multilineTextAlignment(TextAlignment.center)
                                 .font(.system(size: 28))
                                 .offset(x: -135, y: -8)
                             
-                            Text("06/24") // 여기에 holidaydate 들어가면 될 듯
+                            Text("06/24") // 여기에 eventDate 들어가면 될 듯
                                 .font(.system(size: 14))
                                 .foregroundColor(Color("Burgundy"))
                                 .offset(x: -135, y: 20)
                             
-                            Text("부산 놀러가는 날") // 여기에 holidaytitle 들어가면 될 듯
+                            Text("부산 놀러가는 날") // 여기에 eventTitle 들어가면 될 듯
                                 .font(.system(size: 18).bold())
                                 .foregroundColor(Color("Burgundy"))
                                 .offset(x: -42, y: -12)
                             
-                            Text("서로의 휴식을 위해 부산 놀러가는 날") // 여기에 holidaymemo 들어가면 될 듯
+                            Text("서로의 휴식을 위해 부산 놀러가는 날") // 여기에 holidayMemo 들어가면 될 듯
                                 .font(.system(size: 14))
                                 .foregroundColor(Color.gray)
                                 .offset(x: 0, y: 16)
