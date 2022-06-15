@@ -18,11 +18,11 @@ struct CreateGiftListView: View {
                 .padding(12)
             
             VStack(alignment: .leading, spacing: 18) {
-                makingGift(item: letterItem, destination: AnyView(CreateLetterView().environmentObject(LetterStore())))
-                makingGift(item: photoItem, destination: AnyView(PhotoGiftView(imageModel: imageViewModel())))
-                makingGift(item: voiceItem, destination: AnyView(VoicemailView()))
-                makingGift(item: pillItem, destination: AnyView(PillView()))
-                makingGift(item: flowerItem, destination: AnyView(FlowerView()))
+                MakingGift(item: letterItem, destination: AnyView(CreateLetterView().environmentObject(LetterStore())))
+                MakingGift(item: photoItem, destination: AnyView(PhotoGiftView(imageModel: imageViewModel())))
+                MakingGift(item: voiceItem, destination: AnyView(VoicemailView()))
+                MakingGift(item: pillItem, destination: AnyView(PillView()))
+                MakingGift(item: flowerItem, destination: AnyView(FlowerView()))
             }
         }
         .navigationToBack(dismiss)
@@ -33,7 +33,7 @@ struct CreateGiftListView: View {
     }
 }
 
-struct makingGift: View {
+struct MakingGift: View {
     var item: Item
     var destination: AnyView
     var body: some View {
