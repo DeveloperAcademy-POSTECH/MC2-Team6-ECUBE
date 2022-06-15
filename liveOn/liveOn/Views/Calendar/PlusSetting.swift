@@ -64,8 +64,7 @@ struct PlusSetting: View {
                     DatePicker("기념일 추가", selection: $currentDate, displayedComponents: .date)
                         .datePickerStyle(GraphicalDatePickerStyle())
                         .applyTextColor(Color("Burgundy"))
-                        .frame(maxHeight: 400)
-                        .padding(.top, -15)
+                        .frame(maxHeight: 360)
                 }
                 
                 VStack {

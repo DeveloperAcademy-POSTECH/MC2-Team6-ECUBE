@@ -49,9 +49,7 @@ struct MoveDatePicker: View {
                 .padding(.horizontal)
             }
             .padding(.bottom)
-            .background(
-                Color.white
-                    .cornerRadius(30))
+            .background(Color.white.cornerRadius(30))
         }
         .frame(width: UIScreen.main.bounds.width * 0.8, height: UIScreen.main.bounds.height * 0.36, alignment: .center)
         .offset(x: 0, y: -185)
