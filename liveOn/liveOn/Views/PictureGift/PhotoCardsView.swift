@@ -31,11 +31,11 @@ struct PhotoCardsView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: {
-                    if imageModel.isSent == true {
-                        imageModel.isSent == false
-                    } else {
+//                    if imageModel.isSent == true {
+//                        imageModel.isSent == false
+//                    } else {
                         dismiss()
-                    }
+//                    }
                 }){
                     Image(systemName: "chevron.left")
                         .font(.system(size: 20))
@@ -55,23 +55,30 @@ struct PhotoCardInformation: Hashable {
     var photoText: String
 }
 
-let testData1 = PhotoCardInformation(imageName: "테스트1", photoText: "테스트1")
-let testData2 = PhotoCardInformation(imageName: "테스트2", photoText: "테스트2")
-let testData3 = PhotoCardInformation(imageName: "테스트3", photoText: "테스트3")
-let testData4 = PhotoCardInformation(imageName: "테스트4", photoText: "테스트4")
+let testData1 = PhotoCardInformation(imageName: "exampleImage1", photoText: "테스트1")
+let testData2 = PhotoCardInformation(imageName: "exampleImage2", photoText: "테스트2")
+let testData3 = PhotoCardInformation(imageName: "flower", photoText: "테스트3")
+let testData4 = PhotoCardInformation(imageName: "heart", photoText: "테스트4")
 
 struct PhotoCard: View {
     var PhotoCardDetail: PhotoCardInformation
     var body: some View {
         VStack {
-            
             Image(PhotoCardDetail.imageName)
                 .resizable()
-                .scaledToFit()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: UIScreen.main.bounds.width * 0.35, height: UIScreen.main.bounds.height * 0.2, alignment: .center)
             
             Text(PhotoCardDetail.photoText)
                 .foregroundColor(.bodyTextColor)
         }
+        .frame(width: UIScreen.main.bounds.width * 0.35, height: UIScreen.main.bounds.height * 0.25, alignment: .center)
         .padding()
+    }
+}
+
+struct CalendarBaws: PreviewProvider {
+    static var previews: some View {
+        PhotoCardsView(imageModel: imageViewModel())
     }
 }
