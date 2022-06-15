@@ -28,14 +28,12 @@ struct MoveDatePicker: View {
                     .padding(.top, -20)
                 
                 HStack {
-                    Button(action: {
+                    Button("취소") {
                         showDatePicker = false
-                    }, label: {
-                        Text("취소")
-                            .font(.system(size: 18).bold())
-                            .foregroundColor(Color("Burgundy"))
-                            .padding(.top, -16)
-                    })
+                    }
+                    .font(.system(size: 18).bold())
+                    .foregroundColor(Color("Burgundy"))
+                    .padding(.top, -16)
                     
                     Spacer()
                     
@@ -56,6 +54,6 @@ struct MoveDatePicker: View {
                     .cornerRadius(30))
         }
         .frame(width: UIScreen.main.bounds.width * 0.8, height: UIScreen.main.bounds.height * 0.36, alignment: .center)
-        .offset(x: 0, y: -87)
+        .offset(x: 0, y: -185)
     }
 }

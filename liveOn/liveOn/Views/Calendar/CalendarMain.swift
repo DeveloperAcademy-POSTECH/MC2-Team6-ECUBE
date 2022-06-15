@@ -21,7 +21,7 @@ struct CalendarMain: View {
     @State private var orangeColor = Color("Orange")
     @State private var burgundyColor = Color("Burgundy")
     
-//    @State var eventDate: String = ""
+    @State var eventDate: String = ""
     @State private var eventTitle: String = ""
     @State private var eventMemo: String = ""
     @State private var emoji: String = ""
@@ -47,9 +47,9 @@ struct CalendarMain: View {
                                 self.currentDate = self.moveCurrentMonth(isUp: false)
                             }
                         } label: {
-                            Image(systemName: "chevron.left")
+                            Image(systemName: "chevron.left.circle")
                                 .foregroundColor(.black)
-                                .font(.title2)
+                                .font(.title)
                         }
                         
                         Spacer(minLength: 0)
@@ -72,7 +72,7 @@ struct CalendarMain: View {
                         } label: {
                             Image(systemName: "calendar")
                                 .foregroundColor(burgundyColor)
-                                .font(.title3)
+                                .font(.title2.bold())
                         }
                         .padding(.leading, 6)
 
@@ -83,9 +83,9 @@ struct CalendarMain: View {
                                 self.currentDate =  self.moveCurrentMonth(isUp: true)
                             }
                         } label: {
-                            Image(systemName: "chevron.right")
+                            Image(systemName: "chevron.right.circle")
                                 .foregroundColor(.black)
-                                .font(.title2)
+                                .font(.title)
                         }
                     }
                     .navigationBarTitleDisplayMode(.inline)
@@ -145,8 +145,8 @@ struct CalendarMain: View {
                             Button(action: {
                                 showSheet.toggle()
                             }) {
-                                Image(systemName: "plus")
-                                    .font(.title3)
+                                Image(systemName: "plus.circle")
+                                    .font(.title2)
                                     .foregroundColor(.black)
                                     .sheet(isPresented: $showSheet, content: {
                                         PlusSetting(eventDate: self.currentDate,
@@ -176,19 +176,19 @@ struct CalendarMain: View {
                                 .offset(x: -135, y: -8)
                             
                             Text("06/16") // 여기에 eventDate 들어가면 될 듯
-                                .font(.system(size: 14))
+                                .font(.system(size: 13))
                                 .foregroundColor(Color("Burgundy"))
                                 .offset(x: -135, y: 20)
                             
                             Text("초콜릿 먹는 날") // 여기에 eventTitle 들어가면 될 듯
                                 .font(.system(size: 18).bold())
                                 .foregroundColor(Color("Burgundy"))
-                                .offset(x: -50, y: -12)
+                                .offset(x: -50, y: -14)
                             
                             Text("서로를 위해 허쉬 초콜릿 사오는 날") // 여기에 holidaymemo 들어가면 될 듯
                                 .font(.system(size: 14))
                                 .foregroundColor(Color.gray)
-                                .offset(x: -7, y: 16)
+                                .offset(x: -7, y: 15)
                         }
                         .padding(.top, 10)
                         
@@ -210,19 +210,19 @@ struct CalendarMain: View {
                                 .offset(x: -135, y: -8)
                             
                             Text("06/20") // 여기에 eventDate 들어가면 될 듯
-                                .font(.system(size: 14))
+                                .font(.system(size: 13))
                                 .foregroundColor(Color("Burgundy"))
                                 .offset(x: -135, y: 20)
                             
                             Text("칵테일 마시는 날") // 여기에 eventTitle 들어가면 될 듯
                                 .font(.system(size: 18).bold())
                                 .foregroundColor(Color("Burgundy"))
-                                .offset(x: -42, y: -12)
+                                .offset(x: -42, y: -14)
                             
                             Text("분위기 있는 바 가서 칵테일 마시는 날") // 여기에 holidaymemo 들어가면 될 듯
                                 .font(.system(size: 14))
                                 .foregroundColor(Color.gray)
-                                .offset(x: 2, y: 16)
+                                .offset(x: 2, y: 15)
                         }
                         .padding(.top, 2)
                         
@@ -244,19 +244,19 @@ struct CalendarMain: View {
                                 .offset(x: -135, y: -8)
                             
                             Text("06/24") // 여기에 eventDate 들어가면 될 듯
-                                .font(.system(size: 14))
+                                .font(.system(size: 13))
                                 .foregroundColor(Color("Burgundy"))
                                 .offset(x: -135, y: 20)
                             
                             Text("부산 놀러가는 날") // 여기에 eventTitle 들어가면 될 듯
                                 .font(.system(size: 18).bold())
                                 .foregroundColor(Color("Burgundy"))
-                                .offset(x: -42, y: -12)
+                                .offset(x: -42, y: -14)
                             
                             Text("서로의 휴식을 위해 부산 놀러가는 날") // 여기에 holidayMemo 들어가면 될 듯
                                 .font(.system(size: 14))
                                 .foregroundColor(Color.gray)
-                                .offset(x: 0, y: 16)
+                                .offset(x: 0, y: 15)
                         }
                         .padding(.top, 2)
                     }
@@ -323,7 +323,7 @@ struct CalendarMain: View {
     func extraDate(currentDate: Date) -> [String] {
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "YYYY M"
+        formatter.dateFormat = "YYYY MM"
         
         let date = formatter.string(from: currentDate)
         
