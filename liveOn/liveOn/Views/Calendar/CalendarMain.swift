@@ -1,9 +1,8 @@
 //
-//  CalendarMain.swift
-//  liveOn
-//
-//  Created by Keum MinSeok on 2022/06/07.
-//
+ //  MoveDateButton.swift
+ //  liveOn
+ //
+ //  Created by Keum MinSeok on 2022/06/13.
 
 import SwiftUI
 
@@ -24,13 +23,14 @@ struct CalendarMain: View {
     // 달력에 쓰이는 색깔
     @State private var orangeColor = Color("Orange")
     @State private var burgundyColor = Color("Burgundy")
+
     
     // 다가오는 기념일에 쓰일 변수
     @State var eventDate: String = ""
     @State private var eventTitle: String = ""
     @State private var eventMemo: String = ""
     @State private var emoji: String = ""
-    
+
     @Binding var bgColor: Color
     @Binding var currentDate: Date
 
@@ -162,6 +162,7 @@ struct CalendarMain: View {
                                 })
                         }
                     }
+
                     
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)
@@ -293,8 +294,10 @@ struct CalendarMain: View {
                 MoveDatePicker(autoDate: self.currentDate,
                                currentDate: $currentDate,
                                showDatePicker: $showDatePicker,
+
                                popUpBoolean: $showDatePicker,
                                isClicked: $isClicked)
+
             }
         }
     }
