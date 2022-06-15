@@ -11,11 +11,11 @@ struct PhotoCardsView: View {
     @Environment(\.dismiss) private var dismiss
     @StateObject var imageModel: imageViewModel
     private let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
-    private let temporaryData: [PhotoCardInformation] = [testData1,testData2,testData3,testData4]
+    private let temporaryData: [PhotoCardInformation] = [testData1, testData2, testData3, testData4]
     
     var body: some View {
         ScrollView {
-            LazyVGrid(columns: columns){
+            LazyVGrid(columns: columns) {
                 ForEach(temporaryData, id: \.self) { data in
                     PhotoCard(PhotoCardDetail: data)
                         .background(Color.white
@@ -36,7 +36,7 @@ struct PhotoCardsView: View {
 //                    } else {
                         dismiss()
 //                    }
-                }){
+                }) {
                     Image(systemName: "chevron.left")
                         .font(.system(size: 20))
                         .foregroundColor(.black)

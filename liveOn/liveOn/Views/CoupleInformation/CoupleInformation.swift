@@ -16,7 +16,7 @@ struct CoupleInformation: View {
                 .foregroundColor(Color.background)
                 .ignoresSafeArea()
             
-            VStack (spacing: 25) {
+            VStack(spacing: 25) {
                 Text("재헌 ❤️ 유진")
                     .frame(width: 300, height: 150, alignment: .center)
                     .background(.white)
@@ -32,7 +32,7 @@ struct CoupleInformation: View {
     }
     
     private func settingList(_ settingText: String) -> some View {
-        NavigationLink(destination: DetailedInformationView()){
+        NavigationLink(destination: DetailedInformationView()) {
             HStack {
                 Text(settingText)
                     .foregroundColor(.black)

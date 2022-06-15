@@ -5,9 +5,9 @@ extension View {
         navigationBarBackButtonHidden(true)
             .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
-                Button (action: {
+                Button(action: {
                     dismissAction()
-                }){
+                }) {
                     Image(systemName: "chevron.left")
                         .font(.system(size: 20))
                         .foregroundColor(.black)
