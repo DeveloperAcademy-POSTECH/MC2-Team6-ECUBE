@@ -10,9 +10,11 @@ struct GeneralAPI {
     static let token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpbmciLCJyb2xlIjoiVVNFUiIsImV4cCI6MTY1Nzg0NDAxMiwiaWF0IjoxNjU1MjUyMDEyfQ.pJWVTYLYgmISAkQ2tYZ54Oxxp-E05yL-trKCsCEuwq0"
 }
 
+
 // MARK: MoyaTest의 코드들 옮긴 부분
 // API 목록들
 enum ServerCommunications {
+  
     case login(param: LoginRequest) // 파라미터로 스트럭트가 들어갑니다.
     case imagePost(content: String, image: UIImage)
     case voicemailPost(title: String)

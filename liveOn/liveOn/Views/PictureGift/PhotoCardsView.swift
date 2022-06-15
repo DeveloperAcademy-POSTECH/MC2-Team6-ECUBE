@@ -25,7 +25,7 @@ struct PhotoCardsView: View {
             ToolbarItem(placement: .navigationBarLeading) {
                 NavigationLink(destination: GiftBoxView()
                     .navigationBarHidden(true)
-                    .environmentObject(User())){
+                    .environmentObject(User())) {
                     Image(systemName: "chevron.left")
                         .font(.system(size: 20))
                         .foregroundColor(.black)
