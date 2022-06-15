@@ -98,7 +98,9 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
         
         let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let directoryContents = try! FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)
-
+        
+        print(directoryContents)
+        
         for i in directoryContents {
             recordingsList.append(Recording(fileURL: i, createdAt: getFileDate(for: i), isPlaying: false))
         }
