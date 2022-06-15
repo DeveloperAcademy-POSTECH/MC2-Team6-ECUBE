@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct LetterListView: View {
-    
     @EnvironmentObject var store: LetterStore
     @State var doshowDetail: Bool = false
+    @Environment(\.dismiss) private var dismiss
+    
     var body: some View {
         ScrollView(.vertical) {
             VStack(alignment: .center, spacing: 24) {
@@ -23,6 +24,7 @@ struct LetterListView: View {
             .frame(maxWidth: .infinity, alignment: .center)
             
         }
+        .backButtonCustom(dismiss)
         .navigationBarTitle("쪽지", displayMode: .inline)
         .background(.background)
     }

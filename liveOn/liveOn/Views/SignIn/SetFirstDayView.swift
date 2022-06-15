@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SetFirstDayView: View {
     @EnvironmentObject var currentUser: User
+    @Environment(\.dismiss) private var dismiss
     @State var firstDay: Date = Date.now
 
     var body: some View {
@@ -26,6 +27,7 @@ struct SetFirstDayView: View {
                                         Spacer()
                                     })
             )
+        .backButtonCustom(dismiss)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink(destination: SelectWhatToDoView().environmentObject(currentUser)) {

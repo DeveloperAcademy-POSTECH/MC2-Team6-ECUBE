@@ -11,28 +11,26 @@ struct GiftBoxView: View {
     @StateObject var storedLetter = LetterStore()
     @EnvironmentObject var imageModel: imageViewModel
     @EnvironmentObject var currnetUser: User
+    @State var isActive: Bool = false
     
     var body: some View {
 
             GeometryReader { proxy in
-                // 줄로 나눠서 변수로 만든 뒤, 일정 비율만큼의 크기로 그려지도록 함
-                VStack(alignment: .leading, spacing: 0) {
-
-                    header
-                        .frame(height: proxy.size.height*0.2)
-                    voicemailAndLetter
-                        .frame(height: proxy.size.height*0.25)
-                    medicineAndFlower
-                        .frame(height: proxy.size.height*0.25)
-                    albumAndCalendar
-                        .frame(height: proxy.size.height*0.3)
-                    
-                    Spacer()
+                    VStack(alignment: .leading, spacing: 0) {
+                        header
+                            .frame(height: proxy.size.height*0.2)
+                        voicemailAndLetter
+                            .frame(height: proxy.size.height*0.25)
+                        medicineAndFlower
+                            .frame(height: proxy.size.height*0.25)
+                        albumAndCalendar
+                            .frame(height: proxy.size.height*0.3)
+                        Spacer()
+                    }
+                    .background(Color.background)
                 }
-                .background(Color.background)
-            }
-            .navigationBarTitleDisplayMode(.inline)
-            .edgesIgnoringSafeArea(.all)
+            .navigationBarHidden(true)
+            .ignoresSafeArea()
         }
     
     // MARK: 상단 헤더 영역
@@ -40,7 +38,7 @@ struct GiftBoxView: View {
         HStack(alignment: .center, spacing: 0) {
             coupleInfo
             Spacer()
-            NavigationLink(destination: CreateGiftListView()) {
+            NavigationLink(destination: CreateGiftListView(), isActive: $isActive) {
                 Image(systemName: "gift")
                     .font(.title2)
                     .foregroundColor(.bodyTextColor)
@@ -59,7 +57,7 @@ struct GiftBoxView: View {
     // MARK: 이름+사귄 디데이 계산 정보
     // TODO: 유저 네임, 사귄날 데이터로 디데이 계산
     var coupleInfo: some View {
-        NavigationLink(destination: Text("CoupleInformationView")) {
+        NavigationLink(destination: CoupleInformation()) {
             HStack(alignment: .center, spacing: 12) {
                 Text("\(currnetUser.nickname)")
                 Image("heart")

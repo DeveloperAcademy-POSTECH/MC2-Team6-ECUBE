@@ -1,10 +1,3 @@
-//
-//  PlusSetting.swift
-//  liveOn
-//
-//  Created by Keum MinSeok on 2022/06/07.
-//
-
 import SwiftUI
 
 struct PlusSetting: View {

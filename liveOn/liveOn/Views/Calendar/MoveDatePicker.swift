@@ -1,10 +1,3 @@
-//
-//  MoveDateButton.swift
-//  liveOn
-//
-//  Created by Keum MinSeok on 2022/06/13.
-//
-
 import SwiftUI
 
 struct MoveDatePicker: View {

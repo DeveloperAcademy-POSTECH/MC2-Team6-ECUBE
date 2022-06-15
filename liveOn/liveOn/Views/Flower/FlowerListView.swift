@@ -10,6 +10,7 @@ import SwiftUI
 struct FlowerListView: View {
     
     @State var flowerClicked: Bool = false
+    @Environment(\.dismiss) private var dismiss
     
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
     
@@ -63,6 +64,7 @@ struct FlowerListView: View {
                 
             }
         } // ZStack
+        .backButtonCustom(dismiss)
         .navigationTitle("꽃다발")
         .navigationBarTitleDisplayMode(.inline)
         .background(.background)

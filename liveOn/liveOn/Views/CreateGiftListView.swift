@@ -6,6 +6,69 @@
 //
 
 import SwiftUI
+
+struct CreateGiftListView: View {
+    @Environment(\.dismiss) private var dismiss
+    
+    var body: some View {
+        ScrollView(.vertical) {
+            VStack {
+                Text("선물은 하루에 한개만 보낼 수 있어요. \n 오늘은 어떤 선물을 해볼까요?")
+                    .foregroundColor(.bodyTextColor)
+                    .multilineTextAlignment(.center)
+                    .padding(12)
+                VStack(alignment: .leading, spacing: 18) {
+                    ForEach(items) { item in
+                        GiftItem(item: item)
+                    }
+                }
+                
+            }
+            .backButtonCustom(dismiss)
+            .navigationTitle("선물 만들기")
+            .navigationBarTitleDisplayMode(.inline)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+        .background(Color.background)
+    }
+    
+}
+
+extension CreateGiftListView {
+    struct GiftItem: View {
+        let item: Item
+        @EnvironmentObject var store: LetterStore
+        var body: some View {
+            NavigationLink(destination: item.createItemView
+                .environmentObject(store)) {
+                HStack(alignment: .center, spacing: 16) {
+                    Image(item.itemImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .padding(5)
+                        .frame(width: 70, height: 70, alignment: .center)
+                    
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(item.itemName)
+                            .font(.headline)
+                        
+                        Text(item.itemDescription)
+                            .multilineTextAlignment(.leading)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                    .foregroundColor(.bodyTextColor)
+                }
+                
+                .padding()
+                .frame(height: 110)
+                .background(Color(uiColor: .systemBackground))
+                .padding(.horizontal)
+            } // navigationLink
+            .buttonStyle(.plain)
+        }
+    }
+}
+
 struct Item: Identifiable {
     let id = UUID()
     let itemImage: String
@@ -26,64 +89,6 @@ let items = [
     Item(itemImage: "flower", itemName: "꽃", itemDescription: "따뜻한 꽃말과 함께 짧은 메세지.", createItemView: AnyView(FlowerView()))
     // TODO: [teemo] FlowerView가 들어가도 This struct may not be available 이라는 메시지가 뜹니다..
 ]
-
-struct CreateGiftListView: View {
-    
-    var body: some View {
-        ScrollView(.vertical) {
-            VStack {
-                Text("선물은 하루에 한개만 보낼 수 있어요. \n 오늘은 어떤 선물을 해볼까요?")
-                    .foregroundColor(.bodyTextColor)
-                    .multilineTextAlignment(.center)
-                    .padding(12)
-                VStack(alignment: .leading, spacing: 18) {
-                    ForEach(items) { item in
-                        GiftItem(item: item)
-                    }
-                }
-                
-            }
-            .navigationTitle("선물 만들기")
-            .navigationBarTitleDisplayMode(.inline)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-        }
-        .background(Color.background)
-    }
-    
-}
-
-extension CreateGiftListView {
-    struct GiftItem: View {
-        let item: Item
-        @EnvironmentObject var store: LetterStore
-        var body: some View {
-            NavigationLink(destination: item.createItemView .environmentObject(store)) {
-                HStack(alignment: .center, spacing: 16) {
-                    Image(item.itemImage)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .padding(5)
-                        .frame(width: 70, height: 70, alignment: .center)
-                    
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(item.itemName)
-                            .font(.headline)
-                        Text(item.itemDescription)
-                            .multilineTextAlignment(.leading)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                    }
-                    .foregroundColor(.bodyTextColor)
-                }
-                
-                .padding()
-                .frame(height: 110)
-                .background(Color(uiColor: .systemBackground))
-                .padding(.horizontal)
-            } // navigationLink
-            .buttonStyle(.plain)
-        }
-    }
-}
 
 struct CreateGiftListView_Previews: PreviewProvider {
     static var previews: some View {
