@@ -32,13 +32,14 @@ struct CoupleInformation: View {
     }
     
     private func settingList(_ settingText: String) -> some View {
-        
         NavigationLink(destination: DetailedInformationView()){
             HStack {
                 Text(settingText)
                     .foregroundColor(.black)
                     .bold()
+                
                 Spacer()
+                
                 Image(systemName: "chevron.right")
                     .font(.system(size: 15))
                     .foregroundColor(.black)
@@ -47,8 +48,9 @@ struct CoupleInformation: View {
         }
     }
 }
-    struct CoupleInformation_Previews: PreviewProvider {
-        static var previews: some View {
-            CoupleInformation()
-        }
+
+struct CoupleInformation_Previews: PreviewProvider {
+    static var previews: some View {
+        CoupleInformation()
     }
+}

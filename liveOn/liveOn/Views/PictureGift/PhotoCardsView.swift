@@ -9,9 +9,9 @@ import SwiftUI
 
 struct PhotoCardsView: View {
     @Environment(\.dismiss) private var dismiss
-    @EnvironmentObject var imageModel: imageViewModel
-    let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
-    let temporaryData = [testData1,testData2,testData3,testData4]
+    @StateObject var imageModel: imageViewModel
+    private let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
+    private let temporaryData: [PhotoCardInformation] = [testData1,testData2,testData3,testData4]
     
     var body: some View {
         ScrollView {
@@ -32,7 +32,6 @@ struct PhotoCardsView: View {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: {
                     if imageModel.isSent == true {
-                        
                         imageModel.isSent == false
                     } else {
                         dismiss()
@@ -74,11 +73,5 @@ struct PhotoCard: View {
                 .foregroundColor(.bodyTextColor)
         }
         .padding()
-    }
-}
-
-struct preview: PreviewProvider {
-    static var previews: some View {
-        PhotoCardsView()
     }
 }
