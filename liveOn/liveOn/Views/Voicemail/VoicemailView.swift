@@ -11,6 +11,7 @@ struct VoicemailView: View {
     
     @ObservedObject var vm = VoiceRecorderVM()
     
+    private let communication = ServerCommunication()
     let nowDate = Date.now
     
     var body: some View {
@@ -121,11 +122,11 @@ struct VoicemailView: View {
                             }
                         }
                         
-//                    Button(action: {
-//                        vm.deleteAllRecordings()
-//                    }) {
-//                        Text("delete files")
-//                    }
+                    Button(action: {
+                        vm.deleteAllRecordings()
+                    }) {
+                        Text("delete files")
+                    }
                         
 //                        Button(action: {
 //                            vm.getFileName(for: vm.recordingsList[vm.recordingsList.count - 1].fileURL)
@@ -133,6 +134,11 @@ struct VoicemailView: View {
 //                            Text("get file name")
 //                        }
                     
+                        Button(action: {
+                            vm.fetchAllRecording()
+                        }) {
+                            Text("test")
+                        }
                     }
                     Spacer()
                         .frame(height: 90)
@@ -141,7 +147,7 @@ struct VoicemailView: View {
             }
             .toolbar {
                 Button(action: {
-                    
+                    communication.uploadVM(title: vm.getFileName(for: vm.recordingsList[vm.recordingsList.count - 1].fileURL.deletingPathExtension()))
                 }) {
                     Text("선물하기")
                 }
