@@ -27,7 +27,7 @@ struct SetBirthdayView: View {
                                         Spacer()
                                     })
             )
-        .backButtonCustom(dismiss)
+        .navigationToBack(dismiss)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink(destination: SetFirstDayView().environmentObject(currentUser)) {

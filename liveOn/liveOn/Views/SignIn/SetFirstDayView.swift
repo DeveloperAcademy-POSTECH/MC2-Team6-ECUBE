@@ -27,7 +27,7 @@ struct SetFirstDayView: View {
                                         Spacer()
                                     })
             )
-        .backButtonCustom(dismiss)
+        .navigationToBack(dismiss)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink(destination: SelectWhatToDoView().environmentObject(currentUser)) {

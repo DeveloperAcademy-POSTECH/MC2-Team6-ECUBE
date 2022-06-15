@@ -28,7 +28,7 @@ struct CoupleInformation: View {
                 Spacer()
             }
         }
-        .backButtonCustom(dismiss)
+        .navigationToBack(dismiss)
     }
     
     private func settingList(_ settingText: String) -> some View {

@@ -1,3 +1,9 @@
+//
+ //  MoveDateButton.swift
+ //  liveOn
+ //
+ //  Created by Keum MinSeok on 2022/06/13.
+
 import SwiftUI
 
 struct CalendarMain: View {
@@ -83,7 +89,7 @@ struct CalendarMain: View {
                         }
                     }
                     .navigationBarTitleDisplayMode(.inline)
-                    .backButtonCustom(dismiss)
+                    .navigationToBack(dismiss)
                     .padding(.horizontal)
                     
                     // Day View

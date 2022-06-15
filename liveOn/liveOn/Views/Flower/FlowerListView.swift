@@ -64,7 +64,7 @@ struct FlowerListView: View {
                 
             }
         } // ZStack
-        .backButtonCustom(dismiss)
+        .navigationToBack(dismiss)
         .navigationTitle("꽃다발")
         .navigationBarTitleDisplayMode(.inline)
         .background(.background)

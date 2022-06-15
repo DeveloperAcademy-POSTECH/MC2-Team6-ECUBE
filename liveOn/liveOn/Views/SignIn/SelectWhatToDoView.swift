@@ -44,7 +44,7 @@ struct SelectWhatToDoView: View {
                                     }// nav link
                                 })
         )
-        .backButtonCustom(dismiss)
+        .navigationToBack(dismiss)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink(destination: GiftBoxView()

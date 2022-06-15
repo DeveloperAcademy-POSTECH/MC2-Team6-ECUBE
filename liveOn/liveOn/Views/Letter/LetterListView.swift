@@ -24,7 +24,7 @@ struct LetterListView: View {
             .frame(maxWidth: .infinity, alignment: .center)
             
         }
-        .backButtonCustom(dismiss)
+        .navigationToBack(dismiss)
         .navigationBarTitle("쪽지", displayMode: .inline)
         .background(.background)
     }

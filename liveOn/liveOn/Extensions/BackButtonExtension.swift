@@ -1,7 +1,7 @@
 import SwiftUI
 
 extension View {
-    func backButtonCustom( _ dismissAction: DismissAction) -> some View {
+    func navigationToBack( _ dismissAction: DismissAction) -> some View {
         navigationBarBackButtonHidden(true)
             .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {

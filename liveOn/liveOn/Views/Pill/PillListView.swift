@@ -16,7 +16,7 @@ struct PillListView: View {
                 }
             }
         }
-        .backButtonCustom(dismiss)
+        .navigationToBack(dismiss)
         .navigationTitle("약")
         .navigationBarTitleDisplayMode(.inline)
         .padding(.horizontal)

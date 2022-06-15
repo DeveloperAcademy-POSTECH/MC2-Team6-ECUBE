@@ -24,7 +24,7 @@ struct CreateGiftListView: View {
                 }
                 
             }
-            .backButtonCustom(dismiss)
+            .navigationToBack(dismiss)
             .navigationTitle("선물 만들기")
             .navigationBarTitleDisplayMode(.inline)
             .frame(maxWidth: .infinity, maxHeight: .infinity)

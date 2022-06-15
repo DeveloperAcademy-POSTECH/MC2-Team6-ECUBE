@@ -27,7 +27,7 @@ struct FlowerPopUpViewTest: View {
                 FlowerPopUpView(popUpBoolean: $showPopUp)
             }
         }
-        .backButtonCustom(dismiss)
+        .navigationToBack(dismiss)
         .background(.background)
     } // body
 }
