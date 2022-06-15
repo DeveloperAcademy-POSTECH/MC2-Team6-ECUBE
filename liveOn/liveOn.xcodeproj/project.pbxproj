@@ -40,6 +40,7 @@
 		A44EE04B2856C71000CC25A0 /* Pill.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE04A2856C71000CC25A0 /* Pill.swift */; };
 		A44EE04D2856C74B00CC25A0 /* PillListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE04C2856C74B00CC25A0 /* PillListView.swift */; };
 		A45BCC2828585465008279BB /* FlowerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE0462856C15400CC25A0 /* FlowerListView.swift */; };
+		A464B68D28599038003DC2EA /* PillPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A464B68C28599038003DC2EA /* PillPopUpView.swift */; };
 		A4DA9D2A28571ACE0038B34D /* FlowerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE0462856C15400CC25A0 /* FlowerListView.swift */; };
 		A4DA9D2B28571AD60038B34D /* FlowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE0472856C15400CC25A0 /* FlowerView.swift */; };
 		A4DA9D2D28571B4C0038B34D /* FlowerPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DA9D2C28571B4C0038B34D /* FlowerPopUpView.swift */; };
@@ -95,6 +96,7 @@
 		A44EE0482856C6E900CC25A0 /* Flower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flower.swift; sourceTree = "<group>"; };
 		A44EE04A2856C71000CC25A0 /* Pill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pill.swift; sourceTree = "<group>"; };
 		A44EE04C2856C74B00CC25A0 /* PillListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillListView.swift; sourceTree = "<group>"; };
+		A464B68C28599038003DC2EA /* PillPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillPopUpView.swift; sourceTree = "<group>"; };
 		A4DA9D2C28571B4C0038B34D /* FlowerPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerPopUpView.swift; sourceTree = "<group>"; };
 		A92A88C628506B8700A71FCC /* PhotoCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCardsView.swift; sourceTree = "<group>"; };
 		A9326228284F2A2800E5C0A3 /* PhotoGiftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGiftView.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				77813AE12855B4B40084828D /* PillView.swift */,
 				A44EE04A2856C71000CC25A0 /* Pill.swift */,
 				A44EE04C2856C74B00CC25A0 /* PillListView.swift */,
+				A464B68C28599038003DC2EA /* PillPopUpView.swift */,
 			);
 			path = Pill;
 			sourceTree = "<group>";
@@ -409,10 +412,11 @@
 				A4DA9D2D28571B4C0038B34D /* FlowerPopUpView.swift in Sources */,
 				A932622F284F2AD400E5C0A3 /* ImagePicker.swift in Sources */,
 				A45BCC2828585465008279BB /* FlowerListView.swift in Sources */,
-				3E9206B4284AE2B700D064E6 /* Model.swift in Sources */,
+				3E9206B4284AE2B700D064E6 /* ServerCommunication.swift in Sources */,
 				A4DA9D2A28571ACE0038B34D /* FlowerListView.swift in Sources */,
 				3E9206B4284AE2B700D064E6 /* ServerCommunication.swift in Sources */,
 				77403C8F28519B04000A21EE /* SignInWithAppleViewModel.swift in Sources */,
+				A464B68D28599038003DC2EA /* PillPopUpView.swift in Sources */,
 				C9CEAECB284F15DA00769E4E /* CalendarMain.swift in Sources */,
 				3E9206D0284F3BA300D064E6 /* Test.swift in Sources */,
 				C9CEAECE284F17E300769E4E /* ColorExtension.swift in Sources */,
