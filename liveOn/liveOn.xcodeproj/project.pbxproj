@@ -42,6 +42,7 @@
 		A44EE0492856C6E900CC25A0 /* Flower.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE0482856C6E900CC25A0 /* Flower.swift */; };
 		A44EE04B2856C71000CC25A0 /* Pill.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE04A2856C71000CC25A0 /* Pill.swift */; };
 		A44EE04D2856C74B00CC25A0 /* PillListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE04C2856C74B00CC25A0 /* PillListView.swift */; };
+		A464B68F2859C59A003DC2EA /* PillPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A464B68E2859C59A003DC2EA /* PillPopUpView.swift */; };
 		A4DA9D2B28571AD60038B34D /* FlowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE0472856C15400CC25A0 /* FlowerView.swift */; };
 		A4DA9D2D28571B4C0038B34D /* FlowerPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DA9D2C28571B4C0038B34D /* FlowerPopUpView.swift */; };
 		A92A88C728506B8700A71FCC /* PhotoCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92A88C628506B8700A71FCC /* PhotoCardsView.swift */; };
@@ -107,6 +108,7 @@
 		A44EE0482856C6E900CC25A0 /* Flower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flower.swift; sourceTree = "<group>"; };
 		A44EE04A2856C71000CC25A0 /* Pill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pill.swift; sourceTree = "<group>"; };
 		A44EE04C2856C74B00CC25A0 /* PillListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillListView.swift; sourceTree = "<group>"; };
+		A464B68E2859C59A003DC2EA /* PillPopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PillPopUpView.swift; sourceTree = "<group>"; };
 		A4DA9D2C28571B4C0038B34D /* FlowerPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerPopUpView.swift; sourceTree = "<group>"; };
 		A92A88C628506B8700A71FCC /* PhotoCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCardsView.swift; sourceTree = "<group>"; };
 		A9326228284F2A2800E5C0A3 /* PhotoGiftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGiftView.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 		77813AE32855B4BF0084828D /* Pill */ = {
 			isa = PBXGroup;
 			children = (
+				A464B68E2859C59A003DC2EA /* PillPopUpView.swift */,
 				77813AE12855B4B40084828D /* PillView.swift */,
 				A44EE04C2856C74B00CC25A0 /* PillListView.swift */,
 				A44EE04A2856C71000CC25A0 /* Pill.swift */,
@@ -475,6 +478,7 @@
 				773C1A56284F3A5800E93BFE /* CreateLetterView.swift in Sources */,
 				A981538128587CE100476507 /* BackButtonExtension.swift in Sources */,
 				3E9206D3285035D900D064E6 /* VoiceRecorderVM.swift in Sources */,
+				A464B68F2859C59A003DC2EA /* PillPopUpView.swift in Sources */,
 				C9CEAED0284F18FA00769E4E /* CalendarBack.swift in Sources */,
 				3E9206B6284AE2C400D064E6 /* imageViewModel.swift in Sources */,
 				3EBE43782849B6D30085C7C6 /* liveOnApp.swift in Sources */,
