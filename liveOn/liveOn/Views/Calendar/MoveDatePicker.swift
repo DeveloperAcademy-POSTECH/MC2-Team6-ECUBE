@@ -14,8 +14,7 @@ struct MoveDatePicker: View {
     @Binding var currentDate: Date
     @Binding var showDatePicker: Bool
     @Binding var popUpBoolean: Bool
-    
-    @Environment(\.presentationMode) var presentationMode
+    @Binding var isClicked: Bool
     
     var body: some View {
         ZStack {
@@ -30,6 +29,7 @@ struct MoveDatePicker: View {
                 HStack {
                     Button("취소") {
                         showDatePicker = false
+                        isClicked.toggle()
                     }
                     .font(.system(size: 18).bold())
                     .foregroundColor(Color("Burgundy"))
@@ -39,8 +39,8 @@ struct MoveDatePicker: View {
                     
                     Button("확인") {
                         self.currentDate = autoDate
-                        presentationMode.wrappedValue.dismiss()
                         showDatePicker = false
+                        isClicked.toggle()
                     }
                     .font(.system(size: 18).bold())
                     .foregroundColor(Color("Burgundy"))
