@@ -1,13 +1,7 @@
-//
-//  PillListView.swift
-//  liveOn
-//
-//  Created by 김보영 on 2022/06/13.
-//
-
 import SwiftUI
 
 struct PillListView: View {
+    @Environment(\.dismiss) private var dismiss
     var body: some View {
         
         ScrollView {
@@ -22,6 +16,7 @@ struct PillListView: View {
                 }
             }
         }
+        .navigationToBack(dismiss)
         .navigationTitle("약")
         .navigationBarTitleDisplayMode(.inline)
         .padding(.horizontal)

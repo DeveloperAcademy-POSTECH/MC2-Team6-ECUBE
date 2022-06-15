@@ -9,29 +9,39 @@ import SwiftUI
 
 struct PhotoCardsView: View {
     @Environment(\.dismiss) private var dismiss
+    @StateObject var imageModel: imageViewModel
+    private let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
+    private let temporaryData: [PhotoCardInformation] = [testData1,testData2,testData3,testData4]
     
     var body: some View {
         ScrollView {
-            VStack {
-                PhotoCard(imageName: "exampleImage1", text: "테스트1")
-                PhotoCard(imageName: "exampleImage2", text: "테스트2")
+            LazyVGrid(columns: columns){
+                ForEach(temporaryData, id: \.self) { data in
+                    PhotoCard(PhotoCardDetail: data)
+                        .background(Color.white
+                            .shadow(color: Color.black.opacity(0.25), radius: 4, x: 0, y: 4))
+                        .padding(5)
+                }
             }
             .frame(maxWidth: .infinity)
-
         }
+        .padding()
         .background(Color.background)
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
-                NavigationLink(destination: GiftBoxView()
-                    .navigationBarHidden(true)
-                    .environmentObject(User())) {
+                Button(action: {
+                    if imageModel.isSent == true {
+                        imageModel.isSent == false
+                    } else {
+                        dismiss()
+                    }
+                }){
                     Image(systemName: "chevron.left")
                         .font(.system(size: 20))
                         .foregroundColor(.black)
                 }
             }
-            
             ToolbarItem(placement: .principal) {
                 Text("사진 선물함")
                     .foregroundColor(.black)
@@ -40,25 +50,28 @@ struct PhotoCardsView: View {
     }
 }
 
-struct PhotoCard: View {
-
+struct PhotoCardInformation: Hashable {
     var imageName: String
-    var text: String
-    var body: some View {
-        
-        VStack {
+    var photoText: String
+}
 
-            Image(imageName)
+let testData1 = PhotoCardInformation(imageName: "테스트1", photoText: "테스트1")
+let testData2 = PhotoCardInformation(imageName: "테스트2", photoText: "테스트2")
+let testData3 = PhotoCardInformation(imageName: "테스트3", photoText: "테스트3")
+let testData4 = PhotoCardInformation(imageName: "테스트4", photoText: "테스트4")
+
+struct PhotoCard: View {
+    var PhotoCardDetail: PhotoCardInformation
+    var body: some View {
+        VStack {
+            
+            Image(PhotoCardDetail.imageName)
                 .resizable()
                 .scaledToFit()
-                .frame(width: 280, height: 400)
             
-            Text(text)
+            Text(PhotoCardDetail.photoText)
                 .foregroundColor(.bodyTextColor)
-                .frame(width: 300, height: 20, alignment: .leading)
         }
         .padding()
-        .background(Color.white
-            .shadow(color: Color.black.opacity(0.25), radius: 4, x: 0, y: 4))
     }
 }

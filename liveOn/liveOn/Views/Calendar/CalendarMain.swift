@@ -1,9 +1,8 @@
 //
-//  CalendarMain.swift
-//  liveOn
-//
-//  Created by Keum MinSeok on 2022/06/07.
-//
+ //  MoveDateButton.swift
+ //  liveOn
+ //
+ //  Created by Keum MinSeok on 2022/06/13.
 
 import SwiftUI
 
@@ -20,11 +19,12 @@ struct CalendarMain: View {
     
     @State private var orangeColor = Color("Orange")
     @State private var burgundyColor = Color("Burgundy")
-    
+
     @State private var holidaytitle: String = ""
     @State private var holidaymemo: String = ""
     @State private var emojitxt: String = ""
     @State var holidaydate: String = ""
+    @Environment(\.dismiss) private var dismiss
         
     @Binding var bgColor: Color
     @Binding var currentDate: Date
@@ -89,8 +89,7 @@ struct CalendarMain: View {
                         }
                     }
                     .navigationBarTitleDisplayMode(.inline)
-                    .navigationBarBackButtonHidden(true)
-                    .navigationBarItems(leading: btBack)
+                    .navigationToBack(dismiss)
                     .padding(.horizontal)
                     
                     // Day View
@@ -272,20 +271,6 @@ struct CalendarMain: View {
                                currentDate: $currentDate,
                                showDatePicker: $showDatePicker,
                                popUpBoolean: $showDatePicker)
-            }
-        }
-    }
-    
-    // 뒤로가기 버튼 커스텀
-    var btBack : some View {
-        Button(action: {
-            self.presentationMode.wrappedValue.dismiss()
-        }) {
-            HStack {
-                Image(systemName: "chevron.left")
-                    .font(.subheadline)
-                    .aspectRatio(contentMode: .fit)
-                    .foregroundColor(.black)
             }
         }
     }
