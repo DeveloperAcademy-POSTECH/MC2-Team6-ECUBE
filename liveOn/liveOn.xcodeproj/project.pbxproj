@@ -59,7 +59,9 @@
 		A981538128587CE100476507 /* BackButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A981538028587CE100476507 /* BackButtonExtension.swift */; };
 		C91EB94A285868F100EB648B /* FlowerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE0462856C15400CC25A0 /* FlowerListView.swift */; };
 		C91EB94B2858692A00EB648B /* ServerCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206B3284AE2B700D064E6 /* ServerCommunication.swift */; };
+		C91EB9532859A42500EB648B /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91EB9522859A42500EB648B /* DateExtension.swift */; };
 		C92B3BE5285175070010C49A /* PhotoGiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9326228284F2A2800E5C0A3 /* PhotoGiftView.swift */; };
+		C97222EF2859BFCB004B3628 /* DateToStringEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97222EE2859BFCB004B3628 /* DateToStringEvent.swift */; };
 		C9CEAEC8284F151A00769E4E /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAEC7284F151A00769E4E /* DateValue.swift */; };
 		C9CEAECB284F15DA00769E4E /* CalendarMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAECA284F15DA00769E4E /* CalendarMain.swift */; };
 		C9CEAECE284F17E300769E4E /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77196618284C6FA9002E6AC0 /* ColorExtension.swift */; };
@@ -116,9 +118,14 @@
 		A932622C284F2AA900E5C0A3 /* MyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyImage.swift; sourceTree = "<group>"; };
 		A932622E284F2AD400E5C0A3 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		A9326230284F2B0700E5C0A3 /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
+
+		C91EB9522859A42500EB648B /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		C97222EE2859BFCB004B3628 /* DateToStringEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateToStringEvent.swift; sourceTree = "<group>"; };
+
 		A9452D852858DD3B003E6450 /* CoupleInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoupleInformation.swift; sourceTree = "<group>"; };
 		A9452D882858E084003E6450 /* DetailedInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedInformationView.swift; sourceTree = "<group>"; };
 		A981538028587CE100476507 /* BackButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonExtension.swift; sourceTree = "<group>"; };
+
 		C9CEAEC7284F151A00769E4E /* DateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
 		C9CEAECA284F15DA00769E4E /* CalendarMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMain.swift; sourceTree = "<group>"; };
 		C9CEAECF284F18FA00769E4E /* CalendarBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarBack.swift; sourceTree = "<group>"; };
@@ -147,12 +154,12 @@
 		3E9206B0284AE1CC00D064E6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				77813AE32855B4BF0084828D /* Pill */,
+				C9CEAEC9284F159400769E4E /* Calendar */,
 				A44EE0452856C15400CC25A0 /* Flower */,
-				77403C7E2850AA60000A21EE /* SignIn */,
 				773C1A50284F37D600E93BFE /* Letter */,
 				A9326227284F2A1300E5C0A3 /* PictureGift */,
-				C9CEAEC9284F159400769E4E /* Calendar */,
+				77813AE32855B4BF0084828D /* Pill */,
+				77403C7E2850AA60000A21EE /* SignIn */,
 				3E9206BE284B248E00D064E6 /* Voicemail */,
 				3EBE43792849B6D30085C7C6 /* ContentView.swift */,
 				77196613284B41E8002E6AC0 /* GiftBoxView.swift */,
@@ -184,7 +191,11 @@
 				3E9206C7284C2A3100D064E6 /* VoiceRecorderVM.swift */,
 				77403C8B285193FE000A21EE /* QuickSignInWithApple.swift */,
 				77403C8E28519B04000A21EE /* SignInWithAppleViewModel.swift */,
+
+				C97222EE2859BFCB004B3628 /* DateToStringEvent.swift */,
+
 				3EDF0F40285868520048A63C /* ServerCommunicationVM.swift */,
+
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -254,7 +265,11 @@
 				77196618284C6FA9002E6AC0 /* ColorExtension.swift */,
 				A9326230284F2B0700E5C0A3 /* FileManager+Extension.swift */,
 				3EC5EA8B2856C6E400DEBA44 /* ConvertSecToMinAndHour.swift */,
+
+				C91EB9522859A42500EB648B /* DateExtension.swift */,
+
 				A981538028587CE100476507 /* BackButtonExtension.swift */,
+
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -472,6 +487,7 @@
 				3E9206D0284F3BA300D064E6 /* Test.swift in Sources */,
 				3EDF0F41285868520048A63C /* ServerCommunicationVM.swift in Sources */,
 				C9CEAECE284F17E300769E4E /* ColorExtension.swift in Sources */,
+				C91EB9532859A42500EB648B /* DateExtension.swift in Sources */,
 				77403C862850AA60000A21EE /* GettingStartView.swift in Sources */,
 				A4DA9D2B28571AD60038B34D /* FlowerView.swift in Sources */,
 				3EBE437A2849B6D30085C7C6 /* ContentView.swift in Sources */,
@@ -483,6 +499,7 @@
 				3E9206B6284AE2C400D064E6 /* imageViewModel.swift in Sources */,
 				3EBE43782849B6D30085C7C6 /* liveOnApp.swift in Sources */,
 				A44EE04D2856C74B00CC25A0 /* PillListView.swift in Sources */,
+				C97222EF2859BFCB004B3628 /* DateToStringEvent.swift in Sources */,
 				77403C852850AA60000A21EE /* SetNicknameView.swift in Sources */,
 				773C1A58284F3B5500E93BFE /* TextLimiter.swift in Sources */,
 				77196614284B41E8002E6AC0 /* GiftBoxView.swift in Sources */,
