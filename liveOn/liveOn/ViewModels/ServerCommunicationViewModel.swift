@@ -30,7 +30,7 @@ class ServerCommunication {
     
     func uploadImage(fileName: String, image: UIImage) {
         
-        authProvider.request(.imagePost(content: fileName, image: image)) { response in
+        authProvider.request(.imagePost(comment: fileName, polaroid: image)) { response in
             
             switch response {
             case .success(let result):
@@ -49,6 +49,25 @@ class ServerCommunication {
             switch response {
             case .success(let result):
                 print(result)
+                
+            case .failure(let err):
+                print(err)
+            }
+        }
+    }
+    
+    func getVM() {
+        authProvider.request(.voicemailListGet) { response in
+            
+            switch response {
+            case .success(let result):
+                let data = result.data
+                let decoder = JSONDecoder()
+                let vmData = try? decoder.decode(VoicemailListGetResponse.self, from: data)
+                
+                print(vmData)
+                
+//                print(result)
                 
             case .failure(let err):
                 print(err)

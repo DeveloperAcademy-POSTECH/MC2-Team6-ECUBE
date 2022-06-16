@@ -19,7 +19,7 @@ struct CreateGiftListView: View {
             
             VStack(alignment: .leading, spacing: 18) {
                 MakingGift(item: letterItem, destination: AnyView(CreateLetterView().environmentObject(LetterStore())))
-                MakingGift(item: photoItem, destination: AnyView(PhotoGiftView(imageModel: imageViewModel())))
+                MakingGift(item: photoItem, destination: AnyView(PhotoGiftView(imageModel: ImageViewModel())))
                 MakingGift(item: voiceItem, destination: AnyView(VoicemailView()))
                 MakingGift(item: pillItem, destination: AnyView(PillView()))
                 MakingGift(item: flowerItem, destination: AnyView(FlowerView()))

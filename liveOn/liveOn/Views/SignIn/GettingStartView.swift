@@ -9,24 +9,34 @@ import SwiftUI
 import AuthenticationServices
 
 struct GettingStartView: View {
+    
+    @ObservedObject var authenticationViewModel: AuthenticationViewModel = AuthenticationViewModel()
+    
     var body: some View {
             VStack {
                 Text("liveOn")
                 Spacer()
-//                QuickSignInWithApple()
+
                     .frame(height: 60, alignment: .center)
-//                    .onTapGesture(perform: showAppleLoginView)
-//
+            
                     .onTapGesture {
                         print("임시 다음 버튼 누르셈")
                     }
                   .padding()
                 NavigationLink(destination: SetNicknameView().environmentObject(User())) {
                     Text("임시 다음 버튼")
+                }.onTapGesture {
+                    print("임시 다음 버튼 누르셈")
                 }
                 .padding(.bottom, 40)
+                
+                SignInWithAppleButton(.signIn, onRequest: {request in request.requestedScopes = [.fullName, .email]}, onCompletion: {result in authenticationViewModel.didFinishAuthentication(result: result)}
+                )
+                .frame(height: 45)
+                .padding()
             }
     }
+    
     private func showAppleLoginView() {
 
             let provider = ASAuthorizationAppleIDProvider()
@@ -42,8 +52,8 @@ struct GettingStartView: View {
     }
 }
 
-struct GettingStart_Previews: PreviewProvider {
-    static var previews: some View {
-        GettingStartView()
-    }
-}
+// struct GettingStart_Previews: PreviewProvider {
+//    static var previews: some View {
+//        GettingStartView(authenticationViewModel: authenticationViewModel)
+//    }
+// }

@@ -11,6 +11,7 @@ struct Recording: Equatable {
     
     let fileURL: URL
     let createdAt: Date
+    let title: String
     var isPlaying: Bool
     
 }

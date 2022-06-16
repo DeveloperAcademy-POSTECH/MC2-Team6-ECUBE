@@ -1,6 +1,6 @@
 import SwiftUI
 
-class imageViewModel: ObservableObject {
+class ImageViewModel: ObservableObject {
     @Published var image: UIImage?
     @Published var showPicker = false
     @Published var source: Picker.Source = .library
@@ -43,6 +43,8 @@ class imageViewModel: ObservableObject {
         do {
             try FileManager().saveImage("\(myImage.id)", image: image)
             myImages.append(myImage)
+            print(myImage)
+            print(Bundle.main.path(forResource: "\(myImage.id)", ofType: "JPG"))
             saveMyImagesJSONFile()
         } catch {
             showFileAlert = true
@@ -65,6 +67,18 @@ class imageViewModel: ObservableObject {
             showFileAlert = true
             appError = MyImageError.ErrorType(error: .encodingError)
         }
+    }
+    
+    // MARK: 테스트용 파일 위치 찾기
+    func fetchDirectory() {
+        for myImage in myImages {
+            print(myImage)
+            print(Bundle.main.path(forResource: "\(myImage.id)", ofType: "JPG"))
+        }
+//        let directoryContents = try! FileManager.default.contentsOfDirectory(atPath: myImages[0].name)
+//        print(directoryContents)
+//
+//        FileManager.docDirURL.appendingPathComponent("\(id).jpg")
     }
 }
 

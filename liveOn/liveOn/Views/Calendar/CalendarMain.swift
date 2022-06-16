@@ -298,6 +298,7 @@ struct CalendarMain: View {
                         }
                         .padding()
                     }
+
                     // MoveDatePickerView와 CalendarMain 사이에 블러 효과
                     .opacity(isClicked ? 0.2 : 1 )
                     
