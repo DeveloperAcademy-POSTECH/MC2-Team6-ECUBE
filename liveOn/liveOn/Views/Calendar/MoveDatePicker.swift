@@ -1,9 +1,7 @@
-//
 //  MoveDateButton.swift
 //  liveOn
 //
 //  Created by Keum MinSeok on 2022/06/13.
-//
 
 import SwiftUI
 
@@ -14,8 +12,7 @@ struct MoveDatePicker: View {
     @Binding var currentDate: Date
     @Binding var showDatePicker: Bool
     @Binding var popUpBoolean: Bool
-    
-    @Environment(\.presentationMode) var presentationMode
+    @Binding var isClicked: Bool
     
     var body: some View {
         ZStack {
@@ -28,34 +25,31 @@ struct MoveDatePicker: View {
                     .padding(.top, -20)
                 
                 HStack {
-                    Button(action: {
+                    Button("취소") {
                         showDatePicker = false
-                    }, label: {
-                        Text("취소")
-                            .font(.system(size: 18))
-                            .foregroundColor(.blue)
-                            .padding(.top, -16)
-                    })
+                        isClicked.toggle()
+                    }
+                    .font(.system(size: 18).bold())
+                    .foregroundColor(Color("Burgundy"))
+                    .padding(.top, -16)
                     
                     Spacer()
                     
-                    Button("이동") {
+                    Button("확인") {
                         self.currentDate = autoDate
-                        presentationMode.wrappedValue.dismiss()
                         showDatePicker = false
+                        isClicked.toggle()
                     }
-                    .font(.system(size: 18))
-                    .foregroundColor(.blue)
+                    .font(.system(size: 18).bold())
+                    .foregroundColor(Color("Burgundy"))
                     .padding(.top, -16)
                 }
                 .padding(.horizontal)
             }
             .padding(.bottom)
-            .background(
-                Color.white
-                    .cornerRadius(30))
+            .background(Color.white.cornerRadius(30))
         }
         .frame(width: UIScreen.main.bounds.width * 0.8, height: UIScreen.main.bounds.height * 0.36, alignment: .center)
-        .offset(x: 0, y: -87)
+        .offset(x: 0, y: -185)
     }
 }

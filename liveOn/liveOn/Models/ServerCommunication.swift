@@ -2,24 +2,29 @@ import Foundation
 import SwiftUI
 import Moya
 
-let moyaService = MoyaProvider<TestServices>(plugins: [NetworkLoggerPlugin()])
+let moyaService = MoyaProvider<ServerCommunications>(plugins: [NetworkLoggerPlugin()])
 var testImageData: ImageTestResponse?
 
 struct GeneralAPI {
     static let baseURL = "http://13.124.90.96:8080"
-    static let token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpbmciLCJyb2xlIjoiVVNFUiIsImV4cCI6MTY1NTA4ODY1NywiaWF0IjoxNjU1MDgzMjU3fQ.tJarmSRIK8vigZ_j3Mz_leFLVHPi1B3vvHCOGBqVzC8"
+    static let token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpbmciLCJyb2xlIjoiVVNFUiIsImV4cCI6MTY1Nzg0NDAxMiwiaWF0IjoxNjU1MjUyMDEyfQ.pJWVTYLYgmISAkQ2tYZ54Oxxp-E05yL-trKCsCEuwq0"
 }
 
+// MARK: MoyaTest의 코드들 옮긴 부분
 // API 목록들
-enum TestServices {
+enum ServerCommunications {
+  
     case login(param: LoginRequest) // 파라미터로 스트럭트가 들어갑니다.
     case imagePost(content: String, image: UIImage)
-    case getTest
+    case voicemailPost(title: String)
+    case getData
 }
+
 // LoginApi Request 양식
 struct LoginRequest: Codable {
     var name: String
 }
+
 // LoginApi Response 양식
 struct LoginResponse: Codable {
     let accessToken: String
@@ -27,43 +32,55 @@ struct LoginResponse: Codable {
     let refreshToken: String
     let userSettingDone: Bool
 }
+
 // ImageApi Response 양식
 struct ImageTestResponse: Codable {
     let contentRecieved: String
     let imageName: String
 }
+
 // http method, URLSession task, header 작성 등을 케이스 분류
-extension TestServices: TargetType, AccessTokenAuthorizable {
+extension ServerCommunications: TargetType, AccessTokenAuthorizable {
     public var baseURL: URL {
         return URL(string: GeneralAPI.baseURL)!
     }
+    
     // API 주소
     var path: String {
         switch self {
         case.login:
             return "/api/v1/test/login"
+            
         case .imagePost:
             return "/api/v1/testing/image"
-        case .getTest:
+            
+        case .voicemailPost:
+            return "/api/v1/gifts/voicemail"
+            
+        case .getData:
             return "/api​/v1​/testing​/test"
         }
     }
+    
     // http method 종류
     var method: Moya.Method {
         switch self {
-        case .login, .imagePost:
+        case .login, .imagePost, .voicemailPost:
             return .post
-        case .getTest:
+        case .getData:
             return .get
         }
     }
+    
     // Task 종류
     var task: Task {
         switch self {
-            // 일반 json 형식 요청
+            
+            // MARK: 일반 json 형식 요청
         case .login(let param):
             return .requestJSONEncodable(param)
-            // MultiPart 요청
+            
+            // MARK: MultiPart 요청
         case .imagePost(let content, let image):
             var multipartForm: [MultipartFormData] = []
             let imageData = image.pngData()
@@ -71,7 +88,29 @@ extension TestServices: TargetType, AccessTokenAuthorizable {
             multipartForm.append(MultipartFormData(provider: .data(imageData!), name: "image", fileName: "sample.png", mimeType: "sample/png"))
             return .uploadMultipart(multipartForm)
             
-        case .getTest:
+            // MARK: Voicemail Post 요청
+        case .voicemailPost(let title):
+            
+            var multipartForm: [MultipartFormData] = []
+            
+            let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            let directoryContents = try! FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)
+            
+//            let audioURLPath = Bundle.main.path(forResource: title, ofType: "m4a")
+//            let audioURL = URL(fileURLWithPath: audioURLPath!)
+            
+            guard let audioFile: Data = try? Data(contentsOf: directoryContents[0])
+            else {
+                print("")
+                return .uploadMultipart(multipartForm)
+            }
+            
+            multipartForm.append(MultipartFormData(provider: .data(audioFile), name: "voiceMail", fileName: "\(title).m4a", mimeType: "audio/m4a"))
+            
+            return .uploadMultipart(multipartForm)
+            
+            // MARK: get test 요청
+        case .getData:
             return .requestPlain
         }
     }
@@ -79,17 +118,25 @@ extension TestServices: TargetType, AccessTokenAuthorizable {
     // 권한 요청
     var authorizationType: AuthorizationType? {
         switch self {
-        case .login, .imagePost, .getTest:
+            
+        case .login, .imagePost, .getData:
             return nil
+            
+        default:
+            return .bearer
+            
         }
     }
     // header부분 작성 형식
     var headers: [String: String]? {
         switch self {
-        case .imagePost:
+            
+        case .imagePost, .voicemailPost:
             return ["Content-Type": "multipart/form"]
-        case .getTest:
+            
+        case .getData:
             return ["Content-Type": "application/json"]
+            
         default:
             return ["Content-Type": "application/json",
                     "Authorization": GeneralAPI.token]
