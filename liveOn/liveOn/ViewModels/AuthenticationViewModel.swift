@@ -49,6 +49,7 @@ class AuthenticationViewModel: ObservableObject {
         
                         else {return}
                         print(appleUser)
+                    print(appleUser.identityToken)
                     authNetworkService.login(accessToken: appleUser.identityToken)
                         
                     default:
