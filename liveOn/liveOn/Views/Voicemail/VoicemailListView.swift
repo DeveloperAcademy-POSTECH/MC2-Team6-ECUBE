@@ -13,6 +13,8 @@ struct VoicemailListView: View {
     
     @State var showModal: Bool = false
     
+    private let communication = ServerCommunication().getVM()
+    
     var body: some View {
         ZStack {
             

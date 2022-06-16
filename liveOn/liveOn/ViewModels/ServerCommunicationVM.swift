@@ -61,7 +61,13 @@ class ServerCommunication {
             
             switch response {
             case .success(let result):
-                print(result)
+                let data = result.data
+                let decoder = JSONDecoder()
+                let vmData = try? decoder.decode(VoicemailListGetResponse.self, from: data)
+                
+                print(vmData)
+                
+//                print(result)
                 
             case .failure(let err):
                 print(err)
