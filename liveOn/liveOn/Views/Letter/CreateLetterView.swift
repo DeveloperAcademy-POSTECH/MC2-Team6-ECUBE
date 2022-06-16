@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+    func getRandomLetterStyle() -> String {
+        let letterStyle = ["blue", "green", "orange", "pink", "purple", "yellow", "white"]
+        return "letter_"+letterStyle[Int.random(in: 0 ..< letterStyle.count)]
+    }
+
 struct CreateLetterView: View {
     init() {
         UITextView.appearance().backgroundColor = .clear
@@ -15,6 +20,7 @@ struct CreateLetterView: View {
     @EnvironmentObject var store: LetterStore
     @State var isitEntered: Bool = false
     @State var showAlertforSend: Bool = false
+    @State var letterStyle: String?
     @ObservedObject var input =  TextLimiter(limit: 140, placeholder: "오늘은 어떤 이야기를 해볼까요?")
     var body: some View {
         VStack(alignment: .center) {
@@ -36,15 +42,16 @@ struct CreateLetterView: View {
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .foregroundColor(.bodyTextColor)
                     .opacity(0.6)
+                    .padding(.vertical)
                 
             }
             // MARK: 쪽지 크기&배경 설정
-            .frame(maxWidth: UIScreen.main.bounds.width*0.8, maxHeight: UIScreen.main.bounds.width*0.8)
-            .padding()
-            .background(Image("letter_01").resizable().shadow(color: Color(uiColor: .systemGray4), radius: 4, x: 1, y: 3))
+            .frame(maxWidth: UIScreen.main.bounds.width*0.8, maxHeight: UIScreen.main.bounds.width*0.7)
+            .padding(24)
+            .background(Image(letterStyle ?? "letter_green").resizable().shadow(color: Color(uiColor: .systemGray4), radius: 4, x: 1, y: 3))
             
             .navigationBarItems(
-                leading: Button { dismiss()} label: {Text("취소")},
+               
                 trailing: Button {
                     showAlertforSend = true
                 } label: {
@@ -60,14 +67,12 @@ struct CreateLetterView: View {
                         })
                     })
             .navigationBarTitle("쪽지 쓰기", displayMode: .inline)
-            .navigationBarBackButtonHidden(true)
-            .accentColor(.bodyTextColor)
-            .background(Color.bodyTextColor)
+
         }
-//        .onTapGesture {
-//            hideKeyboard()
-//        }
-        
+        .onAppear {
+            letterStyle = getRandomLetterStyle()
+        }
+        .background(Color.background)
     }
     
     struct CreateLetterView_Previews: PreviewProvider {
