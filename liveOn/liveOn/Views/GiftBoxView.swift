@@ -91,7 +91,7 @@ struct GiftBoxView: View {
     // MARK: 카세트랑 쪽지
     var voicemailAndLetter: some View {
         HStack {
-            NavigationLink(destination: VoicemailListView()) {
+            NavigationLink(destination: VoicemailsView()) {
                 Image("cassettes")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
