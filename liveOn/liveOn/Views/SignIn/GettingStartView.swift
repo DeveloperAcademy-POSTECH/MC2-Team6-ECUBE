@@ -24,6 +24,10 @@ struct GettingStartView: View {
                 NavigationLink(destination: SetNicknameView().environmentObject(User())) {
                     Text("임시 다음 버튼")
                 }
+                .padding(.bottom, 40)
+                NavigationLink(destination: CalendarMain()) {
+                    Text("달력")
+                }
             }
     }
     private func showAppleLoginView() {
