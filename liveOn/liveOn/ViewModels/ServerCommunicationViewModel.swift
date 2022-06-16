@@ -10,6 +10,8 @@ import UIKit
 
 class ServerCommunication {
     
+//    var vmList: [VoicemailListGetResponse] = []
+    
     private let authPlugin = AccessTokenPlugin { _ in GeneralAPI.token }
     
     private lazy var authProvider = MoyaProvider<ServerCommunications>(plugins: [authPlugin, NetworkLoggerPlugin(verbose: true)])
@@ -33,8 +35,9 @@ class ServerCommunication {
         authProvider.request(.imagePost(comment: fileName, polaroid: image)) { response in
             
             switch response {
-            case .success(let result):
-                print(result)
+            case .success:
+                print("response: \(response)")
+//                print(response.)
                 
             case .failure(let err):
                 print(err)
@@ -61,13 +64,14 @@ class ServerCommunication {
             
             switch response {
             case .success(let result):
-                let data = result.data
-                let decoder = JSONDecoder()
-                let vmData = try? decoder.decode(VoicemailListGetResponse.self, from: data)
-                
-                print(vmData)
-                
-//                print(result)
+//                print("result: \(result)")₩
+                do {
+                    print("result: \(result)")
+//                    self.vmList = try result.map([VoicemailListGetResponse].self)
+
+                } catch let err {
+                    print(err.localizedDescription)
+                }
                 
             case .failure(let err):
                 print(err)
