@@ -4,6 +4,7 @@ import Moya
 
 let moyaService = MoyaProvider<ServerCommunications>(plugins: [NetworkLoggerPlugin()])
 var testImageData: ImageTestResponse?
+var loadedImage: ImageGetResponse?
 
 struct GeneralAPI {
     static let baseURL = "http://13.124.90.96:8080"
@@ -16,6 +17,7 @@ enum ServerCommunications {
   
     case login(param: LoginRequest) // 파라미터로 스트럭트가 들어갑니다.
     case imagePost(comment: String, polaroid: UIImage)
+    case imageGet
     case voicemailPost(title: String)
     case getData
 }
@@ -39,6 +41,13 @@ struct ImageTestResponse: Codable {
     let imageName: String
 }
 
+struct ImageGetResponse: Codable {
+    let createdAt: String
+    let giftPolaroidId: Int64
+    let giftPolaroidImage: String
+    let userNickName: String
+}
+
 // http method, URLSession task, header 작성 등을 케이스 분류
 extension ServerCommunications: TargetType, AccessTokenAuthorizable {
     public var baseURL: URL {
@@ -54,6 +63,9 @@ extension ServerCommunications: TargetType, AccessTokenAuthorizable {
         case .imagePost:
             return "api/v1/gifts/polaroids"
             
+        case .imageGet:
+            return "/api/v1/gifts/polaroids/1"
+            
         case .voicemailPost:
             return "/api/v1/gifts/voicemail"
             
@@ -67,7 +79,7 @@ extension ServerCommunications: TargetType, AccessTokenAuthorizable {
         switch self {
         case .login, .imagePost, .voicemailPost:
             return .post
-        case .getData:
+        case .getData, .imageGet:
             return .get
         }
     }
@@ -110,6 +122,9 @@ extension ServerCommunications: TargetType, AccessTokenAuthorizable {
             
             // MARK: get test 요청
         case .getData:
+            return .requestPlain
+            
+        case .imageGet:
             return .requestPlain
         }
     }
