@@ -41,6 +41,12 @@ struct PhotoGiftView: View {
                         .foregroundColor(.bodyTextColor).opacity(0.5)
                 }
                 
+                Button(action: {
+                    imageViewModel.fetchDirectory()
+                }) {
+                    Text("fetch files")
+                }
+                
                 NavigationLink("", destination: PhotoCardsView(), isActive: $isTapped)
             }
             .padding()

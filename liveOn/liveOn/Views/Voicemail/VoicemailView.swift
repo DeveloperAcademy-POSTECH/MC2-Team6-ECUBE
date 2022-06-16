@@ -10,6 +10,7 @@ import AVFoundation
 struct VoicemailView: View {
     
     @ObservedObject var vm = VoiceRecorderVM()
+//    @State private var showAlertforSend: Bool = false
     
     private let communication = ServerCommunication()
     let nowDate = Date.now
@@ -152,6 +153,7 @@ struct VoicemailView: View {
                     Text("선물하기")
                 }
                 .disabled(!vm.canSend())
+                
             }
             .onTapGesture {
                 hideKeyboard()
