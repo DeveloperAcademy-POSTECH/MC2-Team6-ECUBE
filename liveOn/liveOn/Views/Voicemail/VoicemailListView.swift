@@ -66,9 +66,3 @@ struct VoicemailListView: View {
 //        ]
 //    }
 // }
-
-struct VoicemailListView_Previews: PreviewProvider {
-    static var previews: some View {
-        VoicemailListView()
-    }
-}
