@@ -124,13 +124,13 @@ struct CalendarMain: View {
                                 
                                 CardView(value: value)
                                     .background(
-                                        
                                         Circle()
                                             .fill(orangeColor)
-                                            .padding(.bottom, 49)
-                                            .padding(.trailing, 26)
-                                            .padding(.leading, 5)
                                             .opacity(isSameDay(date1: value.date, date2: currentDate) ? 1 : 0)
+                                            .padding(.vertical, 36)
+                                            .padding(.bottom, 16)
+                                            .padding(.top, -32)
+                                            .padding(.leading, -26)
                                     )
                                     .onTapGesture {
                                         currentDate = value.date
@@ -338,14 +338,15 @@ struct CalendarMain: View {
                     .font(.callout)
                     .foregroundColor(isSameDay(date1: value.date, date2: currentDate) ?
                         .white : .gray)
-                    .padding(.leading, 8)
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .frame(maxWidth: .infinity)
+                    .padding(.bottom, 40)
+                    .padding(.leading, -26)
                 
                 Spacer()
             }
         }
         .padding(.vertical, 6)
-        .frame(height: 80, alignment: .top)
+        .frame(height: 80)
         .border(Color(uiColor: .systemGray3), width: 0.16)
     }
     
