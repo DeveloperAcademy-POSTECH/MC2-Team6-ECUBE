@@ -43,6 +43,8 @@
 		77403C8F28519B04000A21EE /* SignInWithAppleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77403C8E28519B04000A21EE /* SignInWithAppleViewModel.swift */; };
 		77403C9228524487000A21EE /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 77403C9128524487000A21EE /* FSCalendar */; };
 		77813AE22855B4B40084828D /* PillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77813AE12855B4B40084828D /* PillView.swift */; };
+		77A30A7E285AC994009548E5 /* VoicemailListAssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A30A7D285AC994009548E5 /* VoicemailListAssetView.swift */; };
+		77A30A80285AD837009548E5 /* VoicemailListView_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A30A7F285AD837009548E5 /* VoicemailListView_.swift */; };
 		77A9654B285A5BFB00511556 /* AppleSocialLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A9654A285A5BFB00511556 /* AppleSocialLogin.swift */; };
 		77A9654D285A626800511556 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A9654C285A626800511556 /* AuthenticationViewModel.swift */; };
 		A44EE0492856C6E900CC25A0 /* Flower.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE0482856C6E900CC25A0 /* Flower.swift */; };
@@ -115,6 +117,8 @@
 		77403C8D28519991000A21EE /* liveOn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = liveOn.entitlements; sourceTree = "<group>"; };
 		77403C8E28519B04000A21EE /* SignInWithAppleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleViewModel.swift; sourceTree = "<group>"; };
 		77813AE12855B4B40084828D /* PillView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PillView.swift; sourceTree = "<group>"; };
+		77A30A7D285AC994009548E5 /* VoicemailListAssetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicemailListAssetView.swift; sourceTree = "<group>"; };
+		77A30A7F285AD837009548E5 /* VoicemailListView_.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicemailListView_.swift; sourceTree = "<group>"; };
 		77A9654A285A5BFB00511556 /* AppleSocialLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSocialLogin.swift; sourceTree = "<group>"; };
 		77A9654C285A626800511556 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		A44EE0462856C15400CC25A0 /* FlowerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerListView.swift; sourceTree = "<group>"; };
@@ -214,6 +218,8 @@
 				3E9206BF284B249C00D064E6 /* VoicemailView.swift */,
 				3EC5EA892856C38100DEBA44 /* VoicemailCassetteView.swift */,
 				3EDF0F68285A08EE0048A63C /* VoicemailListView.swift */,
+				77A30A7D285AC994009548E5 /* VoicemailListAssetView.swift */,
+				77A30A7F285AD837009548E5 /* VoicemailListView_.swift */,
 			);
 			path = Voicemail;
 			sourceTree = "<group>";
@@ -530,9 +536,15 @@
 				A92A88C728506B8700A71FCC /* PhotoCardsView.swift in Sources */,
 				3E9206CC284F343200D064E6 /* Recording.swift in Sources */,
 				C9FE9E0828571F71007B6EA5 /* MoveDatePicker.swift in Sources */,
+
+				3E9206C2284B24CF00D064E6 /* DateToStringVM.swift in Sources */,
+				77A30A7E285AC994009548E5 /* VoicemailListAssetView.swift in Sources */,
+
 				3E9206C2284B24CF00D064E6 /* DateToStringViewModel.swift in Sources */,
+
 				77813AE22855B4B40084828D /* PillView.swift in Sources */,
 				C9CEAEC8284F151A00769E4E /* DateValue.swift in Sources */,
+				77A30A80285AD837009548E5 /* VoicemailListView_.swift in Sources */,
 				77403C8A2850B7E9000A21EE /* SelectWhatToDoView.swift in Sources */,
 				A932622B284F2A9600E5C0A3 /* Picker.swift in Sources */,
 				3E9206C0284B249C00D064E6 /* VoicemailView.swift in Sources */,
