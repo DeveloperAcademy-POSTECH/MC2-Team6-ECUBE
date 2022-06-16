@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct PillPopUpView: View {
-    
     @Binding var showPillPopUp: Bool
     @Binding var indexOfCard: Int
     
@@ -24,12 +23,12 @@ struct PillPopUpView: View {
                 label: {
                     
                     VStack {
-                        
-                        Text("Click to Dismiss")
-                            .foregroundColor(.gray)
-                            .opacity(0.8)
-                            .padding(.bottom, 12)
-                        
+//                        
+//                        Image(systemName: "xmark")
+//                            .foregroundColor(.gray)
+//                            .opacity(0.8)
+//                            .padding(.bottom, 24)
+//                        
                         ZStack {
                             
                             RoundedRectangle(cornerRadius: 8)
@@ -56,8 +55,11 @@ struct PillPopUpView: View {
                                 Text("\(pillList[indexOfCard].prescribedDate)")
                                     .font(.system(size: 12))
                                 
-                                Image("medicine")
+                                Image("medicine0"+String(Int.random(in: 0..<8)))
+                                    .resizable()
                                     .scaledToFit()
+                                    .padding()
+                                    .frame(width: 200, height: 200, alignment: .center)
                                 
                                 Text("\(pillList[indexOfCard].effect)")
                                     .padding(8)

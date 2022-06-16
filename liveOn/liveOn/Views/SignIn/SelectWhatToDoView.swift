@@ -11,48 +11,60 @@ struct SelectWhatToDoView: View {
     @EnvironmentObject var currentUser: User
     @Environment(\.dismiss) private var dismiss
     @State var showEnterCodeSheet: Bool = false
+    
+    var copyButton: some View {
+        ZStack(alignment: .top) {
+            Image(systemName: "arrowtriangle.up.fill")
+                .foregroundColor(.accentColor)
+                .offset(y: 1)
+            Text("복사하기")
+                .foregroundColor(.white)
+                .padding(.vertical, 10)
+                .padding(.horizontal, 18)
+                .background( RoundedRectangle(cornerRadius: 4)
+                    .fill(Color.accentColor)
+                )
+                .padding(.top, 10)
+            
+        }
+    }
+    
     var body: some View {
-        OnboardingHeader(title: " 상대를 초대해주세요! ", description: "상대가 앱을 설치하고 초대코드를 입력하면  매칭해드릴게요.", inputView:
+        OnboardingHeader(title: "상대방 초대하기! ", description: "상대가 앱을 설치하고 초대코드를 입력하면 서로를 이어드릴게요.", inputView:
                             AnyView(
                                 VStack {
-                                    Text("\(currentUser.userCode)")
-                                        .font(.title)
-                                        .fontWeight(.heavy)
-                                        .padding(.top, 50)
+                                    VStack {
+                                        Text("\(currentUser.userCode)")
+                                            .font(.title)
+                                            .fontWeight(.heavy)
+                                            .frame(width: 268, height: 170, alignment: .center)
+                                            .background(RoundedRectangle(cornerRadius: 20).fill(Color(uiColor: .systemBackground)).shadow(color: .bodyTextColor.opacity(0.3), radius: 6, x: 0, y: 2))
+                                            .padding(.top, 40)
+                                        copyButton
+                                        
+                                    }
                                     Spacer()
                                     // TODO: 액티비티 시트 연결(공유)
-                                    Button {}
-                                label: {
-                                    HStack {
-                                        Image(systemName: "envelope.fill")
-                                        Text("초대코드 보내기")
-                                            .font(.title3)
-                                    }
-                                    .foregroundColor(Color(uiColor: .label))
-                                    .colorInvert()
-                                    .padding()
-                                    .frame(maxWidth: .infinity, maxHeight: 64)
-                                    .background(RoundedRectangle(cornerRadius: 10).fill(Color.primaryColor))
-                                    .padding()
-                                }// Button
-                                .buttonStyle(.plain)
+                                    
                                     NavigationLink(destination: EnterCode()) {
                                         Text("이미 초대코드가 있어요")
                                             .fontWeight(.bold)
                                             .padding()
                                             .background(RoundedRectangle(cornerRadius: 10).fill(Color.bodyTextColor).opacity(0.1))
                                     }// nav link
-                                })
+                                }.frame(maxWidth: .infinity))
+                         
         )
+        .background(Color.background)
         .navigationToBack(dismiss)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink(destination: GiftBoxView()
                     .navigationBarHidden(true)
                     .environmentObject(currentUser)) {
-                    Text("다음")
-                }
-                .buttonStyle(.plain)
+                        Text("다음")
+                    }
+                    .buttonStyle(.plain)
             }
         }
     }
@@ -78,18 +90,18 @@ struct EnterCode: View {
                     .font(.title)
                     .limitInputLength(value: $code, length: 5)
                     .multilineTextAlignment(.center)
-                    .padding()
+                    .padding(16)
                 Spacer()
             }
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        NavigationLink(destination: EmptyView()) {
-                            Text("다음")
-                        }
-                        .buttonStyle(.plain)
-                    }
-                }
         ))
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                NavigationLink(destination: EmptyView()) {
+                    Text("다음")
+                }
+                .buttonStyle(.plain)
+            }
+        }
         
     }
     
