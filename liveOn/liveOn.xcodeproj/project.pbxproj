@@ -7,12 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3E9206B6284AE2C400D064E6 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206B5284AE2C400D064E6 /* ImageViewModel.swift */; };
 		3E9206C0284B249C00D064E6 /* VoicemailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206BF284B249C00D064E6 /* VoicemailView.swift */; };
-		3E9206C2284B24CF00D064E6 /* DateToStringViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206C1284B24CF00D064E6 /* DateToStringViewModel.swift */; };
 		3E9206CC284F343200D064E6 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206CB284F343200D064E6 /* Recording.swift */; };
 		3E9206D0284F3BA300D064E6 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206CF284F3BA300D064E6 /* Test.swift */; };
-		3E9206D3285035D900D064E6 /* VoiceRecorderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206C7284C2A3100D064E6 /* VoiceRecorderViewModel.swift */; };
 		3EBE43782849B6D30085C7C6 /* liveOnApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBE43772849B6D30085C7C6 /* liveOnApp.swift */; };
 		3EBE437A2849B6D30085C7C6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBE43792849B6D30085C7C6 /* ContentView.swift */; };
 		3EBE437C2849B6D50085C7C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EBE437B2849B6D50085C7C6 /* Assets.xcassets */; };
@@ -20,7 +17,6 @@
 		3EC5EA8A2856C38100DEBA44 /* VoicemailCassetteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC5EA892856C38100DEBA44 /* VoicemailCassetteView.swift */; };
 		3EC5EA8C2856C6E400DEBA44 /* ConvertSecToMinAndHour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC5EA8B2856C6E400DEBA44 /* ConvertSecToMinAndHour.swift */; };
 		3EDF0F3F285867910048A63C /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 3EDF0F3E285867910048A63C /* Moya */; };
-		3EDF0F41285868520048A63C /* ServerCommunicationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDF0F40285868520048A63C /* ServerCommunicationViewModel.swift */; };
 		3EDF0F4428586CEA0048A63C /* NetworkLoggerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDF0F4328586CEA0048A63C /* NetworkLoggerPlugin.swift */; };
 		3EDF0F47285879D20048A63C /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 3EDF0F46285879D20048A63C /* FSCalendar */; };
 		3EDF0F6E285A0E7D0048A63C /* test3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3EDF0F6B285A0E7D0048A63C /* test3.m4a */; };
@@ -43,7 +39,6 @@
 		77403C8A2850B7E9000A21EE /* SelectWhatToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77403C892850B7E9000A21EE /* SelectWhatToDoView.swift */; };
 		77403C8F28519B04000A21EE /* SignInWithAppleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77403C8E28519B04000A21EE /* SignInWithAppleViewModel.swift */; };
 		77403C9228524487000A21EE /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 77403C9128524487000A21EE /* FSCalendar */; };
-		77813AE22855B4B40084828D /* PillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77813AE12855B4B40084828D /* PillView.swift */; };
 		77A30A8C285B0588009548E5 /* VoicemailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A30A8B285B0588009548E5 /* VoicemailsView.swift */; };
 		77A30A8E285B05B9009548E5 /* VoicemailCassette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A30A8D285B05B9009548E5 /* VoicemailCassette.swift */; };
 		77A9654B285A5BFB00511556 /* AppleSocialLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A9654A285A5BFB00511556 /* AppleSocialLogin.swift */; };
@@ -71,10 +66,15 @@
 		C91EB9532859A42500EB648B /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91EB9522859A42500EB648B /* DateExtension.swift */; };
 		C92B3BE5285175070010C49A /* PhotoGiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9326228284F2A2800E5C0A3 /* PhotoGiftView.swift */; };
 		C97222EF2859BFCB004B3628 /* DateToStringEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97222EE2859BFCB004B3628 /* DateToStringEvent.swift */; };
-		C9CEAEC8284F151A00769E4E /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAEC7284F151A00769E4E /* DateValue.swift */; };
+		C97222F1285B006C004B3628 /* ForEachTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97222F0285B006C004B3628 /* ForEachTest.swift */; };
+		C9722301285B79D4004B3628 /* ServerCommunicationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDF0F40285868520048A63C /* ServerCommunicationViewModel.swift */; };
+		C9722302285B79E3004B3628 /* VoiceRecorderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206C7284C2A3100D064E6 /* VoiceRecorderViewModel.swift */; };
+		C9722303285B79F7004B3628 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206B5284AE2C400D064E6 /* ImageViewModel.swift */; };
+		C9722304285B7A16004B3628 /* DateToStringViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206C1284B24CF00D064E6 /* DateToStringViewModel.swift */; };
+		C9722305285B7A3C004B3628 /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAEC7284F151A00769E4E /* DateValue.swift */; };
+		C9722306285B7A47004B3628 /* PillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77813AE12855B4B40084828D /* PillView.swift */; };
 		C9CEAECB284F15DA00769E4E /* CalendarMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAECA284F15DA00769E4E /* CalendarMain.swift */; };
 		C9CEAECE284F17E300769E4E /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77196618284C6FA9002E6AC0 /* ColorExtension.swift */; };
-		C9CEAED0284F18FA00769E4E /* CalendarBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAECF284F18FA00769E4E /* CalendarBack.swift */; };
 		C9CEAED6284F394A00769E4E /* PlusSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAED5284F394A00769E4E /* PlusSetting.swift */; };
 		C9FE9E0828571F71007B6EA5 /* MoveDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FE9E0728571F71007B6EA5 /* MoveDatePicker.swift */; };
 /* End PBXBuildFile section */
@@ -139,9 +139,9 @@
 		A981538028587CE100476507 /* BackButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonExtension.swift; sourceTree = "<group>"; };
 		C91EB9522859A42500EB648B /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		C97222EE2859BFCB004B3628 /* DateToStringEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateToStringEvent.swift; sourceTree = "<group>"; };
+		C97222F0285B006C004B3628 /* ForEachTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForEachTest.swift; sourceTree = "<group>"; };
 		C9CEAEC7284F151A00769E4E /* DateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
 		C9CEAECA284F15DA00769E4E /* CalendarMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMain.swift; sourceTree = "<group>"; };
-		C9CEAECF284F18FA00769E4E /* CalendarBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarBack.swift; sourceTree = "<group>"; };
 		C9CEAED5284F394A00769E4E /* PlusSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusSetting.swift; sourceTree = "<group>"; };
 		C9FE9E0728571F71007B6EA5 /* MoveDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveDatePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -170,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				C9CEAEC9284F159400769E4E /* Calendar */,
+				A9452D872858DD44003E6450 /* CoupleInformation */,
 				A44EE0452856C15400CC25A0 /* Flower */,
 				773C1A50284F37D600E93BFE /* Letter */,
 				A9326227284F2A1300E5C0A3 /* PictureGift */,
@@ -179,7 +180,6 @@
 				3EBE43792849B6D30085C7C6 /* ContentView.swift */,
 				77196613284B41E8002E6AC0 /* GiftBoxView.swift */,
 				77196615284B4DC7002E6AC0 /* CreateGiftListView.swift */,
-				A9452D872858DD44003E6450 /* CoupleInformation */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -372,10 +372,10 @@
 		C9CEAEC9284F159400769E4E /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				C9CEAECF284F18FA00769E4E /* CalendarBack.swift */,
 				C9CEAECA284F15DA00769E4E /* CalendarMain.swift */,
 				C9CEAED5284F394A00769E4E /* PlusSetting.swift */,
 				C9FE9E0728571F71007B6EA5 /* MoveDatePicker.swift */,
+				C97222F0285B006C004B3628 /* ForEachTest.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -495,6 +495,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9722306285B7A47004B3628 /* PillView.swift in Sources */,
+				C9722305285B7A3C004B3628 /* DateValue.swift in Sources */,
+				C9722304285B7A16004B3628 /* DateToStringViewModel.swift in Sources */,
+				C9722303285B79F7004B3628 /* ImageViewModel.swift in Sources */,
+				C9722302285B79E3004B3628 /* VoiceRecorderViewModel.swift in Sources */,
+				C9722301285B79D4004B3628 /* ServerCommunicationViewModel.swift in Sources */,
 				C91EB94B2858692A00EB648B /* ServerCommunication.swift in Sources */,
 				C91EB94A285868F100EB648B /* FlowerListView.swift in Sources */,
 				C92B3BE5285175070010C49A /* PhotoGiftView.swift in Sources */,
@@ -518,9 +524,7 @@
 				77403C8F28519B04000A21EE /* SignInWithAppleViewModel.swift in Sources */,
 				C9CEAECB284F15DA00769E4E /* CalendarMain.swift in Sources */,
 				3E9206D0284F3BA300D064E6 /* Test.swift in Sources */,
-				3EDF0F41285868520048A63C /* ServerCommunicationViewModel.swift in Sources */,
 				77A30A8E285B05B9009548E5 /* VoicemailCassette.swift in Sources */,
-				3EDF0F41285868520048A63C /* ServerCommunicationViewModel.swift in Sources */,
 				C9CEAECE284F17E300769E4E /* ColorExtension.swift in Sources */,
 				C91EB9532859A42500EB648B /* DateExtension.swift in Sources */,
 				77403C862850AA60000A21EE /* GettingStartView.swift in Sources */,
@@ -529,28 +533,18 @@
 				773C1A52284F37E400E93BFE /* Letter.swift in Sources */,
 				773C1A56284F3A5800E93BFE /* CreateLetterView.swift in Sources */,
 				A981538128587CE100476507 /* BackButtonExtension.swift in Sources */,
-				3E9206D3285035D900D064E6 /* VoiceRecorderViewModel.swift in Sources */,
-				C9CEAED0284F18FA00769E4E /* CalendarBack.swift in Sources */,
-				3E9206B6284AE2C400D064E6 /* ImageViewModel.swift in Sources */,
 				3EBE43782849B6D30085C7C6 /* liveOnApp.swift in Sources */,
 				A44EE04D2856C74B00CC25A0 /* PillListView.swift in Sources */,
 				C97222EF2859BFCB004B3628 /* DateToStringEvent.swift in Sources */,
 				77403C852850AA60000A21EE /* SetNicknameView.swift in Sources */,
 				773C1A58284F3B5500E93BFE /* TextLimiter.swift in Sources */,
 				77196614284B41E8002E6AC0 /* GiftBoxView.swift in Sources */,
+				C97222F1285B006C004B3628 /* ForEachTest.swift in Sources */,
 				773C1A54284F37F700E93BFE /* LetterListView.swift in Sources */,
 				A92A88C728506B8700A71FCC /* PhotoCardsView.swift in Sources */,
 				3E9206CC284F343200D064E6 /* Recording.swift in Sources */,
 				C9FE9E0828571F71007B6EA5 /* MoveDatePicker.swift in Sources */,
-				3E9206C2284B24CF00D064E6 /* DateToStringViewModel.swift in Sources */,
-				3E9206C2284B24CF00D064E6 /* DateToStringViewModel.swift in Sources */,
-				77813AE22855B4B40084828D /* PillView.swift in Sources */,
-				C9CEAEC8284F151A00769E4E /* DateValue.swift in Sources */,
 				77A30A8C285B0588009548E5 /* VoicemailsView.swift in Sources */,
-				3E9206C2284B24CF00D064E6 /* DateToStringViewModel.swift in Sources */,
-				3E9206C2284B24CF00D064E6 /* DateToStringViewModel.swift in Sources */,
-				77813AE22855B4B40084828D /* PillView.swift in Sources */,
-				C9CEAEC8284F151A00769E4E /* DateValue.swift in Sources */,
 				77403C8A2850B7E9000A21EE /* SelectWhatToDoView.swift in Sources */,
 				A932622B284F2A9600E5C0A3 /* Picker.swift in Sources */,
 				3E9206C0284B249C00D064E6 /* VoicemailView.swift in Sources */,
@@ -686,7 +680,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"liveOn/Preview Content\"";
-				DEVELOPMENT_TEAM = YYP248S73Y;
+				DEVELOPMENT_TEAM = C95YD9G273;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -719,7 +713,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"liveOn/Preview Content\"";
-				DEVELOPMENT_TEAM = YYP248S73Y;
+				DEVELOPMENT_TEAM = C95YD9G273;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
