@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3E9206B6284AE2C400D064E6 /* imageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206B5284AE2C400D064E6 /* imageViewModel.swift */; };
+		3E9206B6284AE2C400D064E6 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206B5284AE2C400D064E6 /* ImageViewModel.swift */; };
 		3E9206C0284B249C00D064E6 /* VoicemailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206BF284B249C00D064E6 /* VoicemailView.swift */; };
 		3E9206C2284B24CF00D064E6 /* DateToStringVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206C1284B24CF00D064E6 /* DateToStringVM.swift */; };
 		3E9206CC284F343200D064E6 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206CB284F343200D064E6 /* Recording.swift */; };
@@ -78,7 +78,7 @@
 
 /* Begin PBXFileReference section */
 		3E9206B3284AE2B700D064E6 /* ServerCommunication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerCommunication.swift; sourceTree = "<group>"; };
-		3E9206B5284AE2C400D064E6 /* imageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageViewModel.swift; sourceTree = "<group>"; };
+		3E9206B5284AE2C400D064E6 /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
 		3E9206BF284B249C00D064E6 /* VoicemailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicemailView.swift; sourceTree = "<group>"; };
 		3E9206C1284B24CF00D064E6 /* DateToStringVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateToStringVM.swift; sourceTree = "<group>"; };
 		3E9206C7284C2A3100D064E6 /* VoiceRecorderVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceRecorderVM.swift; sourceTree = "<group>"; };
@@ -196,7 +196,7 @@
 		3E9206B2284AE1D700D064E6 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				3E9206B5284AE2C400D064E6 /* imageViewModel.swift */,
+				3E9206B5284AE2C400D064E6 /* ImageViewModel.swift */,
 				3E9206C1284B24CF00D064E6 /* DateToStringVM.swift */,
 				3E9206C7284C2A3100D064E6 /* VoiceRecorderVM.swift */,
 				77403C8B285193FE000A21EE /* QuickSignInWithApple.swift */,
@@ -519,7 +519,7 @@
 				A981538128587CE100476507 /* BackButtonExtension.swift in Sources */,
 				3E9206D3285035D900D064E6 /* VoiceRecorderVM.swift in Sources */,
 				C9CEAED0284F18FA00769E4E /* CalendarBack.swift in Sources */,
-				3E9206B6284AE2C400D064E6 /* imageViewModel.swift in Sources */,
+				3E9206B6284AE2C400D064E6 /* ImageViewModel.swift in Sources */,
 				3EBE43782849B6D30085C7C6 /* liveOnApp.swift in Sources */,
 				A44EE04D2856C74B00CC25A0 /* PillListView.swift in Sources */,
 				C97222EF2859BFCB004B3628 /* DateToStringEvent.swift in Sources */,
