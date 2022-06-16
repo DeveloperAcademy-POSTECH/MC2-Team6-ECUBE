@@ -9,6 +9,9 @@ import Foundation
 import AuthenticationServices
 
 class AuthenticationViewModel: ObservableObject {
+    private let authNetworkService = AuthNetworkService()
+//    @ObservedObject var authNetworkService: AuthNetworkService = AuthNetworkService()
+    
 //    @Published var shouldShowAlert: Bool = false
 //    @Published var alertTitle: String = ""
 //    @Published var alertMessage: String = ""
@@ -46,6 +49,7 @@ class AuthenticationViewModel: ObservableObject {
         
                         else {return}
                         print(appleUser)
+                    authNetworkService.login(accessToken: appleUser.identityToken)
                         
                     default:
                         print(auth.credential)

@@ -33,6 +33,7 @@ struct GettingStartView: View {
                 )
                 .frame(height: 45)
                 .padding()
+            
 
             }
     }
