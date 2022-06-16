@@ -54,8 +54,8 @@ struct FlowerView: View {
                     .padding()
                     
                 } // ZStack
-                .background(.gray)
-                .padding(.top, 24)
+                .background(Image("letter_white").resizable().frame(width: 360, height: 240, alignment: .center))
+                .padding(.top, 54)
                 
             } // VStack
         } // VStack
