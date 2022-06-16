@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3E9206B4284AE2B700D064E6 /* ServerCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206B3284AE2B700D064E6 /* ServerCommunication.swift */; };
 		3E9206B6284AE2C400D064E6 /* imageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206B5284AE2C400D064E6 /* imageViewModel.swift */; };
 		3E9206C0284B249C00D064E6 /* VoicemailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206BF284B249C00D064E6 /* VoicemailView.swift */; };
 		3E9206C2284B24CF00D064E6 /* DateToStringVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206C1284B24CF00D064E6 /* DateToStringVM.swift */; };
@@ -20,6 +19,10 @@
 		3EBE437F2849B6D50085C7C6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EBE437E2849B6D50085C7C6 /* Preview Assets.xcassets */; };
 		3EC5EA8A2856C38100DEBA44 /* VoicemailCassetteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC5EA892856C38100DEBA44 /* VoicemailCassetteView.swift */; };
 		3EC5EA8C2856C6E400DEBA44 /* ConvertSecToMinAndHour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC5EA8B2856C6E400DEBA44 /* ConvertSecToMinAndHour.swift */; };
+		3EDF0F3F285867910048A63C /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 3EDF0F3E285867910048A63C /* Moya */; };
+		3EDF0F41285868520048A63C /* ServerCommunicationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDF0F40285868520048A63C /* ServerCommunicationVM.swift */; };
+		3EDF0F4428586CEA0048A63C /* NetworkLoggerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDF0F4328586CEA0048A63C /* NetworkLoggerPlugin.swift */; };
+		3EDF0F47285879D20048A63C /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 3EDF0F46285879D20048A63C /* FSCalendar */; };
 		77196611284B3E61002E6AC0 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 77196610284B3E61002E6AC0 /* .swiftlint.yml */; };
 		77196614284B41E8002E6AC0 /* GiftBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77196613284B41E8002E6AC0 /* GiftBoxView.swift */; };
 		77196616284B4DC7002E6AC0 /* CreateGiftListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77196615284B4DC7002E6AC0 /* CreateGiftListView.swift */; };
@@ -42,6 +45,7 @@
 		A45BCC2828585465008279BB /* FlowerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE0462856C15400CC25A0 /* FlowerListView.swift */; };
 		A464B68D28599038003DC2EA /* PillPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A464B68C28599038003DC2EA /* PillPopUpView.swift */; };
 		A4DA9D2A28571ACE0038B34D /* FlowerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE0462856C15400CC25A0 /* FlowerListView.swift */; };
+		A464B6912859C710003DC2EA /* PillPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A464B6902859C710003DC2EA /* PillPopUpView.swift */; };
 		A4DA9D2B28571AD60038B34D /* FlowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE0472856C15400CC25A0 /* FlowerView.swift */; };
 		A4DA9D2D28571B4C0038B34D /* FlowerPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DA9D2C28571B4C0038B34D /* FlowerPopUpView.swift */; };
 		A92A88C728506B8700A71FCC /* PhotoCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92A88C628506B8700A71FCC /* PhotoCardsView.swift */; };
@@ -49,7 +53,18 @@
 		A932622D284F2AA900E5C0A3 /* MyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932622C284F2AA900E5C0A3 /* MyImage.swift */; };
 		A932622F284F2AD400E5C0A3 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932622E284F2AD400E5C0A3 /* ImagePicker.swift */; };
 		A9326231284F2B0700E5C0A3 /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9326230284F2B0700E5C0A3 /* FileManager+Extension.swift */; };
+		A9452D862858DD3B003E6450 /* CoupleInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9452D852858DD3B003E6450 /* CoupleInformation.swift */; };
+		A9452D892858E084003E6450 /* DetailedInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9452D882858E084003E6450 /* DetailedInformationView.swift */; };
+		A96DE308285859FF00A06E1D /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = A96DE307285859FF00A06E1D /* CombineMoya */; };
+		A96DE30A285859FF00A06E1D /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = A96DE309285859FF00A06E1D /* Moya */; };
+		A96DE30C285859FF00A06E1D /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = A96DE30B285859FF00A06E1D /* ReactiveMoya */; };
+		A96DE30E285859FF00A06E1D /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = A96DE30D285859FF00A06E1D /* RxMoya */; };
+		A981538128587CE100476507 /* BackButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A981538028587CE100476507 /* BackButtonExtension.swift */; };
+		C91EB94A285868F100EB648B /* FlowerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE0462856C15400CC25A0 /* FlowerListView.swift */; };
+		C91EB94B2858692A00EB648B /* ServerCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206B3284AE2B700D064E6 /* ServerCommunication.swift */; };
+		C91EB9532859A42500EB648B /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91EB9522859A42500EB648B /* DateExtension.swift */; };
 		C92B3BE5285175070010C49A /* PhotoGiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9326228284F2A2800E5C0A3 /* PhotoGiftView.swift */; };
+		C97222EF2859BFCB004B3628 /* DateToStringEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97222EE2859BFCB004B3628 /* DateToStringEvent.swift */; };
 		C9CEAEC8284F151A00769E4E /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAEC7284F151A00769E4E /* DateValue.swift */; };
 		C9CEAECB284F15DA00769E4E /* CalendarMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAECA284F15DA00769E4E /* CalendarMain.swift */; };
 		C9CEAECE284F17E300769E4E /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77196618284C6FA9002E6AC0 /* ColorExtension.swift */; };
@@ -73,6 +88,8 @@
 		3EBE437E2849B6D50085C7C6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3EC5EA892856C38100DEBA44 /* VoicemailCassetteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicemailCassetteView.swift; sourceTree = "<group>"; };
 		3EC5EA8B2856C6E400DEBA44 /* ConvertSecToMinAndHour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertSecToMinAndHour.swift; sourceTree = "<group>"; };
+		3EDF0F40285868520048A63C /* ServerCommunicationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerCommunicationVM.swift; sourceTree = "<group>"; };
+		3EDF0F4328586CEA0048A63C /* NetworkLoggerPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLoggerPlugin.swift; sourceTree = "<group>"; };
 		77196610284B3E61002E6AC0 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; name = .swiftlint.yml; path = liveOn/.swiftlint.yml; sourceTree = "<group>"; };
 		77196613284B41E8002E6AC0 /* GiftBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftBoxView.swift; sourceTree = "<group>"; };
 		77196615284B4DC7002E6AC0 /* CreateGiftListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGiftListView.swift; sourceTree = "<group>"; };
@@ -97,6 +114,7 @@
 		A44EE04A2856C71000CC25A0 /* Pill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pill.swift; sourceTree = "<group>"; };
 		A44EE04C2856C74B00CC25A0 /* PillListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillListView.swift; sourceTree = "<group>"; };
 		A464B68C28599038003DC2EA /* PillPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillPopUpView.swift; sourceTree = "<group>"; };
+		A464B6902859C710003DC2EA /* PillPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillPopUpView.swift; sourceTree = "<group>"; };
 		A4DA9D2C28571B4C0038B34D /* FlowerPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerPopUpView.swift; sourceTree = "<group>"; };
 		A92A88C628506B8700A71FCC /* PhotoCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCardsView.swift; sourceTree = "<group>"; };
 		A9326228284F2A2800E5C0A3 /* PhotoGiftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGiftView.swift; sourceTree = "<group>"; };
@@ -104,6 +122,14 @@
 		A932622C284F2AA900E5C0A3 /* MyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyImage.swift; sourceTree = "<group>"; };
 		A932622E284F2AD400E5C0A3 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		A9326230284F2B0700E5C0A3 /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
+
+		C91EB9522859A42500EB648B /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		C97222EE2859BFCB004B3628 /* DateToStringEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateToStringEvent.swift; sourceTree = "<group>"; };
+
+		A9452D852858DD3B003E6450 /* CoupleInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoupleInformation.swift; sourceTree = "<group>"; };
+		A9452D882858E084003E6450 /* DetailedInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedInformationView.swift; sourceTree = "<group>"; };
+		A981538028587CE100476507 /* BackButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonExtension.swift; sourceTree = "<group>"; };
+
 		C9CEAEC7284F151A00769E4E /* DateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
 		C9CEAECA284F15DA00769E4E /* CalendarMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMain.swift; sourceTree = "<group>"; };
 		C9CEAECF284F18FA00769E4E /* CalendarBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarBack.swift; sourceTree = "<group>"; };
@@ -116,7 +142,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A96DE30E285859FF00A06E1D /* RxMoya in Frameworks */,
+				A96DE308285859FF00A06E1D /* CombineMoya in Frameworks */,
+				3EDF0F3F285867910048A63C /* Moya in Frameworks */,
+				A96DE30C285859FF00A06E1D /* ReactiveMoya in Frameworks */,
 				77403C9228524487000A21EE /* FSCalendar in Frameworks */,
+				3EDF0F47285879D20048A63C /* FSCalendar in Frameworks */,
+				A96DE30A285859FF00A06E1D /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,16 +158,17 @@
 		3E9206B0284AE1CC00D064E6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				77813AE32855B4BF0084828D /* Pill */,
+				C9CEAEC9284F159400769E4E /* Calendar */,
 				A44EE0452856C15400CC25A0 /* Flower */,
-				77403C7E2850AA60000A21EE /* SignIn */,
 				773C1A50284F37D600E93BFE /* Letter */,
 				A9326227284F2A1300E5C0A3 /* PictureGift */,
-				C9CEAEC9284F159400769E4E /* Calendar */,
+				77813AE32855B4BF0084828D /* Pill */,
+				77403C7E2850AA60000A21EE /* SignIn */,
 				3E9206BE284B248E00D064E6 /* Voicemail */,
 				3EBE43792849B6D30085C7C6 /* ContentView.swift */,
 				77196613284B41E8002E6AC0 /* GiftBoxView.swift */,
 				77196615284B4DC7002E6AC0 /* CreateGiftListView.swift */,
+				A9452D872858DD44003E6450 /* CoupleInformation */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -162,6 +195,11 @@
 				3E9206C7284C2A3100D064E6 /* VoiceRecorderVM.swift */,
 				77403C8B285193FE000A21EE /* QuickSignInWithApple.swift */,
 				77403C8E28519B04000A21EE /* SignInWithAppleViewModel.swift */,
+
+				C97222EE2859BFCB004B3628 /* DateToStringEvent.swift */,
+
+				3EDF0F40285868520048A63C /* ServerCommunicationVM.swift */,
+
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -196,6 +234,7 @@
 		3EBE43762849B6D30085C7C6 /* liveOn */ = {
 			isa = PBXGroup;
 			children = (
+				3EDF0F4228586C7B0048A63C /* Etc */,
 				77403C8D28519991000A21EE /* liveOn.entitlements */,
 				77196617284C6F8D002E6AC0 /* Extensions */,
 				3E9206B2284AE1D700D064E6 /* ViewModels */,
@@ -216,12 +255,25 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		3EDF0F4228586C7B0048A63C /* Etc */ = {
+			isa = PBXGroup;
+			children = (
+				3EDF0F4328586CEA0048A63C /* NetworkLoggerPlugin.swift */,
+			);
+			path = Etc;
+			sourceTree = "<group>";
+		};
 		77196617284C6F8D002E6AC0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				77196618284C6FA9002E6AC0 /* ColorExtension.swift */,
 				A9326230284F2B0700E5C0A3 /* FileManager+Extension.swift */,
 				3EC5EA8B2856C6E400DEBA44 /* ConvertSecToMinAndHour.swift */,
+
+				C91EB9522859A42500EB648B /* DateExtension.swift */,
+
+				A981538028587CE100476507 /* BackButtonExtension.swift */,
+
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -229,10 +281,10 @@
 		773C1A50284F37D600E93BFE /* Letter */ = {
 			isa = PBXGroup;
 			children = (
-				773C1A51284F37E400E93BFE /* Letter.swift */,
 				773C1A53284F37F700E93BFE /* LetterListView.swift */,
 				773C1A55284F3A5800E93BFE /* CreateLetterView.swift */,
 				773C1A57284F3B5500E93BFE /* TextLimiter.swift */,
+				773C1A51284F37E400E93BFE /* Letter.swift */,
 			);
 			path = Letter;
 			sourceTree = "<group>";
@@ -240,12 +292,12 @@
 		77403C7E2850AA60000A21EE /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
-				77403C802850AA60000A21EE /* User.swift */,
 				77403C822850AA60000A21EE /* GettingStartView.swift */,
 				77403C812850AA60000A21EE /* SetNicknameView.swift */,
 				77403C7F2850AA60000A21EE /* SetBirthdayView.swift */,
 				77403C872850AFEE000A21EE /* SetFirstDayView.swift */,
 				77403C892850B7E9000A21EE /* SelectWhatToDoView.swift */,
+				77403C802850AA60000A21EE /* User.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -261,9 +313,10 @@
 			isa = PBXGroup;
 			children = (
 				77813AE12855B4B40084828D /* PillView.swift */,
-				A44EE04A2856C71000CC25A0 /* Pill.swift */,
 				A44EE04C2856C74B00CC25A0 /* PillListView.swift */,
 				A464B68C28599038003DC2EA /* PillPopUpView.swift */,
+				A44EE04A2856C71000CC25A0 /* Pill.swift */,
+				A464B6902859C710003DC2EA /* PillPopUpView.swift */,
 			);
 			path = Pill;
 			sourceTree = "<group>";
@@ -273,8 +326,8 @@
 			children = (
 				A44EE0462856C15400CC25A0 /* FlowerListView.swift */,
 				A44EE0472856C15400CC25A0 /* FlowerView.swift */,
-				A44EE0482856C6E900CC25A0 /* Flower.swift */,
 				A4DA9D2C28571B4C0038B34D /* FlowerPopUpView.swift */,
+				A44EE0482856C6E900CC25A0 /* Flower.swift */,
 			);
 			path = Flower;
 			sourceTree = "<group>";
@@ -286,6 +339,15 @@
 				A9326228284F2A2800E5C0A3 /* PhotoGiftView.swift */,
 			);
 			path = PictureGift;
+			sourceTree = "<group>";
+		};
+		A9452D872858DD44003E6450 /* CoupleInformation */ = {
+			isa = PBXGroup;
+			children = (
+				A9452D852858DD3B003E6450 /* CoupleInformation.swift */,
+				A9452D882858E084003E6450 /* DetailedInformationView.swift */,
+			);
+			path = CoupleInformation;
 			sourceTree = "<group>";
 		};
 		C9CEAEC9284F159400769E4E /* Calendar */ = {
@@ -318,6 +380,12 @@
 			name = liveOn;
 			packageProductDependencies = (
 				77403C9128524487000A21EE /* FSCalendar */,
+				A96DE307285859FF00A06E1D /* CombineMoya */,
+				A96DE309285859FF00A06E1D /* Moya */,
+				A96DE30B285859FF00A06E1D /* ReactiveMoya */,
+				A96DE30D285859FF00A06E1D /* RxMoya */,
+				3EDF0F3E285867910048A63C /* Moya */,
+				3EDF0F46285879D20048A63C /* FSCalendar */,
 			);
 			productName = liveOn;
 			productReference = 3EBE43742849B6D30085C7C6 /* liveOn.app */;
@@ -349,6 +417,9 @@
 			mainGroup = 3EBE436B2849B6D30085C7C6;
 			packageReferences = (
 				77403C9028524487000A21EE /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				A96DE306285859FF00A06E1D /* XCRemoteSwiftPackageReference "Moya" */,
+				3EDF0F3D285867910048A63C /* XCRemoteSwiftPackageReference "Moya" */,
+				3EDF0F45285879D20048A63C /* XCRemoteSwiftPackageReference "FSCalendar" */,
 			);
 			productRefGroup = 3EBE43752849B6D30085C7C6 /* Products */;
 			projectDirPath = "";
@@ -398,6 +469,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C91EB94B2858692A00EB648B /* ServerCommunication.swift in Sources */,
+				C91EB94A285868F100EB648B /* FlowerListView.swift in Sources */,
 				C92B3BE5285175070010C49A /* PhotoGiftView.swift in Sources */,
 				77196616284B4DC7002E6AC0 /* CreateGiftListView.swift in Sources */,
 				A44EE0492856C6E900CC25A0 /* Flower.swift in Sources */,
@@ -409,27 +482,34 @@
 				77403C832850AA60000A21EE /* SetBirthdayView.swift in Sources */,
 				3EC5EA8A2856C38100DEBA44 /* VoicemailCassetteView.swift in Sources */,
 				77403C842850AA60000A21EE /* User.swift in Sources */,
+				3EDF0F4428586CEA0048A63C /* NetworkLoggerPlugin.swift in Sources */,
 				A4DA9D2D28571B4C0038B34D /* FlowerPopUpView.swift in Sources */,
 				A932622F284F2AD400E5C0A3 /* ImagePicker.swift in Sources */,
 				A45BCC2828585465008279BB /* FlowerListView.swift in Sources */,
 				3E9206B4284AE2B700D064E6 /* ServerCommunication.swift in Sources */,
 				A4DA9D2A28571ACE0038B34D /* FlowerListView.swift in Sources */,
 				3E9206B4284AE2B700D064E6 /* ServerCommunication.swift in Sources */,
+				A464B6912859C710003DC2EA /* PillPopUpView.swift in Sources */,
+				A9452D862858DD3B003E6450 /* CoupleInformation.swift in Sources */,
 				77403C8F28519B04000A21EE /* SignInWithAppleViewModel.swift in Sources */,
 				A464B68D28599038003DC2EA /* PillPopUpView.swift in Sources */,
 				C9CEAECB284F15DA00769E4E /* CalendarMain.swift in Sources */,
 				3E9206D0284F3BA300D064E6 /* Test.swift in Sources */,
+				3EDF0F41285868520048A63C /* ServerCommunicationVM.swift in Sources */,
 				C9CEAECE284F17E300769E4E /* ColorExtension.swift in Sources */,
+				C91EB9532859A42500EB648B /* DateExtension.swift in Sources */,
 				77403C862850AA60000A21EE /* GettingStartView.swift in Sources */,
 				A4DA9D2B28571AD60038B34D /* FlowerView.swift in Sources */,
 				3EBE437A2849B6D30085C7C6 /* ContentView.swift in Sources */,
 				773C1A52284F37E400E93BFE /* Letter.swift in Sources */,
 				773C1A56284F3A5800E93BFE /* CreateLetterView.swift in Sources */,
+				A981538128587CE100476507 /* BackButtonExtension.swift in Sources */,
 				3E9206D3285035D900D064E6 /* VoiceRecorderVM.swift in Sources */,
 				C9CEAED0284F18FA00769E4E /* CalendarBack.swift in Sources */,
 				3E9206B6284AE2C400D064E6 /* imageViewModel.swift in Sources */,
 				3EBE43782849B6D30085C7C6 /* liveOnApp.swift in Sources */,
 				A44EE04D2856C74B00CC25A0 /* PillListView.swift in Sources */,
+				C97222EF2859BFCB004B3628 /* DateToStringEvent.swift in Sources */,
 				77403C852850AA60000A21EE /* SetNicknameView.swift in Sources */,
 				773C1A58284F3B5500E93BFE /* TextLimiter.swift in Sources */,
 				77196614284B41E8002E6AC0 /* GiftBoxView.swift in Sources */,
@@ -444,6 +524,7 @@
 				A932622B284F2A9600E5C0A3 /* Picker.swift in Sources */,
 				3E9206C0284B249C00D064E6 /* VoicemailView.swift in Sources */,
 				A9326231284F2B0700E5C0A3 /* FileManager+Extension.swift in Sources */,
+				A9452D892858E084003E6450 /* DetailedInformationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,7 +655,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"liveOn/Preview Content\"";
-				DEVELOPMENT_TEAM = C95YD9G273;
+				DEVELOPMENT_TEAM = YYP248S73Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -590,7 +671,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alsehfdl.liveOn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = Min_liveon;
+				PROVISIONING_PROFILE_SPECIFIER = "Jisu Jang";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -607,7 +688,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"liveOn/Preview Content\"";
-				DEVELOPMENT_TEAM = C95YD9G273;
+				DEVELOPMENT_TEAM = YYP248S73Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -623,7 +704,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alsehfdl.liveOn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = Min_liveon;
+				PROVISIONING_PROFILE_SPECIFIER = Rookie;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -654,6 +735,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3EDF0F3D285867910048A63C /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		3EDF0F45285879D20048A63C /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		77403C9028524487000A21EE /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
@@ -662,13 +759,51 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		A96DE306285859FF00A06E1D /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3EDF0F3E285867910048A63C /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3EDF0F3D285867910048A63C /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		3EDF0F46285879D20048A63C /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3EDF0F45285879D20048A63C /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
+		};
 		77403C9128524487000A21EE /* FSCalendar */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 77403C9028524487000A21EE /* XCRemoteSwiftPackageReference "FSCalendar" */;
 			productName = FSCalendar;
+		};
+		A96DE307285859FF00A06E1D /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A96DE306285859FF00A06E1D /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
+		};
+		A96DE309285859FF00A06E1D /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A96DE306285859FF00A06E1D /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		A96DE30B285859FF00A06E1D /* ReactiveMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A96DE306285859FF00A06E1D /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = ReactiveMoya;
+		};
+		A96DE30D285859FF00A06E1D /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A96DE306285859FF00A06E1D /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

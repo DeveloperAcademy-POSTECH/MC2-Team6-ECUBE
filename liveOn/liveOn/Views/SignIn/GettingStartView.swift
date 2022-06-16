@@ -10,7 +10,6 @@ import AuthenticationServices
 
 struct GettingStartView: View {
     var body: some View {
-        NavigationView {
             VStack {
                 Text("liveOn")
                 Spacer()
@@ -26,7 +25,6 @@ struct GettingStartView: View {
                     Text("임시 다음 버튼")
                 }
             }
-        } // NavigationView
     }
     private func showAppleLoginView() {
 

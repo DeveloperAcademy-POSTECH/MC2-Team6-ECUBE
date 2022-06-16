@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FlowerPopUpViewTest: View {
-    
+    @Environment(\.dismiss) private var dismiss
     @State var showPopUp: Bool = false
     
     var body: some View {
@@ -26,6 +26,7 @@ struct FlowerPopUpViewTest: View {
                 FlowerPopUpView(popUpBoolean: $showPopUp)
             }
         }
+        .navigationToBack(dismiss)
         .background(.background)
     } // body
 }

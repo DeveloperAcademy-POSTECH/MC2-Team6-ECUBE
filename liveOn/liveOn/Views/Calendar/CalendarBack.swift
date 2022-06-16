@@ -11,7 +11,7 @@ struct CalendarBack: View {
     
     @State var currentDate: Date = Date()
     @State private var bgColor = Color("background")
-        
+
     var body: some View {
         
         ScrollView(.vertical, showsIndicators: false) {
@@ -29,8 +29,8 @@ struct CalendarBack: View {
     }
 }
 
-struct CalendarBack_Previews: PreviewProvider {
+ struct CalendarBack_Previews: PreviewProvider {
     static var previews: some View {
         CalendarBack()
     }
-}
+ }
