@@ -23,7 +23,6 @@
 		3EDF0F41285868520048A63C /* ServerCommunicationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDF0F40285868520048A63C /* ServerCommunicationVM.swift */; };
 		3EDF0F4428586CEA0048A63C /* NetworkLoggerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDF0F4328586CEA0048A63C /* NetworkLoggerPlugin.swift */; };
 		3EDF0F47285879D20048A63C /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 3EDF0F46285879D20048A63C /* FSCalendar */; };
-		3EDF0F69285A08EE0048A63C /* VoicemailListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDF0F68285A08EE0048A63C /* VoicemailListView.swift */; };
 		3EDF0F6E285A0E7D0048A63C /* test3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3EDF0F6B285A0E7D0048A63C /* test3.m4a */; };
 		3EDF0F6F285A0E7D0048A63C /* test1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3EDF0F6C285A0E7D0048A63C /* test1.m4a */; };
 		3EDF0F70285A0E7D0048A63C /* test2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3EDF0F6D285A0E7D0048A63C /* test2.m4a */; };
@@ -43,6 +42,8 @@
 		77403C8F28519B04000A21EE /* SignInWithAppleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77403C8E28519B04000A21EE /* SignInWithAppleViewModel.swift */; };
 		77403C9228524487000A21EE /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 77403C9128524487000A21EE /* FSCalendar */; };
 		77813AE22855B4B40084828D /* PillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77813AE12855B4B40084828D /* PillView.swift */; };
+		77A30A8C285B0588009548E5 /* VoicemailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A30A8B285B0588009548E5 /* VoicemailsView.swift */; };
+		77A30A8E285B05B9009548E5 /* VoicemailCassette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A30A8D285B05B9009548E5 /* VoicemailCassette.swift */; };
 		77A9654B285A5BFB00511556 /* AppleSocialLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A9654A285A5BFB00511556 /* AppleSocialLogin.swift */; };
 		77A9654D285A626800511556 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A9654C285A626800511556 /* AuthenticationViewModel.swift */; };
 		A44EE0492856C6E900CC25A0 /* Flower.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE0482856C6E900CC25A0 /* Flower.swift */; };
@@ -93,7 +94,6 @@
 		3EC5EA8B2856C6E400DEBA44 /* ConvertSecToMinAndHour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertSecToMinAndHour.swift; sourceTree = "<group>"; };
 		3EDF0F40285868520048A63C /* ServerCommunicationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerCommunicationVM.swift; sourceTree = "<group>"; };
 		3EDF0F4328586CEA0048A63C /* NetworkLoggerPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLoggerPlugin.swift; sourceTree = "<group>"; };
-		3EDF0F68285A08EE0048A63C /* VoicemailListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicemailListView.swift; sourceTree = "<group>"; };
 		3EDF0F6B285A0E7D0048A63C /* test3.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = test3.m4a; sourceTree = "<group>"; };
 		3EDF0F6C285A0E7D0048A63C /* test1.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = test1.m4a; sourceTree = "<group>"; };
 		3EDF0F6D285A0E7D0048A63C /* test2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = test2.m4a; sourceTree = "<group>"; };
@@ -115,6 +115,8 @@
 		77403C8D28519991000A21EE /* liveOn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = liveOn.entitlements; sourceTree = "<group>"; };
 		77403C8E28519B04000A21EE /* SignInWithAppleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleViewModel.swift; sourceTree = "<group>"; };
 		77813AE12855B4B40084828D /* PillView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PillView.swift; sourceTree = "<group>"; };
+		77A30A8B285B0588009548E5 /* VoicemailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicemailsView.swift; sourceTree = "<group>"; };
+		77A30A8D285B05B9009548E5 /* VoicemailCassette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicemailCassette.swift; sourceTree = "<group>"; };
 		77A9654A285A5BFB00511556 /* AppleSocialLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSocialLogin.swift; sourceTree = "<group>"; };
 		77A9654C285A626800511556 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		A44EE0462856C15400CC25A0 /* FlowerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerListView.swift; sourceTree = "<group>"; };
@@ -213,7 +215,8 @@
 			children = (
 				3E9206BF284B249C00D064E6 /* VoicemailView.swift */,
 				3EC5EA892856C38100DEBA44 /* VoicemailCassetteView.swift */,
-				3EDF0F68285A08EE0048A63C /* VoicemailListView.swift */,
+				77A30A8B285B0588009548E5 /* VoicemailsView.swift */,
+				77A30A8D285B05B9009548E5 /* VoicemailCassette.swift */,
 			);
 			path = Voicemail;
 			sourceTree = "<group>";
@@ -506,9 +509,9 @@
 				A9452D862858DD3B003E6450 /* CoupleInformation.swift in Sources */,
 				77403C8F28519B04000A21EE /* SignInWithAppleViewModel.swift in Sources */,
 				C9CEAECB284F15DA00769E4E /* CalendarMain.swift in Sources */,
-				3EDF0F69285A08EE0048A63C /* VoicemailListView.swift in Sources */,
 				3E9206D0284F3BA300D064E6 /* Test.swift in Sources */,
 				3EDF0F41285868520048A63C /* ServerCommunicationVM.swift in Sources */,
+				77A30A8E285B05B9009548E5 /* VoicemailCassette.swift in Sources */,
 				C9CEAECE284F17E300769E4E /* ColorExtension.swift in Sources */,
 				C91EB9532859A42500EB648B /* DateExtension.swift in Sources */,
 				77403C862850AA60000A21EE /* GettingStartView.swift in Sources */,
@@ -533,6 +536,7 @@
 				3E9206C2284B24CF00D064E6 /* DateToStringVM.swift in Sources */,
 				77813AE22855B4B40084828D /* PillView.swift in Sources */,
 				C9CEAEC8284F151A00769E4E /* DateValue.swift in Sources */,
+				77A30A8C285B0588009548E5 /* VoicemailsView.swift in Sources */,
 				77403C8A2850B7E9000A21EE /* SelectWhatToDoView.swift in Sources */,
 				A932622B284F2A9600E5C0A3 /* Picker.swift in Sources */,
 				3E9206C0284B249C00D064E6 /* VoicemailView.swift in Sources */,
