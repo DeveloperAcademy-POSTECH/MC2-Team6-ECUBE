@@ -26,6 +26,8 @@
 		3EDF0F6E285A0E7D0048A63C /* test3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3EDF0F6B285A0E7D0048A63C /* test3.m4a */; };
 		3EDF0F6F285A0E7D0048A63C /* test1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3EDF0F6C285A0E7D0048A63C /* test1.m4a */; };
 		3EDF0F70285A0E7D0048A63C /* test2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3EDF0F6D285A0E7D0048A63C /* test2.m4a */; };
+		3EDF0F77285B0DDD0048A63C /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 3EDF0F76285B0DDD0048A63C /* Moya */; };
+		3EDF0F7A285B0E990048A63C /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 3EDF0F79285B0E990048A63C /* FSCalendar */; };
 		77196611284B3E61002E6AC0 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 77196610284B3E61002E6AC0 /* .swiftlint.yml */; };
 		77196614284B41E8002E6AC0 /* GiftBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77196613284B41E8002E6AC0 /* GiftBoxView.swift */; };
 		77196616284B4DC7002E6AC0 /* CreateGiftListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77196615284B4DC7002E6AC0 /* CreateGiftListView.swift */; };
@@ -115,7 +117,7 @@
 		77403C8D28519991000A21EE /* liveOn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = liveOn.entitlements; sourceTree = "<group>"; };
 		77403C8E28519B04000A21EE /* SignInWithAppleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleViewModel.swift; sourceTree = "<group>"; };
 		77813AE12855B4B40084828D /* PillView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PillView.swift; sourceTree = "<group>"; };
-		77A30A8B285B0588009548E5 /* VoicemailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicemailsView.swift; sourceTree = "<group>"; };
+		77A30A8B285B0588009548E5 /* VoicemailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VoicemailsView.swift; path = liveOn/Views/Voicemail/VoicemailsView.swift; sourceTree = SOURCE_ROOT; };
 		77A30A8D285B05B9009548E5 /* VoicemailCassette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicemailCassette.swift; sourceTree = "<group>"; };
 		77A9654A285A5BFB00511556 /* AppleSocialLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSocialLogin.swift; sourceTree = "<group>"; };
 		77A9654C285A626800511556 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
@@ -151,7 +153,9 @@
 			files = (
 				A96DE30E285859FF00A06E1D /* RxMoya in Frameworks */,
 				A96DE308285859FF00A06E1D /* CombineMoya in Frameworks */,
+				3EDF0F77285B0DDD0048A63C /* Moya in Frameworks */,
 				3EDF0F3F285867910048A63C /* Moya in Frameworks */,
+				3EDF0F7A285B0E990048A63C /* FSCalendar in Frameworks */,
 				A96DE30C285859FF00A06E1D /* ReactiveMoya in Frameworks */,
 				77403C9228524487000A21EE /* FSCalendar in Frameworks */,
 				3EDF0F47285879D20048A63C /* FSCalendar in Frameworks */,
@@ -401,6 +405,8 @@
 				A96DE30D285859FF00A06E1D /* RxMoya */,
 				3EDF0F3E285867910048A63C /* Moya */,
 				3EDF0F46285879D20048A63C /* FSCalendar */,
+				3EDF0F76285B0DDD0048A63C /* Moya */,
+				3EDF0F79285B0E990048A63C /* FSCalendar */,
 			);
 			productName = liveOn;
 			productReference = 3EBE43742849B6D30085C7C6 /* liveOn.app */;
@@ -435,6 +441,8 @@
 				A96DE306285859FF00A06E1D /* XCRemoteSwiftPackageReference "Moya" */,
 				3EDF0F3D285867910048A63C /* XCRemoteSwiftPackageReference "Moya" */,
 				3EDF0F45285879D20048A63C /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				3EDF0F75285B0DDD0048A63C /* XCRemoteSwiftPackageReference "Moya" */,
+				3EDF0F78285B0E990048A63C /* XCRemoteSwiftPackageReference "FSCalendar" */,
 			);
 			productRefGroup = 3EBE43752849B6D30085C7C6 /* Products */;
 			projectDirPath = "";
@@ -774,6 +782,22 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		3EDF0F75285B0DDD0048A63C /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		3EDF0F78285B0E990048A63C /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		77403C9028524487000A21EE /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
@@ -801,6 +825,16 @@
 		3EDF0F46285879D20048A63C /* FSCalendar */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3EDF0F45285879D20048A63C /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
+		};
+		3EDF0F76285B0DDD0048A63C /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3EDF0F3D285867910048A63C /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		3EDF0F79285B0E990048A63C /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3EDF0F78285B0E990048A63C /* XCRemoteSwiftPackageReference "FSCalendar" */;
 			productName = FSCalendar;
 		};
 		77403C9128524487000A21EE /* FSCalendar */ = {
