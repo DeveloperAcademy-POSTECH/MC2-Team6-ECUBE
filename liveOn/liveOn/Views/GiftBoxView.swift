@@ -57,7 +57,9 @@ struct GiftBoxView: View {
     // MARK: 이름+사귄 디데이 계산 정보
     // TODO: 유저 네임, 사귄날 데이터로 디데이 계산
     var coupleInfo: some View {
+
         NavigationLink(destination: CoupleInformation()) {
+          
             HStack(alignment: .center, spacing: 12) {
                 Text("\(currnetUser.nickname)")
                 Image("heart")
@@ -65,10 +67,15 @@ struct GiftBoxView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 25, height: 25)
                 Text("유진")
-                Text("+ 123")
-                    .fontWeight(.bold)
+                HStack(alignment: .center, spacing: 1) {
+                    Image(systemName: "plus")
+                    Text("\(countDays(from: currnetUser.firstDay!))")
+                        .fontWeight(.semibold)
+                }
+                .foregroundColor(Color("Orange"))
+                
             }
-            .font(.title3)
+            .font(.subheadline)
             .foregroundColor(Color.bodyTextColor)
             .padding(.horizontal, 20)
             .padding(.vertical, 12)
@@ -151,3 +158,8 @@ struct GiftBoxView: View {
 //            .environmentObject(User())
 //    }
 // }
+
+func countDays(from date: Date) -> Int {
+    let calendar = Calendar.current
+    return calendar.dateComponents([.day], from: date, to: Date()).day! + 1
+}
