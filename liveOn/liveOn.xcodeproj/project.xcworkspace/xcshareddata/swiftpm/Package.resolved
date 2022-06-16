@@ -21,7 +21,7 @@
     {
       "identity" : "moya",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Moya/Moya.git",
+      "location" : "https://github.com/Moya/Moya",
       "state" : {
         "branch" : "master",
         "revision" : "42b4da6cf00ce35874f2aebebefb9564c2fdb799"
