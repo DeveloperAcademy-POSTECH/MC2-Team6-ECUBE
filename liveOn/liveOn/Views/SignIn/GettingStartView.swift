@@ -18,7 +18,6 @@ struct GettingStartView: View {
                 Spacer()
 
                     .frame(height: 60, alignment: .center)
-
             
                     .onTapGesture {
                         print("임시 다음 버튼 누르셈")
@@ -37,7 +36,6 @@ struct GettingStartView: View {
 
             }
     }
-    
     
     private func showAppleLoginView() {
 
