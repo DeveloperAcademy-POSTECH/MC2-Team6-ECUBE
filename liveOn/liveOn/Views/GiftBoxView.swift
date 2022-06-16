@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GiftBoxView: View {
     @StateObject var storedLetter = LetterStore()
-    @EnvironmentObject var imageModel: imageViewModel
+    @EnvironmentObject var imageModel: ImageViewModel
     @EnvironmentObject var currnetUser: User
     @State var isActive: Bool = false
     
@@ -134,7 +134,7 @@ struct GiftBoxView: View {
     // MARK: 앨범과 캘린더
     var albumAndCalendar: some View {
         HStack(alignment: .bottom, spacing: 0) {
-            NavigationLink(destination: PhotoCardsView(imageModel: imageViewModel())) {
+            NavigationLink(destination: PhotoCardsView(imageModel: ImageViewModel())) {
                 Image("album")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
