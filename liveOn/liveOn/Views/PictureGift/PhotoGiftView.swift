@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct PhotoGiftView: View {
-    @StateObject var imageViewModel: imageViewModel
+    @StateObject var imageModel: imageViewModel
     @Environment(\.dismiss) private var dismiss
     @State private var comment: String = ""
     @State private var showAlertforSend: Bool = false
@@ -15,10 +15,10 @@ struct PhotoGiftView: View {
             
             VStack {
                 Button {
-                    imageViewModel.source = .library
-                    imageViewModel.showPhotoPicker()
+                    imageModel.source = .library
+                    imageModel.showPhotoPicker()
                 } label: {
-                    if let image = imageViewModel.image {
+                    if let image = imageModel.image {
                         Image(uiImage: image)
                             .resizable()
                             .scaledToFit()
@@ -40,14 +40,9 @@ struct PhotoGiftView: View {
                         .frame(width: 300, height: 20, alignment: .trailing)
                         .foregroundColor(.bodyTextColor).opacity(0.5)
                 }
-                
-                Button(action: {
-                    imageViewModel.fetchDirectory()
-                }) {
-                    Text("fetch files")
-                }
-                
-                NavigationLink("", destination: PhotoCardsView(), isActive: $isTapped)
+
+                NavigationLink("", destination: PhotoCardsView(imageModel: imageViewModel()), isActive: $isTapped)
+
             }
             .padding()
             .background(Color.white
@@ -86,8 +81,8 @@ struct PhotoGiftView: View {
             }
             
             // 앨범 접근 및 사진선택
-            .sheet(isPresented: $imageViewModel.showPicker) {
-                ImagePicker(sourceType: imageViewModel.source == .library ? .photoLibrary : .camera, selectedImage: $imageViewModel.image)
+            .sheet(isPresented: $imageModel.showPicker) {
+                ImagePicker(sourceType: imageModel.source == .library ? .photoLibrary : .camera, selectedImage: $imageModel.image)
                     .ignoresSafeArea()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -100,13 +95,13 @@ struct PhotoGiftView: View {
     }
     
     func imagePost() {
-         moyaService.request( .imagePost(content: "ddd", image: imageViewModel.image!)) { response in
+         moyaService.request( .imagePost(content: "ddd", image: imageModel.image!)) { response in
  //            print(imageModel.image)
              switch response {
                  // 응답이 성공한다면
              case .success(let result):
                  do {
-                     print("전송되는 이미지 데이터는 다음과 같습니다 : \(imageViewModel.image!)")
+                     print("전송되는 이미지 데이터는 다음과 같습니다 : \(imageModel.image!)")
                      testImageData = try result.map(ImageTestResponse.self)
                  } catch let err {
                      print(err.localizedDescription)

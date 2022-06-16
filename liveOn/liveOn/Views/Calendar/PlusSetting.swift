@@ -1,9 +1,9 @@
 //
-//  PlusSetting.swift
-//  liveOn
-//
-//  Created by Keum MinSeok on 2022/06/07.
-//
+ //  PlusSetting.swift
+ //  liveOn
+ //
+ //  Created by Keum MinSeok on 2022/06/07.
+ //
 
 import SwiftUI
 
@@ -11,12 +11,12 @@ struct PlusSetting: View {
     
     @State private var showani = false
     @State var show = false
-    var moveDate: Date
+    var eventDate: Date
     
     @Binding var currentDate: Date
-    @Binding var holidaytitle: String
-    @Binding var holidaymemo: String
-    @Binding var emojitxt: String
+    @Binding var eventTitle: String
+    @Binding var eventMemo: String
+    @Binding var emoji: String
     
     @Environment(\.dismiss) private var dismiss
     @Environment(\.presentationMode) var presentationMode
@@ -29,110 +29,100 @@ struct PlusSetting: View {
         let window = windowScene?.windows.first
         
         ZStack {
-            GeometryReader { _ in
-                
-                HStack(alignment: .center, spacing: 0) {
-                    Button("취소") {
-                        dismiss()
-                    }
-                    .font(.title3)
-                    .foregroundColor(.primary)
-                    
-                    Spacer()
-                    
-                    Text("기념일 추가")
-                        .font(.title2.bold())
-                        .foregroundColor(Color("Burgundy"))
-                    
-                    Spacer()
-                    
-                    Button("확인") {
-                        self.currentDate = moveDate
-                        presentationMode.wrappedValue.dismiss()
-                    }
-                    .font(.title3)
-                    .foregroundColor(.primary)
-                    
+            HStack(alignment: .center, spacing: 0) {
+                Button("취소") {
+                    dismiss()
                 }
-                .padding(15)
-                .frame(maxWidth: .infinity, alignment: .center)
+                .font(.title3)
+                .foregroundColor(.primary)
                 
-                VStack {
-                    Color.gray.frame(height: CGFloat(1) / UIScreen.main.scale)
-                        .padding(.top, 55)
-                    
-                    DatePicker("기념일 추가", selection: $currentDate, displayedComponents: .date)
-                        .datePickerStyle(GraphicalDatePickerStyle())
-                        .applyTextColor(Color("Burgundy"))
-                        .frame(maxHeight: 400)
-                        .padding(.top, -15)
+                Spacer()
+                
+                Text("기념일 추가")
+                    .font(.title2.bold())
+                    .foregroundColor(Color("Burgundy"))
+                
+                Spacer()
+                
+                Button("확인") {
+                    self.currentDate = eventDate
+                    presentationMode.wrappedValue.dismiss()
                 }
+                .font(.title3)
+                .foregroundColor(.primary)
+            }
+            .padding([.trailing, .leading], 15)
+            .offset(x: 0, y: -204)
+            
+            VStack {
+                Color.gray.frame(height: CGFloat(1) / UIScreen.main.scale)
+                    .offset(x: 0, y: 10)
                 
-                VStack {
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(Color.gray).opacity(0.3)
-                        .frame(width: 100, height: 100)
-                        .offset(x: 16, y: 470)
-                    
-                    HStack {
-                        TextField("Emoji", text: $emojitxt, prompt: Text("☺︎"))
-                            .limitInputLength(value: $emojitxt, length: 1)
-                            .multilineTextAlignment(TextAlignment.center)
-                            .font(.system(size: 70))
-                            .frame(width: 80, height: 100)
-                            .offset(x: 17, y: 363)
-                        
-                    }
-                    
-                    Button(action: {
-                        window?.rootViewController?.view.endEditing(true)
-                        self.show.toggle()
-                    }) {
-                        Text("아이콘 변경")
-                            .font(.callout)
-                            .foregroundColor(.gray)
-                    }
-                    .offset(x: 17, y: 360)
+                DatePicker("기념일 추가", selection: $currentDate, displayedComponents: .date)
+                    .datePickerStyle(GraphicalDatePickerStyle())
+                    .applyTextColor(Color("Burgundy"))
+                    .frame(height: 370)
+            }
+            
+            VStack {
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color.gray).opacity(0.3)
+                    .frame(width: 100, height: 100)
+                    .offset(x: -132, y: 340)
+                
+                HStack {
+                    TextField("Emoji", text: $emoji, prompt: Text("☺︎"))
+                        .limitInputLength(value: $emoji, length: 1)
+                        .multilineTextAlignment(TextAlignment.center)
+                        .font(.system(size: 70))
+                        .frame(width: 80, height: 100)
+                        .offset(x: -131, y: 232)
                 }
                 
+                Button(action: {
+                    window?.rootViewController?.view.endEditing(true)
+                    self.show.toggle()
+                }) {
+                    Text("아이콘 변경")
+                        .font(.callout)
+                        .foregroundColor(.gray)
+                }
+                .offset(x: -130, y: 230)
+            }
+            
+            VStack {
+                TextField("Comment", text: $eventTitle, prompt: Text("어떤 기념일인가요?"))
+                    .limitInputLength(value: $eventTitle, length: 20)
+                    .multilineTextAlignment(TextAlignment.leading)
+                    .foregroundColor(.bodyTextColor)
+                    .frame(width: 250, height: 20)
+                    .font(.system(size: 18))
+                    .offset(x: 56, y: 280)
+                
                 VStack {
-                    TextField("Comment", text: $holidaytitle, prompt: Text("어떤 기념일인가요?"))
-                        .limitInputLength(value: $holidaytitle, length: 20)
-                        .multilineTextAlignment(TextAlignment.leading)
-                        .foregroundColor(.bodyTextColor)
-                        .frame(width: 250, height: 20)
-                        .font(.system(size: 18))
-                        .padding(.top, 475)
-                        .padding(.leading, 130)
-                    
-                    VStack {
-                        Text("(\(holidaytitle.count)/20)")
-                            .frame(width: 300, height: 20, alignment: .trailing)
-                            .foregroundColor(.bodyTextColor).opacity(0.5)
-                            .padding(.trailing, -82)
-                            .padding(.top, -8)
-                    }
-                    
-                    TextField("Comment", text: $holidaymemo, prompt: Text("메모를 입력해주세요."))
-                        .limitInputLength(value: $holidaymemo, length: 20)
-                        .multilineTextAlignment(TextAlignment.leading)
-                        .foregroundColor(.bodyTextColor)
-                        .frame(width: 250, height: 20)
-                        .font(.system(size: 18))
-                        .padding(.top, 8)
-                        .padding(.leading, 130)
-                    
-                    VStack {
-                        Text("(\(holidaymemo.count)/20)")
-                            .frame(width: 300, height: 20, alignment: .trailing)
-                            .foregroundColor(.bodyTextColor).opacity(0.5)
-                            .padding(.trailing, -82)
-                            .padding(.top, -8)
-                    }
+                    Text("(\(eventTitle.count)/20)")
+                        .frame(width: 300, height: 20, alignment: .trailing)
+                        .foregroundColor(.bodyTextColor).opacity(0.5)
+                        .offset(x: 38, y: 275)
+                }
+                
+                TextField("Comment", text: $eventMemo, prompt: Text("메모를 입력해주세요."))
+                    .limitInputLength(value: $eventMemo, length: 20)
+                    .multilineTextAlignment(TextAlignment.leading)
+                    .foregroundColor(.bodyTextColor)
+                    .frame(width: 250, height: 20)
+                    .font(.system(size: 18))
+                    .offset(x: 56, y: 280)
+                
+                VStack {
+                    Text("(\(eventMemo.count)/20)")
+                        .frame(width: 300, height: 20, alignment: .trailing)
+                        .foregroundColor(.bodyTextColor).opacity(0.5)
+                        .offset(x: 38, y: 275)
                 }
             }
         }
-        EmojiView(show: self.$show, txt: self.$emojitxt).offset(y: self.show ?  (window?.safeAreaInsets.bottom)! : UIScreen.main.bounds.height)
+        EmojiView(show: self.$show, txt: self.$emoji).offset(y: self.show ?  (window?.safeAreaInsets.bottom)! : UIScreen.main.bounds.height)
     }
 }
 

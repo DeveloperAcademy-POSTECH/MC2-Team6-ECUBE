@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SelectWhatToDoView: View {
     @EnvironmentObject var currentUser: User
+    @Environment(\.dismiss) private var dismiss
     @State var showEnterCodeSheet: Bool = false
     var body: some View {
         OnboardingHeader(title: " 상대를 초대해주세요! ", description: "상대가 앱을 설치하고 초대코드를 입력하면  매칭해드릴게요.", inputView:
@@ -43,6 +44,7 @@ struct SelectWhatToDoView: View {
                                     }// nav link
                                 })
         )
+        .navigationToBack(dismiss)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink(destination: GiftBoxView()
