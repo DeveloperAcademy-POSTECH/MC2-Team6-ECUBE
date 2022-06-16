@@ -62,6 +62,7 @@
 		C91EB9532859A42500EB648B /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91EB9522859A42500EB648B /* DateExtension.swift */; };
 		C92B3BE5285175070010C49A /* PhotoGiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9326228284F2A2800E5C0A3 /* PhotoGiftView.swift */; };
 		C97222EF2859BFCB004B3628 /* DateToStringEventVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97222EE2859BFCB004B3628 /* DateToStringEventVM.swift */; };
+		C97222F1285B006C004B3628 /* Testt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97222F0285B006C004B3628 /* Testt.swift */; };
 		C9CEAEC8284F151A00769E4E /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAEC7284F151A00769E4E /* DateValue.swift */; };
 		C9CEAECB284F15DA00769E4E /* CalendarMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAECA284F15DA00769E4E /* CalendarMain.swift */; };
 		C9CEAECE284F17E300769E4E /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77196618284C6FA9002E6AC0 /* ColorExtension.swift */; };
@@ -122,6 +123,7 @@
 		A981538028587CE100476507 /* BackButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonExtension.swift; sourceTree = "<group>"; };
 		C91EB9522859A42500EB648B /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		C97222EE2859BFCB004B3628 /* DateToStringEventVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateToStringEventVM.swift; sourceTree = "<group>"; };
+		C97222F0285B006C004B3628 /* Testt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testt.swift; sourceTree = "<group>"; };
 		C9CEAEC7284F151A00769E4E /* DateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
 		C9CEAECA284F15DA00769E4E /* CalendarMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMain.swift; sourceTree = "<group>"; };
 		C9CEAED5284F394A00769E4E /* PlusSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusSetting.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 				C9CEAECA284F15DA00769E4E /* CalendarMain.swift */,
 				C9CEAED5284F394A00769E4E /* PlusSetting.swift */,
 				C9FE9E0728571F71007B6EA5 /* MoveDatePicker.swift */,
+				C97222F0285B006C004B3628 /* Testt.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				77403C852850AA60000A21EE /* SetNicknameView.swift in Sources */,
 				773C1A58284F3B5500E93BFE /* TextLimiter.swift in Sources */,
 				77196614284B41E8002E6AC0 /* GiftBoxView.swift in Sources */,
+				C97222F1285B006C004B3628 /* Testt.swift in Sources */,
 				773C1A54284F37F700E93BFE /* LetterListView.swift in Sources */,
 				A92A88C728506B8700A71FCC /* PhotoCardsView.swift in Sources */,
 				3E9206CC284F343200D064E6 /* Recording.swift in Sources */,

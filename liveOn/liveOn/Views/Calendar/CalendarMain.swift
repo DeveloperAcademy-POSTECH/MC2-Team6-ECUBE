@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct CalendarMain: View {
-
+    
     // 기본 베이스가 되는 날짜 변수
     @State var currentDate: Date = Date()
     
@@ -169,56 +169,54 @@ struct CalendarMain: View {
                                 }
                             }
                             
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .fill(Color.white)
-                                    .frame(width: 355, height: 66)
-                                
-                                HStack {
-                                    Capsule()
-                                        .fill(Color("Burgundy"))
-                                        .frame(width: 38, height: 8)
-                                        .rotationEffect(Angle(degrees: 90))
-                                        .padding(.trailing, 14)
+                            Group {
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .fill(Color.white)
+                                        .frame(width: 355, height: 66)
                                     
-                                    VStack {
-                                        // emoji
-                                         Text(emoji)
-//                                        Text("🍔")
-                                            .font(.system(size: 28))
-                                            .padding(.bottom, -5)
+                                    HStack {
+                                        Capsule()
+                                            .fill(Color("Burgundy"))
+                                            .frame(width: 38, height: 8)
+                                            .rotationEffect(Angle(degrees: 90))
+                                            .padding(.trailing, 14)
                                         
-                                        //  eventDate
-                                        Text(DateToStringEvent(_:eventbaseDate))
-                                            .font(.system(size: 13))
-                                            .foregroundColor(Color("Burgundy"))
-                                    }
-                                    .padding(.leading, -21)
-                                    
-                                    VStack {
-                                        //  eventTitle
-                                          Text(eventTitle)
-//                                        Text("가나다라마가나다라마가나다라마")
-                                            .foregroundColor(Color("Burgundy"))
-                                            .font(.system(size: 18).bold())
-                                            .frame(width: 280, alignment: .leading)
-                                            .padding(.trailing, -30)
-                                            .padding(.bottom, 3)
+                                        VStack {
+                                            // emoji
+                                             Text(emoji)
+                                                .font(.system(size: 28))
+                                                .padding(.bottom, -5)
+                                            
+                                            //  eventDate
+                                            Text(DateToStringEvent(_:eventbaseDate))
+                                                .font(.system(size: 13))
+                                                .foregroundColor(Color("Burgundy"))
+                                        }
+                                        .padding(.leading, -21)
                                         
-                                        // eventMemo
-                                         Text(eventMemo)
-//                                        Text("가나다라마가나다라마가나다라마가나다라마")
-                                            .foregroundColor(.gray)
-                                            .font(.system(size: 14))
-                                            .frame(width: 245)
-                                            .multilineTextAlignment(TextAlignment.leading)
-                                            .padding(.leading, -6.5)
+                                        VStack {
+                                            //  eventTitle
+                                              Text(eventTitle)
+                                                .foregroundColor(Color("Burgundy"))
+                                                .font(.system(size: 18).bold())
+                                                .frame(width: 280, alignment: .leading)
+                                                .padding(.trailing, -30)
+                                                .padding(.bottom, 3)
+                                            
+                                            // eventMemo
+                                             Text(eventMemo)
+                                                .foregroundColor(.gray)
+                                                .font(.system(size: 14))
+                                                .frame(width: 280, alignment: .leading)
+                                                .padding(.trailing, -32)
+                                        }
+                                        .padding(.leading, 6)
                                     }
-                                    .padding(.leading, 6)
+                                    .padding(.leading, -45.5)
                                 }
-                                .padding(.leading, -47)
+                                .padding(.top, 2)
                             }
-                            .padding(.top, 2)
                             
                             ZStack {
                                 RoundedRectangle(cornerRadius: 10)

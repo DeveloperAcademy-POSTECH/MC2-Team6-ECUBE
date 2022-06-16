@@ -18,6 +18,8 @@ struct PlusSetting: View {
     @Binding var eventMemo: String
     @Binding var emoji: String
     
+    @State var testData = DataInfo(emoji: "", Date: "", eventTitle: "", eventMemo: "")
+
     @Environment(\.dismiss) private var dismiss
     @Environment(\.presentationMode) var presentationMode
         
@@ -47,6 +49,7 @@ struct PlusSetting: View {
                 
                 Button("확인") {
                     eventbaseDate = eventDate
+                    testData = DataInfo(emoji: emoji, Date: "222", eventTitle: eventTitle, eventMemo: eventMemo)
                     presentationMode.wrappedValue.dismiss()
                 }
                 .font(.title3)
