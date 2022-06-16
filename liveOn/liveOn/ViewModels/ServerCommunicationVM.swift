@@ -30,7 +30,7 @@ class ServerCommunication {
     
     func uploadImage(fileName: String, image: UIImage) {
         
-        authProvider.request(.imagePost(content: fileName, image: image)) { response in
+        authProvider.request(.imagePost(comment: fileName, polaroid: image)) { response in
             
             switch response {
             case .success(let result):
