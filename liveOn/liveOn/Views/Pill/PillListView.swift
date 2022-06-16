@@ -14,45 +14,59 @@ struct PillListView: View {
     
     var body: some View {
         
-        ZStack {
+        ScrollView {
             
-            ScrollView {
-                
-                LazyVGrid(columns: [GridItem(), GridItem()], spacing: 12) {
+            ZStack {
+                VStack(alignment: .center) {
+                    LazyVGrid(columns: [GridItem(), GridItem()], spacing: 16) {
+                        
+                        ForEach(0..<pillList.count, id: \.self) { index in
+                            
+                            PillCardView(content: pillList[index])
+                                .onTapGesture {withAnimation(.linear(duration: 0.32)) {
+                                    showPillPopUp = true
+                                    clickedPillIndex = index
+                                    
+                                }
+                                }
+                            /*
+                             클릭이 가능한 것들은 스크롤뷰 안에 들어갈 수 없습니까???
+                             버튼으로도 시도해보고 온탭제스쳐로도 해봤는데 둘 다 스크롤 뷰를 똥으로 만들어버림
+                             */
+                            
+                        } // ForEach
+                    } // LazyVGrid
                     
-                    ForEach(0..<pillList.count, id: \.self) { index in
-                        
-                        PillCardView(content: pillList[index])
-                            .onTapGesture {withAnimation(.linear(duration: 0.4)) {
-                                
-                                showPillPopUp = true
-                                clickedPillIndex = index
-                                
-                            }
-                            }
-                        /*
-                         클릭이 가능한 것들은 스크롤뷰 안에 들어갈 수 없습니까???
-                         버튼으로도 시도해보고 온탭제스쳐로도 해봤는데 둘 다 스크롤 뷰를 똥으로 만들어버림
-                         */
-                        
-                    } // ForEach
-                } // LazyVGrid
-            } // ScrollView
-            
-            Color.white.opacity(showPillPopUp ? 0.6 : 0).edgesIgnoringSafeArea(.all)
-            
-            if showPillPopUp {
-                // show Pill effect PopUp
+                    Divider()
+                        .padding(12)
+                    
+                    Text("過猶不及\n 정도가 지나침은 미치지 못한 것과 같다")
+                        .multilineTextAlignment(.center)
+                        .font(.system(size: 12))
+                        .foregroundColor(.gray)
+                        .opacity(0.6)
+                        .padding(0)
+                    
+                }
                 
-                PillPopUpView(showPillPopUp: $showPillPopUp, indexOfCard: $clickedPillIndex)
+                Color.white.opacity(showPillPopUp ? 0.6 : 0).edgesIgnoringSafeArea(.all)
                 
-            }
+                if showPillPopUp {
+                    // show Pill effect PopUp
+                    
+                    PillPopUpView(showPillPopUp: $showPillPopUp, indexOfCard: $clickedPillIndex)
+                    
+                }
+                
+            } // ZStack
+            .padding(.bottom, 32)
             
-        } // ZStack
+        } // ScrollView
+        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         .navigationTitle("약")
         .navigationBarTitleDisplayMode(.inline)
         
-    }// body
+    } // body
 }
 
 struct PillCardView: View {
@@ -66,7 +80,7 @@ struct PillCardView: View {
             RoundedRectangle(cornerRadius: 4)
                 .foregroundColor(.white)
                 .frame(width: 168)
-                .shadow(color: .gray, radius: 12, x: 1, y: 1)
+                .shadow(color: .gray, radius: 8, x: 1, y: 1)
                 .opacity(0.14)
             
             VStack(alignment: .center) {
@@ -79,7 +93,7 @@ struct PillCardView: View {
                         
                         Rectangle()
                             .foregroundColor(.white)
-                            .opacity(0.6)
+                            .opacity(0.7)
                         
                     } // ZStack
                     

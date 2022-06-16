@@ -26,13 +26,14 @@ struct FlowerView: View {
             FlowerCardView(content: flowerList[Int.random(in: 0..<3)])
             
             VStack {
+                
                 // 메시지 카드
                 ZStack {
                     
                     VStack(alignment: .center) {
                         
                         TextEditor(text: $input.value)
-                            .foregroundColor(input.value.count < input.limit ? .black : .red)
+                            .foregroundColor(input.value.count < input.limit ? .bodyTextColor : .red)
                         
                         // MARK: placeholder 사라지게
                             .onTapGesture {
@@ -58,8 +59,8 @@ struct FlowerView: View {
                     .padding()
                     
                 } // ZStack
-                .background(.gray)
-                .padding(.top, 24)
+                .background(Image("letterImage"))
+                .padding(.top, 96)
                 
             } // VStack
         } // VStack

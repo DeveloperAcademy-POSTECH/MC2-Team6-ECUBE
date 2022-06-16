@@ -50,24 +50,29 @@ struct FlowerPopUpView: View {
                 
                 VStack {
                     ZStack {
-                            
+                        
                         VStack {
                             FlowerCardView(content: flowerList[0])
-                                .padding()
+                                .padding(.bottom, 120)
+                            
                             ZStack {
-                                RoundedRectangle(cornerRadius: 4)
-                                    .foregroundColor(.white)
-                                    .shadow(color: .gray, radius: 2, x: 2, y: 2)
-                                    .frame(height: 128, alignment: .center)
+                                
                                 VStack {
-                                    Text("엄지 손가락으로 장미 꽃을 피워")
+                                    Text("뭔가 제법 로맨틱한 멘트")
                                         .foregroundColor(.bodyTextColor)
-                                                                        
+                                    
                                     Text("20220613")
                                         .foregroundColor(.bodyTextColor)
+                                        .font(.system(size: 12))
+                                        .opacity(0.7)
                                         .padding(.top, 8)
                                     
                                 } // VStack
+                                .background(
+                                    Image("letterImage_lavender")
+                                        .scaledToFit()
+                                        .padding()
+                                        .frame(width: 240, height: 180, alignment: .center))
                             } // ZStack
                         } // VStack
                     } // VStack

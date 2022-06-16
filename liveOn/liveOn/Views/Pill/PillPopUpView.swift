@@ -18,7 +18,7 @@ struct PillPopUpView: View {
             
             Button(
                 action: {
-                    withAnimation(.linear(duration: 0.4)) {
+                    withAnimation(.linear(duration: 0.28)) {
                         showPillPopUp.toggle()
                     }},
                 label: {
