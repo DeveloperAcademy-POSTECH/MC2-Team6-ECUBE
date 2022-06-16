@@ -25,6 +25,12 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
     
     @Published var title: String = ""
     
+    @Published var sampleList: [Recording] = [
+        Recording(fileURL: Bundle.main.url(forResource: "test1", withExtension: "m4a")!, createdAt: Date.now, title: "test1", isPlaying: false),
+        Recording(fileURL: Bundle.main.url(forResource: "test2", withExtension: "m4a")!, createdAt: Date.now, title: "test2", isPlaying: false),
+        Recording(fileURL: Bundle.main.url(forResource: "test3", withExtension: "m4a")!, createdAt: Date.now, title: "test3", isPlaying: false)
+    ]
+    
     var playingURL: URL?
     
     override init() {
@@ -102,7 +108,7 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
         print(directoryContents)
         
         for i in directoryContents {
-            recordingsList.append(Recording(fileURL: i, createdAt: getFileDate(for: i), isPlaying: false))
+            recordingsList.append(Recording(fileURL: i, createdAt: getFileDate(for: i), title: title, isPlaying: false))
         }
         
         recordingsList.sort(by: { $0.createdAt.compare($1.createdAt) == .orderedDescending})
@@ -229,7 +235,4 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
         return check
     }
     
-    func uploadRecording() {
-        
-    }
 }

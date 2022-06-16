@@ -40,8 +40,9 @@ struct PhotoGiftView: View {
                         .frame(width: 300, height: 20, alignment: .trailing)
                         .foregroundColor(.bodyTextColor).opacity(0.5)
                 }
-                
+
                 NavigationLink("", destination: PhotoCardsView(imageModel: imageViewModel()), isActive: $isTapped)
+
             }
             .padding()
             .background(Color.white
