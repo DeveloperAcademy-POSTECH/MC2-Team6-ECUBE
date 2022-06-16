@@ -8,8 +8,9 @@ import SwiftUI
 import AVFoundation
 
 struct VoicemailView: View {
-    
+    @Environment(\.dismiss) private var dismiss
     @ObservedObject var vm = VoiceRecorderVM()
+//    @State private var showAlertforSend: Bool = false
     
     private let communication = ServerCommunication()
     let nowDate = Date.now
@@ -33,8 +34,29 @@ struct VoicemailView: View {
                         Text("")
                     } else if vm.isRecorded == false && vm.isRecording == true {
                         Text(vm.timer)
+                        Spacer()
+                            .frame(height: 50)
                     } else {
-                        
+                        Image(systemName: "gobackward")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20)
+                            .onTapGesture {
+                                
+                                // MARK: 녹음한 파일을 재생중이면 멈추기
+                                if vm.recordingsList[vm.recordingsList.count - 1].isPlaying {
+                                    
+                                    vm.stopPlaying(url: vm.recordingsList[vm.recordingsList.count - 1].fileURL)
+                                    
+                                }
+                                
+                                // MARK: 재녹음을 위해 이전에 녹음한 것 삭제
+                                vm.deleteAllRecordings()
+                                vm.isRecorded = false
+                                vm.isRecording = false
+                            }
+                        Spacer()
+                            .frame(height: 50)
                     }
                     
                     // MARK: 녹음 버튼
@@ -77,7 +99,7 @@ struct VoicemailView: View {
                             } else {
                                 
                                 // MARK: 녹음하고 난 다음 재생해보고 싶을 때
-                                ZStack {
+                                VStack {
                                     
                                     HStack {
                                         
@@ -93,40 +115,22 @@ struct VoicemailView: View {
                                         
                                     }
                                     
-                                    HStack {
+//                                    HStack {
                                         
-                                        Spacer()
-                                            .frame(width: 40)
+//                                        Spacer()
+//                                            .frame(width: 40)
                                         
-                                        Image(systemName: "gobackward")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 20)
-                                            .onTapGesture {
-                                                
-                                                // MARK: 녹음한 파일을 재생중이면 멈추기
-                                                if vm.recordingsList[vm.recordingsList.count - 1].isPlaying {
-                                                    
-                                                    vm.stopPlaying(url: vm.recordingsList[vm.recordingsList.count - 1].fileURL)
-                                                    
-                                                }
-                                                
-                                                // MARK: 재녹음을 위해 이전에 녹음한 것 삭제
-                                                vm.deleteAllRecordings()
-                                                vm.isRecorded = false
-                                                vm.isRecording = false
-                                            }
-                                        Spacer()
-                                    }
+//                                        Spacer()
+//                                    }
                                 }
                             }
                         }
                         
-                    Button(action: {
-                        vm.deleteAllRecordings()
-                    }) {
-                        Text("delete files")
-                    }
+//                    Button(action: {
+//                        vm.deleteAllRecordings()
+//                    }) {
+//                        Text("delete files")
+//                    }
                         
 //                        Button(action: {
 //                            vm.getFileName(for: vm.recordingsList[vm.recordingsList.count - 1].fileURL)
@@ -134,11 +138,11 @@ struct VoicemailView: View {
 //                            Text("get file name")
 //                        }
                     
-                        Button(action: {
-                            vm.fetchAllRecording()
-                        }) {
-                            Text("test")
-                        }
+//                        Button(action: {
+//                            vm.fetchAllRecording()
+//                        }) {
+//                            Text("test")
+//                        }
                     }
                     Spacer()
                         .frame(height: 90)
@@ -152,12 +156,14 @@ struct VoicemailView: View {
                     Text("선물하기")
                 }
                 .disabled(!vm.canSend())
+                
             }
             .onTapGesture {
                 hideKeyboard()
             }
         .foregroundColor(Color.bodyTextColor)
         }
+        .navigationToBack(dismiss)
     }
 }
 
