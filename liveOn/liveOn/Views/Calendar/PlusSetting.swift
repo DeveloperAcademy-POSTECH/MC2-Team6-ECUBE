@@ -211,6 +211,6 @@ extension View {
 
 struct PlusSetting_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarBack()
+        CalendarMain()
     }
 }
