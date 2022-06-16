@@ -7,7 +7,7 @@ var testImageData: ImageTestResponse?
 
 struct GeneralAPI {
     static let baseURL = "http://13.124.90.96:8080"
-    static let token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpbmciLCJyb2xlIjoiVVNFUiIsImV4cCI6MTY1Nzg0NDAxMiwiaWF0IjoxNjU1MjUyMDEyfQ.pJWVTYLYgmISAkQ2tYZ54Oxxp-E05yL-trKCsCEuwq0"
+    static let token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpbmciLCJyb2xlIjoiVVNFUiIsImV4cCI6MTY1NzkzMDM2MCwiaWF0IjoxNjU1MzM4MzYwfQ.am7ufGAV-O3xwRBNCybcJbD9d-Pb75XAgyy_QUtHLCY"
 }
 
 // MARK: MoyaTest의 코드들 옮긴 부분
@@ -15,7 +15,7 @@ struct GeneralAPI {
 enum ServerCommunications {
   
     case login(param: LoginRequest) // 파라미터로 스트럭트가 들어갑니다.
-    case imagePost(content: String, image: UIImage)
+    case imagePost(comment: String, polaroid: UIImage)
     case voicemailPost(title: String)
     case getData
 }
@@ -52,7 +52,7 @@ extension ServerCommunications: TargetType, AccessTokenAuthorizable {
             return "/api/v1/test/login"
             
         case .imagePost:
-            return "/api/v1/testing/image"
+            return "api/v1/gifts/polaroids"
             
         case .voicemailPost:
             return "/api/v1/gifts/voicemail"
@@ -75,17 +75,16 @@ extension ServerCommunications: TargetType, AccessTokenAuthorizable {
     // Task 종류
     var task: Task {
         switch self {
-            
             // MARK: 일반 json 형식 요청
         case .login(let param):
             return .requestJSONEncodable(param)
             
             // MARK: MultiPart 요청
-        case .imagePost(let content, let image):
+        case .imagePost(let comment, let polaroid):
             var multipartForm: [MultipartFormData] = []
-            let imageData = image.pngData()
-            multipartForm.append(MultipartFormData(provider: .data(Data(String(content).utf8)), name: "content"))
-            multipartForm.append(MultipartFormData(provider: .data(imageData!), name: "image", fileName: "sample.png", mimeType: "sample/png"))
+            let imageData = polaroid.pngData()
+            multipartForm.append(MultipartFormData(provider: .data(Data(String(comment).utf8)), name: "comment"))
+            multipartForm.append(MultipartFormData(provider: .data(imageData!), name: "polaroid", fileName: "sample.png", mimeType: "sample/png"))
             return .uploadMultipart(multipartForm)
             
             // MARK: Voicemail Post 요청
@@ -132,14 +131,15 @@ extension ServerCommunications: TargetType, AccessTokenAuthorizable {
         switch self {
             
         case .imagePost, .voicemailPost:
-            return ["Content-Type": "multipart/form"]
+            return ["Content-Type": "multipart/form",
+                    "Authorization": "Bearer "+GeneralAPI.token]
             
         case .getData:
             return ["Content-Type": "application/json"]
             
         default:
             return ["Content-Type": "application/json",
-                    "Authorization": GeneralAPI.token]
+                    "Authorization": "Bearer "+GeneralAPI.token]
         }
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PhotoCardsView: View {
     @Environment(\.dismiss) private var dismiss
-    @StateObject var imageModel: imageViewModel
+    @StateObject var imageModel: ImageViewModel
     private let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
     private let temporaryData: [PhotoCardInformation] = [testData1, testData2, testData3, testData4]
     
@@ -31,11 +31,7 @@ struct PhotoCardsView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: {
-//                    if imageModel.isSent == true {
-//                        imageModel.isSent == false
-//                    } else {
-                        dismiss()
-//                    }
+                    dismiss()
                 }) {
                     Image(systemName: "chevron.left")
                         .font(.system(size: 20))
@@ -77,8 +73,3 @@ struct PhotoCard: View {
     }
 }
 
-struct CalendarBaws: PreviewProvider {
-    static var previews: some View {
-        PhotoCardsView(imageModel: imageViewModel())
-    }
-}

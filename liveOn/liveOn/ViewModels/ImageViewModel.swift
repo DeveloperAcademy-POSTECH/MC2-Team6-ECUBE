@@ -1,6 +1,6 @@
 import SwiftUI
 
-class imageViewModel: ObservableObject {
+class ImageViewModel: ObservableObject {
     @Published var image: UIImage?
     @Published var showPicker = false
     @Published var source: Picker.Source = .library
@@ -18,7 +18,7 @@ class imageViewModel: ObservableObject {
     init() {
         print(FileManager.docDirURL.path)
     }
-    
+    // MARK: 앨범 및 카메라 관련 에러 처리
     func showPhotoPicker() {
         do {
             if source == .camera {

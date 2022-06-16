@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CreateGiftListView: View {
     @Environment(\.dismiss) private var dismiss
+    var item = photoItem
     
     var body: some View {
         VStack {
@@ -19,9 +20,13 @@ struct CreateGiftListView: View {
             
             VStack(alignment: .leading, spacing: 18) {
                 MakingGift(item: letterItem, destination: AnyView(CreateLetterView().environmentObject(LetterStore())))
-                MakingGift(item: photoItem, destination: AnyView(PhotoGiftView(imageModel: imageViewModel())))
+                
+                makingPhotoGift()
+                
                 MakingGift(item: voiceItem, destination: AnyView(VoicemailView()))
+                
                 MakingGift(item: pillItem, destination: AnyView(PillView()))
+                
                 MakingGift(item: flowerItem, destination: AnyView(FlowerView()))
             }
         }
@@ -30,6 +35,32 @@ struct CreateGiftListView: View {
         .navigationBarTitleDisplayMode(.inline)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.background)
+    }
+    private func makingPhotoGift() -> some View {
+        NavigationLink(destination: PhotoGiftView(imageModel: ImageViewModel())) {
+            HStack(alignment: .center, spacing: 16) {
+                Image(item.itemImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .padding(5)
+                    .frame(width: 70, height: 70, alignment: .center)
+                
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(item.itemName)
+                        .font(.headline)
+                    
+                    Text(item.itemDescription)
+                        .multilineTextAlignment(.leading)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .foregroundColor(.bodyTextColor)
+            }
+            .padding()
+            .frame(height: 110)
+            .background(Color(uiColor: .systemBackground))
+            .padding(.horizontal)
+        }
+        .buttonStyle(.plain)
     }
 }
 
@@ -76,9 +107,9 @@ let voiceItem = Item(itemImage: "cassettes", itemName: "음성메세지", itemDe
 let pillItem = Item(itemImage: "medicine", itemName: "영양제", itemDescription: "직접 이름을 지은 영양제와 짧은 메세지")
 let flowerItem = Item(itemImage: "flower", itemName: "꽃", itemDescription: "따뜻한 꽃말과 함께 짧은 메세지")
 
-struct CreateGiftListView_Previews: PreviewProvider {
-    static var previews: some View {
-        CreateGiftListView()
-            .environmentObject(LetterStore())
-    }
-}
+//struct CreateGiftListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CreateGiftListView()
+//            .environmentObject(LetterStore())
+//    }
+//}

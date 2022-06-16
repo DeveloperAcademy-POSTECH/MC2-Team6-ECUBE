@@ -1,11 +1,11 @@
 import SwiftUI
 
 struct PhotoGiftView: View {
-    @StateObject var imageModel: imageViewModel
+    @StateObject var imageModel: ImageViewModel
     @Environment(\.dismiss) private var dismiss
     @State private var comment: String = ""
     @State private var showAlertforSend: Bool = false
-    @State private var isTapped: Bool = false
+    @State private var showSheet = false
     var commentLimit: Int = 20
     
     var body: some View {
@@ -40,14 +40,11 @@ struct PhotoGiftView: View {
                         .frame(width: 300, height: 20, alignment: .trailing)
                         .foregroundColor(.bodyTextColor).opacity(0.5)
                 }
-                
-                NavigationLink("", destination: PhotoCardsView(imageModel: imageViewModel()), isActive: $isTapped)
             }
             .padding()
             .background(Color.white
                 .shadow(color: Color.black.opacity(0.25), radius: 4, x: 0, y: 4))
             .navigationBarBackButtonHidden(true)
-            // 상단바 커스텀
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
@@ -67,7 +64,8 @@ struct PhotoGiftView: View {
                     }
                     .alert(isPresented: $showAlertforSend) {
                         Alert(title: Text("선물 보내기"), message: Text("선물은 하루에 하나만 보낼 수 있어요. 사진을 보낼까요?"), primaryButton: .cancel(Text("취소")), secondaryButton: .default(Text("보내기")) {
-                            isTapped.toggle()
+                            imageModel.isSent = true
+                            showSheet.toggle()
                             imagePost()
                         }
                         )
@@ -78,36 +76,37 @@ struct PhotoGiftView: View {
                         .foregroundColor(.black)
                 }
             }
-            
-            // 앨범 접근 및 사진선택
+            // MARK: ImagePicker에 selectedImage가 binding으로 묶여있어 ImaageViewModel 내의 데이터가 바뀌게 됨 
             .sheet(isPresented: $imageModel.showPicker) {
                 ImagePicker(sourceType: imageModel.source == .library ? .photoLibrary : .camera, selectedImage: $imageModel.image)
                     .ignoresSafeArea()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.background)
-        } // 화면 내 다른 곳 터치시 키보드 숨기기
-        
+            
+            .sheet(isPresented: $showSheet, content: {
+                PhotoCardsView(imageModel: ImageViewModel())
+            })
+
+        }
         .onTapGesture {
             hideKeyboard()
         }
     }
     
     func imagePost() {
-         moyaService.request( .imagePost(content: "ddd", image: imageModel.image!)) { response in
- //            print(imageModel.image)
-             switch response {
-                 // 응답이 성공한다면
-             case .success(let result):
-                 do {
-                     print("전송되는 이미지 데이터는 다음과 같습니다 : \(imageModel.image!)")
-                     testImageData = try result.map(ImageTestResponse.self)
-                 } catch let err {
-                     print(err.localizedDescription)
-                 }
-             case .failure(let err):
-                 print(err.localizedDescription)
-             }
-         }
-     }
+        moyaService.request( .imagePost(comment: comment, polaroid: imageModel.image!)) { response in
+            switch response {
+            case .success(let result):
+                do {
+                    print("전송되는 이미지 데이터는 다음과 같습니다 : \(imageModel.image!)")
+                    testImageData = try result.map(ImageTestResponse.self)
+                } catch let err {
+                    print(err.localizedDescription)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
 }

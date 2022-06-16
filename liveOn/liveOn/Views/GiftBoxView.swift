@@ -9,9 +9,8 @@ import SwiftUI
 
 struct GiftBoxView: View {
     @StateObject var storedLetter = LetterStore()
-    @EnvironmentObject var imageModel: imageViewModel
+    @EnvironmentObject var imageModel: ImageViewModel
     @EnvironmentObject var currnetUser: User
-    @State var isActive: Bool = false
     
     var body: some View {
 
@@ -38,7 +37,7 @@ struct GiftBoxView: View {
         HStack(alignment: .center, spacing: 0) {
             coupleInfo
             Spacer()
-            NavigationLink(destination: CreateGiftListView(), isActive: $isActive) {
+            NavigationLink(destination: CreateGiftListView()) {
                 Image(systemName: "gift")
                     .font(.title2)
                     .foregroundColor(.bodyTextColor)
@@ -46,9 +45,6 @@ struct GiftBoxView: View {
                     .padding(.vertical)
             }
             .background(.yellow)
-            .onTapGesture {
-                print("엥")
-            }
             .buttonStyle(.plain)
         }
         .padding(16)
@@ -127,7 +123,7 @@ struct GiftBoxView: View {
     // MARK: 앨범과 캘린더
     var albumAndCalendar: some View {
         HStack(alignment: .bottom, spacing: 0) {
-            NavigationLink(destination: PhotoCardsView(imageModel: imageViewModel())) {
+            NavigationLink(destination: PhotoCardsView(imageModel: ImageViewModel())) {
                 Image("album")
                     .resizable()
                     .aspectRatio(contentMode: .fit)

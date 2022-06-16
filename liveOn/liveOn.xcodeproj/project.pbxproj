@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3E9206B6284AE2C400D064E6 /* imageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206B5284AE2C400D064E6 /* imageViewModel.swift */; };
+		3E9206B6284AE2C400D064E6 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206B5284AE2C400D064E6 /* ImageViewModel.swift */; };
 		3E9206C0284B249C00D064E6 /* VoicemailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206BF284B249C00D064E6 /* VoicemailView.swift */; };
 		3E9206C2284B24CF00D064E6 /* DateToStringVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206C1284B24CF00D064E6 /* DateToStringVM.swift */; };
 		3E9206CC284F343200D064E6 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206CB284F343200D064E6 /* Recording.swift */; };
@@ -72,7 +72,7 @@
 
 /* Begin PBXFileReference section */
 		3E9206B3284AE2B700D064E6 /* ServerCommunication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerCommunication.swift; sourceTree = "<group>"; };
-		3E9206B5284AE2C400D064E6 /* imageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageViewModel.swift; sourceTree = "<group>"; };
+		3E9206B5284AE2C400D064E6 /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
 		3E9206BF284B249C00D064E6 /* VoicemailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicemailView.swift; sourceTree = "<group>"; };
 		3E9206C1284B24CF00D064E6 /* DateToStringVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateToStringVM.swift; sourceTree = "<group>"; };
 		3E9206C7284C2A3100D064E6 /* VoiceRecorderVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceRecorderVM.swift; sourceTree = "<group>"; };
@@ -118,14 +118,11 @@
 		A932622C284F2AA900E5C0A3 /* MyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyImage.swift; sourceTree = "<group>"; };
 		A932622E284F2AD400E5C0A3 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		A9326230284F2B0700E5C0A3 /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
-
-		C91EB9522859A42500EB648B /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
-		C97222EE2859BFCB004B3628 /* DateToStringEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateToStringEvent.swift; sourceTree = "<group>"; };
-
 		A9452D852858DD3B003E6450 /* CoupleInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoupleInformation.swift; sourceTree = "<group>"; };
 		A9452D882858E084003E6450 /* DetailedInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedInformationView.swift; sourceTree = "<group>"; };
 		A981538028587CE100476507 /* BackButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonExtension.swift; sourceTree = "<group>"; };
-
+		C91EB9522859A42500EB648B /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		C97222EE2859BFCB004B3628 /* DateToStringEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateToStringEvent.swift; sourceTree = "<group>"; };
 		C9CEAEC7284F151A00769E4E /* DateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
 		C9CEAECA284F15DA00769E4E /* CalendarMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMain.swift; sourceTree = "<group>"; };
 		C9CEAECF284F18FA00769E4E /* CalendarBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarBack.swift; sourceTree = "<group>"; };
@@ -186,16 +183,13 @@
 		3E9206B2284AE1D700D064E6 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				3E9206B5284AE2C400D064E6 /* imageViewModel.swift */,
+				3E9206B5284AE2C400D064E6 /* ImageViewModel.swift */,
 				3E9206C1284B24CF00D064E6 /* DateToStringVM.swift */,
 				3E9206C7284C2A3100D064E6 /* VoiceRecorderVM.swift */,
 				77403C8B285193FE000A21EE /* QuickSignInWithApple.swift */,
 				77403C8E28519B04000A21EE /* SignInWithAppleViewModel.swift */,
-
 				C97222EE2859BFCB004B3628 /* DateToStringEvent.swift */,
-
 				3EDF0F40285868520048A63C /* ServerCommunicationVM.swift */,
-
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -265,11 +259,8 @@
 				77196618284C6FA9002E6AC0 /* ColorExtension.swift */,
 				A9326230284F2B0700E5C0A3 /* FileManager+Extension.swift */,
 				3EC5EA8B2856C6E400DEBA44 /* ConvertSecToMinAndHour.swift */,
-
 				C91EB9522859A42500EB648B /* DateExtension.swift */,
-
 				A981538028587CE100476507 /* BackButtonExtension.swift */,
-
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -496,7 +487,7 @@
 				A981538128587CE100476507 /* BackButtonExtension.swift in Sources */,
 				3E9206D3285035D900D064E6 /* VoiceRecorderVM.swift in Sources */,
 				C9CEAED0284F18FA00769E4E /* CalendarBack.swift in Sources */,
-				3E9206B6284AE2C400D064E6 /* imageViewModel.swift in Sources */,
+				3E9206B6284AE2C400D064E6 /* ImageViewModel.swift in Sources */,
 				3EBE43782849B6D30085C7C6 /* liveOnApp.swift in Sources */,
 				A44EE04D2856C74B00CC25A0 /* PillListView.swift in Sources */,
 				C97222EF2859BFCB004B3628 /* DateToStringEvent.swift in Sources */,
@@ -641,13 +632,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = liveOn/liveOn.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"liveOn/Preview Content\"";
 				DEVELOPMENT_TEAM = YYP248S73Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -659,9 +651,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alsehfdl.liveOn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alsfdl.liveOn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Jisu Jang";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -681,6 +673,7 @@
 				DEVELOPMENT_TEAM = YYP248S73Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -692,9 +685,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alsehfdl.liveOn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alsfdl.liveOn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = Rookie;
+				PROVISIONING_PROFILE_SPECIFIER = Rookie_liveOn;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
