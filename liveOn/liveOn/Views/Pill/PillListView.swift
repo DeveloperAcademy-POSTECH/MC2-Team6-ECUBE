@@ -14,52 +14,64 @@ struct PillListView: View {
     
     var body: some View {
 
+        ZStack {
             ScrollView {
-                ZStack {
-                    VStack(alignment: .center) {
-                        LazyVGrid(columns: [GridItem(), GridItem()], spacing: 12) {
+                    ZStack {
+                        VStack(alignment: .center) {
+                            LazyVGrid(columns: [GridItem(), GridItem()], spacing: 16) {
+                                
+                                ForEach(0..<pillList.count, id: \.self) { index in
+                                    
+                                    PillCardView(content: pillList[index])
+                                        .onTapGesture {withAnimation(.linear(duration: 0.5)) {
+                                            showPillPopUp = true
+                                            clickedPillIndex = index
+                                            
+                                        }
+                                        }
+                                } // ForEach
+                            } // LazyVGrid
+                            .padding(.vertical, 32)
                             
-                            ForEach(0..<pillList.count, id: \.self) { index in
-                                
-                                PillCardView(content: pillList[index])
-                                    .onTapGesture {withAnimation(.linear(duration: 0.4)) {
-                                        showPillPopUp = true
-                                        clickedPillIndex = index
-                                        
-                                    }
-                                    }
-                                /*
-                                 클릭이 가능한 것들은 스크롤뷰 안에 들어갈 수 없습니까???
-                                 버튼으로도 시도해보고 온탭제스쳐로도 해봤는데 둘 다 스크롤 뷰를 똥으로 만들어버림
-                                 */
-                                
-                            } // ForEach
-                        } // LazyVGrid
-                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                    }
-                    
-                    Color.white.opacity(showPillPopUp ? 0.6 : 0).edgesIgnoringSafeArea(.all)
-                    
-                    if showPillPopUp {
-                        // show Pill effect PopUp
+                        }
                         
-                        PillPopUpView(showPillPopUp: $showPillPopUp, indexOfCard: $clickedPillIndex)
+                        .padding(.horizontal, 16)
+                       
+                            .edgesIgnoringSafeArea(.all)
                         
-                    }
-                } // ZStack
+                    } // ZStack
+                    .blur(radius: showPillPopUp ? 5 : 0)
+                    Color(uiColor: .systemBackground).opacity(showPillPopUp ? 0.5 : 0)
+                    
+                }// ScrollView
+          
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .clipped()
+           
+            if showPillPopUp {
+                // show Pill effect PopUp
+                PillPopUpView(showPillPopUp: $showPillPopUp, indexOfCard: $clickedPillIndex)
                 
-            }// ScrollView
-            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-            .navigationTitle("약")
-            .navigationBarTitleDisplayMode(.inline)
+            }
+            
+        }
+        .background(Color.background)
+        .navigationTitle("약")
+        .navigationBarTitleDisplayMode(.inline)
         
     }// body
 }
 
+extension PillCardView {
+    func getRandomPillImage() -> String {
+        return "medicine0" + String(Int.random(in: 0 ..< 8))
+    }
+}
+
 struct PillCardView: View {
     
-    var content: Pill
-    
+    let content: Pill
+    @State var medicineImage = "medicine00"
     var body: some View {
         
         ZStack {
@@ -75,8 +87,11 @@ struct PillCardView: View {
                 ZStack {
                     
                     ZStack {
-                        Image("medicine")
+                        Image(medicineImage)
+                            .resizable()
                             .scaledToFit()
+                            .padding()
+                            .frame(width: UIScreen.main.bounds.width*0.3, height: UIScreen.main.bounds.height*0.2, alignment: .center)
                         
                         Rectangle()
                             .foregroundColor(.white)
@@ -90,7 +105,7 @@ struct PillCardView: View {
                             
                             RoundedRectangle(cornerRadius: 12)
                                 .frame(width: CGFloat(content.name.count) * 16 + 8, height: 24, alignment: .center)
-                                .foregroundColor(.green)
+                                .foregroundColor(content.sender == "재헌" ? Color.green : Color(hex: "DB5E5E"))
                             
                             Text("\(content.name)")
                                 .foregroundColor(.white)
@@ -105,7 +120,7 @@ struct PillCardView: View {
                                 .opacity(0.7)
                             
                             Text("\(content.prescribedDate)")
-                                .foregroundColor(.green)
+                                .foregroundColor(content.sender == "재헌" ? Color.green : Color(hex: "DB5E5E"))
                                 .font(.system(size: 14))
                             
                         } // ZStack
@@ -116,7 +131,7 @@ struct PillCardView: View {
                 
                 Text("\(content.sender)약국")
                     .fontWeight(.heavy)
-                    .foregroundColor(.green)
+                    .foregroundColor(content.sender == "재헌" ? Color.green : Color(hex: "DB5E5E"))
                     .font(.system(size: 16))
                 
             } // VStack
@@ -124,6 +139,9 @@ struct PillCardView: View {
             
         } // ZStack
         .padding(.horizontal)
+        .onAppear {
+            medicineImage = getRandomPillImage()
+        }
         
     } // body
 }
