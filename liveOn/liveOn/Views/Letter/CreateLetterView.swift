@@ -51,7 +51,15 @@ struct CreateLetterView: View {
             .background(Image(letterStyle ?? "letter_green").resizable().shadow(color: Color(uiColor: .systemGray4), radius: 4, x: 1, y: 3))
             
             .navigationBarItems(
-               
+                leading:
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "chevron.left")
+                            .font(.system(size: 20))
+                            .foregroundColor(.black)
+                    }
+               ,
                 trailing: Button {
                     showAlertforSend = true
                 } label: {
