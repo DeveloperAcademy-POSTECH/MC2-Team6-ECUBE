@@ -79,8 +79,6 @@ extension ServerCommunications: TargetType, AccessTokenAuthorizable {
         case .imageGet:
             return "/api/v1/gifts/polaroids/1"
             
-        case .voicemailPost:
-          
         case .voicemailPost, .voicemailListGet:
             return "/api/v1/gifts/voicemail"
             
@@ -97,8 +95,8 @@ extension ServerCommunications: TargetType, AccessTokenAuthorizable {
         switch self {
         case .login, .imagePost, .voicemailPost:
             return .post
-        case .getData, .imageGet:
-        case .getData, .voicemailListGet, .voicemailGet:
+            
+        case .getData, .voicemailListGet, .voicemailGet, .imageGet:
             return .get
         }
     }
