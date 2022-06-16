@@ -56,6 +56,19 @@ class ServerCommunication {
         }
     }
     
+    func getVM() {
+        authProvider.request(.voicemailListGet) { response in
+            
+            switch response {
+            case .success(let result):
+                print(result)
+                
+            case .failure(let err):
+                print(err)
+            }
+        }
+    }
+    
     func getData() {
         
         authProvider.request(.getData) { response in

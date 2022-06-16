@@ -17,6 +17,7 @@ enum ServerCommunications {
     case login(param: LoginRequest) // 파라미터로 스트럭트가 들어갑니다.
     case imagePost(content: String, image: UIImage)
     case voicemailPost(title: String)
+    case voicemailListGet
     case getData
 }
 
@@ -39,6 +40,13 @@ struct ImageTestResponse: Codable {
     let imageName: String
 }
 
+struct VoicemailListGetResponse: Codable {
+    let createdAt: String
+    let giftVoiceMailId: Int
+    let title: String
+    let userNickName: String
+}
+
 // http method, URLSession task, header 작성 등을 케이스 분류
 extension ServerCommunications: TargetType, AccessTokenAuthorizable {
     public var baseURL: URL {
@@ -54,7 +62,7 @@ extension ServerCommunications: TargetType, AccessTokenAuthorizable {
         case .imagePost:
             return "/api/v1/testing/image"
             
-        case .voicemailPost:
+        case .voicemailPost, .voicemailListGet:
             return "/api/v1/gifts/voicemail"
             
         case .getData:
@@ -67,7 +75,7 @@ extension ServerCommunications: TargetType, AccessTokenAuthorizable {
         switch self {
         case .login, .imagePost, .voicemailPost:
             return .post
-        case .getData:
+        case .getData, .voicemailListGet:
             return .get
         }
     }
@@ -109,6 +117,10 @@ extension ServerCommunications: TargetType, AccessTokenAuthorizable {
             
             return .uploadMultipart(multipartForm)
             
+            // MARK: Voicemail List Get 요청
+        case .voicemailListGet:
+            return .requestPlain
+            
             // MARK: get test 요청
         case .getData:
             return .requestPlain
@@ -134,7 +146,7 @@ extension ServerCommunications: TargetType, AccessTokenAuthorizable {
         case .imagePost, .voicemailPost:
             return ["Content-Type": "multipart/form"]
             
-        case .getData:
+        case .getData, .voicemailListGet:
             return ["Content-Type": "application/json"]
             
         default:
