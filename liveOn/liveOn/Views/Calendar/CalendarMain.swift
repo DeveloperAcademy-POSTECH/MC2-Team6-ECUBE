@@ -23,7 +23,6 @@ struct CalendarMain: View {
     // 달력에 쓰이는 색깔
     @State private var orangeColor = Color("Orange")
     @State private var burgundyColor = Color("Burgundy")
-
     
     // 다가오는 기념일에 쓰일 변수
     @State var eventDate: String = ""
@@ -162,7 +161,6 @@ struct CalendarMain: View {
                                 })
                         }
                     }
-
                     
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)

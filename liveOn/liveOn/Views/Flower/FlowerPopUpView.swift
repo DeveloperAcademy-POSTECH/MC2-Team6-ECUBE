@@ -41,20 +41,13 @@ struct FlowerPopUpView: View {
             Color.white.opacity(popUpBoolean ? 0.88 : 0).edgesIgnoringSafeArea(.all)
             
             VStack(alignment: .center) {
-                Button {
-                    withAnimation(.linear(duration: 0.24)) {
-                        popUpBoolean = false
-                    }
-                } label: {
-                    Text("Dismiss")
-                }
-                
+
                 VStack {
                     ZStack {
                         
                         VStack {
                             FlowerCardView(content: flowerList[0])
-                                .padding(.bottom, 120)
+                                .padding(.vertical, 120)
                             
                             ZStack {
                                 
@@ -76,10 +69,24 @@ struct FlowerPopUpView: View {
                                         .frame(width: 240, height: 180, alignment: .center))
                             } // ZStack
                         } // VStack
+                        
                     } // VStack
                     .frame(width: UIScreen.main.bounds.width * 0.7, height: UIScreen.main.bounds.height * 0.64, alignment: .center)
                     
+                    Button {
+                        withAnimation(.linear(duration: 0.24)) {
+                            popUpBoolean = false
+                        }
+                    } label: {
+                        Text("Dismiss")
+                    }.padding(.top, 120)
+                    
+                    // TODO: 이미지 하단에 바로 붙이고 싶은데 이렇게 패딩값을 붙이는 수 밖에 없는지? 개선 필요
+                    
                 } // VStack
+
+                Spacer()
+                
             } // VStack
         } // ZStack
     } // body
