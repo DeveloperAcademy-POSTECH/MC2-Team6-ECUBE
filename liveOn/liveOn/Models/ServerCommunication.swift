@@ -18,6 +18,7 @@ enum ServerCommunications {
     case imagePost(comment: String, polaroid: UIImage)
     case voicemailPost(title: String)
     case voicemailListGet
+    case voicemailGet(id: Int)
     case getData
 }
 
@@ -47,6 +48,10 @@ struct VoicemailListGetResponse: Codable {
     let userNickName: String
 }
 
+struct VoicemailGetResponse: Codable {
+    
+}
+
 // http method, URLSession task, header 작성 등을 케이스 분류
 extension ServerCommunications: TargetType, AccessTokenAuthorizable {
     public var baseURL: URL {
@@ -65,6 +70,9 @@ extension ServerCommunications: TargetType, AccessTokenAuthorizable {
         case .voicemailPost, .voicemailListGet:
             return "/api/v1/gifts/voicemail"
             
+        case .voicemailGet(let id):
+            return "/api/v1/gifts/voicemail/\(id)"
+            
         case .getData:
             return "/api​/v1​/testing​/test"
         }
@@ -75,7 +83,7 @@ extension ServerCommunications: TargetType, AccessTokenAuthorizable {
         switch self {
         case .login, .imagePost, .voicemailPost:
             return .post
-        case .getData, .voicemailListGet:
+        case .getData, .voicemailListGet, .voicemailGet:
             return .get
         }
     }
@@ -116,8 +124,8 @@ extension ServerCommunications: TargetType, AccessTokenAuthorizable {
             
             return .uploadMultipart(multipartForm)
             
-            // MARK: Voicemail List Get 요청
-        case .voicemailListGet:
+            // MARK: Voicemail List Get 요청, Voicemail Get 요청
+        case .voicemailListGet, .voicemailGet:
             return .requestPlain
             
             // MARK: get test 요청
