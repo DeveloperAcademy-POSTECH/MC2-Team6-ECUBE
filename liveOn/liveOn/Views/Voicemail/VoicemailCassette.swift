@@ -19,7 +19,7 @@ struct Voicemail: Identifiable {
     
 }
 
-struct mailConstants {
+struct MailConstants {
     static let user1 = "재헌"
     static let user2 = "유진"
     static let green = Color(hex: "717339")

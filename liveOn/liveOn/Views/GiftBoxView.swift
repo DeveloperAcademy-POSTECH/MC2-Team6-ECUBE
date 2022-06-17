@@ -13,6 +13,8 @@ struct GiftBoxView: View {
     @EnvironmentObject var currnetUser: User
     @State var isActive: Bool = false
     
+    @StateObject var storedEvent = EventStore()
+    
     var body: some View {
 
             GeometryReader { proxy in
@@ -140,7 +142,7 @@ struct GiftBoxView: View {
                     .aspectRatio(contentMode: .fit)
             }
             Spacer()
-            NavigationLink(destination: CalendarMain()) {
+            NavigationLink(destination: CalendarMain().environmentObject(storedEvent)) {
                 Image("calendar")
                     .resizable()
                     .aspectRatio(contentMode: .fit)

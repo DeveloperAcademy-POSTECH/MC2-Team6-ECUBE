@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum messageCardColor {
+enum MessageCardColor {
     case white
     case pink
     case yellow
@@ -27,9 +27,9 @@ class Flower: Identifiable, ObservableObject {
     
     // 메시지 관련
     let message: String
-    let color: messageCardColor
+    let color: MessageCardColor
     
-    init(name: String, message: String, meaning: String, lastsfor: Int, color: messageCardColor) {
+    init(name: String, message: String, meaning: String, lastsfor: Int, color: MessageCardColor) {
         id = UUID()
         self.name = name
         self.meaning = meaning
@@ -48,17 +48,17 @@ let flowerList: [Flower] = [
         message: "피카츄 라이츄 파이리 꼬북이 버터풀 야도란 피죤투 또가스",
         meaning: "변치않는 사랑",
         lastsfor: 2,
-        color: messageCardColor.white),
+        color: MessageCardColor.white),
     Flower(
         name: "금목서",
         message: "서로 생긴 모습은 달라도",
         meaning: "당신의 마음을 끌다",
         lastsfor: 8,
-        color: messageCardColor.white),
+        color: MessageCardColor.white),
     Flower(
         name: "안개꽃",
         message: "우리는 모두 친구(맞아)",
         meaning: "성공",
         lastsfor: 6,
-        color: messageCardColor.white)
+        color: MessageCardColor.white)
 ]

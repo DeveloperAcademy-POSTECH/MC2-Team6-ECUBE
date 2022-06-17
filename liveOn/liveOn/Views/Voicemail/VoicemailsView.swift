@@ -60,13 +60,13 @@ struct VoicemailsView: View {
 }
 
 var voiceMailDummy = [
-    Voicemail(title: "재허나뭐해잉", createDate: "220616", whoSent: mailConstants.user1, vmBackgroundColor: mailConstants.green, vmIconImageName: "flower", soundLength: "00:48"),
-    Voicemail(title: "유지나뭐해잉", createDate: "220314", whoSent: mailConstants.user2, vmBackgroundColor: mailConstants.orange, vmIconImageName: "flower", soundLength: "00:39"),
-    Voicemail(title: "유sdf잉", createDate: "220314", whoSent: mailConstants.user2, vmBackgroundColor: mailConstants.orange, vmIconImageName: "flower", soundLength: "00:39"),
-    Voicemail(title: "유지나뭐fsd잉", createDate: "220314", whoSent: mailConstants.user2, vmBackgroundColor: mailConstants.orange, vmIconImageName: "flower", soundLength: "00:39"),
-    Voicemail(title: "유지나뭐해잉", createDate: "220314", whoSent: mailConstants.user2, vmBackgroundColor: mailConstants.orange, vmIconImageName: "fdsower", soundLength: "00:39"),
-    Voicemail(title: "유지나뭐해잉", createDate: "220314", whoSent: mailConstants.user2, vmBackgroundColor: mailConstants.orange, vmIconImageName: "flower", soundLength: "00:39"),
-    Voicemail(title: "유지나뭐해잉", createDate: "220314", whoSent: mailConstants.user2, vmBackgroundColor: mailConstants.orange, vmIconImageName: "flower", soundLength: "00:39")
+    Voicemail(title: "재허나뭐해잉", createDate: "220616", whoSent: MailConstants.user1, vmBackgroundColor: MailConstants.green, vmIconImageName: "flower", soundLength: "00:48"),
+    Voicemail(title: "유지나뭐해잉", createDate: "220314", whoSent: MailConstants.user2, vmBackgroundColor: MailConstants.orange, vmIconImageName: "flower", soundLength: "00:39"),
+    Voicemail(title: "유sdf잉", createDate: "220314", whoSent: MailConstants.user2, vmBackgroundColor: MailConstants.orange, vmIconImageName: "flower", soundLength: "00:39"),
+    Voicemail(title: "유지나뭐fsd잉", createDate: "220314", whoSent: MailConstants.user2, vmBackgroundColor: MailConstants.orange, vmIconImageName: "flower", soundLength: "00:39"),
+    Voicemail(title: "유지나뭐해잉", createDate: "220314", whoSent: MailConstants.user2, vmBackgroundColor: MailConstants.orange, vmIconImageName: "fdsower", soundLength: "00:39"),
+    Voicemail(title: "유지나뭐해잉", createDate: "220314", whoSent: MailConstants.user2, vmBackgroundColor: MailConstants.orange, vmIconImageName: "flower", soundLength: "00:39"),
+    Voicemail(title: "유지나뭐해잉", createDate: "220314", whoSent: MailConstants.user2, vmBackgroundColor: MailConstants.orange, vmIconImageName: "flower", soundLength: "00:39")
 
 ]
 
