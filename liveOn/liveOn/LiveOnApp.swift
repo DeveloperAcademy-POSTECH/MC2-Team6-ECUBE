@@ -15,7 +15,7 @@ struct LiveOnApp: App {
             ContentView()
                 .environmentObject(imageModel)
                 .environmentObject(LetterStore())
-
+                .preferredColorScheme(.light)
         }
     }
 }

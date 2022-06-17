@@ -24,7 +24,6 @@ struct PillView: View {
         } // VStack
         .navigationTitle("영양제")
         .navigationBarTitleDisplayMode(.inline)
-        .background(.background)
         .navigationBarItems(trailing: Button {
             showAlertforSend = true
         } label: {
@@ -32,7 +31,9 @@ struct PillView: View {
                 .fontWeight(.bold)
         }
             .disabled(!input.inputEntered))
-        .padding(.horizontal, 32)
+        // .padding(.horizontal, 32)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.background)
     } // body
 }
 
