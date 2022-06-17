@@ -10,24 +10,31 @@ import SwiftUI
 struct SetNicknameView: View {
     @EnvironmentObject var currentUser: User
     @State var nickNameInput: String = ""
-    let nickNameLimit = 10
+    private let limit: Int = 6
     var body: some View {
-
-            OnboardingHeader(title: "어떤 별명으로 불리나요?", description: "리본에서 사용할 닉네임을 입력해주세요.", inputView:
+        VStack(alignment: .leading, spacing: 0) {
+            OnboardingHeader(title: "별명 정하기", description: "주고 받은 선물에 별명이 표시돼요.", inputView:
                                 AnyView(
                                     VStack {
-                TextField("닉네임 입력 (최대 5자)", text: $nickNameInput)
-                    .limitInputLength(value: $nickNameInput, length: nickNameLimit)
-                    .multilineTextAlignment(.center)
-                Text("\(nickNameInput.count)/10")
-                    .opacity(0.5)
-                Spacer()
-            } .padding(.top, 50))
-            )
-        
+                                        HStack {
+                                            TextField("닉네임 입력 (최대 \(limit)자)", text: $nickNameInput)
+                                                .limitInputLength(value: $nickNameInput, length: limit)
+                                                .multilineTextAlignment(.leading)
+                                            Spacer()
+                                            Text("\(nickNameInput.count)/\(self.limit)")
+                                                .opacity(0.5)
+                                                .foregroundColor(nickNameInput.count < limit ? Color.bodyTextColor : Color.primaryColor)
+                                        }
+                                        Rectangle()
+                                                .fill(nickNameInput.count < limit ? Color.bodyTextColor : Color.primaryColor)
+                                                .frame(maxWidth: .infinity, maxHeight: 2, alignment: .bottom)
+                                    })) // VStack
+
+        }
+        .background(Color.background)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                                NavigationLink(destination: SetBirthdayView().environmentObject(currentUser)) {
+                NavigationLink(destination: SetBirthdayView().environmentObject(currentUser)) {
                     Text("다음")
                 }
                 .buttonStyle(.plain)
@@ -62,18 +69,20 @@ struct OnboardingHeader: View {
     let description: String
     let inputView: AnyView?
     var body: some View {
-        VStack(alignment: .center, spacing: 8) {
+        VStack(alignment: .leading, spacing: 16) {
             Text(title)
                 .font(.title)
                 .fontWeight(.bold)
-                .multilineTextAlignment(.center)
+                .multilineTextAlignment(.leading)
             Text(description)
-                .multilineTextAlignment(.center)
+                .multilineTextAlignment(.leading)
+                .padding(.bottom, 64)
             inputView
+            Spacer()
         }
         .foregroundColor(.bodyTextColor)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.background)
+        .padding(16)
         
     }
 }

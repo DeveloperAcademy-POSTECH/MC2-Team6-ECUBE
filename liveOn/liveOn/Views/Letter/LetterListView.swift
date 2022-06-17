@@ -13,32 +13,54 @@ struct LetterListView: View {
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
-        ScrollView(.vertical) {
-            VStack(alignment: .center, spacing: 24) {
-                ForEach(store.list) { letter in
-                    // TODO: 작성자 연결하기
-                    LetterView(doshowDetail: $doshowDetail, letter: letter)
-                    
+        ZStack {
+            ScrollView(.vertical) {
+                let columns = Array(repeating: GridItem(.flexible(), spacing: 1, alignment: .center), count: 2)
+                
+                LazyVGrid(columns: columns, spacing: 1) {
+                    ForEach(store.list) { letter in
+                        // TODO: 작성자 연결하기
+                        LetterView(doshowDetail: $doshowDetail, letter: letter)
+                            .onTapGesture {
+                                withAnimation(.easeIn(duration: 1)) {
+                                    doshowDetail.toggle()
+                                }
+                            }
+                        
+                    }
                 }
+                .frame(maxWidth: .infinity, alignment: .center)
+                
             }
-            .frame(maxWidth: .infinity, alignment: .center)
-            
+            .blur(radius: doshowDetail ? 5 : 0)
+            Color(uiColor: .systemBackground).opacity(doshowDetail ? 0.5 : 0)
+            if doshowDetail {
+                letterDetail()
+                    .padding()
+                    .onTapGesture {
+                        withAnimation {
+                            doshowDetail.toggle()
+                        }
+                    }
+            }
+           
         }
+        
         .navigationToBack(dismiss)
         .navigationBarTitle("쪽지", displayMode: .inline)
-        .background(.background)
+        .background(Color.background)
     }
 }
 extension LetterListView {
     struct LetterView: View {
 
         @Binding var doshowDetail: Bool
-        
+        @State var letterStyle: String?
         let letter: Letter
         var body: some View {
            itemPreview
                 .onTapGesture {
-                    withAnimation(.easeOut(duration: 5)) {
+                    withAnimation(.easeOut) {
                     doshowDetail = true
                     }
                 }
@@ -47,14 +69,13 @@ extension LetterListView {
         
         func showDetail() -> some View {
             VStack {
-             
-                    itemDetail
+                    letterDetail()
                         .padding()
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 
             }
             
-            .background(BackgroundClearView())
+            .background(Image(""))
             .ignoresSafeArea()
             .transition(.opacity)
             .onTapGesture {
@@ -64,31 +85,59 @@ extension LetterListView {
         }
         
         var itemPreview: some View {
-            Text("안녕")
-                .frame(width: 280, height: 120, alignment: .center)
-                .background(Color(uiColor: .systemBackground).shadow(color: .gray, radius: 1, x: 1, y: 1))
-                .fullScreenCover(isPresented: $doshowDetail, content: showDetail)
-                .transition(.opacity)
+            VStack(alignment: .leading, spacing: 4) {
+                Text(letter.content)
+                .lineLimit(1)
+                
+                Text("from \(letter.writer)")
+                    .font(.caption)
+                    .opacity(0.8)
+                
+            }
+            .padding()
+            .frame(width: UIScreen.main.bounds.width*0.45, height: UIScreen.main.bounds.width*0.45, alignment: .center)
+            .foregroundColor(.bodyTextColor)
+            .background(Image(letter.letterStyle).resizable().scaledToFit().shadow(color: .bodyTextColor.opacity(0.5), radius: 2, x: 1, y: 1))
 
         }
-        var itemDetail: some View {
-            VStack(alignment: .leading, spacing: 0) {
-                Text(letter.content)
+            
+}
+    
+}
+
+struct letterDetail: View {
+    @EnvironmentObject var store: LetterStore
+    @State var letterTemp: Letter = Letter(content: "안녕 유진아 반가워 오랜만이야", createdDate: Date(), writer: "재헌")
+    var body: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            VStack {
+                Text(letterTemp.content)
+                    .lineSpacing(4)
                     .padding()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                Spacer()
                 VStack {
-                    Text(letter.createdDate)
+                    Text(letterTemp.createdDate)
                         .font(.callout)
-                    Text("by.\(letter.writer)")
+                    Text("from.\(letterTemp.writer)")
                 }
+                .padding(.bottom, 4)
                 .opacity(0.8)
                 .frame(maxWidth: .infinity, alignment: .trailing)
             }
-            .padding()
-            .foregroundColor(.bodyTextColor)
-            .frame(maxWidth: .infinity)
-            .background(Color(UIColor.systemBackground).shadow(color: Color(uiColor: .systemGray4), radius: 4, x: 1, y: 3))
+            .frame(width: UIScreen.main.bounds.width*0.65, height: UIScreen.main.bounds.width*0.55, alignment: .leading)
+        
+        }
+        .foregroundColor(.bodyTextColor)
+        .frame(width: UIScreen.main.bounds.width*0.8, height: UIScreen.main.bounds.width*0.9, alignment: .center)
+        .background(Image(letterTemp.letterStyle).resizable().scaledToFit().shadow(color: Color(uiColor: .systemGray4), radius: 4, x: 1, y: 3))
+    
+        .onAppear {
+            letterTemp = store.list[Int.random(in: 0 ..< store.list.count)]
+        }
     }
-}
+    
 }
 struct LetterListView_Previews: PreviewProvider {
     static var previews: some View {
