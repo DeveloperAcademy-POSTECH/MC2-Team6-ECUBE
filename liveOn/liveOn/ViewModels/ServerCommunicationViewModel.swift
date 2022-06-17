@@ -65,7 +65,7 @@ class ServerCommunication {
                 let decoder = JSONDecoder()
                 let vmData = try? decoder.decode(VoicemailListGetResponse.self, from: data)
                 
-                print(vmData)
+                    print(vmData!)
                 
 //                print(result)
                 

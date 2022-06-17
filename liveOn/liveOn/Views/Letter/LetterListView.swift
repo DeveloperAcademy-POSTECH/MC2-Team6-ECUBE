@@ -35,7 +35,7 @@ struct LetterListView: View {
             .blur(radius: doshowDetail ? 5 : 0)
             Color(uiColor: .systemBackground).opacity(doshowDetail ? 0.5 : 0)
             if doshowDetail {
-                letterDetail()
+                LetterDetail()
                     .padding()
                     .onTapGesture {
                         withAnimation {
@@ -69,7 +69,7 @@ extension LetterListView {
         
         func showDetail() -> some View {
             VStack {
-                    letterDetail()
+                    LetterDetail()
                         .padding()
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 
@@ -107,7 +107,7 @@ extension LetterListView {
     
 }
 
-struct letterDetail: View {
+struct LetterDetail: View {
     @EnvironmentObject var store: LetterStore
     @State var letterTemp: Letter = Letter(content: "안녕 유진아 반가워 오랜만이야", createdDate: Date(), writer: "재헌")
     var body: some View {

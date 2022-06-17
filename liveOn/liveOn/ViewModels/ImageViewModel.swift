@@ -22,6 +22,7 @@ class ImageViewModel: ObservableObject {
     }
     
     func showPhotoPicker() {
+
         do {
             if source == .camera {
                 try Picker.checkPermissions()
@@ -38,6 +39,23 @@ class ImageViewModel: ObservableObject {
         imageName = ""
     }
     
+    func saveMyImagesJSONFile() {
+    // MARK: 현재 myImage 배열에 추가하는 함수지만, 추후 서버에 추가하는 기능으로 수정예정
+    func addMyImage(_ name: String, image: UIImage) {
+        reset()
+        let myImage = MyImage(name: name)
+        do {
+            try FileManager().saveImage("\(myImage.id)", image: image)
+            myImages.append(myImage)
+            print(myImage)
+//            print(Bundle.main.path(forResource: "\(myImage.id)", ofType: "JPG"))
+            saveMyImagesJSONFile()
+        } catch {
+            showFileAlert = true
+            appError = MyImageError.ErrorType(error: error as! MyImageError)
+        }
+    }
+
     func saveMyImagesJSONFile() {
         let encoder = JSONEncoder()
         do {
@@ -59,7 +77,7 @@ class ImageViewModel: ObservableObject {
     func fetchDirectory() {
         for myImage in myImages {
             print(myImage)
-            print(Bundle.main.path(forResource: "\(myImage.id)", ofType: "JPG"))
+//            print(Bundle.main.path(forResource: "\(myImage.id)", ofType: "JPG"))
         }
 //        let directoryContents = try! FileManager.default.contentsOfDirectory(atPath: myImages[0].name)
 //        print(directoryContents)

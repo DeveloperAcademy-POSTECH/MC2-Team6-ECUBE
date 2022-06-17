@@ -69,18 +69,19 @@
 		A96DE30C285859FF00A06E1D /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = A96DE30B285859FF00A06E1D /* ReactiveMoya */; };
 		A96DE30E285859FF00A06E1D /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = A96DE30D285859FF00A06E1D /* RxMoya */; };
 		A981538128587CE100476507 /* BackButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A981538028587CE100476507 /* BackButtonExtension.swift */; };
+		A9E979DE285C936A00AADF38 /* TextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E979DD285C936A00AADF38 /* TextExtension.swift */; };
 		C91EB94A285868F100EB648B /* FlowerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE0462856C15400CC25A0 /* FlowerListView.swift */; };
 		C91EB94B2858692A00EB648B /* ServerCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206B3284AE2B700D064E6 /* ServerCommunication.swift */; };
 		C91EB9532859A42500EB648B /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91EB9522859A42500EB648B /* DateExtension.swift */; };
 		C92B3BE5285175070010C49A /* PhotoGiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9326228284F2A2800E5C0A3 /* PhotoGiftView.swift */; };
 		C97222EF2859BFCB004B3628 /* DateToStringEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97222EE2859BFCB004B3628 /* DateToStringEvent.swift */; };
-		C97222F1285B006C004B3628 /* ForEachTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97222F0285B006C004B3628 /* ForEachTest.swift */; };
 		C9722301285B79D4004B3628 /* ServerCommunicationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDF0F40285868520048A63C /* ServerCommunicationViewModel.swift */; };
 		C9722302285B79E3004B3628 /* VoiceRecorderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206C7284C2A3100D064E6 /* VoiceRecorderViewModel.swift */; };
 		C9722303285B79F7004B3628 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206B5284AE2C400D064E6 /* ImageViewModel.swift */; };
 		C9722304285B7A16004B3628 /* DateToStringViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206C1284B24CF00D064E6 /* DateToStringViewModel.swift */; };
 		C9722305285B7A3C004B3628 /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAEC7284F151A00769E4E /* DateValue.swift */; };
 		C9722306285B7A47004B3628 /* PillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77813AE12855B4B40084828D /* PillView.swift */; };
+		C972230C285C9264004B3628 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C972230B285C9264004B3628 /* Event.swift */; };
 		C9CEAECB284F15DA00769E4E /* CalendarMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAECA284F15DA00769E4E /* CalendarMain.swift */; };
 		C9CEAECE284F17E300769E4E /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77196618284C6FA9002E6AC0 /* ColorExtension.swift */; };
 		C9CEAED6284F394A00769E4E /* PlusSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAED5284F394A00769E4E /* PlusSetting.swift */; };
@@ -154,9 +155,10 @@
 		A9452D852858DD3B003E6450 /* CoupleInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoupleInformation.swift; sourceTree = "<group>"; };
 		A9452D882858E084003E6450 /* DetailedInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedInformationView.swift; sourceTree = "<group>"; };
 		A981538028587CE100476507 /* BackButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonExtension.swift; sourceTree = "<group>"; };
+		A9E979DD285C936A00AADF38 /* TextExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextExtension.swift; sourceTree = "<group>"; };
 		C91EB9522859A42500EB648B /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		C97222EE2859BFCB004B3628 /* DateToStringEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateToStringEvent.swift; sourceTree = "<group>"; };
-		C97222F0285B006C004B3628 /* ForEachTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForEachTest.swift; sourceTree = "<group>"; };
+		C972230B285C9264004B3628 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		C9CEAEC7284F151A00769E4E /* DateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
 		C9CEAECA284F15DA00769E4E /* CalendarMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMain.swift; sourceTree = "<group>"; };
 		C9CEAED5284F394A00769E4E /* PlusSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusSetting.swift; sourceTree = "<group>"; };
@@ -307,11 +309,11 @@
 		3EBE43762849B6D30085C7C6 /* liveOn */ = {
 			isa = PBXGroup;
 			children = (
+				77403C8D28519991000A21EE /* liveOn.entitlements */,
 				774F915A285C0FA900D692BE /* Info.plist */,
 				27393874285B222400836B26 /* Network */,
 				3EDF0F6A285A0E730048A63C /* SampleData */,
 				3EDF0F4228586C7B0048A63C /* Etc */,
-				77403C8D28519991000A21EE /* liveOn.entitlements */,
 				77196617284C6F8D002E6AC0 /* Extensions */,
 				3E9206B2284AE1D700D064E6 /* ViewModels */,
 				3E9206B1284AE1D200D064E6 /* Models */,
@@ -354,6 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				77196618284C6FA9002E6AC0 /* ColorExtension.swift */,
+				A9E979DD285C936A00AADF38 /* TextExtension.swift */,
 				A9326230284F2B0700E5C0A3 /* FileManager+Extension.swift */,
 				3EC5EA8B2856C6E400DEBA44 /* ConvertSecToMinAndHour.swift */,
 				C91EB9522859A42500EB648B /* DateExtension.swift */,
@@ -449,7 +452,7 @@
 				C9CEAECA284F15DA00769E4E /* CalendarMain.swift */,
 				C9CEAED5284F394A00769E4E /* PlusSetting.swift */,
 				C9FE9E0728571F71007B6EA5 /* MoveDatePicker.swift */,
-				C97222F0285B006C004B3628 /* ForEachTest.swift */,
+				C972230B285C9264004B3628 /* Event.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -561,7 +564,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n    swiftlint autocorrect\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n    swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -580,6 +583,7 @@
 				C91EB94B2858692A00EB648B /* ServerCommunication.swift in Sources */,
 				C91EB94A285868F100EB648B /* FlowerListView.swift in Sources */,
 				A91608EF285C529900473466 /* PhotoTransport.swift in Sources */,
+				A9E979DE285C936A00AADF38 /* TextExtension.swift in Sources */,
 				C92B3BE5285175070010C49A /* PhotoGiftView.swift in Sources */,
 				77A9654B285A5BFB00511556 /* AppleSocialLogin.swift in Sources */,
 				27393879285B257700836B26 /* LoginResponseDTO.swift in Sources */,
@@ -616,11 +620,11 @@
 				A981538128587CE100476507 /* BackButtonExtension.swift in Sources */,
 				3EBE43782849B6D30085C7C6 /* liveOnApp.swift in Sources */,
 				A44EE04D2856C74B00CC25A0 /* PillListView.swift in Sources */,
+				C972230C285C9264004B3628 /* Event.swift in Sources */,
 				C97222EF2859BFCB004B3628 /* DateToStringEvent.swift in Sources */,
 				77403C852850AA60000A21EE /* SetNicknameView.swift in Sources */,
 				773C1A58284F3B5500E93BFE /* TextLimiter.swift in Sources */,
 				77196614284B41E8002E6AC0 /* GiftBoxView.swift in Sources */,
-				C97222F1285B006C004B3628 /* ForEachTest.swift in Sources */,
 				773C1A54284F37F700E93BFE /* LetterListView.swift in Sources */,
 				A92A88C728506B8700A71FCC /* PhotoCardsView.swift in Sources */,
 				3E9206CC284F343200D064E6 /* Recording.swift in Sources */,
@@ -777,7 +781,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = liveqwdqw;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alsehfdl.liveOn;
+
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -811,6 +816,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+
 				PRODUCT_BUNDLE_IDENTIFIER = "liveOn-com";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
