@@ -62,11 +62,19 @@ struct VoicemailCassette: View {
                     .background(voiceMail.vmBackgroundColor)
                     .foregroundColor(.white)
                     
-                    Text(voiceMail.soundLength)
-                        .rotationEffect(.degrees(-90.0))
-                        .font(.caption)
-                        .foregroundColor(.bodyTextColor)
-                    
+                    VStack(alignment: .center) {
+                        if Int(voiceMail.soundLength)! < 10 {
+                        Text("00:0\(voiceMail.soundLength)")
+                            .rotationEffect(.degrees(-90.0))
+                            .font(.caption)
+                            .foregroundColor(.bodyTextColor)
+                        } else {
+                            Text("00:\(voiceMail.soundLength)")
+                                .rotationEffect(.degrees(-90.0))
+                                .font(.caption)
+                                .foregroundColor(.bodyTextColor)
+                        }
+                    }
                 }
                 .background(.thinMaterial)
                 .frame(maxWidth: .infinity, maxHeight: 60, alignment: .center)
@@ -79,11 +87,5 @@ struct VoicemailCassette: View {
         .border(.white, width: 2)
         .border(.thinMaterial, width: 2)
         .overlay(Rectangle().fill(.regularMaterial).opacity(0.2))
-//        .onTapGesture {
-//            isShowPopUp.toggle()
-//        }
-//        .sheet(isPresented: $isShowPopUp ) {
-//            VoicemailPopUpView(vm: voiceMail)
-//        }
     }
 }

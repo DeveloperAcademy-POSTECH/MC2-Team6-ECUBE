@@ -10,7 +10,8 @@ import AVFoundation
 struct VoicemailView: View {
     @Environment(\.dismiss) private var dismiss
     @ObservedObject var vm = VoiceRecorderVM()
-//    @State private var showAlertforSend: Bool = false
+    
+    @State private var showAlertforSend: Bool = false
     
     private let communication = ServerCommunication()
     let nowDate = Date.now
@@ -93,7 +94,7 @@ struct VoicemailView: View {
                                             vm.isRecording = false
                                             vm.isRecorded = true
                                             vm.timer = "0:00"
-                                    }
+                                        }
                                 }
                                 
                             } else {
@@ -118,18 +119,18 @@ struct VoicemailView: View {
                             }
                         }
                         
-                    Button(action: {
-                        vm.deleteAllRecordings()
-                    }) {
-                        Text("delete files")
-                    }
+                        Button(action: {
+                            vm.deleteAllRecordings()
+                        }) {
+                            Text("delete files")
+                        }
                         
-//                        Button(action: {
-//                            vm.getFileName(for: vm.recordingsList[vm.recordingsList.count - 1].fileURL)
-//                        }) {
-//                            Text("get file name")
-//                        }
-                    
+                        //                        Button(action: {
+                        //                            vm.getFileName(for: vm.recordingsList[vm.recordingsList.count - 1].fileURL)
+                        //                        }) {
+                        //                            Text("get file name")
+                        //                        }
+                        
                         Button(action: {
                             vm.fetchAllRecording()
                         }) {
@@ -143,21 +144,32 @@ struct VoicemailView: View {
             }
             .toolbar {
                 Button(action: {
-                    communication.uploadVM(
-                        title: vm.title,
-                        name: vm.getFileName(for: vm.recordingsList[vm.recordingsList.count - 1].fileURL.deletingPathExtension()),
-                        duration: String(vm.countSec)
-                    )
+                    showAlertforSend = true
                 }) {
                     Text("선물하기")
                 }
                 .disabled(!vm.canSend())
+                .alert(isPresented: $showAlertforSend) {
+                    Alert(
+                        title: Text("선물 보내기"),
+                        message: Text("선물은 하루에 하나만 보낼 수 있어요. 사진을 보낼까요?"),
+                        primaryButton: .cancel(Text("취소")),
+                        secondaryButton: .default(Text("보내기")) {
+                            
+                        communication.uploadVM(
+                            title: vm.title,
+                            name: vm.getFileName(for: vm.recordingsList[vm.recordingsList.count - 1].fileURL.deletingPathExtension()),
+                            duration: String(vm.countSec)
+                        
+                        )}
+                    )
+                }
                 
             }
             .onTapGesture {
                 hideKeyboard()
             }
-        .foregroundColor(Color.bodyTextColor)
+            .foregroundColor(Color.bodyTextColor)
         }
         .navigationToBack(dismiss)
     }

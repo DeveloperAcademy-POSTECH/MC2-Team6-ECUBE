@@ -24,8 +24,9 @@ struct VoicemailsView: View {
                 if loadedVM.count > 8 {
                     ScrollView(.vertical, showsIndicators: false) {
                         VStack {
-                            
+
                             Spacer()
+                            
                             VStack(alignment: .trailing, spacing: 16) {
                                 ForEach(loadedVM, id: \.giftVoiceMailID) { vm in
                                     VoicemailCassette(voiceMail: vm.convertToVoicemail())
@@ -83,7 +84,11 @@ struct VoicemailsView: View {
         .task {
             vmListGet()
         }
-        
+        .onTapGesture {
+            withAnimation(.easeOut) {
+                isShowPopUp = false
+            }
+        }
     }
     
     // MARK: Voicemail List 가져오기

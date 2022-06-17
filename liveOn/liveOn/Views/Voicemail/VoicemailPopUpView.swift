@@ -24,11 +24,13 @@ struct VoicemailPopUpView: View {
                     .frame(height: 140)
                 
                 Text(vm.title)
+                    .font(.system(size: 24))
                     .fontWeight(.heavy)
                     .foregroundColor(Color.bodyTextColor)
                     .frame(width: 300, height: 20)
                 
                 Text(vm.createDate)
+                    .font(.system(size: 20))
                     .fontWeight(.heavy)
                     .foregroundColor(Color.bodyTextColor)
                 
@@ -37,22 +39,39 @@ struct VoicemailPopUpView: View {
                     .frame(width: 350)
                     .padding()
                 
-                Image(systemName: isPlaying ? "pause.circle.fill": "play.circle.fill")
-                    .font(.system(size: 25))
-                    .padding(.trailing)
-                    .onTapGesture {
-                        voicemailPlayer.PlaySound(voicemailURL: voicemailURL!)
-                        isPlaying.toggle()
-                        
-                        if isPlaying {
-                            voicemailPlayer.player?.play()
-                        } else {
-                            voicemailPlayer.player?.pause()
+                Spacer()
+                
+                ZStack {
+                    Image(systemName: "circle.fill")
+                        .resizable()
+                        .frame(width: 80, height: 80)
+                        .foregroundColor(Color.recordingBtnBackground)
+                    
+                    Image(systemName: isPlaying ? "pause.fill": "play.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .foregroundColor(Color.recordingBtn)
+                        .frame(width: isPlaying ? 30 : 40)
+                        .onTapGesture {
+                            voicemailPlayer.PlaySound(voicemailURL: voicemailURL!)
+                            isPlaying.toggle()
+                            if isPlaying {
+                                voicemailPlayer.player?.play()
+                                
+//                                if voicemailPlayer.player?.rate == 0 {
+//                                    isPlaying = false
+//                                }
+                            } else {
+                                voicemailPlayer.player?.pause()
+                            }
+                            
                         }
-                    }
+                        .padding(.leading, isPlaying ? 0 : 5)
+                    
+                }
                 
                 Spacer()
-
+                
             }
             
         }
@@ -60,6 +79,7 @@ struct VoicemailPopUpView: View {
             getSingleVoicemail(id: vm.voiceMailId)
         }
         .background(Color.white.opacity(0))
+        
     }
     
     // MARK: Additional Functions
