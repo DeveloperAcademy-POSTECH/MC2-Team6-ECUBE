@@ -27,7 +27,9 @@ struct mailConstants {
 
 // 카세트 하나 뷰
 struct VoicemailCassette: View {
-    @State var isShowPopUp = false
+    
+//    @Binding var isShowPopUp: Bool
+    
     let voiceMail: Voicemail
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -77,12 +79,11 @@ struct VoicemailCassette: View {
         .border(.white, width: 2)
         .border(.thinMaterial, width: 2)
         .overlay(Rectangle().fill(.regularMaterial).opacity(0.2))
-        
-        .onTapGesture {
-            isShowPopUp.toggle()
-        }
-        .sheet(isPresented: $isShowPopUp ) {
-            Text("dsf")
-        }
+//        .onTapGesture {
+//            isShowPopUp.toggle()
+//        }
+//        .sheet(isPresented: $isShowPopUp ) {
+//            VoicemailPopUpView(vm: voiceMail)
+//        }
     }
 }

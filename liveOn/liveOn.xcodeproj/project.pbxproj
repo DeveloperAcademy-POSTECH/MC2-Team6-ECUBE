@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3E59192E285C0003006207F6 /* UserVoiceMail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E59192D285C0003006207F6 /* UserVoiceMail.swift */; };
+		3E591934285CB926006207F6 /* VoicemailPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E591933285CB926006207F6 /* VoicemailPopUpView.swift */; };
 		3E9206C0284B249C00D064E6 /* VoicemailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206BF284B249C00D064E6 /* VoicemailView.swift */; };
 		3E9206CC284F343200D064E6 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206CB284F343200D064E6 /* Recording.swift */; };
 		3E9206D0284F3BA300D064E6 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206CF284F3BA300D064E6 /* Test.swift */; };
@@ -82,6 +83,7 @@
 
 /* Begin PBXFileReference section */
 		3E59192D285C0003006207F6 /* UserVoiceMail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVoiceMail.swift; sourceTree = "<group>"; };
+		3E591933285CB926006207F6 /* VoicemailPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicemailPopUpView.swift; sourceTree = "<group>"; };
 		3E9206B3284AE2B700D064E6 /* ServerCommunication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerCommunication.swift; sourceTree = "<group>"; };
 		3E9206B5284AE2C400D064E6 /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
 		3E9206BF284B249C00D064E6 /* VoicemailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicemailView.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				3EC5EA892856C38100DEBA44 /* VoicemailCassetteView.swift */,
 				77A30A8B285B0588009548E5 /* VoicemailsView.swift */,
 				77A30A8D285B05B9009548E5 /* VoicemailCassette.swift */,
+				3E591933285CB926006207F6 /* VoicemailPopUpView.swift */,
 			);
 			path = Voicemail;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				3E59192E285C0003006207F6 /* UserVoiceMail.swift in Sources */,
 				A92A88C728506B8700A71FCC /* PhotoCardsView.swift in Sources */,
 				3E9206CC284F343200D064E6 /* Recording.swift in Sources */,
+				3E591934285CB926006207F6 /* VoicemailPopUpView.swift in Sources */,
 				C9FE9E0828571F71007B6EA5 /* MoveDatePicker.swift in Sources */,
 				77A30A8C285B0588009548E5 /* VoicemailsView.swift in Sources */,
 				77403C8A2850B7E9000A21EE /* SelectWhatToDoView.swift in Sources */,

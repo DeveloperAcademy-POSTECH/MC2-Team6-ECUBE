@@ -51,6 +51,7 @@ struct ImageGetResponse: Codable {
     let userNickName: String
 }
 
+
 // MARK: Voicemail related models
  struct VoicemailPostRequest {
     let title: String
@@ -62,6 +63,8 @@ let randomLabelList = ["cassetteLabel1", "cassetteLabel2", "cassetteLabel3"]
 struct VoicemailGetResponse: Codable {
     let giftVoiceMailID: Int
     let giftVoiceMailDuration, title, createdAt, userNickName: String
+    
+    let i = Int.random(in: 0..<2)
 
     enum CodingKeys: String, CodingKey {
         case giftVoiceMailID = "giftVoiceMailId"
@@ -73,9 +76,15 @@ struct VoicemailGetResponse: Codable {
             voiceMailId: self.giftVoiceMailID,
             title: self.title,
             createDate: self.createdAt,
-            whoSent: self.userNickName,
+            whoSent: {
+                if i == 0 {
+                    return self.userNickName
+                } else {
+                    return "유진"
+                }
+            }(),
             vmBackgroundColor: {
-                let i = Int.random(in: 0..<2)
+                
                 if i == 0 {
                     return mailConstants.green
                 } else {
@@ -83,7 +92,6 @@ struct VoicemailGetResponse: Codable {
                 }
             }(),
             vmIconImageName: {
-                let i = Int.random(in: 0..<3)
                 return randomLabelList[i]
             }(),
             soundLength: self.giftVoiceMailDuration
@@ -91,6 +99,8 @@ struct VoicemailGetResponse: Codable {
         return data
     }
 }
+
+
 
 // http method, URLSession task, header 작성 등을 케이스 분류
 extension ServerCommunications: TargetType, AccessTokenAuthorizable {
@@ -135,9 +145,11 @@ extension ServerCommunications: TargetType, AccessTokenAuthorizable {
     // Task 종류
     var task: Task {
         switch self {
+            
             // MARK: 일반 json 형식 요청
         case .login(let param):
             return .requestJSONEncodable(param)
+            
             
             // MARK: MultiPart 요청
         case .imagePost(let comment, let polaroid):
@@ -147,21 +159,17 @@ extension ServerCommunications: TargetType, AccessTokenAuthorizable {
             multipartForm.append(MultipartFormData(provider: .data(imageData!), name: "polaroid", fileName: "sample.png", mimeType: "sample/png"))
             return .uploadMultipart(multipartForm)
             
+            
             // MARK: Voicemail Post 요청
             // title - Model의 title / name - 파일명 / duration - 녹음길이
         case .voicemailPost(let title, let name, let duration):
-//        case .voicemailPost(let title):
-            
-//            var vmPost: VoicemailPostRequest
+
             var multipartForm: [MultipartFormData] = []
             let uploadTitle = title.data(using: .utf8) ?? Data()
             let uploadDuration = duration.data(using: .utf8) ?? Data()
 
             let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
             let directoryContents = try! FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)
-            
-            //            let audioURLPath = Bundle.main.path(forResource: title, ofType: "m4a")
-            //            let audioURL = URL(fileURLWithPath: audioURLPath!)
             
             guard let audioFile: Data = try? Data(contentsOf: directoryContents[0])
             else {
