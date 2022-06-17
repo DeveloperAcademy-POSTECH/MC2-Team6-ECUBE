@@ -45,9 +45,9 @@ class ServerCommunication {
         }
     }
     
-    func uploadVM(title: String, name: String) {
+    func uploadVM(title: String, name: String, duration: String) {
         
-        authProvider.request(.voicemailPost(title: title, name: name)) { response in
+        authProvider.request(.voicemailPost(title: title, name: name, duration: duration)) { response in
             
             switch response {
             case .success(let result):

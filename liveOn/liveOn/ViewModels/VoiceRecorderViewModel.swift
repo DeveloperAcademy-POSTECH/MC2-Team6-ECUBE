@@ -25,11 +25,11 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
     
     @Published var title: String = ""
     
-    @Published var sampleList: [Recording] = [
-        Recording(fileURL: Bundle.main.url(forResource: "test1", withExtension: "m4a")!, createdAt: Date.now, title: "test1", isPlaying: false),
-        Recording(fileURL: Bundle.main.url(forResource: "test2", withExtension: "m4a")!, createdAt: Date.now, title: "test2", isPlaying: false),
-        Recording(fileURL: Bundle.main.url(forResource: "test3", withExtension: "m4a")!, createdAt: Date.now, title: "test3", isPlaying: false)
-    ]
+//    @Published var sampleList: [Recording] = [
+//        Recording(fileURL: Bundle.main.url(forResource: "test1", withExtension: "m4a")!, createdAt: Date.now, title: "test1", isPlaying: false),
+//        Recording(fileURL: Bundle.main.url(forResource: "test2", withExtension: "m4a")!, createdAt: Date.now, title: "test2", isPlaying: false),
+//        Recording(fileURL: Bundle.main.url(forResource: "test3", withExtension: "m4a")!, createdAt: Date.now, title: "test3", isPlaying: false)
+//    ]
     
     var playingURL: URL?
     
@@ -79,7 +79,7 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
                 self.countSec += 1
                 self.timer = self.covertSecToMinAndHour(seconds: self.countSec)
             })
-            
+            self.countSec = 0
         } catch {
             print("Failed to Setup the Recording")
         }
@@ -92,7 +92,7 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
         
         isRecording = false
         
-        self.countSec = 0
+//        self.countSec = 0
         
         timerCount!.invalidate()
         
@@ -107,11 +107,12 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
         print(directoryContents)
         
         for i in directoryContents {
-            recordingsList.append(Recording(fileURL: i, createdAt: getFileDate(for: i), title: title, isPlaying: false))
+            recordingsList.append(Recording(fileURL: i, createdAt: getFileDate(for: i), title: title, duration: String(countSec), isPlaying: false))
         }
         
         recordingsList.sort(by: { $0.createdAt.compare($1.createdAt) == .orderedDescending})
         
+        print(recordingsList)
     }
     
     // MARK: 녹음한 파일 다시 들어보는 함수

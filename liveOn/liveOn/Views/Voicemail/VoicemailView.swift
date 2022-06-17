@@ -114,23 +114,15 @@ struct VoicemailView: View {
                                             .padding(.leading, 5)
                                         
                                     }
-                                    
-//                                    HStack {
-                                        
-//                                        Spacer()
-//                                            .frame(width: 40)
-                                        
-//                                        Spacer()
-//                                    }
                                 }
                             }
                         }
                         
-//                    Button(action: {
-//                        vm.deleteAllRecordings()
-//                    }) {
-//                        Text("delete files")
-//                    }
+                    Button(action: {
+                        vm.deleteAllRecordings()
+                    }) {
+                        Text("delete files")
+                    }
                         
 //                        Button(action: {
 //                            vm.getFileName(for: vm.recordingsList[vm.recordingsList.count - 1].fileURL)
@@ -138,11 +130,11 @@ struct VoicemailView: View {
 //                            Text("get file name")
 //                        }
                     
-//                        Button(action: {
-//                            vm.fetchAllRecording()
-//                        }) {
-//                            Text("test")
-//                        }
+                        Button(action: {
+                            vm.fetchAllRecording()
+                        }) {
+                            Text("test")
+                        }
                     }
                     Spacer()
                         .frame(height: 90)
@@ -151,7 +143,11 @@ struct VoicemailView: View {
             }
             .toolbar {
                 Button(action: {
-                    communication.uploadVM(title: vm.title, name: vm.getFileName(for: vm.recordingsList[vm.recordingsList.count - 1].fileURL.deletingPathExtension()))
+                    communication.uploadVM(
+                        title: vm.title,
+                        name: vm.getFileName(for: vm.recordingsList[vm.recordingsList.count - 1].fileURL.deletingPathExtension()),
+                        duration: String(vm.countSec)
+                    )
                 }) {
                     Text("선물하기")
                 }

@@ -8,15 +8,14 @@
 import SwiftUI
 import Alamofire
 
-struct Voicemail: Identifiable {
-    let id = UUID()
+struct Voicemail {
+    let voiceMailId: Int
     let title: String
     let createDate: String
     let whoSent: String
     let vmBackgroundColor: Color
     let vmIconImageName: String
     let soundLength: String
-    
 }
 
 struct mailConstants {

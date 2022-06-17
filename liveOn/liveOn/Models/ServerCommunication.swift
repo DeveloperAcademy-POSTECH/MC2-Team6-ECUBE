@@ -18,7 +18,7 @@ enum ServerCommunications {
     case login(param: LoginRequest) // 파라미터로 스트럭트가 들어갑니다.
     case imagePost(comment: String, polaroid: UIImage)
     case imageGet
-    case voicemailPost(title: String, name: String)
+    case voicemailPost(title: String, name: String, duration: String)
 //    case voicemailPost(title: String)
     case voicemailListGet
     case voicemailGet(id: Int)
@@ -55,26 +55,41 @@ struct ImageGetResponse: Codable {
  struct VoicemailPostRequest {
     let title: String
     let data: MultipartFormData
-//
-//    init() {
-//        self.title = ""
-//        self.data = MultipartFormData(provider: .data(), name: "")
-//    }
  }
 
-struct VoicemailListGetResponse: Codable {
-    let giftVoiceMailID: Int
-    let title: String?
-    let createdAt, userNickName: String
-    
-    enum CodingKeys: String, CodingKey {
-        case giftVoiceMailID = "giftVoiceMailId"
-        case title, createdAt, userNickName
-    }
-}
+let randomLabelList = ["cassetteLabel1", "cassetteLabel2", "cassetteLabel3"]
 
 struct VoicemailGetResponse: Codable {
+    let giftVoiceMailID: Int
+    let giftVoiceMailDuration, title, createdAt, userNickName: String
+
+    enum CodingKeys: String, CodingKey {
+        case giftVoiceMailID = "giftVoiceMailId"
+        case giftVoiceMailDuration, title, createdAt, userNickName
+    }
     
+    func convertToVoicemail() -> Voicemail {
+        let data = Voicemail(
+            voiceMailId: self.giftVoiceMailID,
+            title: self.title,
+            createDate: self.createdAt,
+            whoSent: self.userNickName,
+            vmBackgroundColor: {
+                let i = Int.random(in: 0..<2)
+                if i == 0 {
+                    return mailConstants.green
+                } else {
+                    return mailConstants.orange
+                }
+            }(),
+            vmIconImageName: {
+                let i = Int.random(in: 0..<3)
+                return randomLabelList[i]
+            }(),
+            soundLength: self.giftVoiceMailDuration
+        )
+        return data
+    }
 }
 
 // http method, URLSession task, header 작성 등을 케이스 분류
@@ -133,14 +148,15 @@ extension ServerCommunications: TargetType, AccessTokenAuthorizable {
             return .uploadMultipart(multipartForm)
             
             // MARK: Voicemail Post 요청
-            // title - Model의 title / name - 파일명
-        case .voicemailPost(let title, let name):
+            // title - Model의 title / name - 파일명 / duration - 녹음길이
+        case .voicemailPost(let title, let name, let duration):
 //        case .voicemailPost(let title):
             
 //            var vmPost: VoicemailPostRequest
             var multipartForm: [MultipartFormData] = []
             let uploadTitle = title.data(using: .utf8) ?? Data()
-            
+            let uploadDuration = duration.data(using: .utf8) ?? Data()
+
             let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
             let directoryContents = try! FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)
             
@@ -155,6 +171,8 @@ extension ServerCommunications: TargetType, AccessTokenAuthorizable {
             multipartForm.append(MultipartFormData(provider: .data(audioFile), name: "voiceMail", fileName: "\(name).m4a", mimeType: "audio/m4a"))
             
             multipartForm.append(MultipartFormData(provider: .data(uploadTitle), name: "title"))
+            
+            multipartForm.append(MultipartFormData(provider: .data(uploadDuration), name: "voiceMailDuration"))
             
             return .uploadMultipart(multipartForm)
             

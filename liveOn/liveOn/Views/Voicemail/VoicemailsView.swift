@@ -10,20 +10,20 @@ import SwiftUI
 struct VoicemailsView: View {
     
     //    private let communication = ServerCommunication()
-    @State var loadedVM: [VoicemailListGetResponse] = []
+    @State var loadedVM: [VoicemailGetResponse] = []
     
     var body: some View {
         ZStack {
             Color.background
                 .ignoresSafeArea()
             
-            if voiceMailDummy.count > 8 {
+            if loadedVM.count > 8 {
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack {
                         Spacer()
                         VStack(alignment: .trailing, spacing: 16) {
-                            ForEach(voiceMailDummy) { vm in
-                                VoicemailCassette(voiceMail: vm)
+                            ForEach(loadedVM, id: \.giftVoiceMailID) { vm in
+                                VoicemailCassette(voiceMail: vm.convertToVoicemail())
                             }
                         }
                         .padding(12)
@@ -41,9 +41,10 @@ struct VoicemailsView: View {
                 VStack {
                     Spacer()
                     VStack(alignment: .trailing, spacing: 16) {
-                        ForEach(voiceMailDummy) { vm in
-                            VoicemailCassette(voiceMail: vm)
+                        ForEach(loadedVM, id: \.giftVoiceMailID) { vm in
+                            VoicemailCassette(voiceMail: vm.convertToVoicemail())
                         }
+                        
                     }
                     .padding(12)
                     .border(.thinMaterial, width: 1)
@@ -57,11 +58,6 @@ struct VoicemailsView: View {
                 .background(Color.background)
             }
             
-//            Button(action: {
-//                vmGet()
-//            }) {
-//                Text("click")
-//            }
         }
         .task {
             vmGet()
@@ -76,11 +72,11 @@ struct VoicemailsView: View {
             case .success(let result):
                 do {
                     print("result : ", result.data)
-                    let data = try result.map([VoicemailListGetResponse].self)
+                    let data = try result.map([VoicemailGetResponse].self)
                     print("Data : \(data)")
                     
                     mapData(data: data)
-//                    print("success")
+                    
                 } catch let err {
                     print(err.localizedDescription)
                     print("음성메시지를 디코딩하는데 실패했습니다")
@@ -93,22 +89,22 @@ struct VoicemailsView: View {
         }
     }
     
-    func mapData(data: [VoicemailListGetResponse]) {
+    func mapData(data: [VoicemailGetResponse]) {
         for vm in data {
             loadedVM.append(vm)
         }
-//        print("loadedVM : ", loadedVM)
+        print("loadedVM : ", loadedVM)
     }
     
 }
 
-var voiceMailDummy = [
-    Voicemail(title: "재허나뭐해잉", createDate: "220616", whoSent: mailConstants.user1, vmBackgroundColor: mailConstants.green, vmIconImageName: "flower", soundLength: "00:48"),
-    Voicemail(title: "유지나뭐해잉", createDate: "220314", whoSent: mailConstants.user2, vmBackgroundColor: mailConstants.orange, vmIconImageName: "flower", soundLength: "00:39"),
-    Voicemail(title: "유sdf잉", createDate: "220314", whoSent: mailConstants.user2, vmBackgroundColor: mailConstants.orange, vmIconImageName: "flower", soundLength: "00:39"),
-    Voicemail(title: "유지나뭐fsd잉", createDate: "220314", whoSent: mailConstants.user2, vmBackgroundColor: mailConstants.orange, vmIconImageName: "flower", soundLength: "00:39"),
-    Voicemail(title: "유지나뭐해잉", createDate: "220314", whoSent: mailConstants.user2, vmBackgroundColor: mailConstants.orange, vmIconImageName: "fdsower", soundLength: "00:39"),
-    Voicemail(title: "유지나뭐해잉", createDate: "220314", whoSent: mailConstants.user2, vmBackgroundColor: mailConstants.orange, vmIconImageName: "flower", soundLength: "00:39"),
-    Voicemail(title: "유지나뭐해잉", createDate: "220314", whoSent: mailConstants.user2, vmBackgroundColor: mailConstants.orange, vmIconImageName: "flower", soundLength: "00:39")
-    
-]
+// var voiceMailDummy = [
+//    Voicemail(title: "재허나뭐해잉", createDate: "220616", whoSent: mailConstants.user1, vmBackgroundColor: mailConstants.green, vmIconImageName: "flower", soundLength: "00:48"),
+//    Voicemail(title: "유지나뭐해잉", createDate: "220314", whoSent: mailConstants.user2, vmBackgroundColor: mailConstants.orange, vmIconImageName: "flower", soundLength: "00:39"),
+//    Voicemail(title: "유sdf잉", createDate: "220314", whoSent: mailConstants.user2, vmBackgroundColor: mailConstants.orange, vmIconImageName: "flower", soundLength: "00:39"),
+//    Voicemail(title: "유지나뭐fsd잉", createDate: "220314", whoSent: mailConstants.user2, vmBackgroundColor: mailConstants.orange, vmIconImageName: "flower", soundLength: "00:39"),
+//    Voicemail(title: "유지나뭐해잉", createDate: "220314", whoSent: mailConstants.user2, vmBackgroundColor: mailConstants.orange, vmIconImageName: "fdsower", soundLength: "00:39"),
+//    Voicemail(title: "유지나뭐해잉", createDate: "220314", whoSent: mailConstants.user2, vmBackgroundColor: mailConstants.orange, vmIconImageName: "flower", soundLength: "00:39"),
+//    Voicemail(title: "유지나뭐해잉", createDate: "220314", whoSent: mailConstants.user2, vmBackgroundColor: mailConstants.orange, vmIconImageName: "flower", soundLength: "00:39")
+//
+// ]
