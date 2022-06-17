@@ -8,124 +8,123 @@
 import SwiftUI
 
 struct PillListView: View {
-    
+    @Environment(\.dismiss) private var dismiss
     @State var showPillPopUp = false
     @State var clickedPillIndex = 0
     
     var body: some View {
 
+        ZStack {
             ScrollView {
-                ZStack {
-                    VStack(alignment: .center) {
-                        LazyVGrid(columns: [GridItem(), GridItem()], spacing: 12) {
-                            
-                            ForEach(0..<pillList.count, id: \.self) { index in
+                    ZStack {
+                        VStack(alignment: .center) {
+                            LazyVGrid(columns: [GridItem(), GridItem()], spacing: 24) {
                                 
-                                PillCardView(content: pillList[index])
-                                    .onTapGesture {withAnimation(.linear(duration: 0.4)) {
-                                        showPillPopUp = true
-                                        clickedPillIndex = index
-                                        
-                                    }
-                                    }
-                                /*
-                                 클릭이 가능한 것들은 스크롤뷰 안에 들어갈 수 없습니까???
-                                 버튼으로도 시도해보고 온탭제스쳐로도 해봤는데 둘 다 스크롤 뷰를 똥으로 만들어버림
-                                 */
-                                
-                            } // ForEach
-                        } // LazyVGrid
-                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                    }
-                    
-                    Color.white.opacity(showPillPopUp ? 0.6 : 0).edgesIgnoringSafeArea(.all)
-                    
-                    if showPillPopUp {
-                        // show Pill effect PopUp
+                                ForEach(0..<pillList.count, id: \.self) { index in
+                                    
+                                    PillCardView(content: pillList[index])
+                                        .onTapGesture {withAnimation(.linear(duration: 0.5)) {
+                                            showPillPopUp = true
+                                            clickedPillIndex = index
+                                            
+                                        }
+                                        }
+                                } // ForEach
+                            } // LazyVGrid
+                            .padding(.vertical, 32)
+                        }
                         
-                        PillPopUpView(showPillPopUp: $showPillPopUp, indexOfCard: $clickedPillIndex)
+                        .padding(.horizontal, 16)
+                       
+                            .edgesIgnoringSafeArea(.all)
                         
-                    }
-                } // ZStack
-                
-            }// ScrollView
-            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-            .navigationTitle("약")
-            .navigationBarTitleDisplayMode(.inline)
+                    } // ZStack
+                    .blur(radius: showPillPopUp ? 5 : 0)
+                    Color(uiColor: .systemBackground).opacity(showPillPopUp ? 0.5 : 0)
+                    
+                }// ScrollView
+          
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .clipped()
+           
+            if showPillPopUp {
+                // show Pill effect PopUp
+                PillPopUpView(showPillPopUp: $showPillPopUp, indexOfCard: $clickedPillIndex)
+                // PillPopUpView()
+            }
+            
+        }
+        .background(Color.background)
+        .navigationTitle("약")
+        .navigationBarTitleDisplayMode(.inline)
+        .ignoresSafeArea( edges: .bottom)
+        .navigationBarBackButtonHidden(true)
+        .navigationToBack(dismiss)
         
     }// body
 }
 
+extension PillCardView {
+    func getRandomPillImage() -> String {
+        return "medicine0" + String(Int.random(in: 0 ..< 8))
+    }
+}
+
 struct PillCardView: View {
     
-    var content: Pill
-    
+    let content: Pill
+    @State var medicineImage = "medicine00"
     var body: some View {
-        
-        ZStack {
-            
-            RoundedRectangle(cornerRadius: 4)
-                .foregroundColor(.white)
-                .frame(width: 168)
-                .shadow(color: .gray, radius: 12, x: 1, y: 1)
-                .opacity(0.14)
-            
-            VStack(alignment: .center) {
-                
-                ZStack {
-                    
-                    ZStack {
-                        Image("medicine")
-                            .scaledToFit()
+        HStack {
+            VStack {
+         
+                    VStack(alignment: .center, spacing: 1) {
+                        VStack(alignment: .center, spacing: 4) {
+                            Image("medicine0"+String(Int.random(in: 0..<8)))
+                                .resizable()
+                                .scaledToFit()
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                            Text(content.name)
+                                .font(.title3)
+                                .fontWeight(.bold)
+                            Text(content.prescribedDate)
+                                .font(.caption)
+                        }
                         
-                        Rectangle()
-                            .foregroundColor(.white)
-                            .opacity(0.6)
-                        
-                    } // ZStack
-                    
-                    VStack(alignment: .center) {
-                        
-                        ZStack(alignment: .center) {
-                            
-                            RoundedRectangle(cornerRadius: 12)
-                                .frame(width: CGFloat(content.name.count) * 16 + 8, height: 24, alignment: .center)
-                                .foregroundColor(.green)
-                            
-                            Text("\(content.name)")
-                                .foregroundColor(.white)
-                            
-                        } // ZStack
-                        
-                        ZStack {
-                            
-                            RoundedRectangle(cornerRadius: 12)
-                                .frame(width: 72, height: 24, alignment: .center)
-                                .foregroundColor(.white)
-                                .opacity(0.7)
-                            
-                            Text("\(content.prescribedDate)")
-                                .foregroundColor(.green)
-                                .font(.system(size: 14))
-                            
-                        } // ZStack
+                        HStack(spacing: 4) {
+                            Image(systemName: "cross.fill")
+                            Text("\(content.sender)약국")
+                                .fontWeight(.heavy)
+                        }
+                        .font(.system(size: 14))
+                        .padding()
+                        .foregroundColor(getPointColor(whoMade: content.sender))
+                        .frame(maxWidth: .infinity, alignment: .center)
                     } // VStack
-                } // ZStack
-                
-                Divider()
-                
-                Text("\(content.sender)약국")
-                    .fontWeight(.heavy)
-                    .foregroundColor(.green)
-                    .font(.system(size: 16))
-                
-            } // VStack
-            .padding(.bottom, 12)
-            
-        } // ZStack
-        .padding(.horizontal)
+                 // ZStack
+                .foregroundColor(Color.bodyTextColor)
+                .frame(maxWidth: .infinity, maxHeight: 200)
+                .overlay(LinearGradient(colors: [.white, .clear], startPoint: .leading, endPoint: .bottomTrailing).blendMode(.hardLight).opacity(0.5))
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .background(RoundedRectangle(cornerRadius: 10).fill(.thickMaterial).shadow(color: Color(uiColor: .systemGray5), radius: 5, x: 0, y: 2))
+            }
+        }
+        .padding(.horizontal, 8)
+        .onAppear {
+            medicineImage = getRandomPillImage()
+        }
         
     } // body
+    
+    func getPointColor(whoMade: String) -> Color {
+        switch whoMade {
+            case "유진" :
+                return Color.coralPink
+            default :
+                return Color.deepGreen
+        }
+    }
 }
 
 // MARK: Preview

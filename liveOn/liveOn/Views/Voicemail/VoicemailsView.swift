@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct VoicemailsView: View {
+    @Environment(\.dismiss) private var dismiss
     var body: some View {
     
         if voiceMailDummy.count > 8 {
@@ -54,6 +55,8 @@ struct VoicemailsView: View {
         .navigationTitle("카세트테이프")
         .navigationBarTitleDisplayMode(.inline)
         .background(Color.background)
+        .navigationBarBackButtonHidden(true)
+        .navigationToBack(dismiss)
     }
     
     }

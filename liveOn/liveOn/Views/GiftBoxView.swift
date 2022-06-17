@@ -48,9 +48,6 @@ struct GiftBoxView: View {
                     .padding(.vertical)
             }
             .background(.yellow)
-            .onTapGesture {
-                print("엥")
-            }
             .buttonStyle(.plain)
         }
         .padding(16)
@@ -70,13 +67,14 @@ struct GiftBoxView: View {
                     .frame(width: 25, height: 25)
                 Text("유진")
                 HStack(alignment: .center, spacing: 1) {
-                    Image(systemName: "plus")
-                    Text("\(countDays(from: currnetUser.firstDay!))")
+
+                    Text("+ \(countDays(from: currnetUser.firstDay ?? Date()))")
                         .fontWeight(.semibold)
                 }
                 .foregroundColor(Color("Orange"))
                 
             }
+            .setHandWritten()
             .font(.subheadline)
             .foregroundColor(Color.bodyTextColor)
             .padding(.horizontal, 20)
@@ -136,7 +134,7 @@ struct GiftBoxView: View {
     // MARK: 앨범과 캘린더
     var albumAndCalendar: some View {
         HStack(alignment: .bottom, spacing: 0) {
-            NavigationLink(destination: PhotoCardsView(imageModel: ImageViewModel())) {
+            NavigationLink(destination: PhotoCardsView()) {
                 Image("album")
                     .resizable()
                     .aspectRatio(contentMode: .fit)

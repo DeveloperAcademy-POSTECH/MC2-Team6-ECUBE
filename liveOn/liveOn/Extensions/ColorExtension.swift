@@ -10,11 +10,16 @@ import SwiftUI
 extension Color {
     static let background = Color("background")
     static let bodyTextColor = Color("bodyText")
+    static let placeHolderColor = Color(hex: "D9D9D9")
+    static let crimson = Color(hex: "902F2F")
+    static let mainBrown = Color(hex: "6C5151")
 
     static let recordingBtn = Color("Orange")
     static let recordingBtnBackground = Color("Grey")
     static let cassetteBorder = Color("CassetteBorder")
-    
+    static let deepGreen = Color(hex: "2F8F4A")
+    static let coralPink = Color(hex: "DB5E5E")
+    static let shadowColor = Color(hex: "F2F0F0")
     static let primaryColor = Color(hex: "#A5726F")
     
     init(hex: String) {

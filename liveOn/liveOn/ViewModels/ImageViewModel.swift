@@ -1,4 +1,6 @@
 import SwiftUI
+import Foundation
+import Combine
 
 class ImageViewModel: ObservableObject {
     @Published var image: UIImage?
@@ -18,6 +20,7 @@ class ImageViewModel: ObservableObject {
     init() {
         print(FileManager.docDirURL.path)
     }
+    
     
     func showPhotoPicker() {
         do {
@@ -51,6 +54,8 @@ class ImageViewModel: ObservableObject {
             appError = MyImageError.ErrorType(error: error as! MyImageError)
         }
     }
+
+ 
     
     func saveMyImagesJSONFile() {
         let encoder = JSONEncoder()
@@ -82,8 +87,14 @@ class ImageViewModel: ObservableObject {
     }
 }
 
-import Combine
-import SwiftUI
+class MyTimer: ObservableObject {
+    var value: Int = 0
+    init() {
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            self.value += 1
+        }
+    }
+}
 
 final class KeyboardHandler: ObservableObject {
     @Published private(set) var keyboardHeight: CGFloat = 0
