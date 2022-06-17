@@ -8,30 +8,32 @@
 import SwiftUI
 
 struct PhotoCardsView: View {
+    
     @Environment(\.dismiss) private var dismiss
     @State private var isTapped: Bool = false
     @State private var loadedImage = ImageGetResponse(createdAt: "", giftPolaroidId: 0, giftPolaroidImage: "", userNickName: "")
     @State private var PhotoGiftDataList: [PhotoGiftData] = [PhotoGiftData(photoURL: "", photoComment: "")]
+    
     var columns: [GridItem] = Array(repeating: GridItem(GridItem.Size.fixed(160)), count: 2)
     var temporaryData: [PhotoCardInformation] = [testData1, testData2, testData3]
     
     var body: some View {
         ZStack {
             ScrollView {
-                    LazyVGrid(columns: columns) {
-                        ForEach(temporaryData, id: \.self) { data in
-                            Button(action: {
-                                isTapped.toggle()
-                            }) {
-                                PhotoCard(PhotoCardDetail: data)
-                            }
+                LazyVGrid(columns: columns) {
+                    ForEach(temporaryData, id: \.self) { data in
+                        Button(action: {
+                            isTapped.toggle()
+                        }) {
+                            PhotoCard(PhotoCardDetail: data)
                         }
-                        LoadedPhotoCard(imageURL: loadedImage.giftPolaroidImage)
                     }
-                    .opacity(isTapped ? 0.2 : 1)
-                    .onTapGesture {
-                        isTapped.toggle()
-                    }
+                    LoadedPhotoCard(imageURL: loadedImage.giftPolaroidImage)
+                }
+                .opacity(isTapped ? 0.2 : 1)
+                .onTapGesture {
+                    isTapped.toggle()
+                }
             }
             .navigationTitle("")
             .navigationBarTitleDisplayMode(.inline)
@@ -57,12 +59,12 @@ struct PhotoCardsView: View {
                     Text("사진 선물함")
                         .foregroundColor(.black)
                 }
-        }
+            }
             if isTapped == true {
                 Button(action: {
                     isTapped.toggle()
                 }) {
-            PhotoCardSheet(PhotoCardDetail: PhotoCardInformation(imageName: "exampleImage2", photoText: "김치찌개가 존맛입니다!!"))
+                    PhotoCardSheet(PhotoCardDetail: PhotoCardInformation(imageName: "exampleImage2", photoText: "김치찌개가 존맛입니다!!"))
                 }
             }
         }
@@ -85,59 +87,57 @@ struct PhotoCardsView: View {
     }
 }
 
-struct PhotoCardInformation: Hashable {
-    var imageName: String
-    var photoText: String
-}
-
-struct PhotoGiftData: Hashable {
-    var photoURL: String
-    var photoComment: String
-}
-
-let testData1 = PhotoCardInformation(imageName: "exampleImage1", photoText: "WWDC 오프닝!")
-let testData2 = PhotoCardInformation(imageName: "exampleImage2", photoText: "김치 찌개 맛집")
-let testData3 = PhotoCardInformation(imageName: "picture", photoText: "추억의 00 사진")
-
 struct PhotoCard: View {
+    
     var PhotoCardDetail: PhotoCardInformation
+    
     var body: some View {
-        VStack(alignment: .leading, spacing: 5) {
+        
+        ZStack{
             
-            Image(PhotoCardDetail.imageName)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.215, alignment: .center)
-            VStack(alignment: .leading) {
-            Rectangle()
-                .foregroundColor(.placeHolderColor)
-                .frame(width: 80, height: 5)
-                .cornerRadius(15)
-                .padding(.leading, 15)
-            
-            Rectangle()
-                .foregroundColor(.placeHolderColor)
-                .frame(width: 60, height: 5)
-                .cornerRadius(15)
-                .padding(.leading, 15)
-            }
-            .padding(.vertical, 6)
-        }
-        .background(Color.white
-            .cornerRadius(4)
-            .shadow(color: Color.black.opacity(0.25), radius: 4, x: 0, y: 4))
-    }
+            // 폴라로이드 연출을 위한 흰 네모
+            RoundedRectangle(cornerRadius: 4)
+                .foregroundColor(.white)
+                .shadow(color: .gray, radius: 6, x: 2, y: 2).opacity(0.8)
+                        
+            VStack(alignment: .leading, spacing: 5) {
+                
+                Image(PhotoCardDetail.imageName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.235, alignment: .center)
+                    .padding(.top, 12)
+                
+                VStack(alignment: .leading, spacing: 6) {
+                    Rectangle()
+                        .foregroundColor(.placeHolderColor)
+                        .frame(width: 80, height: 5)
+                        .cornerRadius(15)
+                    
+                    Rectangle()
+                        .foregroundColor(.placeHolderColor)
+                        .frame(width: 60, height: 5)
+                        .cornerRadius(15)
+                        .padding(.bottom, 6)
+                } // VStack
+                .padding(.vertical, 6)
+                .padding(.leading, 8)
+            } // VStack
+        } // ZStack
+    } // body
 }
 
 struct LoadedPhotoCard: View {
+    
     var imageURL: String
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 7) {
             AsyncImage(url: URL(string: imageURL), scale: 2) { image in
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2, alignment: .center)
+                    .frame(width: UIScreen.main.bounds.width * 0.36, height: UIScreen.main.bounds.height * 0.2, alignment: .center)
             } placeholder: {
                 ProgressView()
                     .progressViewStyle(.circular)
@@ -156,7 +156,6 @@ struct LoadedPhotoCard: View {
                 .padding(.leading, 15)
         }
         .frame(width: UIScreen.main.bounds.width * 0.38, height: UIScreen.main.bounds.height * 0.25, alignment: .center)
-        .padding(2)
         .background(Color.white
             .cornerRadius(4)
             .shadow(color: Color.black.opacity(0.25), radius: 4, x: 0, y: 4))
