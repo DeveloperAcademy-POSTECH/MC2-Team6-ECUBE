@@ -21,8 +21,7 @@ class ImageViewModel: ObservableObject {
         print(FileManager.docDirURL.path)
     }
     
-    
-    func showPhotoPicker() {
+        func showPhotoPicker() {
         do {
             if source == .camera {
                 try Picker.checkPermissions()
@@ -55,9 +54,7 @@ class ImageViewModel: ObservableObject {
         }
     }
 
- 
-    
-    func saveMyImagesJSONFile() {
+         func saveMyImagesJSONFile() {
         let encoder = JSONEncoder()
         do {
             let data = try encoder.encode(myImages)

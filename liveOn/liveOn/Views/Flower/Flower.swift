@@ -29,7 +29,6 @@ class Flower: Identifiable, ObservableObject {
     let message: String
     let color: MessageCardColor
     
-
     init(name: String, message: String, meaning: String, lastsfor: Int, color: MessageCardColor, imageName: String) {
         id = UUID()
         self.name = name
