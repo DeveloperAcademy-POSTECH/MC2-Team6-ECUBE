@@ -10,11 +10,11 @@ import SwiftUI
 struct PhotoTransport: View {
     @Environment(\.dismiss) private var dismiss
     var body: some View {
-        ZStack{
+        ZStack {
             Rectangle()
                 .foregroundColor(Color.background)
                 .ignoresSafeArea()
-            VStack (spacing: 20){
+            VStack(spacing: 20) {
             Image("TransportSucceed")
                 
                 Text("상대방에게 선물이 배송되었어요!")
@@ -22,7 +22,7 @@ struct PhotoTransport: View {
                 
                 NavigationLink(destination: GiftBoxView()
                     .environmentObject(User())
-                    .environmentObject(ImageViewModel())){
+                    .environmentObject(ImageViewModel())) {
                     Text("보관함으로 돌아가기")
                         .foregroundColor(.white)
                         .bold()
@@ -41,7 +41,7 @@ struct PhotoTransport: View {
 
 struct PhotoTransport_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView{
+        NavigationView {
         PhotoTransport()
         }
     }

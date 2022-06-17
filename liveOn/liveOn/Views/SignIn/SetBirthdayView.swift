@@ -54,7 +54,6 @@ struct SetBirthdayView: View {
     } // body
 }
 
-
 struct SetBirthdayView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {

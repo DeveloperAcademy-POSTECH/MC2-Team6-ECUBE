@@ -132,10 +132,9 @@ struct PhotoGiftView: View {
 //    }
 }
 
-
-struct previewTest: PreviewProvider {
+struct PhotoGiftView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView{
+        NavigationView {
             PhotoGiftView()
         }
     }
