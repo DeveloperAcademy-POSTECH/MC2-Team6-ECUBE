@@ -35,6 +35,8 @@ struct SetBirthdayView: View {
         )
         }
         .navigationToBack(dismiss)
+        .navigationTitle("")
+        .navigationBarTitleDisplayMode(.inline)
         .background(Color.background)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {

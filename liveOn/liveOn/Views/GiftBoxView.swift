@@ -66,7 +66,7 @@ struct GiftBoxView: View {
                 Text("유진")
                 HStack(alignment: .center, spacing: 1) {
 
-                    Text("+ \(countDays(from: currnetUser.firstDay!))")
+                    Text("+ \(countDays(from: currnetUser.firstDay ?? Date()))")
                         .fontWeight(.semibold)
                 }
                 .foregroundColor(Color("Orange"))

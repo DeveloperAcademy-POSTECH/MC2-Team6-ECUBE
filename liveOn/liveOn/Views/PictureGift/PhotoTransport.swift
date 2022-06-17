@@ -16,10 +16,13 @@ struct PhotoTransport: View {
                 .ignoresSafeArea()
             VStack (spacing: 20){
             Image("TransportSucceed")
+                
                 Text("상대방에게 선물이 배송되었어요!")
                     .foregroundColor(.mainBrown)
                 
-                NavigationLink(destination: PhotoCardsView()){
+                NavigationLink(destination: GiftBoxView()
+                    .environmentObject(User())
+                    .environmentObject(ImageViewModel())){
                     Text("보관함으로 돌아가기")
                         .foregroundColor(.white)
                         .bold()

@@ -103,12 +103,13 @@ let testData3 = PhotoCardInformation(imageName: "picture", photoText: "추억의
 struct PhotoCard: View {
     var PhotoCardDetail: PhotoCardInformation
     var body: some View {
-        VStack (alignment: .leading, spacing: 7){
+        VStack (alignment: .leading, spacing: 5){
+            
             Image(PhotoCardDetail.imageName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2, alignment: .center)
-            
+                .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.215, alignment: .center)
+            VStack (alignment: .leading){
             Rectangle()
                 .foregroundColor(.placeHolderColor)
                 .frame(width: 80, height: 5)
@@ -120,9 +121,9 @@ struct PhotoCard: View {
                 .frame(width: 60, height: 5)
                 .cornerRadius(15)
                 .padding(.leading, 15)
+            }
+            .padding(.vertical, 6)
         }
-        .frame(width: UIScreen.main.bounds.width * 0.38, height: UIScreen.main.bounds.height * 0.25, alignment: .center)
-        .padding(2)
         .background(Color.white
             .cornerRadius(4)
             .shadow(color: Color.black.opacity(0.25), radius: 4, x: 0, y: 4))
