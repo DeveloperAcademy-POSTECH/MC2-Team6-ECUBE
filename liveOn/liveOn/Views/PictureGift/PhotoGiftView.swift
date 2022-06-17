@@ -85,7 +85,7 @@ struct PhotoGiftView: View {
             .background(Color.background)
             
             .sheet(isPresented: $showSheet, content: {
-                PhotoCardsView(imageModel: ImageViewModel())
+                PhotoCardsView()
             })
 
         }
@@ -99,7 +99,7 @@ struct PhotoGiftView: View {
             switch response {
             case .success(let result):
                 do {
-                    print("전송되는 이미지 데이터는 다음과 같습니다 : \(imageModel.image!)")
+                    print("전송되는 이미지 데이터는 다음과 같습니다:\(imageModel.image!)")
                     testImageData = try result.map(ImageTestResponse.self)
                 } catch let err {
                     print(err.localizedDescription)
