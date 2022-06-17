@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CreateGiftListView: View {
     @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject var storedLetter: LetterStore
     
     var body: some View {
         VStack {
@@ -18,7 +19,7 @@ struct CreateGiftListView: View {
                 .padding(12)
             
             VStack(alignment: .leading, spacing: 18) {
-                MakingGift(item: letterItem, destination: AnyView(CreateLetterView().environmentObject(LetterStore())))
+                MakingGift(item: letterItem, destination: AnyView(CreateLetterView().environmentObject(storedLetter)))
                 MakingGift(item: photoItem, destination: AnyView(PhotoGiftView(imageModel: ImageViewModel())))
                 MakingGift(item: voiceItem, destination: AnyView(VoicemailView()))
                 MakingGift(item: pillItem, destination: AnyView(PillView()))

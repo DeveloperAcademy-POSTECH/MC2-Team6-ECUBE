@@ -102,8 +102,7 @@ let testData3 = PhotoCardInformation(imageName: "picture", photoText: "추억의
 struct PhotoCard: View {
     var PhotoCardDetail: PhotoCardInformation
     var body: some View {
-        VStack(alignment: .leading, spacing: 5) {
-            
+        VStack(alignment: .leading, spacing: 7) {
             Image(PhotoCardDetail.imageName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
