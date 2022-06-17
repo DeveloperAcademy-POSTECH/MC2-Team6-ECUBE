@@ -73,16 +73,19 @@
       "size" : "40x40"
     },
     {
+      "filename" : "AppIcon_ver_05_76px.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "76x76"
     },
     {
+      "filename" : "AppIcon_ver_05_152px.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "76x76"
     },
     {
+      "filename" : "AppIcon_ver_05_167px.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "83.5x83.5"
