@@ -19,11 +19,10 @@ struct PlusSetting: View {
     @Binding var emoji: String
     @Binding var burgundyColor: Color
     
-//    @State var testData = DataInfo(emoji: "", Date: "", eventTitle: "", eventMemo: "")
-
     @Environment(\.dismiss) private var dismiss
     @Environment(\.presentationMode) var presentationMode
-        
+    @EnvironmentObject var store: EventStore
+    
     var body: some View {
         
         // 이모지 키보드를 위한 요소
@@ -50,7 +49,8 @@ struct PlusSetting: View {
                 
                 Button("확인") {
                     eventDate = self.eventbaseDate
-//                    testData = DataInfo(emoji: emoji, Date: "222", eventTitle: eventTitle, eventMemo: eventMemo)
+                    store.insert(eventDate: eventDate, eventTitle: eventTitle, eventMemo: eventMemo, emoji: emoji)
+                    eventbaseDate = Date.now
                     presentationMode.wrappedValue.dismiss()
                 }
                 .font(.system(size: 16))
