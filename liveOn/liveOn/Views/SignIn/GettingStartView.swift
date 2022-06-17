@@ -14,15 +14,16 @@ struct GettingStartView: View {
     
     var body: some View {
             VStack {
-                Text("liveOn")
+                
+                Image("TransportSucceed")
+                
                 Spacer()
-
                     .frame(height: 60, alignment: .center)
-            
                     .onTapGesture {
                         print("임시 다음 버튼 누르셈")
                     }
                   .padding()
+                
                 NavigationLink(destination: SetNicknameView().environmentObject(User())) {
                     Text("임시 다음 버튼")
                 }.onTapGesture {

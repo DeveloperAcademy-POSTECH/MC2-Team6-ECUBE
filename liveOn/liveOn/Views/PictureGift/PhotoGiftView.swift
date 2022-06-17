@@ -63,7 +63,7 @@ struct PhotoGiftView: View {
                         Button(action: {
                             showLoading.toggle()
                             hideKeyboard()
-                            Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { timer in
+                            Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { _ in
                                 loadingState += 1
                                 isSent.toggle()
                             }
@@ -132,10 +132,9 @@ struct PhotoGiftView: View {
 //    }
 }
 
-
 struct previewTest: PreviewProvider {
     static var previews: some View {
-        NavigationView{
+        NavigationView {
             PhotoGiftView()
         }
     }

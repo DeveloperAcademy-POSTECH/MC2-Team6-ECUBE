@@ -21,7 +21,6 @@ class ImageViewModel: ObservableObject {
         print(FileManager.docDirURL.path)
     }
     
-    
     func showPhotoPicker() {
         do {
             if source == .camera {
@@ -38,8 +37,6 @@ class ImageViewModel: ObservableObject {
         image = nil
         imageName = ""
     }
-    
- 
     
     func saveMyImagesJSONFile() {
         let encoder = JSONEncoder()
@@ -74,7 +71,7 @@ class ImageViewModel: ObservableObject {
 class MyTimer: ObservableObject {
     var value: Int = 0
     init() {
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             self.value += 1
         }
     }

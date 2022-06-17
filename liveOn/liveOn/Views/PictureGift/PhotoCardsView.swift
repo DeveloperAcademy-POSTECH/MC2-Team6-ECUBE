@@ -22,7 +22,7 @@ struct PhotoCardsView: View {
                         ForEach(temporaryData, id: \.self) { data in
                             Button(action: {
                                 isTapped.toggle()
-                            }){
+                            }) {
                                 PhotoCard(PhotoCardDetail: data)
                             }
                         }
@@ -61,13 +61,12 @@ struct PhotoCardsView: View {
             if isTapped == true {
                 Button(action: {
                     isTapped.toggle()
-                }){
+                }) {
             PhotoCardSheet(PhotoCardDetail: PhotoCardInformation(imageName: "exampleImage2", photoText: "김치찌개가 존맛입니다!!"))
                 }
             }
         }
     }
-    
     
     func imageGet() {
         moyaService.request(.imageGet) { response in
@@ -103,13 +102,13 @@ let testData3 = PhotoCardInformation(imageName: "picture", photoText: "추억의
 struct PhotoCard: View {
     var PhotoCardDetail: PhotoCardInformation
     var body: some View {
-        VStack (alignment: .leading, spacing: 5){
+        VStack(alignment: .leading, spacing: 5) {
             
             Image(PhotoCardDetail.imageName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.215, alignment: .center)
-            VStack (alignment: .leading){
+            VStack(alignment: .leading) {
             Rectangle()
                 .foregroundColor(.placeHolderColor)
                 .frame(width: 80, height: 5)
@@ -133,7 +132,7 @@ struct PhotoCard: View {
 struct LoadedPhotoCard: View {
     var imageURL: String
     var body: some View {
-        VStack (alignment: .leading, spacing: 7) {
+        VStack(alignment: .leading, spacing: 7) {
             AsyncImage(url: URL(string: imageURL), scale: 2) { image in
                 image
                     .resizable()
@@ -167,7 +166,7 @@ struct LoadedPhotoCard: View {
 struct PhotoCardSheet: View {
     var PhotoCardDetail: PhotoCardInformation
     var body: some View {
-        VStack (alignment: .leading){
+        VStack(alignment: .leading) {
             Image(PhotoCardDetail.imageName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
