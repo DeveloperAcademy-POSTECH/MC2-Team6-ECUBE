@@ -51,7 +51,6 @@ struct ImageGetResponse: Codable {
     let userNickName: String
 }
 
-
 // MARK: Voicemail related models
  struct VoicemailPostRequest {
     let title: String
@@ -100,7 +99,15 @@ struct VoicemailGetResponse: Codable {
     }
 }
 
+struct SingleVoicemailResponse: Codable {
+    let createdAt, title, userNickName, voiceMail: String
+    let voiceMailID: Int
 
+    enum CodingKeys: String, CodingKey {
+        case createdAt, title, userNickName, voiceMail
+        case voiceMailID = "voiceMailId"
+    }
+}
 
 // http method, URLSession task, header 작성 등을 케이스 분류
 extension ServerCommunications: TargetType, AccessTokenAuthorizable {
@@ -150,7 +157,6 @@ extension ServerCommunications: TargetType, AccessTokenAuthorizable {
         case .login(let param):
             return .requestJSONEncodable(param)
             
-            
             // MARK: MultiPart 요청
         case .imagePost(let comment, let polaroid):
             var multipartForm: [MultipartFormData] = []
@@ -158,7 +164,6 @@ extension ServerCommunications: TargetType, AccessTokenAuthorizable {
             multipartForm.append(MultipartFormData(provider: .data(Data(String(comment).utf8)), name: "comment"))
             multipartForm.append(MultipartFormData(provider: .data(imageData!), name: "polaroid", fileName: "sample.png", mimeType: "sample/png"))
             return .uploadMultipart(multipartForm)
-            
             
             // MARK: Voicemail Post 요청
             // title - Model의 title / name - 파일명 / duration - 녹음길이

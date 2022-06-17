@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3E59192E285C0003006207F6 /* UserVoiceMail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E59192D285C0003006207F6 /* UserVoiceMail.swift */; };
 		3E591934285CB926006207F6 /* VoicemailPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E591933285CB926006207F6 /* VoicemailPopUpView.swift */; };
+		3E591936285CD56B006207F6 /* VoicemailPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E591935285CD56B006207F6 /* VoicemailPlayerViewModel.swift */; };
 		3E9206C0284B249C00D064E6 /* VoicemailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206BF284B249C00D064E6 /* VoicemailView.swift */; };
 		3E9206CC284F343200D064E6 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206CB284F343200D064E6 /* Recording.swift */; };
 		3E9206D0284F3BA300D064E6 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206CF284F3BA300D064E6 /* Test.swift */; };
@@ -84,6 +85,7 @@
 /* Begin PBXFileReference section */
 		3E59192D285C0003006207F6 /* UserVoiceMail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVoiceMail.swift; sourceTree = "<group>"; };
 		3E591933285CB926006207F6 /* VoicemailPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicemailPopUpView.swift; sourceTree = "<group>"; };
+		3E591935285CD56B006207F6 /* VoicemailPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicemailPlayerViewModel.swift; sourceTree = "<group>"; };
 		3E9206B3284AE2B700D064E6 /* ServerCommunication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerCommunication.swift; sourceTree = "<group>"; };
 		3E9206B5284AE2C400D064E6 /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
 		3E9206BF284B249C00D064E6 /* VoicemailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicemailView.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				C97222EE2859BFCB004B3628 /* DateToStringEvent.swift */,
 				3EDF0F40285868520048A63C /* ServerCommunicationViewModel.swift */,
 				77A9654C285A626800511556 /* AuthenticationViewModel.swift */,
+				3E591935285CD56B006207F6 /* VoicemailPlayerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				C9722306285B7A47004B3628 /* PillView.swift in Sources */,
 				C9722305285B7A3C004B3628 /* DateValue.swift in Sources */,
 				C9722304285B7A16004B3628 /* DateToStringViewModel.swift in Sources */,
+				3E591936285CD56B006207F6 /* VoicemailPlayerViewModel.swift in Sources */,
 				C9722303285B79F7004B3628 /* ImageViewModel.swift in Sources */,
 				C9722302285B79E3004B3628 /* VoiceRecorderViewModel.swift in Sources */,
 				C9722301285B79D4004B3628 /* ServerCommunicationViewModel.swift in Sources */,

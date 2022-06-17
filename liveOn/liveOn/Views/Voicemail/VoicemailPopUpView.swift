@@ -9,6 +9,11 @@ import SwiftUI
 
 struct VoicemailPopUpView: View {
     
+    @ObservedObject private var voicemailPlayer = VoicemailPlayer()
+    
+    @State var voicemailURL: URL?
+    @State var isPlaying: Bool = false
+    
     var vm: Voicemail
     
     var body: some View {
@@ -32,23 +37,54 @@ struct VoicemailPopUpView: View {
                     .frame(width: 350)
                     .padding()
                 
+                Image(systemName: isPlaying ? "pause.circle.fill": "play.circle.fill")
+                    .font(.system(size: 25))
+                    .padding(.trailing)
+                    .onTapGesture {
+                        voicemailPlayer.PlaySound(voicemailURL: voicemailURL!)
+                        isPlaying.toggle()
+                        
+                        if isPlaying {
+                            voicemailPlayer.player?.play()
+                        } else {
+                            voicemailPlayer.player?.pause()
+                        }
+                    }
+                
                 Spacer()
+
             }
             
-            
+        }
+        .task {
+            getSingleVoicemail(id: vm.voiceMailId)
         }
         .background(Color.white.opacity(0))
     }
     
-    func getURLForVoicemail(id: Int) {
+    // MARK: Additional Functions
+    // Fetch Get response of path "/api/v1/gifts/voicemail/{id}"
+    func getSingleVoicemail(id: Int) {
         moyaService.request(.voicemailGet(id: id)) { response in
             switch response {
             case .success(let result):
                 do {
-                    let url = try result.
+                    let data = try result.map(SingleVoicemailResponse.self)
+                    print(data)
+                    convertURL(data.voiceMail)
+                } catch let err {
+                    print(err.localizedDescription)
                 }
+                
+            case .failure(let err):
+                print(err.localizedDescription)
             }
         }
+    }
+    
+    // Map decoded data for real use
+    func convertURL(_ url: String) {
+        voicemailURL = URL(string: url)!
     }
     
 }
