@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PillListView: View {
-    
+    @Environment(\.dismiss) private var dismiss
     @State var showPillPopUp = false
     @State var clickedPillIndex = 0
     
@@ -18,7 +18,7 @@ struct PillListView: View {
             ScrollView {
                     ZStack {
                         VStack(alignment: .center) {
-                            LazyVGrid(columns: [GridItem(), GridItem()], spacing: 16) {
+                            LazyVGrid(columns: [GridItem(), GridItem()], spacing: 24) {
                                 
                                 ForEach(0..<pillList.count, id: \.self) { index in
                                     
@@ -32,7 +32,6 @@ struct PillListView: View {
                                 } // ForEach
                             } // LazyVGrid
                             .padding(.vertical, 32)
-                            
                         }
                         
                         .padding(.horizontal, 16)
@@ -51,13 +50,16 @@ struct PillListView: View {
             if showPillPopUp {
                 // show Pill effect PopUp
                 PillPopUpView(showPillPopUp: $showPillPopUp, indexOfCard: $clickedPillIndex)
-                
+                // PillPopUpView()
             }
             
         }
         .background(Color.background)
         .navigationTitle("약")
         .navigationBarTitleDisplayMode(.inline)
+        .ignoresSafeArea( edges: .bottom)
+        .navigationBarBackButtonHidden(true)
+        .navigationToBack(dismiss)
         
     }// body
 }
@@ -73,77 +75,56 @@ struct PillCardView: View {
     let content: Pill
     @State var medicineImage = "medicine00"
     var body: some View {
-        
-        ZStack {
-            
-            RoundedRectangle(cornerRadius: 4)
-                .foregroundColor(.white)
-                .frame(width: 168)
-                .shadow(color: .gray, radius: 12, x: 1, y: 1)
-                .opacity(0.14)
-            
-            VStack(alignment: .center) {
-                
-                ZStack {
-                    
-                    ZStack {
-                        Image(medicineImage)
-                            .resizable()
-                            .scaledToFit()
-                            .padding()
-                            .frame(width: UIScreen.main.bounds.width*0.3, height: UIScreen.main.bounds.height*0.2, alignment: .center)
+        HStack {
+            VStack {
+         
+                    VStack(alignment: .center, spacing: 1) {
+                        VStack(alignment: .center, spacing: 4) {
+                            Image("medicine0"+String(Int.random(in: 0..<8)))
+                                .resizable()
+                                .scaledToFit()
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                            Text(content.name)
+                                .font(.title3)
+                                .fontWeight(.bold)
+                            Text(content.prescribedDate)
+                                .font(.caption)
+                        }
                         
-                        Rectangle()
-                            .foregroundColor(.white)
-                            .opacity(0.6)
-                        
-                    } // ZStack
-                    
-                    VStack(alignment: .center) {
-                        
-                        ZStack(alignment: .center) {
-                            
-                            RoundedRectangle(cornerRadius: 12)
-                                .frame(width: CGFloat(content.name.count) * 16 + 8, height: 24, alignment: .center)
-                                .foregroundColor(content.sender == "재헌" ? Color.green : Color(hex: "DB5E5E"))
-                            
-                            Text("\(content.name)")
-                                .foregroundColor(.white)
-                            
-                        } // ZStack
-                        
-                        ZStack {
-                            
-                            RoundedRectangle(cornerRadius: 12)
-                                .frame(width: 72, height: 24, alignment: .center)
-                                .foregroundColor(.white)
-                                .opacity(0.7)
-                            
-                            Text("\(content.prescribedDate)")
-                                .foregroundColor(content.sender == "재헌" ? Color.green : Color(hex: "DB5E5E"))
-                                .font(.system(size: 14))
-                            
-                        } // ZStack
+                        HStack(spacing: 4) {
+                            Image(systemName: "cross.fill")
+                            Text("\(content.sender)약국")
+                                .fontWeight(.heavy)
+                        }
+                        .font(.system(size: 14))
+                        .padding()
+                        .foregroundColor(getPointColor(whoMade: content.sender))
+                        .frame(maxWidth: .infinity, alignment: .center)
                     } // VStack
-                } // ZStack
-                
-                Divider()
-                
-                Text("\(content.sender)약국")
-                    .fontWeight(.heavy)
-                    .foregroundColor(content.sender == "재헌" ? Color.green : Color(hex: "DB5E5E"))
-                    .font(.system(size: 16))
-                
-            } // VStack
-            .padding(.bottom, 12)
-            
-        } // ZStack
-        .padding(.horizontal)
+                 // ZStack
+                .foregroundColor(Color.bodyTextColor)
+                .frame(maxWidth: .infinity, maxHeight: 200)
+                .overlay(LinearGradient(colors: [.white, .clear], startPoint: .leading, endPoint: .bottomTrailing).blendMode(.hardLight).opacity(0.5))
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .background(RoundedRectangle(cornerRadius: 10).fill(.thickMaterial).shadow(color: Color(uiColor: .systemGray5), radius: 5, x: 0, y: 2))
+            }
+        }
+        .padding(.horizontal, 8)
         .onAppear {
             medicineImage = getRandomPillImage()
         }
         
     } // body
+    
+    func getPointColor(whoMade: String) -> Color {
+        switch whoMade {
+            case "유진" :
+                return Color.coralPink
+            default :
+                return Color.deepGreen
+        }
+    }
 }
 
 // MARK: Preview
