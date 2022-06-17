@@ -39,6 +39,8 @@
 		77403C8A2850B7E9000A21EE /* SelectWhatToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77403C892850B7E9000A21EE /* SelectWhatToDoView.swift */; };
 		77403C8F28519B04000A21EE /* SignInWithAppleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77403C8E28519B04000A21EE /* SignInWithAppleViewModel.swift */; };
 		77403C9228524487000A21EE /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 77403C9128524487000A21EE /* FSCalendar */; };
+		774F9158285C0F3600D692BE /* 나눔손글씨 나의 아내 손글씨.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 774F9157285C0F3600D692BE /* 나눔손글씨 나의 아내 손글씨.ttf */; };
+		774F915C285C103500D692BE /* FontNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774F915B285C103500D692BE /* FontNames.swift */; };
 		77A30A8C285B0588009548E5 /* VoicemailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A30A8B285B0588009548E5 /* VoicemailsView.swift */; };
 		77A30A8E285B05B9009548E5 /* VoicemailCassette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A30A8D285B05B9009548E5 /* VoicemailCassette.swift */; };
 		77A9654B285A5BFB00511556 /* AppleSocialLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A9654A285A5BFB00511556 /* AppleSocialLogin.swift */; };
@@ -116,6 +118,9 @@
 		77403C8B285193FE000A21EE /* QuickSignInWithApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSignInWithApple.swift; sourceTree = "<group>"; };
 		77403C8D28519991000A21EE /* liveOn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = liveOn.entitlements; sourceTree = "<group>"; };
 		77403C8E28519B04000A21EE /* SignInWithAppleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleViewModel.swift; sourceTree = "<group>"; };
+		774F9157285C0F3600D692BE /* 나눔손글씨 나의 아내 손글씨.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "나눔손글씨 나의 아내 손글씨.ttf"; sourceTree = "<group>"; };
+		774F915A285C0FA900D692BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		774F915B285C103500D692BE /* FontNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontNames.swift; sourceTree = "<group>"; };
 		77813AE12855B4B40084828D /* PillView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PillView.swift; sourceTree = "<group>"; };
 		77A30A8B285B0588009548E5 /* VoicemailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VoicemailsView.swift; path = liveOn/Views/Voicemail/VoicemailsView.swift; sourceTree = SOURCE_ROOT; };
 		77A30A8D285B05B9009548E5 /* VoicemailCassette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicemailCassette.swift; sourceTree = "<group>"; };
@@ -246,6 +251,7 @@
 		3EBE43762849B6D30085C7C6 /* liveOn */ = {
 			isa = PBXGroup;
 			children = (
+				774F915A285C0FA900D692BE /* Info.plist */,
 				3EDF0F6A285A0E730048A63C /* SampleData */,
 				3EDF0F4228586C7B0048A63C /* Etc */,
 				77403C8D28519991000A21EE /* liveOn.entitlements */,
@@ -271,6 +277,7 @@
 		3EDF0F4228586C7B0048A63C /* Etc */ = {
 			isa = PBXGroup;
 			children = (
+				774F9159285C0F4900D692BE /* font */,
 				3EDF0F4328586CEA0048A63C /* NetworkLoggerPlugin.swift */,
 			);
 			path = Etc;
@@ -320,6 +327,15 @@
 				77403C802850AA60000A21EE /* User.swift */,
 			);
 			path = SignIn;
+			sourceTree = "<group>";
+		};
+		774F9159285C0F4900D692BE /* font */ = {
+			isa = PBXGroup;
+			children = (
+				774F9157285C0F3600D692BE /* 나눔손글씨 나의 아내 손글씨.ttf */,
+				774F915B285C103500D692BE /* FontNames.swift */,
+			);
+			path = font;
 			sourceTree = "<group>";
 		};
 		77813ADD2855B3DF0084828D /* Recovered References */ = {
@@ -458,6 +474,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				774F9158285C0F3600D692BE /* 나눔손글씨 나의 아내 손글씨.ttf in Resources */,
 				3EDF0F6E285A0E7D0048A63C /* test3.m4a in Resources */,
 				3EDF0F6F285A0E7D0048A63C /* test1.m4a in Resources */,
 				77196611284B3E61002E6AC0 /* .swiftlint.yml in Resources */,
@@ -500,6 +517,7 @@
 				C9722304285B7A16004B3628 /* DateToStringViewModel.swift in Sources */,
 				C9722303285B79F7004B3628 /* ImageViewModel.swift in Sources */,
 				C9722302285B79E3004B3628 /* VoiceRecorderViewModel.swift in Sources */,
+				774F915C285C103500D692BE /* FontNames.swift in Sources */,
 				C9722301285B79D4004B3628 /* ServerCommunicationViewModel.swift in Sources */,
 				C91EB94B2858692A00EB648B /* ServerCommunication.swift in Sources */,
 				C91EB94A285868F100EB648B /* FlowerListView.swift in Sources */,
@@ -683,6 +701,7 @@
 				DEVELOPMENT_TEAM = VHT56LS632;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = liveOn/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -716,6 +735,7 @@
 				DEVELOPMENT_TEAM = VHT56LS632;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = liveOn/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

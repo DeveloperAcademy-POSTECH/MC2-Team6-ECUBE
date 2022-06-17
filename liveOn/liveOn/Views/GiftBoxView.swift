@@ -46,9 +46,6 @@ struct GiftBoxView: View {
                     .padding(.vertical)
             }
             .background(.yellow)
-            .onTapGesture {
-                print("엥")
-            }
             .buttonStyle(.plain)
         }
         .padding(16)
@@ -68,13 +65,14 @@ struct GiftBoxView: View {
                     .frame(width: 25, height: 25)
                 Text("유진")
                 HStack(alignment: .center, spacing: 1) {
-                    Image(systemName: "plus")
-                    Text("\(countDays(from: currnetUser.firstDay!))")
+
+                    Text("+ \(countDays(from: currnetUser.firstDay!))")
                         .fontWeight(.semibold)
                 }
                 .foregroundColor(Color("Orange"))
                 
             }
+            .setHandWritten()
             .font(.subheadline)
             .foregroundColor(Color.bodyTextColor)
             .padding(.horizontal, 20)
