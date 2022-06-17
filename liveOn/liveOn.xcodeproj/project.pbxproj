@@ -7,14 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-
 		27393879285B257700836B26 /* LoginResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27393878285B257700836B26 /* LoginResponseDTO.swift */; };
 		2739387B285B2C5B00836B26 /* LoginRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739387A285B2C5B00836B26 /* LoginRequestDTO.swift */; };
 		2739387D285B2CBD00836B26 /* AuthApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739387C285B2CBC00836B26 /* AuthApi.swift */; };
 		2739387F285B2ED400836B26 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739387E285B2ED400836B26 /* API.swift */; };
 		27393882285B313000836B26 /* AuthNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27393881285B313000836B26 /* AuthNetworkService.swift */; };
-		3E9206B6284AE2C400D064E6 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206B5284AE2C400D064E6 /* ImageViewModel.swift */; };
-
 		3E9206C0284B249C00D064E6 /* VoicemailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206BF284B249C00D064E6 /* VoicemailView.swift */; };
 		3E9206CC284F343200D064E6 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206CB284F343200D064E6 /* Recording.swift */; };
 		3E9206D0284F3BA300D064E6 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206CF284F3BA300D064E6 /* Test.swift */; };
@@ -57,6 +54,7 @@
 		A464B6912859C710003DC2EA /* PillPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A464B6902859C710003DC2EA /* PillPopUpView.swift */; };
 		A4DA9D2B28571AD60038B34D /* FlowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE0472856C15400CC25A0 /* FlowerView.swift */; };
 		A4DA9D2D28571B4C0038B34D /* FlowerPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DA9D2C28571B4C0038B34D /* FlowerPopUpView.swift */; };
+		A91608EF285C529900473466 /* PhotoTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91608EE285C529900473466 /* PhotoTransport.swift */; };
 		A92A88C728506B8700A71FCC /* PhotoCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92A88C628506B8700A71FCC /* PhotoCardsView.swift */; };
 		A932622B284F2A9600E5C0A3 /* Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932622A284F2A9600E5C0A3 /* Picker.swift */; };
 		A932622D284F2AA900E5C0A3 /* MyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932622C284F2AA900E5C0A3 /* MyImage.swift */; };
@@ -141,6 +139,7 @@
 		A44EE04C2856C74B00CC25A0 /* PillListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillListView.swift; sourceTree = "<group>"; };
 		A464B6902859C710003DC2EA /* PillPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillPopUpView.swift; sourceTree = "<group>"; };
 		A4DA9D2C28571B4C0038B34D /* FlowerPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerPopUpView.swift; sourceTree = "<group>"; };
+		A91608EE285C529900473466 /* PhotoTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTransport.swift; sourceTree = "<group>"; };
 		A92A88C628506B8700A71FCC /* PhotoCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCardsView.swift; sourceTree = "<group>"; };
 		A9326228284F2A2800E5C0A3 /* PhotoGiftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGiftView.swift; sourceTree = "<group>"; };
 		A932622A284F2A9600E5C0A3 /* Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picker.swift; sourceTree = "<group>"; };
@@ -414,6 +413,7 @@
 			children = (
 				A92A88C628506B8700A71FCC /* PhotoCardsView.swift */,
 				A9326228284F2A2800E5C0A3 /* PhotoGiftView.swift */,
+				A91608EE285C529900473466 /* PhotoTransport.swift */,
 			);
 			path = PictureGift;
 			sourceTree = "<group>";
@@ -561,6 +561,7 @@
 				C9722301285B79D4004B3628 /* ServerCommunicationViewModel.swift in Sources */,
 				C91EB94B2858692A00EB648B /* ServerCommunication.swift in Sources */,
 				C91EB94A285868F100EB648B /* FlowerListView.swift in Sources */,
+				A91608EF285C529900473466 /* PhotoTransport.swift in Sources */,
 				C92B3BE5285175070010C49A /* PhotoGiftView.swift in Sources */,
 				77A9654B285A5BFB00511556 /* AppleSocialLogin.swift in Sources */,
 				27393879285B257700836B26 /* LoginResponseDTO.swift in Sources */,
@@ -743,7 +744,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"liveOn/Preview Content\"";
-				DEVELOPMENT_TEAM = C95YD9G273;
+				DEVELOPMENT_TEAM = YYP248S73Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -757,9 +758,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-
 				PRODUCT_BUNDLE_IDENTIFIER = com.alsehfdl;
-
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -778,7 +777,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"liveOn/Preview Content\"";
-
 				DEVELOPMENT_TEAM = C95YD9G273;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

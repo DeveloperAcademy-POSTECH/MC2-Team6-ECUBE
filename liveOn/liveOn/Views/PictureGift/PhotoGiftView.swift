@@ -5,7 +5,9 @@ struct PhotoGiftView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var comment: String = ""
     @State private var showAlertforSend: Bool = false
-    @State private var showSheet = false
+    @State private var isSent = false
+    @State private var showLoading = false
+    @State private var loadingState: Int = 0
     var commentLimit: Int = 20
     
     var body: some View {
@@ -35,11 +37,11 @@ struct PhotoGiftView: View {
                     .foregroundColor(.bodyTextColor)
                     .frame(width: 300, height: 20, alignment: .leading)
                 HStack {
-                    
                     Text("\(comment.count)/20")
                         .frame(width: 300, height: 20, alignment: .trailing)
                         .foregroundColor(.bodyTextColor).opacity(0.5)
                 }
+                NavigationLink("", destination: PhotoTransport(), isActive: $isSent)
             }
             .padding()
             .background(Color.white
@@ -57,19 +59,24 @@ struct PhotoGiftView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
+                        showLoading.toggle()
                         showAlertforSend = true
+                        Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { timer in
+                            loadingState += 1
+                            isSent.toggle()
+                        }
+                        
                     }) {
                         Text("선물하기")
                             .foregroundColor(.black)
                     }
-                    .alert(isPresented: $showAlertforSend) {
-                        Alert(title: Text("선물 보내기"), message: Text("선물은 하루에 하나만 보낼 수 있어요. 사진을 보낼까요?"), primaryButton: .cancel(Text("취소")), secondaryButton: .default(Text("보내기")) {
-                            imageModel.isSent = true
-                            showSheet.toggle()
-                            imagePost()
-                        }
-                        )
-                    }
+                    //                    .alert(isPresented: $showAlertforSend) {
+                    //                        Alert(title: Text("선물 보내기"), message: Text("선물은 하루에 하나만 보낼 수 있어요. 사진을 보낼까요?"), primaryButton: .cancel(Text("취소")), secondaryButton: .default(Text("보내기")) {
+                    //                            imageModel.isSent = true
+                    //                            showSheet.toggle()
+                    //                            imagePost()
+                    //                        })
+                    //                    }
                 }
                 ToolbarItem(placement: .principal) {
                     Text("선물 종류 선택")
@@ -83,11 +90,17 @@ struct PhotoGiftView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.background)
+            .blur(radius: showLoading ? 5 : 0)
+            Color(uiColor: .systemBackground).opacity(showLoading ? 0.5 : 0)
             
-            .sheet(isPresented: $showSheet, content: {
-                PhotoCardsView()
-            })
-
+            //            .sheet(isPresented: $showSheet, content: {
+            //                PhotoCardsView()
+            //            })
+            if showLoading == true {
+                Image(loadingState == 0 ? "LoadingCharacter" : "")
+                    .frame(width: 300, height: 300, alignment: .center)
+            }
+            
         }
         .onTapGesture {
             hideKeyboard()
@@ -107,6 +120,22 @@ struct PhotoGiftView: View {
             case .failure(let err):
                 print(err.localizedDescription)
             }
+        }
+    }
+//    private func loadingTime() -> Int {
+//        var timerValue: Int = 0
+//        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { timer in
+//            timerValue += 1
+//        }
+//        loadingState = timerValue
+//    }
+}
+
+
+struct previewTest: PreviewProvider {
+    static var previews: some View {
+        NavigationView{
+            PhotoGiftView()
         }
     }
 }
