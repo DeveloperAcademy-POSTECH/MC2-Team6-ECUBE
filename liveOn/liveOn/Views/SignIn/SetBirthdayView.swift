@@ -11,23 +11,31 @@ struct SetBirthdayView: View {
     @EnvironmentObject var currentUser: User
     @Environment(\.dismiss) private var dismiss
     @State var birthday: Date = Date.now
-
+    
     var body: some View {
-        OnboardingHeader(title: "\(currentUser.nickname)님 환영합니다! \n 생일을 알려주세요 :)", description: "기념일로 등록해둘게요!", inputView:
-                                AnyView(
-                                    VStack {
-                                        Text("\(DateToStringKR(birthday))").font(.title2)
-                                            .padding()
-                                        // TODO: 캘린더 피커 수정하기
-                DatePicker("생일 선택", selection: $birthday, in: ...Date(), displayedComponents: .date)
-                    .datePickerStyle(.graphical)
-                    .background(.clear)
-                    .applyTextColor(.bodyTextColor)
-                    .padding()
-                                        Spacer()
-                                    })
-            )
+        VStack(alignment: .leading, spacing: 0) {
+        OnboardingHeader(title: "생일 입력하기", description: "기념일로 등록해둘게요.", inputView:
+                            AnyView(
+                                VStack {
+                                    Text("\(DateToStringKR(birthday))").font(.title2)
+                                        .padding(.vertical, 16)
+                                        .padding(.horizontal, 32)
+                                        .foregroundColor(.white)
+                                        .background(Capsule().fill(Color.accentColor))
+                                        .offset(y: -10)
+                                    // TODO: 캘린더 피커 수정하기
+                                    DatePicker("생일 선택", selection: $birthday, in: ...Date(), displayedComponents: .date)
+                                        .datePickerStyle(GraphicalDatePickerStyle())
+                                        .applyTextColor(Color.accentColor)
+                                        .padding()
+                                        .background(RoundedRectangle(cornerRadius: 20).fill(Color(uiColor: .systemBackground)).shadow(color: .bodyTextColor.opacity(0.3), radius: 6, x: 0, y: 2))
+                                        
+                                        .padding()
+                                })
+        )
+        }
         .navigationToBack(dismiss)
+        .background(Color.background)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink(destination: SetFirstDayView().environmentObject(currentUser)) {

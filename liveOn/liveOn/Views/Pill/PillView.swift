@@ -14,7 +14,7 @@ struct PillView: View {
     @State var showAlertforSend: Bool = false
     @State var isitEntered: Bool = false
     @Environment(\.dismiss) var dismiss
-    
+        
     var body: some View {
         
         VStack {
@@ -28,7 +28,7 @@ struct PillView: View {
         .navigationBarItems(trailing: Button {
             showAlertforSend = true
         } label: {
-            Text("보내기")
+            Text("선물하기")
                 .fontWeight(.bold)
         }
             .disabled(!input.inputEntered))
@@ -37,110 +37,114 @@ struct PillView: View {
 }
 
 struct PillBodyView: View {
-    
+    @Environment(\.dismiss) var dismiss
     // MARK: Property
     @State private var pillImageCounter: Int = 0
     @State private var pillName: String = ""
     @State private var pillEffect: String = ""
-    @State private var isShowingPopover = true
+    @State private var isShowingPopover = false
+    @State private var whatPill: String = "1"
+    
+    var popOverTip: some View {
+        ZStack(alignment: .bottom) {
+            Image(systemName: "arrowtriangle.down.fill")
+                .frame(width: 30, height: 30, alignment: .bottom)
+                .foregroundColor(Color(hex: "efefef"))
+                .offset(y: -1)
+                .shadow(color: .gray.opacity(0.4), radius: 3, x: 0, y: 1)
+            Text("탭해서 다른 약으로 바꾸기")
+                .foregroundColor(.gray)
+                .padding(.vertical, 10)
+                .padding(.horizontal, 18)
+                .background( RoundedRectangle(cornerRadius: 4)
+                    .fill(Color(hex: "efefef"))
+                )
+                .padding(.bottom, 10)
+            
+        }
+        
+        .padding(.top, 12)
+        
+    }
     
     var body: some View {
-        
-        // Sample data
-        let pillColorList: [Color] = [.yellow, .background, .green, .orange]
-        
-        ZStack {
-            // 약 이미지 들어갈 곳을 잠시 둥글려진 사각형이 차지
-            RoundedRectangle(cornerRadius: 24)
-                .frame(width: 280, height: 280, alignment: .center)
-                .foregroundColor(pillColorList[pillImageCounter])
-                .onTapGesture {
-                    
-                    isShowingPopover = false
-                    
-                    if pillImageCounter < 3 {
-                        pillImageCounter += 1
-                    } else {
-                        pillImageCounter = 0
-                    }
-                    
-                }
-            
-            Image("medicine")
-                .resizable()
-                .frame(width: 200, height: 200, alignment: .center)
-        }
-        .padding(.vertical, 36)
-        
         VStack {
+        // Sample data
+            VStack(alignment: .leading, spacing: 12) {
             if isShowingPopover {
-                ZStack(alignment: .center) {
-                    
-                    // 임시입니다... 말풍선
-                    RoundedRectangle(cornerRadius: 8)
-                        .frame(width: 180, height: 40, alignment: .center)
-                        .foregroundColor(Color(uiColor: .systemGray4))
-                    
-                    // 이 또한 임시입니다
-                    // 더 나은 방법이 있겠지요..
-                    Text("⬆️ 탭해서 다른 약으로 바꾸기 ⬆️")
-                        .foregroundColor(.gray)
-                        .font(.system(size: 12))
-                        .fontWeight(.medium)
-                    
+                popOverTip
+                    .onTapGesture {
+                        withAnimation(.spring()) {
+                            isShowingPopover.toggle()
+                        }
+                    }
+            }
+            }
+            .frame(height: 36)
+            .padding(.bottom, 24)
+            
+            Image("medicine0"+whatPill)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .padding(24)
+                .frame(width: 200, height: 200, alignment: .center)
+                .background(RoundedRectangle(cornerRadius: 20).fill(.thinMaterial))
+                .padding(.bottom, 64)
+                .onTapGesture {
+                    withAnimation(.spring()) {
+                        whatPill = String(Int.random(in: 0 ..< 9))
+                    }
                 }
-            } // if
-        } // ZStack
-        .padding(.bottom, 24)
         
-        Group {
-            TextField("어떤 약인가요?", text: $pillName)
+            VStack(alignment: .center, spacing: 4) {
+                TextField("어떤 약인가요?", text: $pillName)
+                    .multilineTextAlignment(.center)
+                    .font(.body)
+                    .frame(width: 150, height: 56, alignment: .center)
+                
+                Divider()
+                    .frame(width: 150, height: 2)
+                    .padding(.horizontal, 32)
+                    .background(pillName.count < 12 ? .gray : .red)
+                
+                // Message string counter
+                Text("(\(pillName.count)/12)")
+                        .font(.caption)
+                    .foregroundColor(pillName.count < 12 ? .gray : .red)
+                    .fontWeight(pillName.count < 12 ? .medium : .bold)
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+            } // Group
+                        TextField("약 효과를 적어보세요", text: $pillEffect)
+                .foregroundColor(.bodyTextColor)
+                .font(.body)
                 .multilineTextAlignment(.center)
-                .font(.system(size: 16))
-                .padding(.vertical, 12)
+                .frame(height: 56, alignment: .center)
             
             Divider()
-                .frame(height: 1)
-                .padding(.horizontal, 32)
-                .background(pillName.count < 12 ? .gray : .red)
-                .padding(.bottom, -24)
-            
-            // Message string counter
-            Text("(\(pillName.count)/12)")
-                .font(.system(size: 12))
-                .foregroundColor(pillName.count < 12 ? .gray : .red)
-                .fontWeight(pillName.count < 12 ? .medium : .bold)
-            
-        } // Group
-        .padding(.horizontal, 100)
-        .frame(width: 360, height: 12, alignment: .trailing)
-        
-        Group {
-            TextField("약 효과를 적어보세요", text: $pillEffect)
-                .foregroundColor(Color(uiColor: .systemGray4))
-                .font(.system(size: 16))
-                .multilineTextAlignment(.center)
-            
-            Divider()
-                .frame(height: 1)
+                .frame(height: 2)
                 .padding(.horizontal, 32)
                 .background(pillEffect.count < 40 ? .gray : .red)
-                .padding(.bottom, -24)
             
             // Message string counter
             Text("(\(pillEffect.count)/40)")
-                .font(.system(size: 12))
+                .font(.caption)
                 .foregroundColor(pillEffect.count < 40 ? .gray : .red)
                 .fontWeight(pillEffect.count < 40 ? .medium : .bold)
-            
-        } // Group
-        .padding(.top, 24)
-        .padding(.horizontal, 18)
-        .frame(width: 360, height: 12, alignment: .trailing)
-        
-        Spacer()
-        
+                .frame(maxWidth: .infinity, alignment: .trailing)
+            Spacer()
+        } // body
+        .padding(.top, 48)
+        .padding(.horizontal, 16)
+        .onAppear {
+            withAnimation(.easeInOut(duration: 0.4).delay(0.1)) {
+                isShowingPopover.toggle()
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.background)
+        .navigationToBack(dismiss)
     } // VStack
+        
 } // body
 
 struct PillView_Previews: PreviewProvider {

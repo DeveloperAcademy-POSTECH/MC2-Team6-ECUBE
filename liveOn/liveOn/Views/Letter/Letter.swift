@@ -12,12 +12,13 @@ class Letter: Identifiable, ObservableObject {
     @Published var content: String
     let createdDate: String
     let writer: String
-    
+    let letterStyle: String
     init(content: String, createdDate: Date, writer: String) {
         id = UUID()
         self.content = content
         self.writer = writer
         self.createdDate = DateToString(createdDate)
+        self.letterStyle = getRandomLetterStyle()
         
     }
 }
@@ -27,8 +28,8 @@ class LetterStore: ObservableObject {
     
     init() {
         list = [
-            Letter(content: "재허나 뭐해앵", createdDate: Date.now, writer: "유진"),
-            Letter(content: "유지나 뭐해앵", createdDate: Date.distantPast, writer: "재헌"),
+            Letter(content: "재헌아 오늘은 날씨가 좀 춥다! 얼마안남았지만 힘내", createdDate: Date.now, writer: "유진"),
+            Letter(content: "보고싶은 맘은 크지만.. 우리 서로 이시간을 잘 보내자", createdDate: Date.distantPast, writer: "재헌"),
             Letter(content: "재허나 뭐해앵", createdDate: Date.distantPast, writer: "유진")
             
         ]

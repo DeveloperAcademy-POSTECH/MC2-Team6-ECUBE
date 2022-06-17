@@ -13,14 +13,16 @@ struct PlusSetting: View {
     @State var show = false
     var eventDate: Date
     
-    @Binding var currentDate: Date
+    @Binding var eventbaseDate: Date
     @Binding var eventTitle: String
     @Binding var eventMemo: String
     @Binding var emoji: String
     
+//    @State var testData = DataInfo(emoji: "", Date: "", eventTitle: "", eventMemo: "")
+
     @Environment(\.dismiss) private var dismiss
     @Environment(\.presentationMode) var presentationMode
-    
+        
     var body: some View {
         
         // 이모지 키보드를 위한 요소
@@ -31,6 +33,7 @@ struct PlusSetting: View {
         ZStack {
             HStack(alignment: .center, spacing: 0) {
                 Button("취소") {
+                    eventbaseDate = Date.now
                     dismiss()
                 }
                 .font(.title3)
@@ -45,7 +48,8 @@ struct PlusSetting: View {
                 Spacer()
                 
                 Button("확인") {
-                    self.currentDate = eventDate
+                    eventbaseDate = eventDate
+//                    testData = DataInfo(emoji: emoji, Date: "222", eventTitle: eventTitle, eventMemo: eventMemo)
                     presentationMode.wrappedValue.dismiss()
                 }
                 .font(.title3)
@@ -56,9 +60,9 @@ struct PlusSetting: View {
             
             VStack {
                 Color.gray.frame(height: CGFloat(1) / UIScreen.main.scale)
-                    .offset(x: 0, y: 10)
+                    .padding(.top, 26)
                 
-                DatePicker("기념일 추가", selection: $currentDate, displayedComponents: .date)
+                DatePicker("기념일 추가", selection: $eventbaseDate, displayedComponents: .date)
                     .datePickerStyle(GraphicalDatePickerStyle())
                     .applyTextColor(Color("Burgundy"))
                     .frame(height: 370)
@@ -92,7 +96,7 @@ struct PlusSetting: View {
             
             VStack {
                 TextField("Comment", text: $eventTitle, prompt: Text("어떤 기념일인가요?"))
-                    .limitInputLength(value: $eventTitle, length: 20)
+                    .limitInputLength(value: $eventTitle, length: 15)
                     .multilineTextAlignment(TextAlignment.leading)
                     .foregroundColor(.bodyTextColor)
                     .frame(width: 250, height: 20)
@@ -100,7 +104,7 @@ struct PlusSetting: View {
                     .offset(x: 56, y: 280)
                 
                 VStack {
-                    Text("(\(eventTitle.count)/20)")
+                    Text("(\(eventTitle.count)/15)")
                         .frame(width: 300, height: 20, alignment: .trailing)
                         .foregroundColor(.bodyTextColor).opacity(0.5)
                         .offset(x: 38, y: 275)
@@ -211,6 +215,6 @@ extension View {
 
 struct PlusSetting_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarBack()
+        CalendarMain()
     }
 }
