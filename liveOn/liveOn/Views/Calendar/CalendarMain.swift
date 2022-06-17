@@ -157,12 +157,13 @@ struct CalendarMain: View {
                                         .foregroundColor(burgundyColor)
                                         .sheet(isPresented: $showSheet, content: {
                                             PlusSetting(
+                                            //  eventDate: self.eventbaseDate,
                                                 eventDate: $eventDate,
-//                                                    self.eventbaseDate,
                                                 eventbaseDate: $eventbaseDate,
                                                 eventTitle: $eventTitle,
                                                 eventMemo: $eventMemo,
-                                                emoji: $emoji)
+                                                emoji: $emoji,
+                                                burgundyColor: $burgundyColor)
                                             .frame(maxWidth: .infinity, alignment: .center)
                                         })
                                 }
