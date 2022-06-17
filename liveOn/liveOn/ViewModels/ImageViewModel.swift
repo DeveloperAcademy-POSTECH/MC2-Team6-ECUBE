@@ -44,7 +44,7 @@ class ImageViewModel: ObservableObject {
             try FileManager().saveImage("\(myImage.id)", image: image)
             myImages.append(myImage)
             print(myImage)
-            print(Bundle.main.path(forResource: "\(myImage.id)", ofType: "JPG"))
+//            print(Bundle.main.path(forResource: "\(myImage.id)", ofType: "JPG"))
             saveMyImagesJSONFile()
         } catch {
             showFileAlert = true
@@ -73,7 +73,7 @@ class ImageViewModel: ObservableObject {
     func fetchDirectory() {
         for myImage in myImages {
             print(myImage)
-            print(Bundle.main.path(forResource: "\(myImage.id)", ofType: "JPG"))
+//            print(Bundle.main.path(forResource: "\(myImage.id)", ofType: "JPG"))
         }
 //        let directoryContents = try! FileManager.default.contentsOfDirectory(atPath: myImages[0].name)
 //        print(directoryContents)

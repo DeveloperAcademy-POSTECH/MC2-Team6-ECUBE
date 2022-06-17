@@ -111,7 +111,7 @@ struct PlusSetting: View {
                 }
                 
                 TextField("Comment", text: $eventMemo, prompt: Text("메모를 입력해주세요."))
-                    .limitInputLength(value: $eventMemo, length: 20)
+                    .limitInputLength(value: $eventMemo, length: 19)
                     .multilineTextAlignment(TextAlignment.leading)
                     .foregroundColor(.bodyTextColor)
                     .frame(width: 250, height: 20)
@@ -119,7 +119,7 @@ struct PlusSetting: View {
                     .offset(x: 56, y: 280)
                 
                 VStack {
-                    Text("(\(eventMemo.count)/20)")
+                    Text("(\(eventMemo.count)/19)")
                         .frame(width: 300, height: 20, alignment: .trailing)
                         .foregroundColor(.bodyTextColor).opacity(0.5)
                         .offset(x: 38, y: 275)
@@ -184,7 +184,7 @@ struct EmojiView: View {
         var emojis: [[Int]] = []
         
         // 이모지 유니코드 리스트
-        for i in stride(from: 0x1f302, through: 0x1F6F3, by: 4) {
+        for i in stride(from: 0x1f302, through: 0x1F999, by: 4) {
             
             var temp: [Int] = []
             

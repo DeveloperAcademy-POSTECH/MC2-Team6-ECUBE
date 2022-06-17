@@ -246,9 +246,9 @@
 		3EBE43762849B6D30085C7C6 /* liveOn */ = {
 			isa = PBXGroup;
 			children = (
+				77403C8D28519991000A21EE /* liveOn.entitlements */,
 				3EDF0F6A285A0E730048A63C /* SampleData */,
 				3EDF0F4228586C7B0048A63C /* Etc */,
-				77403C8D28519991000A21EE /* liveOn.entitlements */,
 				77196617284C6F8D002E6AC0 /* Extensions */,
 				3E9206B2284AE1D700D064E6 /* ViewModels */,
 				3E9206B1284AE1D200D064E6 /* Models */,

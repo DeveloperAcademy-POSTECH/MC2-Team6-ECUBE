@@ -56,12 +56,13 @@ struct CalendarMain: View {
                                     self.currentDate = self.moveCurrentMonth(isUp: false)
                                 }
                             } label: {
-                                Image(systemName: "chevron.left.circle")
-                                    .foregroundColor(.black)
-                                    .font(.title)
+                                Image(systemName: "chevron.left")
+                                    .foregroundColor(burgundyColor)
+                                    .font(.system(size: 18, weight: .light))
                             }
+                            .padding()
                             
-                            Spacer(minLength: 0)
+//                            Spacer(minLength: 0)
                             
                             // 달력의 년도/월/moveDatePicker Popup
                             Text(extraDate(currentDate: self.currentDate)[0])
@@ -87,7 +88,7 @@ struct CalendarMain: View {
                             }
                             .padding(.leading, 6)
                             
-                            Spacer(minLength: 0)
+//                            Spacer(minLength: 0)
                             
                             // 달력 다음 달로 이동
                             Button {
@@ -95,10 +96,11 @@ struct CalendarMain: View {
                                     self.currentDate =  self.moveCurrentMonth(isUp: true)
                                 }
                             } label: {
-                                Image(systemName: "chevron.right.circle")
-                                    .foregroundColor(.black)
-                                    .font(.title)
+                                Image(systemName: "chevron.right")
+                                    .foregroundColor(burgundyColor)
+                                    .font(.system(size: 18, weight: .light))
                             }
+                            .padding()
                         }
                         .padding(.horizontal)
                         
