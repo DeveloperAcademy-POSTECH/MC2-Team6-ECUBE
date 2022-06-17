@@ -134,7 +134,7 @@ struct GiftBoxView: View {
     // MARK: 앨범과 캘린더
     var albumAndCalendar: some View {
         HStack(alignment: .bottom, spacing: 0) {
-            NavigationLink(destination: PhotoCardsView(imageModel: ImageViewModel())) {
+            NavigationLink(destination: PhotoCardsView()) {
                 Image("album")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
