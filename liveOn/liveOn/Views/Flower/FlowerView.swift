@@ -65,7 +65,7 @@ struct FlowerView: View {
         } // VStack
         .navigationTitle("꽃")
         .navigationBarTitleDisplayMode(.inline)
-        .background(.background)
+        .background(Color.background)
         .navigationBarItems(
             leading: Button {
                 dismiss()
@@ -83,9 +83,14 @@ struct FlowerView: View {
                     Alert(title: Text("선물 보내기"), message: Text("선물은 하루에 하나만 보낼 수 있어요. 사진을 보낼까요?"), primaryButton: .cancel(Text("취소")), secondaryButton: .default(Text("보내기")) {
                         isTapped.toggle()}
                     )
+                    
                 }
-        }.disabled(!input.inputEntered))
+                .preferredColorScheme(.light)
+        }
+        .disabled(!input.inputEntered))
         .navigationBarBackButtonHidden(true)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.background)
     } // body
 }
 

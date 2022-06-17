@@ -73,8 +73,12 @@ struct CreateLetterView: View {
                             store.insert(letter: input.value, writer: "재헌")
                             dismiss()
                         })
+                        
                     })
+            .preferredColorScheme(.light)
             .navigationBarTitle("쪽지 쓰기", displayMode: .inline)
+            .ignoresSafeArea()
+            .navigationBarBackButtonHidden(true)
 
         }
         .onAppear {

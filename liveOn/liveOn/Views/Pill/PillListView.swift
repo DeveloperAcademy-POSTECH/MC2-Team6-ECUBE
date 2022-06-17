@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PillListView: View {
-    
+    @Environment(\.dismiss) private var dismiss
     @State var showPillPopUp = false
     @State var clickedPillIndex = 0
     
@@ -58,6 +58,9 @@ struct PillListView: View {
         .background(Color.background)
         .navigationTitle("약")
         .navigationBarTitleDisplayMode(.inline)
+        .ignoresSafeArea( edges: .bottom)
+        .navigationBarBackButtonHidden(true)
+        .navigationToBack(dismiss)
         
     }// body
 }
