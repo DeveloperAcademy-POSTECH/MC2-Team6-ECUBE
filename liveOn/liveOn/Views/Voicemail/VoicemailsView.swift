@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct VoicemailsView: View {
+
+    @Environment(\.dismiss) private var dismiss
+    var body: some View {
     
     //    private let communication = ServerCommunication()
     @State var loadedVM: [VoicemailGetResponse] = []
@@ -90,6 +93,8 @@ struct VoicemailsView: View {
             }
         }
     }
+    .navigationBarBackButtonHidden(true)
+    .navigationToBack(dismiss)
     
     // MARK: Voicemail List 가져오기
     func vmListGet() {
@@ -113,6 +118,7 @@ struct VoicemailsView: View {
                 break
             }
         }
+
     }
     
     // MARK: Voicemail 하나를 클릭했을 때 그 특정 Voicemail에 관한 데이터 받기
@@ -136,6 +142,7 @@ struct VoicemailsView: View {
             }
         }
     }
+
     
     // MARK: 서버에서 받아온 데이터를 사용 가능한 데이터로 변환
     func mapListData(data: [VoicemailGetResponse]) {

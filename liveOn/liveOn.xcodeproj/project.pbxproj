@@ -7,9 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+
 		3E59192E285C0003006207F6 /* UserVoiceMail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E59192D285C0003006207F6 /* UserVoiceMail.swift */; };
 		3E591934285CB926006207F6 /* VoicemailPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E591933285CB926006207F6 /* VoicemailPopUpView.swift */; };
 		3E591936285CD56B006207F6 /* VoicemailPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E591935285CD56B006207F6 /* VoicemailPlayerViewModel.swift */; };
+
+		27393879285B257700836B26 /* LoginResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27393878285B257700836B26 /* LoginResponseDTO.swift */; };
+		2739387B285B2C5B00836B26 /* LoginRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739387A285B2C5B00836B26 /* LoginRequestDTO.swift */; };
+		2739387D285B2CBD00836B26 /* AuthApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739387C285B2CBC00836B26 /* AuthApi.swift */; };
+		2739387F285B2ED400836B26 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739387E285B2ED400836B26 /* API.swift */; };
+		27393882285B313000836B26 /* AuthNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27393881285B313000836B26 /* AuthNetworkService.swift */; };
+
 		3E9206C0284B249C00D064E6 /* VoicemailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206BF284B249C00D064E6 /* VoicemailView.swift */; };
 		3E9206CC284F343200D064E6 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206CB284F343200D064E6 /* Recording.swift */; };
 		3E9206D0284F3BA300D064E6 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206CF284F3BA300D064E6 /* Test.swift */; };
@@ -42,6 +50,8 @@
 		77403C8A2850B7E9000A21EE /* SelectWhatToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77403C892850B7E9000A21EE /* SelectWhatToDoView.swift */; };
 		77403C8F28519B04000A21EE /* SignInWithAppleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77403C8E28519B04000A21EE /* SignInWithAppleViewModel.swift */; };
 		77403C9228524487000A21EE /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 77403C9128524487000A21EE /* FSCalendar */; };
+		774F9158285C0F3600D692BE /* 나눔손글씨 나의 아내 손글씨.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 774F9157285C0F3600D692BE /* 나눔손글씨 나의 아내 손글씨.ttf */; };
+		774F915C285C103500D692BE /* FontNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774F915B285C103500D692BE /* FontNames.swift */; };
 		77A30A8C285B0588009548E5 /* VoicemailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A30A8B285B0588009548E5 /* VoicemailsView.swift */; };
 		77A30A8E285B05B9009548E5 /* VoicemailCassette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A30A8D285B05B9009548E5 /* VoicemailCassette.swift */; };
 		77A9654B285A5BFB00511556 /* AppleSocialLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A9654A285A5BFB00511556 /* AppleSocialLogin.swift */; };
@@ -52,6 +62,7 @@
 		A464B6912859C710003DC2EA /* PillPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A464B6902859C710003DC2EA /* PillPopUpView.swift */; };
 		A4DA9D2B28571AD60038B34D /* FlowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE0472856C15400CC25A0 /* FlowerView.swift */; };
 		A4DA9D2D28571B4C0038B34D /* FlowerPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DA9D2C28571B4C0038B34D /* FlowerPopUpView.swift */; };
+		A91608EF285C529900473466 /* PhotoTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91608EE285C529900473466 /* PhotoTransport.swift */; };
 		A92A88C728506B8700A71FCC /* PhotoCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92A88C628506B8700A71FCC /* PhotoCardsView.swift */; };
 		A932622B284F2A9600E5C0A3 /* Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932622A284F2A9600E5C0A3 /* Picker.swift */; };
 		A932622D284F2AA900E5C0A3 /* MyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932622C284F2AA900E5C0A3 /* MyImage.swift */; };
@@ -64,18 +75,19 @@
 		A96DE30C285859FF00A06E1D /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = A96DE30B285859FF00A06E1D /* ReactiveMoya */; };
 		A96DE30E285859FF00A06E1D /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = A96DE30D285859FF00A06E1D /* RxMoya */; };
 		A981538128587CE100476507 /* BackButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A981538028587CE100476507 /* BackButtonExtension.swift */; };
+		A9E979DE285C936A00AADF38 /* TextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E979DD285C936A00AADF38 /* TextExtension.swift */; };
 		C91EB94A285868F100EB648B /* FlowerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE0462856C15400CC25A0 /* FlowerListView.swift */; };
 		C91EB94B2858692A00EB648B /* ServerCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206B3284AE2B700D064E6 /* ServerCommunication.swift */; };
 		C91EB9532859A42500EB648B /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91EB9522859A42500EB648B /* DateExtension.swift */; };
 		C92B3BE5285175070010C49A /* PhotoGiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9326228284F2A2800E5C0A3 /* PhotoGiftView.swift */; };
 		C97222EF2859BFCB004B3628 /* DateToStringEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97222EE2859BFCB004B3628 /* DateToStringEvent.swift */; };
-		C97222F1285B006C004B3628 /* ForEachTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97222F0285B006C004B3628 /* ForEachTest.swift */; };
 		C9722301285B79D4004B3628 /* ServerCommunicationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDF0F40285868520048A63C /* ServerCommunicationViewModel.swift */; };
 		C9722302285B79E3004B3628 /* VoiceRecorderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206C7284C2A3100D064E6 /* VoiceRecorderViewModel.swift */; };
 		C9722303285B79F7004B3628 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206B5284AE2C400D064E6 /* ImageViewModel.swift */; };
 		C9722304285B7A16004B3628 /* DateToStringViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206C1284B24CF00D064E6 /* DateToStringViewModel.swift */; };
 		C9722305285B7A3C004B3628 /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAEC7284F151A00769E4E /* DateValue.swift */; };
 		C9722306285B7A47004B3628 /* PillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77813AE12855B4B40084828D /* PillView.swift */; };
+		C972230C285C9264004B3628 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C972230B285C9264004B3628 /* Event.swift */; };
 		C9CEAECB284F15DA00769E4E /* CalendarMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAECA284F15DA00769E4E /* CalendarMain.swift */; };
 		C9CEAECE284F17E300769E4E /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77196618284C6FA9002E6AC0 /* ColorExtension.swift */; };
 		C9CEAED6284F394A00769E4E /* PlusSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEAED5284F394A00769E4E /* PlusSetting.swift */; };
@@ -83,9 +95,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+
 		3E59192D285C0003006207F6 /* UserVoiceMail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVoiceMail.swift; sourceTree = "<group>"; };
 		3E591933285CB926006207F6 /* VoicemailPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicemailPopUpView.swift; sourceTree = "<group>"; };
 		3E591935285CD56B006207F6 /* VoicemailPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicemailPlayerViewModel.swift; sourceTree = "<group>"; };
+
+		27393878285B257700836B26 /* LoginResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseDTO.swift; sourceTree = "<group>"; };
+		2739387A285B2C5B00836B26 /* LoginRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestDTO.swift; sourceTree = "<group>"; };
+		2739387C285B2CBC00836B26 /* AuthApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthApi.swift; sourceTree = "<group>"; };
+		2739387E285B2ED400836B26 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		27393881285B313000836B26 /* AuthNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNetworkService.swift; sourceTree = "<group>"; };
+
 		3E9206B3284AE2B700D064E6 /* ServerCommunication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerCommunication.swift; sourceTree = "<group>"; };
 		3E9206B5284AE2C400D064E6 /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
 		3E9206BF284B249C00D064E6 /* VoicemailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicemailView.swift; sourceTree = "<group>"; };
@@ -122,6 +142,9 @@
 		77403C8B285193FE000A21EE /* QuickSignInWithApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSignInWithApple.swift; sourceTree = "<group>"; };
 		77403C8D28519991000A21EE /* liveOn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = liveOn.entitlements; sourceTree = "<group>"; };
 		77403C8E28519B04000A21EE /* SignInWithAppleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleViewModel.swift; sourceTree = "<group>"; };
+		774F9157285C0F3600D692BE /* 나눔손글씨 나의 아내 손글씨.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "나눔손글씨 나의 아내 손글씨.ttf"; sourceTree = "<group>"; };
+		774F915A285C0FA900D692BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		774F915B285C103500D692BE /* FontNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontNames.swift; sourceTree = "<group>"; };
 		77813AE12855B4B40084828D /* PillView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PillView.swift; sourceTree = "<group>"; };
 		77A30A8B285B0588009548E5 /* VoicemailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VoicemailsView.swift; path = liveOn/Views/Voicemail/VoicemailsView.swift; sourceTree = SOURCE_ROOT; };
 		77A30A8D285B05B9009548E5 /* VoicemailCassette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicemailCassette.swift; sourceTree = "<group>"; };
@@ -134,6 +157,7 @@
 		A44EE04C2856C74B00CC25A0 /* PillListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillListView.swift; sourceTree = "<group>"; };
 		A464B6902859C710003DC2EA /* PillPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillPopUpView.swift; sourceTree = "<group>"; };
 		A4DA9D2C28571B4C0038B34D /* FlowerPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerPopUpView.swift; sourceTree = "<group>"; };
+		A91608EE285C529900473466 /* PhotoTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTransport.swift; sourceTree = "<group>"; };
 		A92A88C628506B8700A71FCC /* PhotoCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCardsView.swift; sourceTree = "<group>"; };
 		A9326228284F2A2800E5C0A3 /* PhotoGiftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGiftView.swift; sourceTree = "<group>"; };
 		A932622A284F2A9600E5C0A3 /* Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picker.swift; sourceTree = "<group>"; };
@@ -143,9 +167,10 @@
 		A9452D852858DD3B003E6450 /* CoupleInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoupleInformation.swift; sourceTree = "<group>"; };
 		A9452D882858E084003E6450 /* DetailedInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedInformationView.swift; sourceTree = "<group>"; };
 		A981538028587CE100476507 /* BackButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonExtension.swift; sourceTree = "<group>"; };
+		A9E979DD285C936A00AADF38 /* TextExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextExtension.swift; sourceTree = "<group>"; };
 		C91EB9522859A42500EB648B /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		C97222EE2859BFCB004B3628 /* DateToStringEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateToStringEvent.swift; sourceTree = "<group>"; };
-		C97222F0285B006C004B3628 /* ForEachTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForEachTest.swift; sourceTree = "<group>"; };
+		C972230B285C9264004B3628 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		C9CEAEC7284F151A00769E4E /* DateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
 		C9CEAECA284F15DA00769E4E /* CalendarMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMain.swift; sourceTree = "<group>"; };
 		C9CEAED5284F394A00769E4E /* PlusSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusSetting.swift; sourceTree = "<group>"; };
@@ -172,6 +197,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27393874285B222400836B26 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				27393880285B311B00836B26 /* Service */,
+				27393876285B24A800836B26 /* EndPoint */,
+				27393875285B248800836B26 /* DTO */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		27393875285B248800836B26 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				27393877285B254700836B26 /* Auth */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		27393876285B24A800836B26 /* EndPoint */ = {
+			isa = PBXGroup;
+			children = (
+				2739387C285B2CBC00836B26 /* AuthApi.swift */,
+				2739387E285B2ED400836B26 /* API.swift */,
+			);
+			path = EndPoint;
+			sourceTree = "<group>";
+		};
+		27393877285B254700836B26 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				27393878285B257700836B26 /* LoginResponseDTO.swift */,
+				2739387A285B2C5B00836B26 /* LoginRequestDTO.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		27393880285B311B00836B26 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				27393881285B313000836B26 /* AuthNetworkService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		3E9206B0284AE1CC00D064E6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,9 +324,11 @@
 		3EBE43762849B6D30085C7C6 /* liveOn */ = {
 			isa = PBXGroup;
 			children = (
+				77403C8D28519991000A21EE /* liveOn.entitlements */,
+				774F915A285C0FA900D692BE /* Info.plist */,
+				27393874285B222400836B26 /* Network */,
 				3EDF0F6A285A0E730048A63C /* SampleData */,
 				3EDF0F4228586C7B0048A63C /* Etc */,
-				77403C8D28519991000A21EE /* liveOn.entitlements */,
 				77196617284C6F8D002E6AC0 /* Extensions */,
 				3E9206B2284AE1D700D064E6 /* ViewModels */,
 				3E9206B1284AE1D200D064E6 /* Models */,
@@ -280,6 +351,7 @@
 		3EDF0F4228586C7B0048A63C /* Etc */ = {
 			isa = PBXGroup;
 			children = (
+				774F9159285C0F4900D692BE /* font */,
 				3EDF0F4328586CEA0048A63C /* NetworkLoggerPlugin.swift */,
 			);
 			path = Etc;
@@ -299,6 +371,7 @@
 			isa = PBXGroup;
 			children = (
 				77196618284C6FA9002E6AC0 /* ColorExtension.swift */,
+				A9E979DD285C936A00AADF38 /* TextExtension.swift */,
 				A9326230284F2B0700E5C0A3 /* FileManager+Extension.swift */,
 				3EC5EA8B2856C6E400DEBA44 /* ConvertSecToMinAndHour.swift */,
 				C91EB9522859A42500EB648B /* DateExtension.swift */,
@@ -329,6 +402,15 @@
 				77403C802850AA60000A21EE /* User.swift */,
 			);
 			path = SignIn;
+			sourceTree = "<group>";
+		};
+		774F9159285C0F4900D692BE /* font */ = {
+			isa = PBXGroup;
+			children = (
+				774F9157285C0F3600D692BE /* 나눔손글씨 나의 아내 손글씨.ttf */,
+				774F915B285C103500D692BE /* FontNames.swift */,
+			);
+			path = font;
 			sourceTree = "<group>";
 		};
 		77813ADD2855B3DF0084828D /* Recovered References */ = {
@@ -365,6 +447,7 @@
 			children = (
 				A92A88C628506B8700A71FCC /* PhotoCardsView.swift */,
 				A9326228284F2A2800E5C0A3 /* PhotoGiftView.swift */,
+				A91608EE285C529900473466 /* PhotoTransport.swift */,
 			);
 			path = PictureGift;
 			sourceTree = "<group>";
@@ -384,7 +467,7 @@
 				C9CEAECA284F15DA00769E4E /* CalendarMain.swift */,
 				C9CEAED5284F394A00769E4E /* PlusSetting.swift */,
 				C9FE9E0728571F71007B6EA5 /* MoveDatePicker.swift */,
-				C97222F0285B006C004B3628 /* ForEachTest.swift */,
+				C972230B285C9264004B3628 /* Event.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -467,6 +550,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				774F9158285C0F3600D692BE /* 나눔손글씨 나의 아내 손글씨.ttf in Resources */,
 				3EDF0F6E285A0E7D0048A63C /* test3.m4a in Resources */,
 				3EDF0F6F285A0E7D0048A63C /* test1.m4a in Resources */,
 				77196611284B3E61002E6AC0 /* .swiftlint.yml in Resources */,
@@ -495,7 +579,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n    swiftlint autocorrect\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n    swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -510,13 +594,18 @@
 				3E591936285CD56B006207F6 /* VoicemailPlayerViewModel.swift in Sources */,
 				C9722303285B79F7004B3628 /* ImageViewModel.swift in Sources */,
 				C9722302285B79E3004B3628 /* VoiceRecorderViewModel.swift in Sources */,
+				774F915C285C103500D692BE /* FontNames.swift in Sources */,
 				C9722301285B79D4004B3628 /* ServerCommunicationViewModel.swift in Sources */,
 				C91EB94B2858692A00EB648B /* ServerCommunication.swift in Sources */,
 				C91EB94A285868F100EB648B /* FlowerListView.swift in Sources */,
+				A91608EF285C529900473466 /* PhotoTransport.swift in Sources */,
+				A9E979DE285C936A00AADF38 /* TextExtension.swift in Sources */,
 				C92B3BE5285175070010C49A /* PhotoGiftView.swift in Sources */,
 				77A9654B285A5BFB00511556 /* AppleSocialLogin.swift in Sources */,
+				27393879285B257700836B26 /* LoginResponseDTO.swift in Sources */,
 				77196616284B4DC7002E6AC0 /* CreateGiftListView.swift in Sources */,
 				A44EE0492856C6E900CC25A0 /* Flower.swift in Sources */,
+				2739387B285B2C5B00836B26 /* LoginRequestDTO.swift in Sources */,
 				77A9654D285A626800511556 /* AuthenticationViewModel.swift in Sources */,
 				A932622D284F2AA900E5C0A3 /* MyImage.swift in Sources */,
 				A44EE04B2856C71000CC25A0 /* Pill.swift in Sources */,
@@ -529,6 +618,7 @@
 				3EDF0F4428586CEA0048A63C /* NetworkLoggerPlugin.swift in Sources */,
 				A4DA9D2D28571B4C0038B34D /* FlowerPopUpView.swift in Sources */,
 				A932622F284F2AD400E5C0A3 /* ImagePicker.swift in Sources */,
+				2739387D285B2CBD00836B26 /* AuthApi.swift in Sources */,
 				A464B6912859C710003DC2EA /* PillPopUpView.swift in Sources */,
 				A9452D862858DD3B003E6450 /* CoupleInformation.swift in Sources */,
 				77403C8F28519B04000A21EE /* SignInWithAppleViewModel.swift in Sources */,
@@ -540,21 +630,26 @@
 				77403C862850AA60000A21EE /* GettingStartView.swift in Sources */,
 				A4DA9D2B28571AD60038B34D /* FlowerView.swift in Sources */,
 				3EBE437A2849B6D30085C7C6 /* ContentView.swift in Sources */,
+				2739387F285B2ED400836B26 /* API.swift in Sources */,
 				773C1A52284F37E400E93BFE /* Letter.swift in Sources */,
 				773C1A56284F3A5800E93BFE /* CreateLetterView.swift in Sources */,
 				A981538128587CE100476507 /* BackButtonExtension.swift in Sources */,
 				3EBE43782849B6D30085C7C6 /* liveOnApp.swift in Sources */,
 				A44EE04D2856C74B00CC25A0 /* PillListView.swift in Sources */,
+				C972230C285C9264004B3628 /* Event.swift in Sources */,
 				C97222EF2859BFCB004B3628 /* DateToStringEvent.swift in Sources */,
 				77403C852850AA60000A21EE /* SetNicknameView.swift in Sources */,
 				773C1A58284F3B5500E93BFE /* TextLimiter.swift in Sources */,
 				77196614284B41E8002E6AC0 /* GiftBoxView.swift in Sources */,
-				C97222F1285B006C004B3628 /* ForEachTest.swift in Sources */,
 				773C1A54284F37F700E93BFE /* LetterListView.swift in Sources */,
 				3E59192E285C0003006207F6 /* UserVoiceMail.swift in Sources */,
 				A92A88C728506B8700A71FCC /* PhotoCardsView.swift in Sources */,
 				3E9206CC284F343200D064E6 /* Recording.swift in Sources */,
+
 				3E591934285CB926006207F6 /* VoicemailPopUpView.swift in Sources */,
+
+				27393882285B313000836B26 /* AuthNetworkService.swift in Sources */,
+
 				C9FE9E0828571F71007B6EA5 /* MoveDatePicker.swift in Sources */,
 				77A30A8C285B0588009548E5 /* VoicemailsView.swift in Sources */,
 				77403C8A2850B7E9000A21EE /* SelectWhatToDoView.swift in Sources */,
@@ -695,7 +790,11 @@
 				DEVELOPMENT_TEAM = S9G6YGQ76H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "마이크 사용 권한";
+
+				INFOPLIST_FILE = liveOn/Info.plist;
+
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -707,7 +806,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+
 				PRODUCT_BUNDLE_IDENTIFIER = "id-liveOn";
+
+				PRODUCT_BUNDLE_IDENTIFIER = com.alsehfdl.liveOn;
+
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -722,14 +825,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = liveOn/liveOn.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"liveOn/Preview Content\"";
 				DEVELOPMENT_TEAM = C95YD9G273;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "마이크 사용 권한";
+
+				INFOPLIST_FILE = liveOn/Info.plist;
+
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -741,9 +848,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = sasd;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alsehfdl.liveOn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = Jisu_Jang;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

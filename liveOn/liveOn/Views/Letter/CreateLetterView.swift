@@ -26,6 +26,7 @@ struct CreateLetterView: View {
         VStack(alignment: .center) {
             VStack(alignment: .center) {
                 TextEditor(text: $input.value)
+                    .setHandWritten()
                     .foregroundColor(isitEntered ? .black : .gray)
                 // MARK: placeholder 사라지게
                     .onTapGesture {
@@ -73,8 +74,12 @@ struct CreateLetterView: View {
                             store.insert(letter: input.value, writer: "재헌")
                             dismiss()
                         })
+                        
                     })
+            .preferredColorScheme(.light)
             .navigationBarTitle("쪽지 쓰기", displayMode: .inline)
+            .ignoresSafeArea()
+            .navigationBarBackButtonHidden(true)
 
         }
         .onAppear {

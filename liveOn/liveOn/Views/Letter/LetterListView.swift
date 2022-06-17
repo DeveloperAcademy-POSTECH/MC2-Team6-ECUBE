@@ -35,7 +35,7 @@ struct LetterListView: View {
             .blur(radius: doshowDetail ? 5 : 0)
             Color(uiColor: .systemBackground).opacity(doshowDetail ? 0.5 : 0)
             if doshowDetail {
-                letterDetail()
+                LetterDetail()
                     .padding()
                     .onTapGesture {
                         withAnimation {
@@ -69,7 +69,7 @@ extension LetterListView {
         
         func showDetail() -> some View {
             VStack {
-                    letterDetail()
+                    LetterDetail()
                         .padding()
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 
@@ -87,9 +87,11 @@ extension LetterListView {
         var itemPreview: some View {
             VStack(alignment: .leading, spacing: 4) {
                 Text(letter.content)
+                    .setHandWritten()
                 .lineLimit(1)
-                
+             
                 Text("from \(letter.writer)")
+                    .setHandWritten()
                     .font(.caption)
                     .opacity(0.8)
                 
@@ -97,7 +99,7 @@ extension LetterListView {
             .padding()
             .frame(width: UIScreen.main.bounds.width*0.45, height: UIScreen.main.bounds.width*0.45, alignment: .center)
             .foregroundColor(.bodyTextColor)
-            .background(Image(letter.letterStyle).resizable().scaledToFit().shadow(color: .bodyTextColor.opacity(0.5), radius: 2, x: 1, y: 1))
+            .background(Image(letter.letterStyle).resizable().scaledToFit().shadow(color: .shadowColor, radius: 2, x: 1, y: 1))
 
         }
             
@@ -105,13 +107,14 @@ extension LetterListView {
     
 }
 
-struct letterDetail: View {
+struct LetterDetail: View {
     @EnvironmentObject var store: LetterStore
     @State var letterTemp: Letter = Letter(content: "안녕 유진아 반가워 오랜만이야", createdDate: Date(), writer: "재헌")
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             VStack {
                 Text(letterTemp.content)
+                    .setHandWritten()
                     .lineSpacing(4)
                     .padding()
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -119,13 +122,16 @@ struct letterDetail: View {
                 Spacer()
                 VStack {
                     Text(letterTemp.createdDate)
+                        .setHandWritten()
                         .font(.callout)
                     Text("from.\(letterTemp.writer)")
+                        .setHandWritten()
                 }
                 .padding(.bottom, 4)
                 .opacity(0.8)
                 .frame(maxWidth: .infinity, alignment: .trailing)
             }
+
             .frame(width: UIScreen.main.bounds.width*0.65, height: UIScreen.main.bounds.width*0.55, alignment: .leading)
         
         }

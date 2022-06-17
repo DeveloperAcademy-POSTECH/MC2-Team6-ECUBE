@@ -31,10 +31,13 @@ struct SetNicknameView: View {
                                     })) // VStack
 
         }
+        .navigationTitle("")
+        .navigationBarTitleDisplayMode(.inline)
         .background(Color.background)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                NavigationLink(destination: SetBirthdayView().environmentObject(currentUser)) {
+                NavigationLink(destination: SetBirthdayView()
+                    .environmentObject(currentUser)) {
                     Text("다음")
                 }
                 .buttonStyle(.plain)
@@ -69,7 +72,7 @@ struct OnboardingHeader: View {
     let description: String
     let inputView: AnyView?
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
+        VStack(alignment: .leading, spacing: 12) {
             Text(title)
                 .font(.title)
                 .fontWeight(.bold)
@@ -82,7 +85,7 @@ struct OnboardingHeader: View {
         }
         .foregroundColor(.bodyTextColor)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .padding(16)
+        .padding(24)
         
     }
 }

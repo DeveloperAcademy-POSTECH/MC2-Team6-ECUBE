@@ -13,6 +13,8 @@ struct GiftBoxView: View {
     @EnvironmentObject var currnetUser: User
     @State var isActive: Bool = false
     
+    @StateObject var storedEvent = EventStore()
+    
     var body: some View {
 
             GeometryReader { proxy in
@@ -38,7 +40,7 @@ struct GiftBoxView: View {
         HStack(alignment: .center, spacing: 0) {
             coupleInfo
             Spacer()
-            NavigationLink(destination: CreateGiftListView(), isActive: $isActive) {
+            NavigationLink(destination: CreateGiftListView().environmentObject(storedLetter), isActive: $isActive) {
                 Image(systemName: "gift")
                     .font(.title2)
                     .foregroundColor(.bodyTextColor)
@@ -46,9 +48,6 @@ struct GiftBoxView: View {
                     .padding(.vertical)
             }
             .background(.yellow)
-            .onTapGesture {
-                print("엥")
-            }
             .buttonStyle(.plain)
         }
         .padding(16)
@@ -68,13 +67,14 @@ struct GiftBoxView: View {
                     .frame(width: 25, height: 25)
                 Text("유진")
                 HStack(alignment: .center, spacing: 1) {
-                    Image(systemName: "plus")
-                    Text("\(countDays(from: currnetUser.firstDay!))")
+
+                    Text("+ \(countDays(from: currnetUser.firstDay ?? Date()))")
                         .fontWeight(.semibold)
                 }
                 .foregroundColor(Color("Orange"))
                 
             }
+            .setHandWritten()
             .font(.subheadline)
             .foregroundColor(Color.bodyTextColor)
             .padding(.horizontal, 20)
@@ -134,13 +134,13 @@ struct GiftBoxView: View {
     // MARK: 앨범과 캘린더
     var albumAndCalendar: some View {
         HStack(alignment: .bottom, spacing: 0) {
-            NavigationLink(destination: PhotoCardsView(imageModel: ImageViewModel())) {
+            NavigationLink(destination: PhotoCardsView()) {
                 Image("album")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
             }
             Spacer()
-            NavigationLink(destination: CalendarMain()) {
+            NavigationLink(destination: CalendarMain().environmentObject(storedEvent)) {
                 Image("calendar")
                     .resizable()
                     .aspectRatio(contentMode: .fit)

@@ -11,18 +11,18 @@ struct PlusSetting: View {
     
     @State private var showani = false
     @State var show = false
-    var eventDate: Date
-    
+
+    @Binding var eventDate: Date
     @Binding var eventbaseDate: Date
     @Binding var eventTitle: String
     @Binding var eventMemo: String
     @Binding var emoji: String
+    @Binding var burgundyColor: Color
     
-//    @State var testData = DataInfo(emoji: "", Date: "", eventTitle: "", eventMemo: "")
-
     @Environment(\.dismiss) private var dismiss
     @Environment(\.presentationMode) var presentationMode
-        
+    @EnvironmentObject var store: EventStore
+    
     var body: some View {
         
         // 이모지 키보드를 위한 요소
@@ -36,8 +36,8 @@ struct PlusSetting: View {
                     eventbaseDate = Date.now
                     dismiss()
                 }
-                .font(.title3)
-                .foregroundColor(.primary)
+                .font(.system(size: 16))
+                .foregroundColor(burgundyColor)
                 
                 Spacer()
                 
@@ -48,12 +48,13 @@ struct PlusSetting: View {
                 Spacer()
                 
                 Button("확인") {
-                    eventbaseDate = eventDate
-//                    testData = DataInfo(emoji: emoji, Date: "222", eventTitle: eventTitle, eventMemo: eventMemo)
+                    eventDate = self.eventbaseDate
+                    store.insert(eventDate: eventDate, eventTitle: eventTitle, eventMemo: eventMemo, emoji: emoji)
+                    eventbaseDate = Date.now
                     presentationMode.wrappedValue.dismiss()
                 }
-                .font(.title3)
-                .foregroundColor(.primary)
+                .font(.system(size: 16))
+                .foregroundColor(burgundyColor)
             }
             .padding([.trailing, .leading], 15)
             .offset(x: 0, y: -204)
@@ -71,16 +72,16 @@ struct PlusSetting: View {
             VStack {
                 RoundedRectangle(cornerRadius: 10)
                     .fill(Color.gray).opacity(0.3)
-                    .frame(width: 100, height: 100)
-                    .offset(x: -132, y: 340)
+                    .frame(width: 85, height: 85)
+                    .offset(x: -132, y: 336)
                 
                 HStack {
                     TextField("Emoji", text: $emoji, prompt: Text("☺︎"))
                         .limitInputLength(value: $emoji, length: 1)
                         .multilineTextAlignment(TextAlignment.center)
-                        .font(.system(size: 70))
+                        .font(.system(size: 60))
                         .frame(width: 80, height: 100)
-                        .offset(x: -131, y: 232)
+                        .offset(x: -130, y: 236)
                 }
                 
                 Button(action: {
@@ -101,13 +102,13 @@ struct PlusSetting: View {
                     .foregroundColor(.bodyTextColor)
                     .frame(width: 250, height: 20)
                     .font(.system(size: 18))
-                    .offset(x: 56, y: 280)
+                    .offset(x: 56, y: 285)
                 
                 VStack {
                     Text("(\(eventTitle.count)/15)")
                         .frame(width: 300, height: 20, alignment: .trailing)
                         .foregroundColor(.bodyTextColor).opacity(0.5)
-                        .offset(x: 38, y: 275)
+                        .offset(x: 38, y: 272)
                 }
                 
                 TextField("Comment", text: $eventMemo, prompt: Text("메모를 입력해주세요."))
@@ -116,13 +117,13 @@ struct PlusSetting: View {
                     .foregroundColor(.bodyTextColor)
                     .frame(width: 250, height: 20)
                     .font(.system(size: 18))
-                    .offset(x: 56, y: 280)
+                    .offset(x: 56, y: 270)
                 
                 VStack {
                     Text("(\(eventMemo.count)/20)")
                         .frame(width: 300, height: 20, alignment: .trailing)
                         .foregroundColor(.bodyTextColor).opacity(0.5)
-                        .offset(x: 38, y: 275)
+                        .offset(x: 38, y: 257)
                 }
             }
         }
@@ -184,7 +185,7 @@ struct EmojiView: View {
         var emojis: [[Int]] = []
         
         // 이모지 유니코드 리스트
-        for i in stride(from: 0x1f302, through: 0x1F6F3, by: 4) {
+        for i in stride(from: 0x1f302, through: 0x1F999, by: 4) {
             
             var temp: [Int] = []
             
@@ -215,6 +216,6 @@ extension View {
 
 struct PlusSetting_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarMain()
+        CalendarMain().environmentObject(EventStore())
     }
 }
