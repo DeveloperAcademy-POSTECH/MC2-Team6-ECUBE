@@ -11,8 +11,8 @@ struct PlusSetting: View {
     
     @State private var showani = false
     @State var show = false
-    var eventDate: Date
-    
+
+    @Binding var eventDate: Date
     @Binding var eventbaseDate: Date
     @Binding var eventTitle: String
     @Binding var eventMemo: String
@@ -48,7 +48,7 @@ struct PlusSetting: View {
                 Spacer()
                 
                 Button("확인") {
-                    eventbaseDate = eventDate
+                    eventDate = self.eventbaseDate
 //                    testData = DataInfo(emoji: emoji, Date: "222", eventTitle: eventTitle, eventMemo: eventMemo)
                     presentationMode.wrappedValue.dismiss()
                 }

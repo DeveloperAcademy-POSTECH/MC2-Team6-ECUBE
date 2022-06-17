@@ -1,8 +1,8 @@
 //
- //  CalendarMain.swift
- //  liveOn
- //
- //  Created by Keum MinSeok on 2022/06/07.
+//  CalendarMain.swift
+//  liveOn
+//
+//  Created by Keum MinSeok on 2022/06/07.
 
 import SwiftUI
 
@@ -13,7 +13,7 @@ struct CalendarMain: View {
     
     // 기념일 추가 Button
     @State var showSheet = false
-
+    
     // MoveDatePicker 아래에 블러 효과 넣기
     @State private var isClicked = false
     
@@ -29,14 +29,14 @@ struct CalendarMain: View {
     @State private var ivoryColor = Color("Ivory")
     
     // 다가오는 기념일에 쓰일 변수
+    @State var eventDate: Date = Date()
     @State var eventbaseDate: Date = Date()
-    
     @State private var eventTitle: String = ""
     @State private var eventMemo: String = ""
     @State private var emoji: String = ""
     
     @Environment(\.dismiss) private var dismiss
-
+    
     var body: some View {
         
         ScrollView(.vertical, showsIndicators: false) {
@@ -61,7 +61,7 @@ struct CalendarMain: View {
                                     .font(.system(size: 18, weight: .light))
                             }
                             .padding(.trailing)
-                                                        
+                            
                             // 달력의 년도/월/moveDatePicker Popup
                             Text(extraDate(currentDate: self.currentDate)[0])
                                 .font(.title.bold())
@@ -157,7 +157,8 @@ struct CalendarMain: View {
                                         .foregroundColor(burgundyColor)
                                         .sheet(isPresented: $showSheet, content: {
                                             PlusSetting(
-                                                eventDate: self.eventbaseDate,
+                                                eventDate: $eventDate,
+//                                                    self.eventbaseDate,
                                                 eventbaseDate: $eventbaseDate,
                                                 eventTitle: $eventTitle,
                                                 eventMemo: $eventMemo,
@@ -168,90 +169,82 @@ struct CalendarMain: View {
                                 .padding(.trailing, -1)
                             }
                             
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .fill(Color.white)
-                                        .frame(width: 355, height: 66)
-
-                                    HStack {
-                                        Capsule()
-                                            .fill(Color("Burgundy"))
-                                            .frame(width: 38, height: 8)
-                                            .rotationEffect(Angle(degrees: 90))
-                                            .padding(.trailing, 14)
-
-                                        VStack {
-                                            // emoji
-//                                             Text(emoji)
-                                            Text("🏞")
-                                                .font(.system(size: 28))
-                                                .padding(.bottom, -5)
-
-                                            //  eventDate
-//                                            Text(DateToStringEvent(_:eventbaseDate))
-                                            Text("06/04")
-                                                .font(.system(size: 13))
-                                                .foregroundColor(Color("Burgundy"))
-                                        }
-                                        .padding(.leading, -21)
-
-                                        VStack {
-                                            //  eventTitle
-//                                              Text(eventTitle)
-                                            Text("한강 피크닉 가는 날")
-                                                .foregroundColor(Color("Burgundy"))
-                                                .font(.system(size: 18).bold())
-                                                .frame(width: 280, alignment: .leading)
-                                                .padding(.trailing, -30)
-                                                .padding(.bottom, 3)
-
-                                            // eventMemo
-//                                             Text(eventMemo)
-                                            Text("한강에서 치맥하면서 멍 때리기")
-                                                .foregroundColor(.gray)
-                                                .font(.system(size: 14))
-                                                .frame(width: 280, alignment: .leading)
-                                                .padding(.trailing, -32)
-                                        }
-                                        .padding(.leading, 6)
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(Color.white)
+                                    .frame(width: 355, height: 66)
+                                
+                                HStack {
+                                    Capsule()
+                                        .fill(Color("Burgundy"))
+                                        .frame(width: 38, height: 8)
+                                        .rotationEffect(Angle(degrees: 90))
+                                        .padding(.trailing, 14)
+                                    
+                                    VStack {
+                                        // emoji
+                                        Text(emoji)
+                                            .font(.system(size: 28))
+                                            .padding(.bottom, -5)
+                                        
+                                        //  eventDate
+                                        Text(DateToStringEvent(_:eventDate))
+                                            .font(.system(size: 13))
+                                            .foregroundColor(Color("Burgundy"))
                                     }
-                                    .padding(.leading, -45.5)
+                                    .padding(.leading, -21)
+                                    
+                                    VStack {
+                                        //  eventTitle
+                                        Text(eventTitle)
+                                            .foregroundColor(Color("Burgundy"))
+                                            .font(.system(size: 18).bold())
+                                            .frame(width: 280, alignment: .leading)
+                                            .padding(.trailing, -30)
+                                            .padding(.bottom, 3)
+                                        
+                                        // eventMemo
+                                        Text(eventMemo)
+                                            .foregroundColor(.gray)
+                                            .font(.system(size: 14))
+                                            .frame(width: 280, alignment: .leading)
+                                            .padding(.trailing, -32)
+                                    }
+                                    .padding(.leading, 6)
                                 }
-                                .padding(.top, 2)
+                                .padding(.leading, -45.5)
+                            }
+                            .padding(.top, 2)
                             
                             ZStack {
                                 RoundedRectangle(cornerRadius: 10)
                                     .fill(Color.white)
                                     .frame(width: 355, height: 66)
-
+                                
                                 Capsule()
                                     .fill(Color("Burgundy"))
                                     .frame(width: 38, height: 8)
                                     .rotationEffect(Angle(degrees: 90))
                                     .offset(x: -173, y: 0)
-
+                                
                                 // emoji
-//                                Text(emoji)
                                 Text("🎂")
                                     .font(.system(size: 28))
                                     .offset(x: -135, y: -8)
-
+                                
                                 //  eventDate
-//                                Text(DateToStringEvent(_:eventbaseDate))
                                 Text("06/10")
                                     .font(.system(size: 13))
                                     .foregroundColor(Color("Burgundy"))
                                     .offset(x: -135, y: 20)
-
+                                
                                 //  eventTitle
-//                                TextField("Comment", text: $eventTitle, prompt: Text("칵테일 마시는 날"))
                                 Text("재헌이 태어난 날")
                                     .font(.system(size: 18).bold())
                                     .foregroundColor(Color("Burgundy"))
                                     .offset(x: -42, y: -14)
-
+                                
                                 // eventMemo
-//                                TextField("Comment", text: $eventMemo, prompt: Text("분위기 좋은 바에 가서 칵테일 마시는 날"))
                                 Text("재헌이 생일 축하해주고 데이트 하는 날")
                                     .font(.system(size: 14))
                                     .foregroundColor(Color.gray)
@@ -269,7 +262,7 @@ struct CalendarMain: View {
                                     .frame(width: 38, height: 8)
                                     .rotationEffect(Angle(degrees: 90))
                                     .offset(x: -173, y: 0)
-                               
+                                
                                 // emoji
                                 Text("🌉")
                                     .font(.system(size: 28))
@@ -297,7 +290,7 @@ struct CalendarMain: View {
                         }
                         .padding()
                     }
-
+                    
                     // MoveDatePickerView와 CalendarMain 사이에 블러 효과
                     .opacity(isClicked ? 0.2 : 1 )
                     
@@ -310,10 +303,10 @@ struct CalendarMain: View {
                         MoveDatePicker(autoDate: self.currentDate,
                                        currentDate: $currentDate,
                                        showDatePicker: $showDatePicker,
-
+                                       
                                        popUpBoolean: $showDatePicker,
                                        isClicked: $isClicked)
-
+                        
                     }
                 }
             }
