@@ -12,7 +12,7 @@ class User: Identifiable, ObservableObject {
     @Published var nickname: String  = ""
     @Published var birth: Date?
     @Published var firstDay: Date?
-    @Published var userCode: String = "#####"
+    @Published var userCode: String = "1afsk"
     init() {
     }
 }

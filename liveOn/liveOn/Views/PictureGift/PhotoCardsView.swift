@@ -14,6 +14,7 @@ struct PhotoCardsView: View {
     @State private var PhotoGiftDataList: [PhotoGiftData] = [PhotoGiftData(photoURL: "", photoComment: "")]
     var columns: [GridItem] = Array(repeating: GridItem(GridItem.Size.fixed(160)), count: 2)
     var temporaryData: [PhotoCardInformation] = [testData1, testData2, testData3]
+
     
     var body: some View {
         ScrollView {
@@ -65,7 +66,7 @@ struct PhotoCardsView: View {
             case .success(let result):
                 do {
                     loadedImage = try result.map(ImageGetResponse.self)
-                } catch(let err) {
+                } catch let err {
                     print(err.localizedDescription)
                     print("이미지를 디코딩하는데 실패했습니다")
                 }
@@ -82,7 +83,7 @@ struct PhotoCardInformation: Hashable {
 }
 
 struct PhotoGiftData: Hashable {
-    var photoURL : String
+    var photoURL: String
     var photoComment: String
 }
 
@@ -180,4 +181,3 @@ struct CalendarBaws: PreviewProvider {
         PhotoCardsView()
     }
 }
-

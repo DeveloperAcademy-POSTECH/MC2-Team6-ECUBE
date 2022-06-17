@@ -11,37 +11,44 @@ struct SetFirstDayView: View {
     @EnvironmentObject var currentUser: User
     @Environment(\.dismiss) private var dismiss
     @State var firstDay: Date = Date.now
-
     var body: some View {
-        OnboardingHeader(title: " 처음 만난날이 언제인가요? ", description: "며칠짼지 세어드릴게요!", inputView:
-                                AnyView(
-                                    VStack {
-                                        Text("\(DateToStringKR(firstDay))").font(.title2)
-                                            .padding()
-                                        // TODO: 캘린더 피커 수정하기
-                DatePicker("1일 선택", selection: $firstDay, in: ...Date(), displayedComponents: .date)
-                    .datePickerStyle(.graphical)
-                    .background(.clear)
-                    .applyTextColor(.bodyTextColor)
-                    .padding()
-                                        Spacer()
-                                    })
-            )
-        .navigationToBack(dismiss)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                NavigationLink(destination: SelectWhatToDoView().environmentObject(currentUser)) {
-                    Text("다음")
-                }
-                .buttonStyle(.plain)
-                
-                // MARK: User 데이터 저장
-                .simultaneousGesture(TapGesture().onEnded {
-                    currentUser.firstDay = firstDay
-                })
-            }
+        VStack(alignment: .leading, spacing: 0) {
+        OnboardingHeader(title: "첫 만남 기록하기", description: "여러분이 함께한 시간을 기록할게요", inputView:
+                            AnyView(
+                                VStack {
+                                    Text("\(DateToStringKR(firstDay))").font(.title2)
+                                        .padding(.vertical, 16)
+                                        .padding(.horizontal, 32)
+                                        .foregroundColor(.white)
+                                        .background(Capsule().fill(Color.accentColor))
+                                        .offset(y: -10)
+                                    // TODO: 캘린더 피커 수정하기
+                                    DatePicker("생일 선택", selection: $firstDay, in: ...Date(), displayedComponents: .date)
+                                        .datePickerStyle(GraphicalDatePickerStyle())
+                                        .applyTextColor(Color.accentColor)
+                                        .padding(16)
+                                        .background(RoundedRectangle(cornerRadius: 20).fill(Color(uiColor: .systemBackground)).shadow(color: .bodyTextColor.opacity(0.3), radius: 6, x: 0, y: 2))
+                                        
+                                        .padding(16)
+                                })
+        )
         }
-    } // body
+    .navigationToBack(dismiss)
+    .background(Color.background)
+    .toolbar {
+        ToolbarItem(placement: .navigationBarTrailing) {
+            NavigationLink(destination: SelectWhatToDoView().environmentObject(currentUser)) {
+                Text("다음")
+            }
+            .buttonStyle(.plain)
+            
+            // MARK: User 데이터 저장
+            .simultaneousGesture(TapGesture().onEnded {
+                currentUser.firstDay = firstDay
+            })
+        }
+    }
+} // body
 }
 
 struct SetFirstDayView_Previews: PreviewProvider {

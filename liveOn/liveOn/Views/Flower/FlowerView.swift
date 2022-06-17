@@ -18,12 +18,12 @@ struct FlowerView: View {
     @State var isitEntered: Bool = false
     @State private var isTapped: Bool = false
     @Environment(\.dismiss) var dismiss
-    
+    @State var whatFlower = 0
     var body: some View {
         
         VStack {
             
-            FlowerCardView(content: flowerList[Int.random(in: 0..<3)])
+            FlowerCardView(content: flowerList[whatFlower])
             
             VStack {
                 // 메시지 카드
@@ -58,11 +58,23 @@ struct FlowerView: View {
                 .padding(.top, 54)
                 
             } // VStack
+            .onAppear {
+                // TODO: 서버통신 연결, 랜덤 값 API
+                whatFlower =  Int.random(in: 0..<3)
+            }
         } // VStack
         .navigationTitle("꽃")
         .navigationBarTitleDisplayMode(.inline)
         .background(.background)
-        .navigationBarItems(trailing: Button {
+        .navigationBarItems(
+            leading: Button {
+                dismiss()
+            } label: {
+                Image(systemName: "chevron.left")
+                    .font(.system(size: 20))
+                    .foregroundColor(.black)
+            },
+            trailing: Button {
             showAlertforSend = true
         } label: {
             Text("선물하기")
@@ -73,7 +85,7 @@ struct FlowerView: View {
                     )
                 }
         }.disabled(!input.inputEntered))
-        
+        .navigationBarBackButtonHidden(true)
     } // body
 }
 
@@ -88,19 +100,20 @@ struct FlowerCardView: View {
             
             // 꽃 이름
             Text("\(content.name)")
-                .font(.system(size: 20))
+                .font(.title2)
                 .fontWeight(.bold)
                 .padding(.bottom, 2)
                 .foregroundColor(.bodyTextColor)
             
             // 꽃 설명
             Text("\(content.meaning)")
-                .font(.system(size: 12))
+                .font(.headline)
                 .foregroundColor(.gray)
             
             // 꽃
-            Image("flower")
+            Image(content.imageName)
                 .resizable()
+                .scaledToFit()
                 .frame(width: 280, height: 168, alignment: .center)
                 .padding(.top, 42)
             

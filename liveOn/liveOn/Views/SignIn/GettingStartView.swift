@@ -28,12 +28,12 @@ struct GettingStartView: View {
                 }.onTapGesture {
                     print("임시 다음 버튼 누르셈")
                 }
+                .padding(.bottom, 40)
                 
-                SignInWithAppleButton(.signIn, onRequest: {request in request.requestedScopes = [.fullName, .email]}, onCompletion: {result in authenticationViewModel.didFinishAuthentication(result: result)}
+                SignInWithAppleButton(.signIn, onRequest: {request in request.requestedScopes = []}, onCompletion: {result in authenticationViewModel.didFinishAuthentication(result: result)}
                 )
                 .frame(height: 45)
                 .padding()
-
             }
     }
     
