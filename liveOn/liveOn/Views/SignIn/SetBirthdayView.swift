@@ -14,7 +14,7 @@ struct SetBirthdayView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-        OnboardingHeader(title: "생일 입력하기", description: "기념일로 등록해둘게요.", inputView:
+        OnboardingHeader(title: "생일 입력하기", description: " 기념일로 등록해둘게요.", inputView:
                             AnyView(
                                 VStack {
                                     Text("\(DateToStringKR(birthday))").font(.title2)
@@ -51,6 +51,7 @@ struct SetBirthdayView: View {
         }
     } // body
 }
+
 
 struct SetBirthdayView_Previews: PreviewProvider {
     static var previews: some View {

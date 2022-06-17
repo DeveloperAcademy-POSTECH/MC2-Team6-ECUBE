@@ -10,56 +10,65 @@ import SwiftUI
 struct PhotoCardsView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var isTapped: Bool = false
-    @State var loadedImage = ImageGetResponse(createdAt: "", giftPolaroidId: 0, giftPolaroidImage: "", userNickName: "")
+    @State private var loadedImage = ImageGetResponse(createdAt: "", giftPolaroidId: 0, giftPolaroidImage: "", userNickName: "")
     @State private var PhotoGiftDataList: [PhotoGiftData] = [PhotoGiftData(photoURL: "", photoComment: "")]
     var columns: [GridItem] = Array(repeating: GridItem(GridItem.Size.fixed(160)), count: 2)
     var temporaryData: [PhotoCardInformation] = [testData1, testData2, testData3]
-
     
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: columns) {
-                ForEach(temporaryData, id: \.self) { data in
-                    Button(action: {
-                        isTapped.toggle()
-                    }){
-                        PhotoCard(PhotoCardDetail: data)
+        ZStack {
+            ScrollView {
+                    LazyVGrid(columns: columns) {
+                        ForEach(temporaryData, id: \.self) { data in
+                            Button(action: {
+                                isTapped.toggle()
+                            }){
+                                PhotoCard(PhotoCardDetail: data)
+                            }
+                        }
+                        LoadedPhotoCard(imageURL: loadedImage.giftPolaroidImage)
                     }
-                    .sheet(isPresented: $isTapped, content: {
-                        PhotoCardSheet(PhotoCardDetail: data)
-                    })
-                }
-                
-                LoadedPhotoCard(imageURL: loadedImage.giftPolaroidImage)
+                    .opacity(isTapped ? 0.2 : 1)
+                    .onTapGesture {
+                        isTapped.toggle()
+                    }
             }
-            .frame(maxWidth: .infinity)
-        }
-        .navigationTitle("")
-        .navigationBarTitleDisplayMode(.inline)
-        .task {
-            imageGet()
-            print("이미지 로딩이 수행되었습니다.")
-            PhotoGiftDataList.append(PhotoGiftData(photoURL: loadedImage.giftPolaroidImage, photoComment: loadedImage.userNickName))
-        }
-        .padding()
-        .background(Color.background)
-        .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button(action: {
-                    dismiss()
-                }) {
-                    Image(systemName: "chevron.left")
-                        .font(.system(size: 20))
+            .navigationTitle("")
+            .navigationBarTitleDisplayMode(.inline)
+            .task {
+                imageGet()
+                print("이미지 로딩이 수행되었습니다.")
+                PhotoGiftDataList.append(PhotoGiftData(photoURL: loadedImage.giftPolaroidImage, photoComment: loadedImage.userNickName))
+            }
+            .padding()
+            .background(Color.background)
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        dismiss()
+                    }) {
+                        Image(systemName: "chevron.left")
+                            .font(.system(size: 20))
+                            .foregroundColor(.black)
+                    }
+                }
+                ToolbarItem(placement: .principal) {
+                    Text("사진 선물함")
                         .foregroundColor(.black)
                 }
-            }
-            ToolbarItem(placement: .principal) {
-                Text("사진 선물함")
-                    .foregroundColor(.black)
+        }
+            if isTapped == true {
+                Button(action: {
+                    isTapped.toggle()
+                }){
+            PhotoCardSheet(PhotoCardDetail: PhotoCardInformation(imageName: "exampleImage2", photoText: "김치찌개가 존맛입니다!!"))
+                }
             }
         }
     }
+    
+    
     func imageGet() {
         moyaService.request(.imageGet) { response in
             switch response {
