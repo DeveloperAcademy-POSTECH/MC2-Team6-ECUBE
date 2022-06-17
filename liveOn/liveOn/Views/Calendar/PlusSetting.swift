@@ -97,7 +97,7 @@ struct PlusSetting: View {
             
             VStack {
                 TextField("Comment", text: $eventTitle, prompt: Text("어떤 기념일인가요?"))
-                    .limitInputLength(value: $eventTitle, length: 20)
+                    .limitInputLength(value: $eventTitle, length: 15)
                     .multilineTextAlignment(TextAlignment.leading)
                     .foregroundColor(.bodyTextColor)
                     .frame(width: 250, height: 20)
@@ -105,7 +105,7 @@ struct PlusSetting: View {
                     .offset(x: 56, y: 285)
                 
                 VStack {
-                    Text("(\(eventTitle.count)/20)")
+                    Text("(\(eventTitle.count)/15)")
                         .frame(width: 300, height: 20, alignment: .trailing)
                         .foregroundColor(.bodyTextColor).opacity(0.5)
                         .offset(x: 38, y: 272)
@@ -216,6 +216,6 @@ extension View {
 
 struct PlusSetting_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarMain()
+        CalendarMain().environmentObject(EventStore())
     }
 }
