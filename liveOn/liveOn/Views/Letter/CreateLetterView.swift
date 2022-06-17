@@ -26,6 +26,7 @@ struct CreateLetterView: View {
         VStack(alignment: .center) {
             VStack(alignment: .center) {
                 TextEditor(text: $input.value)
+                    .setHandWritten()
                     .foregroundColor(isitEntered ? .black : .gray)
                 // MARK: placeholder 사라지게
                     .onTapGesture {

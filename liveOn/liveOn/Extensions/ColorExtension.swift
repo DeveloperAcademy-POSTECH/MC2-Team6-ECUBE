@@ -15,7 +15,9 @@ extension Color {
     static let recordingBtn = Color("Orange")
     static let recordingBtnBackground = Color("Grey")
     static let cassetteBorder = Color("CassetteBorder")
-    
+    static let deepGreen = Color(hex: "2F8F4A")
+    static let coralPink = Color(hex: "DB5E5E")
+    static let shadowColor = Color(hex: "F2F0F0")
     static let primaryColor = Color(hex: "#A5726F")
     
     init(hex: String) {
