@@ -8,7 +8,7 @@ var loadedImage: ImageGetResponse?
 
 struct GeneralAPI {
     static let baseURL = "http://13.124.90.96:8080"
-    static let token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpbmciLCJyb2xlIjoiVVNFUiIsImV4cCI6MTY1ODAzODkxNywiaWF0IjoxNjU1NDQ2OTE3fQ.MKYxdGIGc9tExtStsC4AQECXPFdRgGB6HcFI6Rodv88"
+    static let token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpbmciLCJyb2xlIjoiVVNFUiIsImV4cCI6MTY1ODA0MDg5OSwiaWF0IjoxNjU1NDQ4ODk5fQ.DFLaxRaHMOo7nyDQlwh52ytsroanfFobjmbZHi7bG9M"
 }
 
 // MARK: MoyaTest의 코드들 옮긴 부분
@@ -18,7 +18,8 @@ enum ServerCommunications {
     case login(param: LoginRequest) // 파라미터로 스트럭트가 들어갑니다.
     case imagePost(comment: String, polaroid: UIImage)
     case imageGet
-    case voicemailPost(title: String)
+    case voicemailPost(title: String, name: String)
+//    case voicemailPost(title: String)
     case voicemailListGet
     case voicemailGet(id: Int)
     case getData
@@ -49,6 +50,17 @@ struct ImageGetResponse: Codable {
     let giftPolaroidImage: String
     let userNickName: String
 }
+
+// MARK: Voicemail related models
+ struct VoicemailPostRequest {
+    let title: String
+    let data: MultipartFormData
+//
+//    init() {
+//        self.title = ""
+//        self.data = MultipartFormData(provider: .data(), name: "")
+//    }
+ }
 
 struct VoicemailListGetResponse: Codable {
     let giftVoiceMailID: Int
@@ -121,9 +133,13 @@ extension ServerCommunications: TargetType, AccessTokenAuthorizable {
             return .uploadMultipart(multipartForm)
             
             // MARK: Voicemail Post 요청
-        case .voicemailPost(let title):
+            // title - Model의 title / name - 파일명
+        case .voicemailPost(let title, let name):
+//        case .voicemailPost(let title):
             
+//            var vmPost: VoicemailPostRequest
             var multipartForm: [MultipartFormData] = []
+            let uploadTitle = title.data(using: .utf8) ?? Data()
             
             let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
             let directoryContents = try! FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)
@@ -133,11 +149,12 @@ extension ServerCommunications: TargetType, AccessTokenAuthorizable {
             
             guard let audioFile: Data = try? Data(contentsOf: directoryContents[0])
             else {
-                print("")
                 return .uploadMultipart(multipartForm)
             }
             
-            multipartForm.append(MultipartFormData(provider: .data(audioFile), name: "voiceMail", fileName: "\(title).m4a", mimeType: "audio/m4a"))
+            multipartForm.append(MultipartFormData(provider: .data(audioFile), name: "voiceMail", fileName: "\(name).m4a", mimeType: "audio/m4a"))
+            
+            multipartForm.append(MultipartFormData(provider: .data(uploadTitle), name: "title"))
             
             return .uploadMultipart(multipartForm)
             
@@ -158,7 +175,7 @@ extension ServerCommunications: TargetType, AccessTokenAuthorizable {
     var authorizationType: AuthorizationType? {
         switch self {
             
-        case .login, .imagePost, .getData:
+        case .login, .imagePost, .getData, .voicemailPost:
             return nil
             
         default:

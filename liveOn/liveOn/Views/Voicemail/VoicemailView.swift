@@ -151,7 +151,7 @@ struct VoicemailView: View {
             }
             .toolbar {
                 Button(action: {
-                    communication.uploadVM(title: vm.getFileName(for: vm.recordingsList[vm.recordingsList.count - 1].fileURL.deletingPathExtension()))
+                    communication.uploadVM(title: vm.title, name: vm.getFileName(for: vm.recordingsList[vm.recordingsList.count - 1].fileURL.deletingPathExtension()))
                 }) {
                     Text("선물하기")
                 }
