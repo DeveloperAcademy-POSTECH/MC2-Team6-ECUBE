@@ -10,6 +10,7 @@ import SwiftUI
 extension Color {
     static let background = Color("background")
     static let bodyTextColor = Color("bodyText")
+    static let placeHolderColor = Color(hex: "D9D9D9")
 
     static let recordingBtn = Color("Orange")
     static let recordingBtnBackground = Color("Grey")
