@@ -20,8 +20,8 @@ class AuthenticationViewModel: ObservableObject {
 //    init() {
 //        NotificationCenter.default.addObserver(self, selector: #selector(getAuthorizationState), name: ASAuthorizationAppleIDProvider.credentialRevokedNotification, object: nil)
 //    }
-    
-    func didFinishAuthentication(result: Result<ASAuthorization, Error> ) {
+    func didFinishAuthentication(result: Result<ASAuthorization, Error>) -> String {
+        var tokenData = ""
     
         print("didFinishAuthentication")
         switch result {
@@ -36,30 +36,35 @@ class AuthenticationViewModel: ObservableObject {
                             let tokenStr = String(data: idToken, encoding: .ascii)
                             
                             print(tokenStr ?? "")
-                            
                             print("saved apple user")
                 
                         } else {
                             print("missing some fields")
                         }
-                        
                         guard
                             let appleUserData = UserDefaults.standard.data(forKey: appleIdCredentials.user),
                             let appleUser = try? JSONDecoder().decode(AppleUser.self, from: appleUserData)
         
-                        else {return}
-                        print(appleUser)
+                        else {return ""}
+                    print("AppleUser 정보입니다.")
+                    print(appleUser)
+                    print("Apple user의 identityToken이 나왔습니다.")
                     print(appleUser.identityToken)
-                    authNetworkService.login(accessToken: appleUser.identityToken)
+                    
+                    // 여기까지가 토큰을 받아오는과정
+                    // 이 아래 함수는 그냥 에러 처리 및 토큰을 찍는 함수
+                    tokenData = authNetworkService.login(accessToken: appleUser.identityToken)
+                    
+                
                         
                     default:
                         print(auth.credential)
                 }
-                return
+                return ""
             case .failure(let error):
                 print(error)
         }
-        
+        return tokenData
     }
     
 //    @objc func getAuthorizationState() {
