@@ -8,13 +8,13 @@ var loadedImage: ImageGetResponse?
 
 struct GeneralAPI {
     static let baseURL = "http://13.124.90.96:8080"
-    static let token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpbmciLCJyb2xlIjoiVVNFUiIsImV4cCI6MTY1NzkzOTI2NywiaWF0IjoxNjU1MzQ3MjY3fQ.EOwAlXucfoqx9dzUkcheXJAfLSZrfibSiUxDbJbJbSs"
+    static let token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpbmciLCJyb2xlIjoiVVNFUiIsImV4cCI6MTY1ODAzODkxNywiaWF0IjoxNjU1NDQ2OTE3fQ.MKYxdGIGc9tExtStsC4AQECXPFdRgGB6HcFI6Rodv88"
 }
 
 // MARK: MoyaTest의 코드들 옮긴 부분
 // API 목록들
 enum ServerCommunications {
-  
+    
     case login(param: LoginRequest) // 파라미터로 스트럭트가 들어갑니다.
     case imagePost(comment: String, polaroid: UIImage)
     case imageGet
@@ -51,10 +51,14 @@ struct ImageGetResponse: Codable {
 }
 
 struct VoicemailListGetResponse: Codable {
-    let createdAt: String
-    let giftVoiceMailId: Int
-    let title: String
-    let userNickName: String
+    let giftVoiceMailID: Int
+    let title: String?
+    let createdAt, userNickName: String
+    
+    enum CodingKeys: String, CodingKey {
+        case giftVoiceMailID = "giftVoiceMailId"
+        case title, createdAt, userNickName
+    }
 }
 
 struct VoicemailGetResponse: Codable {
@@ -124,8 +128,8 @@ extension ServerCommunications: TargetType, AccessTokenAuthorizable {
             let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
             let directoryContents = try! FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)
             
-//            let audioURLPath = Bundle.main.path(forResource: title, ofType: "m4a")
-//            let audioURL = URL(fileURLWithPath: audioURLPath!)
+            //            let audioURLPath = Bundle.main.path(forResource: title, ofType: "m4a")
+            //            let audioURL = URL(fileURLWithPath: audioURLPath!)
             
             guard let audioFile: Data = try? Data(contentsOf: directoryContents[0])
             else {
@@ -170,8 +174,12 @@ extension ServerCommunications: TargetType, AccessTokenAuthorizable {
             return ["Content-Type": "multipart/form",
                     "Authorization": "Bearer "+GeneralAPI.token]
             
-        case .getData, .voicemailListGet:
+        case .getData:
             return ["Content-Type": "application/json"]
+            
+        case .voicemailListGet:
+            return ["Content-Type": "application/json",
+                    "Authorization": "Bearer "+GeneralAPI.token]
             
         default:
             return ["Content-Type": "application/json",

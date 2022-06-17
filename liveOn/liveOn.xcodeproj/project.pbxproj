@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E59192E285C0003006207F6 /* UserVoiceMail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E59192D285C0003006207F6 /* UserVoiceMail.swift */; };
 		3E9206C0284B249C00D064E6 /* VoicemailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206BF284B249C00D064E6 /* VoicemailView.swift */; };
 		3E9206CC284F343200D064E6 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206CB284F343200D064E6 /* Recording.swift */; };
 		3E9206D0284F3BA300D064E6 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206CF284F3BA300D064E6 /* Test.swift */; };
@@ -80,6 +81,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E59192D285C0003006207F6 /* UserVoiceMail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVoiceMail.swift; sourceTree = "<group>"; };
 		3E9206B3284AE2B700D064E6 /* ServerCommunication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerCommunication.swift; sourceTree = "<group>"; };
 		3E9206B5284AE2C400D064E6 /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
 		3E9206BF284B249C00D064E6 /* VoicemailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicemailView.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				3E9206CB284F343200D064E6 /* Recording.swift */,
 				3E9206CF284F3BA300D064E6 /* Test.swift */,
 				77A9654A285A5BFB00511556 /* AppleSocialLogin.swift */,
+				3E59192D285C0003006207F6 /* UserVoiceMail.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -541,6 +544,7 @@
 				77196614284B41E8002E6AC0 /* GiftBoxView.swift in Sources */,
 				C97222F1285B006C004B3628 /* ForEachTest.swift in Sources */,
 				773C1A54284F37F700E93BFE /* LetterListView.swift in Sources */,
+				3E59192E285C0003006207F6 /* UserVoiceMail.swift in Sources */,
 				A92A88C728506B8700A71FCC /* PhotoCardsView.swift in Sources */,
 				3E9206CC284F343200D064E6 /* Recording.swift in Sources */,
 				C9FE9E0828571F71007B6EA5 /* MoveDatePicker.swift in Sources */,

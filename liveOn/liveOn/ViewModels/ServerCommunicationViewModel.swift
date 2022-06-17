@@ -59,26 +59,6 @@ class ServerCommunication {
         }
     }
     
-    func getVM() {
-        authProvider.request(.voicemailListGet) { response in
-            
-            switch response {
-            case .success(let result):
-//                print("result: \(result)")₩
-                do {
-                    print("result: \(result)")
-//                    self.vmList = try result.map([VoicemailListGetResponse].self)
-
-                } catch let err {
-                    print(err.localizedDescription)
-                }
-                
-            case .failure(let err):
-                print(err)
-            }
-        }
-    }
-    
     func getData() {
         
         authProvider.request(.getData) { response in
