@@ -60,10 +60,8 @@ struct CalendarMain: View {
                                     .foregroundColor(burgundyColor)
                                     .font(.system(size: 18, weight: .light))
                             }
-                            .padding()
-                            
-//                            Spacer(minLength: 0)
-                            
+                            .padding(.trailing)
+                                                        
                             // 달력의 년도/월/moveDatePicker Popup
                             Text(extraDate(currentDate: self.currentDate)[0])
                                 .font(.title.bold())
@@ -86,9 +84,7 @@ struct CalendarMain: View {
                                     .foregroundColor(burgundyColor)
                                     .font(.title2.bold())
                             }
-                            .padding(.leading, 6)
-                            
-//                            Spacer(minLength: 0)
+                            .padding(.leading, 2)
                             
                             // 달력 다음 달로 이동
                             Button {
@@ -100,9 +96,8 @@ struct CalendarMain: View {
                                     .foregroundColor(burgundyColor)
                                     .font(.system(size: 18, weight: .light))
                             }
-                            .padding()
+                            .padding(.leading)
                         }
-                        .padding(.horizontal)
                         
                         // Day View
                         HStack(spacing: 0) {
@@ -127,8 +122,8 @@ struct CalendarMain: View {
                                 CardView(value: value)
                                     .background(
                                         Circle()
-                                            .fill(orangeColor)
-                                            .opacity(isSameDay(date1: value.date, date2: currentDate) ? 1 : 0)
+                                            .fill(burgundyColor)
+                                            .opacity(isSameDay(date1: value.date, date2: currentDate) ? 0.8 : 0)
                                             .padding(.vertical, 36)
                                             .padding(.bottom, 16)
                                             .padding(.top, -32)
@@ -146,19 +141,20 @@ struct CalendarMain: View {
                             HStack {
                                 
                                 Text("다가오는 기념일")
-                                    .font(.title2.bold())
+                                    .font(.system(size: 18, weight: .bold))
                                     .foregroundColor(Color("Burgundy"))
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .padding(.vertical, -10)
+                                    .padding(.leading, 2)
                                 
                                 Spacer(minLength: 0)
                                 
                                 Button(action: {
                                     showSheet.toggle()
                                 }) {
-                                    Image(systemName: "plus.circle")
-                                        .font(.title2)
-                                        .foregroundColor(.black)
+                                    Image(systemName: "plus")
+                                        .font(.system(size: 18, weight: .light))
+                                        .foregroundColor(burgundyColor)
                                         .sheet(isPresented: $showSheet, content: {
                                             PlusSetting(
                                                 eventDate: self.eventbaseDate,
@@ -169,45 +165,49 @@ struct CalendarMain: View {
                                             .frame(maxWidth: .infinity, alignment: .center)
                                         })
                                 }
+                                .padding(.trailing, -1)
                             }
                             
-                            Group {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 10)
                                         .fill(Color.white)
                                         .frame(width: 355, height: 66)
-                                    
+
                                     HStack {
                                         Capsule()
                                             .fill(Color("Burgundy"))
                                             .frame(width: 38, height: 8)
                                             .rotationEffect(Angle(degrees: 90))
                                             .padding(.trailing, 14)
-                                        
+
                                         VStack {
                                             // emoji
-                                             Text(emoji)
+//                                             Text(emoji)
+                                            Text("🏞")
                                                 .font(.system(size: 28))
                                                 .padding(.bottom, -5)
-                                            
+
                                             //  eventDate
-                                            Text(DateToStringEvent(_:eventbaseDate))
+//                                            Text(DateToStringEvent(_:eventbaseDate))
+                                            Text("06/04")
                                                 .font(.system(size: 13))
                                                 .foregroundColor(Color("Burgundy"))
                                         }
                                         .padding(.leading, -21)
-                                        
+
                                         VStack {
                                             //  eventTitle
-                                              Text(eventTitle)
+//                                              Text(eventTitle)
+                                            Text("한강 피크닉 가는 날")
                                                 .foregroundColor(Color("Burgundy"))
                                                 .font(.system(size: 18).bold())
                                                 .frame(width: 280, alignment: .leading)
                                                 .padding(.trailing, -30)
                                                 .padding(.bottom, 3)
-                                            
+
                                             // eventMemo
-                                             Text(eventMemo)
+//                                             Text(eventMemo)
+                                            Text("한강에서 치맥하면서 멍 때리기")
                                                 .foregroundColor(.gray)
                                                 .font(.system(size: 14))
                                                 .frame(width: 280, alignment: .leading)
@@ -218,13 +218,12 @@ struct CalendarMain: View {
                                     .padding(.leading, -45.5)
                                 }
                                 .padding(.top, 2)
-                            }
                             
                             ZStack {
                                 RoundedRectangle(cornerRadius: 10)
                                     .fill(Color.white)
                                     .frame(width: 355, height: 66)
-                                
+
                                 Capsule()
                                     .fill(Color("Burgundy"))
                                     .frame(width: 38, height: 8)
@@ -232,33 +231,31 @@ struct CalendarMain: View {
                                     .offset(x: -173, y: 0)
 
                                 // emoji
-                                Text(emoji)
+//                                Text(emoji)
+                                Text("🎂")
                                     .font(.system(size: 28))
                                     .offset(x: -135, y: -8)
-                                
+
                                 //  eventDate
-                                Text(DateToStringEvent(_:eventbaseDate))
+//                                Text(DateToStringEvent(_:eventbaseDate))
+                                Text("06/10")
                                     .font(.system(size: 13))
                                     .foregroundColor(Color("Burgundy"))
                                     .offset(x: -135, y: 20)
-                                
+
                                 //  eventTitle
-                                TextField("Comment", text: $eventTitle, prompt: Text("칵테일 마시는 날"))
-                                    .limitInputLength(value: $eventTitle, length: 20)
-                                    .multilineTextAlignment(TextAlignment.leading)
-                                    .foregroundColor(Color("Burgundy"))
+//                                TextField("Comment", text: $eventTitle, prompt: Text("칵테일 마시는 날"))
+                                Text("재헌이 태어난 날")
                                     .font(.system(size: 18).bold())
-                                    .frame(width: 250, height: 20)
-                                    .offset(x: 22, y: -14)
-                                
+                                    .foregroundColor(Color("Burgundy"))
+                                    .offset(x: -42, y: -14)
+
                                 // eventMemo
-                                TextField("Comment", text: $eventMemo, prompt: Text("분위기 좋은 바에 가서 칵테일 마시는 날"))
-                                    .limitInputLength(value: $eventMemo, length: 20)
-                                    .multilineTextAlignment(TextAlignment.leading)
-                                    .foregroundColor(.gray)
+//                                TextField("Comment", text: $eventMemo, prompt: Text("분위기 좋은 바에 가서 칵테일 마시는 날"))
+                                Text("재헌이 생일 축하해주고 데이트 하는 날")
                                     .font(.system(size: 14))
-                                    .frame(width: 250, height: 20)
-                                    .offset(x: 22, y: 15)
+                                    .foregroundColor(Color.gray)
+                                    .offset(x: 6, y: 15)
                             }
                             .padding(.top, 2)
                             
