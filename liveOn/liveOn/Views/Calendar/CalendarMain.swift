@@ -37,6 +37,8 @@ struct CalendarMain: View {
     
     @Environment(\.dismiss) private var dismiss
     
+    @EnvironmentObject var store: EventStore
+    
     var body: some View {
         
         ScrollView(.vertical, showsIndicators: false) {
@@ -151,13 +153,13 @@ struct CalendarMain: View {
                                 
                                 Button(action: {
                                     showSheet.toggle()
+                                    
                                 }) {
                                     Image(systemName: "plus")
                                         .font(.system(size: 18, weight: .light))
                                         .foregroundColor(burgundyColor)
                                         .sheet(isPresented: $showSheet, content: {
                                             PlusSetting(
-                                            //  eventDate: self.eventbaseDate,
                                                 eventDate: $eventDate,
                                                 eventbaseDate: $eventbaseDate,
                                                 eventTitle: $eventTitle,
@@ -170,124 +172,12 @@ struct CalendarMain: View {
                                 .padding(.trailing, -1)
                             }
                             
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .fill(Color.white)
-                                    .frame(width: 355, height: 66)
-                                
-                                HStack {
-                                    Capsule()
-                                        .fill(Color("Burgundy"))
-                                        .frame(width: 38, height: 8)
-                                        .rotationEffect(Angle(degrees: 90))
-                                        .padding(.trailing, 14)
-                                    
-                                    VStack {
-                                        // emoji
-                                        Text(emoji)
-                                            .font(.system(size: 28))
-                                            .padding(.bottom, -5)
-                                        
-                                        //  eventDate
-                                        Text(DateToStringEvent(_:eventDate))
-                                            .font(.system(size: 13))
-                                            .foregroundColor(Color("Burgundy"))
-                                    }
-                                    .padding(.leading, -21)
-                                    
-                                    VStack {
-                                        //  eventTitle
-                                        Text(eventTitle)
-                                            .foregroundColor(Color("Burgundy"))
-                                            .font(.system(size: 18).bold())
-                                            .frame(width: 280, alignment: .leading)
-                                            .padding(.trailing, -30)
-                                            .padding(.bottom, 3)
-                                        
-                                        // eventMemo
-                                        Text(eventMemo)
-                                            .foregroundColor(.gray)
-                                            .font(.system(size: 14))
-                                            .frame(width: 280, alignment: .leading)
-                                            .padding(.trailing, -32)
-                                    }
-                                    .padding(.leading, 6)
+                            VStack {
+                                ForEach(store.list) { upcoming in
+                                    EventView(event: upcoming)
                                 }
-                                .padding(.leading, -45.5)
                             }
-                            .padding(.top, 2)
                             
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .fill(Color.white)
-                                    .frame(width: 355, height: 66)
-                                
-                                Capsule()
-                                    .fill(Color("Burgundy"))
-                                    .frame(width: 38, height: 8)
-                                    .rotationEffect(Angle(degrees: 90))
-                                    .offset(x: -173, y: 0)
-                                
-                                // emoji
-                                Text("🎂")
-                                    .font(.system(size: 28))
-                                    .offset(x: -135, y: -8)
-                                
-                                //  eventDate
-                                Text("06/10")
-                                    .font(.system(size: 13))
-                                    .foregroundColor(Color("Burgundy"))
-                                    .offset(x: -135, y: 20)
-                                
-                                //  eventTitle
-                                Text("재헌이 태어난 날")
-                                    .font(.system(size: 18).bold())
-                                    .foregroundColor(Color("Burgundy"))
-                                    .offset(x: -42, y: -14)
-                                
-                                // eventMemo
-                                Text("재헌이 생일 축하해주고 데이트 하는 날")
-                                    .font(.system(size: 14))
-                                    .foregroundColor(Color.gray)
-                                    .offset(x: 6, y: 15)
-                            }
-                            .padding(.top, 2)
-                            
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .fill(Color.white)
-                                    .frame(width: 355, height: 66)
-                                
-                                Capsule()
-                                    .fill(Color("Burgundy"))
-                                    .frame(width: 38, height: 8)
-                                    .rotationEffect(Angle(degrees: 90))
-                                    .offset(x: -173, y: 0)
-                                
-                                // emoji
-                                Text("🌉")
-                                    .font(.system(size: 28))
-                                    .offset(x: -135, y: -8)
-                                
-                                //  eventDate
-                                Text("06/16")
-                                    .font(.system(size: 13))
-                                    .foregroundColor(Color("Burgundy"))
-                                    .offset(x: -135, y: 20)
-                                
-                                //  eventTitle
-                                Text("부산 놀러가는 날")
-                                    .font(.system(size: 18).bold())
-                                    .foregroundColor(Color("Burgundy"))
-                                    .offset(x: -42, y: -14)
-                                
-                                // eventMemo
-                                Text("서로의 휴식을 위해 부산 놀러가는 날")
-                                    .font(.system(size: 14))
-                                    .foregroundColor(Color.gray)
-                                    .offset(x: 0, y: 15)
-                            }
-                            .padding(.top, 2)
                         }
                         .padding()
                     }
@@ -304,7 +194,6 @@ struct CalendarMain: View {
                         MoveDatePicker(autoDate: self.currentDate,
                                        currentDate: $currentDate,
                                        showDatePicker: $showDatePicker,
-                                       
                                        popUpBoolean: $showDatePicker,
                                        isClicked: $isClicked)
                         
@@ -412,6 +301,60 @@ struct CalendarMain: View {
         }
         
         return days
+    }
+}
+
+struct EventView: View {
+    let event : Event
+    var body: some View {
+        HStack {
+            ZStack {
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color.white)
+                    .frame(width: 355, height: 66)
+                
+                HStack {
+                    Capsule()
+                        .fill(Color("Burgundy"))
+                        .frame(width: 38, height: 8)
+                        .rotationEffect(Angle(degrees: 90))
+                        .padding(.trailing, 14)
+                    
+                    VStack {
+                        // emoji
+                        Text(event.emoji)
+                            .font(.system(size: 28))
+                            .padding(.bottom, -5)
+                        
+                        //  eventDate
+                        Text(event.eventDate)
+                            .font(.system(size: 13))
+                            .foregroundColor(Color("Burgundy"))
+                    }
+                    .padding(.leading, -21)
+                    
+                    VStack {
+                        //  eventTitle
+                        Text(event.eventTitle)
+                            .foregroundColor(Color("Burgundy"))
+                            .font(.system(size: 18).bold())
+                            .frame(width: 280, alignment: .leading)
+                            .padding(.trailing, -30)
+                            .padding(.bottom, 3)
+                        
+                        // eventMemo
+                        Text(event.eventMemo)
+                            .foregroundColor(.gray)
+                            .font(.system(size: 14))
+                            .frame(width: 280, alignment: .leading)
+                            .padding(.trailing, -32)
+                    }
+                    .padding(.leading, 6)
+                }
+                .padding(.leading, -45.5)
+            }
+            .padding(.top, 2)
+        }
     }
 }
 
