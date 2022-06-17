@@ -15,14 +15,14 @@ class ImageViewModel: ObservableObject {
     @Published var showFileAlert = false
     @Published var appError: MyImageError.ErrorType?
     @Published var isSent = false
-
+    
     // MARK: 파일저장 시 경로를 프린트해줌
     init() {
         print(FileManager.docDirURL.path)
     }
     
     func showPhotoPicker() {
-
+        
         do {
             if source == .camera {
                 try Picker.checkPermissions()
@@ -40,78 +40,79 @@ class ImageViewModel: ObservableObject {
     }
     
     func saveMyImagesJSONFile() {
-    // MARK: 현재 myImage 배열에 추가하는 함수지만, 추후 서버에 추가하는 기능으로 수정예정
-    func addMyImage(_ name: String, image: UIImage) {
-        reset()
-        let myImage = MyImage(name: name)
-        do {
-            try FileManager().saveImage("\(myImage.id)", image: image)
-            myImages.append(myImage)
-            print(myImage)
-//            print(Bundle.main.path(forResource: "\(myImage.id)", ofType: "JPG"))
-            saveMyImagesJSONFile()
-        } catch {
-            showFileAlert = true
-            appError = MyImageError.ErrorType(error: error as! MyImageError)
-        }
-    }
-
-    func saveMyImagesJSONFile() {
-        let encoder = JSONEncoder()
-        do {
-            let data = try encoder.encode(myImages)
-            let jsonString = String(decoding: data, as: UTF8.self)
+        // MARK: 현재 myImage 배열에 추가하는 함수지만, 추후 서버에 추가하는 기능으로 수정예정
+        func addMyImage(_ name: String, image: UIImage) {
+            reset()
+            let myImage = MyImage(name: name)
             do {
-                try FileManager().saveDocument(contents: jsonString)
+                try FileManager().saveImage("\(myImage.id)", image: image)
+                myImages.append(myImage)
+                print(myImage)
+                //            print(Bundle.main.path(forResource: "\(myImage.id)", ofType: "JPG"))
+                saveMyImagesJSONFile()
             } catch {
                 showFileAlert = true
                 appError = MyImageError.ErrorType(error: error as! MyImageError)
             }
-        } catch {
-            showFileAlert = true
-            appError = MyImageError.ErrorType(error: .encodingError)
+        }
+        
+        func saveMyImagesJSONFile() {
+            let encoder = JSONEncoder()
+            do {
+                let data = try encoder.encode(myImages)
+                let jsonString = String(decoding: data, as: UTF8.self)
+                do {
+                    try FileManager().saveDocument(contents: jsonString)
+                } catch {
+                    showFileAlert = true
+                    appError = MyImageError.ErrorType(error: error as! MyImageError)
+                }
+            } catch {
+                showFileAlert = true
+                appError = MyImageError.ErrorType(error: .encodingError)
+            }
+        }
+        
+        // MARK: 테스트용 파일 위치 찾기
+        func fetchDirectory() {
+            for myImage in myImages {
+                print(myImage)
+                //            print(Bundle.main.path(forResource: "\(myImage.id)", ofType: "JPG"))
+            }
+            //        let directoryContents = try! FileManager.default.contentsOfDirectory(atPath: myImages[0].name)
+            //        print(directoryContents)
+            //
+            //        FileManager.docDirURL.appendingPathComponent("\(id).jpg")
         }
     }
     
-    // MARK: 테스트용 파일 위치 찾기
-    func fetchDirectory() {
-        for myImage in myImages {
-            print(myImage)
-//            print(Bundle.main.path(forResource: "\(myImage.id)", ofType: "JPG"))
-        }
-//        let directoryContents = try! FileManager.default.contentsOfDirectory(atPath: myImages[0].name)
-//        print(directoryContents)
-//
-//        FileManager.docDirURL.appendingPathComponent("\(id).jpg")
-    }
-}
-
-class MyTimer: ObservableObject {
-    var value: Int = 0
-    init() {
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-            self.value += 1
+    class MyTimer: ObservableObject {
+        var value: Int = 0
+        init() {
+            Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+                self.value += 1
+            }
         }
     }
-}
-
-final class KeyboardHandler: ObservableObject {
-    @Published private(set) var keyboardHeight: CGFloat = 0
     
-    private var cancellabel: AnyCancellable?
-    
-    private let keyboardWillShow = NotificationCenter.default
-        .publisher(for: UIResponder.keyboardWillShowNotification)
-        .compactMap { ($0.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect)?.height }
-    
-    private let keyboardWillHide = NotificationCenter.default
-        .publisher(for: UIResponder.keyboardWillHideNotification)
-        .map { _ in CGFloat.zero }
-    
-    init() {
-        cancellabel = Publishers.Merge(keyboardWillShow, keyboardWillHide)
-            .subscribe(on: DispatchQueue.main)
-            .assign(to: \.self.keyboardHeight, on: self)
+    final class KeyboardHandler: ObservableObject {
+        @Published private(set) var keyboardHeight: CGFloat = 0
+        
+        private var cancellabel: AnyCancellable?
+        
+        private let keyboardWillShow = NotificationCenter.default
+            .publisher(for: UIResponder.keyboardWillShowNotification)
+            .compactMap { ($0.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect)?.height }
+        
+        private let keyboardWillHide = NotificationCenter.default
+            .publisher(for: UIResponder.keyboardWillHideNotification)
+            .map { _ in CGFloat.zero }
+        
+        init() {
+            cancellabel = Publishers.Merge(keyboardWillShow, keyboardWillHide)
+                .subscribe(on: DispatchQueue.main)
+                .assign(to: \.self.keyboardHeight, on: self)
+        }
     }
 }
 
