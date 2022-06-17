@@ -11,9 +11,6 @@ import Foundation
 
 struct AppleUser: Codable {
     let userId: String
-//    let firstName: String
-//    let lastName: String
-//    let email: String
     let identityToken: String
     
     init?(credentials: ASAuthorizationAppleIDCredential) {

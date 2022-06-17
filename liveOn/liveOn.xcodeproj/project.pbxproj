@@ -69,6 +69,7 @@
 		A96DE30C285859FF00A06E1D /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = A96DE30B285859FF00A06E1D /* ReactiveMoya */; };
 		A96DE30E285859FF00A06E1D /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = A96DE30D285859FF00A06E1D /* RxMoya */; };
 		A981538128587CE100476507 /* BackButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A981538028587CE100476507 /* BackButtonExtension.swift */; };
+		A9E979DE285C936A00AADF38 /* TextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E979DD285C936A00AADF38 /* TextExtension.swift */; };
 		C91EB94A285868F100EB648B /* FlowerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE0462856C15400CC25A0 /* FlowerListView.swift */; };
 		C91EB94B2858692A00EB648B /* ServerCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206B3284AE2B700D064E6 /* ServerCommunication.swift */; };
 		C91EB9532859A42500EB648B /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91EB9522859A42500EB648B /* DateExtension.swift */; };
@@ -154,6 +155,7 @@
 		A9452D852858DD3B003E6450 /* CoupleInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoupleInformation.swift; sourceTree = "<group>"; };
 		A9452D882858E084003E6450 /* DetailedInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedInformationView.swift; sourceTree = "<group>"; };
 		A981538028587CE100476507 /* BackButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonExtension.swift; sourceTree = "<group>"; };
+		A9E979DD285C936A00AADF38 /* TextExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextExtension.swift; sourceTree = "<group>"; };
 		C91EB9522859A42500EB648B /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		C97222EE2859BFCB004B3628 /* DateToStringEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateToStringEvent.swift; sourceTree = "<group>"; };
 		C972230B285C9264004B3628 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				77196618284C6FA9002E6AC0 /* ColorExtension.swift */,
+				A9E979DD285C936A00AADF38 /* TextExtension.swift */,
 				A9326230284F2B0700E5C0A3 /* FileManager+Extension.swift */,
 				3EC5EA8B2856C6E400DEBA44 /* ConvertSecToMinAndHour.swift */,
 				C91EB9522859A42500EB648B /* DateExtension.swift */,
@@ -580,6 +583,7 @@
 				C91EB94B2858692A00EB648B /* ServerCommunication.swift in Sources */,
 				C91EB94A285868F100EB648B /* FlowerListView.swift in Sources */,
 				A91608EF285C529900473466 /* PhotoTransport.swift in Sources */,
+				A9E979DE285C936A00AADF38 /* TextExtension.swift in Sources */,
 				C92B3BE5285175070010C49A /* PhotoGiftView.swift in Sources */,
 				77A9654B285A5BFB00511556 /* AppleSocialLogin.swift in Sources */,
 				27393879285B257700836B26 /* LoginResponseDTO.swift in Sources */,
