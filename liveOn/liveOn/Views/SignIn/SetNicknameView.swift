@@ -22,14 +22,16 @@ struct SetNicknameView: View {
                                                 .multilineTextAlignment(.leading)
                                             Spacer()
                                             Text("\(nickNameInput.count)/\(self.limit)")
-                                                .opacity(0.5)
                                                 .foregroundColor(nickNameInput.count < limit ? Color.bodyTextColor : Color.primaryColor)
                                         }
+                                        .padding(.horizontal, 4)
+                                        
                                         Rectangle()
-                                                .fill(nickNameInput.count < limit ? Color.bodyTextColor : Color.primaryColor)
-                                                .frame(maxWidth: .infinity, maxHeight: 2, alignment: .bottom)
-                                    })) // VStack
+                                            .fill(nickNameInput.count < limit ? Color.bodyTextColor.opacity(0.4) : Color.primaryColor)
+                                            .frame(maxWidth: .infinity, maxHeight: 2, alignment: .bottom)
 
+                                    })) // VStack
+            
         }
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
@@ -38,18 +40,19 @@ struct SetNicknameView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink(destination: SetBirthdayView()
                     .environmentObject(currentUser)) {
-                    Text("다음")
-                }
-                .buttonStyle(.plain)
-                .disabled(nickNameInput.isEmpty ? true : false )
+                        Text("다음")
+                    }
+                    .buttonStyle(.plain)
+                    .disabled(nickNameInput.isEmpty ? true : false )
                 
                 // MARK: User 데이터 저장
-                .simultaneousGesture(TapGesture().onEnded {
-                    currentUser.nickname = nickNameInput
-                })
+                    .simultaneousGesture(TapGesture().onEnded {
+                        currentUser.nickname = nickNameInput
+                    })
             }
         } // toolbar
         .navigationBarBackButtonHidden(true)
+        
     } // body
 }
 

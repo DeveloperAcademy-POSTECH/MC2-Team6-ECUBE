@@ -21,7 +21,7 @@ class ImageViewModel: ObservableObject {
         print(FileManager.docDirURL.path)
     }
     
-        func showPhotoPicker() {
+    func showPhotoPicker() {
         do {
             if source == .camera {
                 try Picker.checkPermissions()
@@ -38,23 +38,7 @@ class ImageViewModel: ObservableObject {
         imageName = ""
     }
     
-    // MARK: 현재 myImage 배열에 추가하는 함수지만, 추후 서버에 추가하는 기능으로 수정예정
-    func addMyImage(_ name: String, image: UIImage) {
-        reset()
-        let myImage = MyImage(name: name)
-        do {
-            try FileManager().saveImage("\(myImage.id)", image: image)
-            myImages.append(myImage)
-            print(myImage)
-//            print(Bundle.main.path(forResource: "\(myImage.id)", ofType: "JPG"))
-            saveMyImagesJSONFile()
-        } catch {
-            showFileAlert = true
-            appError = MyImageError.ErrorType(error: error as! MyImageError)
-        }
-    }
-
-         func saveMyImagesJSONFile() {
+    func saveMyImagesJSONFile() {
         let encoder = JSONEncoder()
         do {
             let data = try encoder.encode(myImages)
@@ -87,7 +71,7 @@ class ImageViewModel: ObservableObject {
 class MyTimer: ObservableObject {
     var value: Int = 0
     init() {
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             self.value += 1
         }
     }

@@ -22,3 +22,4 @@ disabled_rules: # Default Rules에서 비활성화할 규칙
     - colon
     - force_try
     - unused_closure_parameter
+    - file_length

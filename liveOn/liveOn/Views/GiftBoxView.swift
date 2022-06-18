@@ -38,7 +38,7 @@ struct GiftBoxView: View {
         HStack(alignment: .center, spacing: 0) {
             coupleInfo
             Spacer()
-            NavigationLink(destination: CreateGiftListView(), isActive: $isActive) {
+            NavigationLink(destination: CreateGiftListView().environmentObject(storedLetter), isActive: $isActive) {
                 Image(systemName: "gift")
                     .font(.title2)
                     .foregroundColor(.bodyTextColor)

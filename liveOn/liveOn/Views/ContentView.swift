@@ -8,11 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+
+
     var body: some View {
         NavigationView {
             GettingStartView()
+                .environment(\.colorScheme, .light)
         }
     }
+  
+        
+   
 }
 
 // struct ContentView_Previews: PreviewProvider {

@@ -10,6 +10,8 @@ import UIKit
 
 class ServerCommunication {
     
+//    var vmList: [VoicemailListGetResponse] = []
+    
     private let authPlugin = AccessTokenPlugin { _ in GeneralAPI.token }
     
     private lazy var authProvider = MoyaProvider<ServerCommunications>(plugins: [authPlugin, NetworkLoggerPlugin(verbose: true)])
@@ -33,8 +35,9 @@ class ServerCommunication {
         authProvider.request(.imagePost(comment: fileName, polaroid: image)) { response in
             
             switch response {
-            case .success(let result):
-                print(result)
+            case .success:
+                print("response: \(response)")
+//                print(response.)
                 
             case .failure(let err):
                 print(err)
@@ -42,9 +45,9 @@ class ServerCommunication {
         }
     }
     
-    func uploadVM(title: String) {
+    func uploadVM(title: String, name: String, duration: String) {
         
-        authProvider.request(.voicemailPost(title: title)) { response in
+        authProvider.request(.voicemailPost(title: title, name: name, duration: duration)) { response in
             
             switch response {
             case .success(let result):
@@ -56,6 +59,7 @@ class ServerCommunication {
         }
     }
     
+
     func getVM() {
         authProvider.request(.voicemailListGet) { response in
             
@@ -75,6 +79,7 @@ class ServerCommunication {
         }
     }
     
+
     func getData() {
         
         authProvider.request(.getData) { response in
