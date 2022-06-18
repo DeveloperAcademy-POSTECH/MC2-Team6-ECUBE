@@ -54,7 +54,7 @@ struct PhotoGiftView: View {
                             dismiss()
                         } label: {
                             Image(systemName: "chevron.left")
-                                .font(.system(size: 20))
+//                                .font(.system(size: 20))
                                 .foregroundColor(.black)
                         }
                     }
@@ -99,9 +99,10 @@ struct PhotoGiftView: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 254, alignment: .center)
                 }
-                
+//                Spacer()
             }
             .padding()
+            .padding(.top, 80)
             .onTapGesture {
                 hideKeyboard()
         }

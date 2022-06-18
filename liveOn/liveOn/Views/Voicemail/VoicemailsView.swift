@@ -9,9 +9,9 @@ import SwiftUI
 
 struct VoicemailsView: View {
     
-    //    private let communication = ServerCommunication()
+    @Environment(\.dismiss) var dismiss
+    
     @State var loadedVM: [VoicemailGetResponse] = []
-    //    @State var vmList: [Voicemail] = []
     @State var selectedVM: Int = 0
     @State var isShowPopUp: Bool = false
     
@@ -89,6 +89,7 @@ struct VoicemailsView: View {
                 isShowPopUp = false
             }
         }
+        .navigationToBack(dismiss)
     }
     
     // MARK: Voicemail List 가져오기

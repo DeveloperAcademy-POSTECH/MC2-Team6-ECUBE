@@ -57,7 +57,7 @@ struct ImageGetResponse: Codable {
     let data: MultipartFormData
  }
 
-let randomLabelList = ["cassetteLabel1", "cassetteLabel2", "cassetteLabel3"]
+let randomLabelList = ["cassetteIcon01", "cassetteIcon02", "cassetteIcon03", "cassetteIcon04"]
 
 struct VoicemailGetResponse: Codable {
     let giftVoiceMailID: Int
