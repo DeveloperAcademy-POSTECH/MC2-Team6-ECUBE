@@ -148,6 +148,9 @@ struct CalendarMain: View {
                                     
                                     Button(action: {
                                         showSheet.toggle()
+                                        eventTitle = ""
+                                        eventMemo = ""
+                                        emoji = ""
                                     }) {
                                         Image(systemName: "plus")
                                             .font(.system(size: 18, weight: .light))

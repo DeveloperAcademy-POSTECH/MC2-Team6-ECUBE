@@ -82,7 +82,7 @@ struct PlusSetting: View {
                         .multilineTextAlignment(TextAlignment.center)
                         .font(.system(size: 60))
                         .frame(width: 80, height: 100)
-                        .offset(x: -130, y: 236)
+                        .offset(x: -131, y: 236)
                 }
                 
                 Button(action: {
