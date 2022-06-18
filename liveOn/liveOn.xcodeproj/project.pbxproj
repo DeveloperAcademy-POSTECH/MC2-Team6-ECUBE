@@ -57,6 +57,7 @@
 		A44EE04B2856C71000CC25A0 /* Pill.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE04A2856C71000CC25A0 /* Pill.swift */; };
 		A44EE04D2856C74B00CC25A0 /* PillListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE04C2856C74B00CC25A0 /* PillListView.swift */; };
 		A464B6912859C710003DC2EA /* PillPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A464B6902859C710003DC2EA /* PillPopUpView.swift */; };
+		A464B697285CBB04003DC2EA /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A464B696285CBB04003DC2EA /* Photo.swift */; };
 		A4DA9D2B28571AD60038B34D /* FlowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE0472856C15400CC25A0 /* FlowerView.swift */; };
 		A4DA9D2D28571B4C0038B34D /* FlowerPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DA9D2C28571B4C0038B34D /* FlowerPopUpView.swift */; };
 		A91608EF285C529900473466 /* PhotoTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91608EE285C529900473466 /* PhotoTransport.swift */; };
@@ -150,6 +151,7 @@
 		A44EE04A2856C71000CC25A0 /* Pill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pill.swift; sourceTree = "<group>"; };
 		A44EE04C2856C74B00CC25A0 /* PillListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillListView.swift; sourceTree = "<group>"; };
 		A464B6902859C710003DC2EA /* PillPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillPopUpView.swift; sourceTree = "<group>"; };
+		A464B696285CBB04003DC2EA /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		A4DA9D2C28571B4C0038B34D /* FlowerPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerPopUpView.swift; sourceTree = "<group>"; };
 		A91608EE285C529900473466 /* PhotoTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTransport.swift; sourceTree = "<group>"; };
 		A92A88C628506B8700A71FCC /* PhotoCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCardsView.swift; sourceTree = "<group>"; };
@@ -442,6 +444,7 @@
 				A92A88C628506B8700A71FCC /* PhotoCardsView.swift */,
 				A9326228284F2A2800E5C0A3 /* PhotoGiftView.swift */,
 				A91608EE285C529900473466 /* PhotoTransport.swift */,
+				A464B696285CBB04003DC2EA /* Photo.swift */,
 			);
 			path = PictureGift;
 			sourceTree = "<group>";
@@ -632,6 +635,7 @@
 				3EBE43782849B6D30085C7C6 /* liveOnApp.swift in Sources */,
 				A44EE04D2856C74B00CC25A0 /* PillListView.swift in Sources */,
 				C972230C285C9264004B3628 /* Event.swift in Sources */,
+				A464B697285CBB04003DC2EA /* Photo.swift in Sources */,
 				C97222EF2859BFCB004B3628 /* DateToStringEvent.swift in Sources */,
 				77403C852850AA60000A21EE /* SetNicknameView.swift in Sources */,
 				773C1A58284F3B5500E93BFE /* TextLimiter.swift in Sources */,
@@ -829,7 +833,6 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-
 				PRODUCT_BUNDLE_IDENTIFIER = com.alsehfdl.liveOn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

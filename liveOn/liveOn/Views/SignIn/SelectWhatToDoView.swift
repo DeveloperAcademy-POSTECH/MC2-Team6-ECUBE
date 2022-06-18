@@ -8,26 +8,14 @@
 import SwiftUI
 
 struct SelectWhatToDoView: View {
+    
     @EnvironmentObject var currentUser: User
     @Environment(\.dismiss) private var dismiss
     @State var showEnterCodeSheet: Bool = false
     @State private var showShareSheet = false
-    var copyButton: some View {
-       
-            Text("초대코드 보내기")
-                .foregroundColor(.white)
-                .padding(.vertical, 10)
-                .padding(.horizontal, 18)
-                .background( RoundedRectangle(cornerRadius: 4)
-                    .fill(Color.accentColor)
-                )
-                .padding(.top, 10)
-            
-        
-    }
     
     var body: some View {
-        OnboardingHeader(title: "상대방 초대하기! ", description: "상대가 앱을 설치하고 초대코드를 입력하면 서로를 이어드릴게요.", inputView:
+        OnboardingHeader(title: "상대방 초대하기!", description: "상대가 앱을 설치하고 초대코드를 입력하면 서로를 이어드릴게요.", inputView:
                             AnyView(
                                 VStack {
                                     VStack {
@@ -52,7 +40,6 @@ struct SelectWhatToDoView: View {
                                     }
                                     Spacer()
                                     // TODO: 액티비티 시트 연결(공유)
-                                    
 //                                    NavigationLink(destination: EnterCodeView().environmentObject(currentUser)) {
 //                                        Text("이미 초대코드가 있어요")
 //                                            .fontWeight(.bold)
@@ -76,6 +63,18 @@ struct SelectWhatToDoView: View {
         )
         .background(Color.background)
         .navigationToBack(dismiss)
+    }
+  
+      var copyButton: some View {
+      
+            Text("초대코드 보내기")
+                .foregroundColor(.white)
+                .padding(.vertical, 10)
+                .padding(.horizontal, 18)
+                .background( RoundedRectangle(cornerRadius: 4)
+                    .fill(Color.accentColor)
+                )
+                .padding(.top, 10)
     }
 }
 

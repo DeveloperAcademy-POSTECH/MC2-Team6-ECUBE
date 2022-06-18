@@ -17,6 +17,7 @@ struct GettingStartView: View {
     let authProvider = MoyaProvider<AuthAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
     
     var body: some View {
+
         VStack {
             VStack (alignment: .leading, spacing: 4){
                 
@@ -63,21 +64,21 @@ struct GettingStartView: View {
     }
     
     // didfinishAUthenticairton에 result를 넣으면, appleUser.identityToken을 산출해주고
-    // applUser.identityToken을 authNetwrokService의 login 함수에 넣으면 디코딩된 결과를 반환해준다. 
+    // applUser.identityToken을 authNetwrokService의 login 함수에 넣으면 디코딩된 결과를 반환해준다.
+}
+
+private func showAppleLoginView() {
     
-    private func showAppleLoginView() {
-        
-        let provider = ASAuthorizationAppleIDProvider()
-        
-        let request = provider.createRequest()
-        
-        request.requestedScopes = [.fullName, .email]
-        
-        let controller = ASAuthorizationController(authorizationRequests: [request])
-        
-        controller.performRequests()
-        
-    }
+    let provider = ASAuthorizationAppleIDProvider()
+    
+    let request = provider.createRequest()
+    
+    request.requestedScopes = [.fullName, .email]
+    
+    let controller = ASAuthorizationController(authorizationRequests: [request])
+    
+    controller.performRequests()
+    
 }
 
 struct GettingStart_Previews: PreviewProvider {
