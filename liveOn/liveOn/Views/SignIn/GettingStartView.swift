@@ -46,6 +46,11 @@ struct GettingStartView: View {
                 Text("Data확인")
             }
             
+            Button("시뮬레이터용 임시 다음버튼") {
+                isActive.toggle()
+            }
+            
+            
             NavigationLink(destination: SetNicknameView().environmentObject(User()), isActive: $isActive) {
                 Text("")
             }
