@@ -94,7 +94,7 @@ struct PhotoGiftView: View {
                 .blur(radius: showLoading ? 10 : 0)
                 
                 if showLoading == true {
-                    Image(loadingState == 0 ? "LoadingCharacter" : "")
+                    Image(loadingState == 0 ? "DeliverGift" : "")
                         .frame(width: 300, height: 300, alignment: .center)
                 }
                 

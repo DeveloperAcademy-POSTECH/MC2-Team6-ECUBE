@@ -85,9 +85,9 @@ struct VoicemailGetResponse: Codable {
             vmBackgroundColor: {
                 
                 if i == 0 {
-                    return mailConstants.green
+                    return MailConstants.green
                 } else {
-                    return mailConstants.orange
+                    return MailConstants.orange
                 }
             }(),
             vmIconImageName: {
