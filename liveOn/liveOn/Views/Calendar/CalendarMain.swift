@@ -198,7 +198,8 @@ struct CalendarMain: View {
                                currentDate: $currentDate,
                                showDatePicker: $showDatePicker,
                                popUpBoolean: $showDatePicker,
-                               isClicked: $isClicked)
+                               isClicked: $isClicked,
+                               burgundyColor: $burgundyColor)
         }
             
         }
@@ -220,8 +221,8 @@ struct CalendarMain: View {
                     .foregroundColor(isSameDay(date1: value.date, date2: currentDate) ?
                         .white : .gray)
                     .frame(width: 18, height: 18, alignment: .center)
-                   
                     .padding(2)
+                
                     .background(
                         Circle()
                         .fill(burgundyColor)

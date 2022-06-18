@@ -39,7 +39,6 @@ class LetterStore: ObservableObject {
         list.insert(Letter(content: letter, createdDate: Date.now, writer: writer), at: 0)
     }
     
-    
     func update(letter: Letter?, content: String) {
         guard let letter = letter else {
             return

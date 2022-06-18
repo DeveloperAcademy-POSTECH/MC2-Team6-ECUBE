@@ -17,7 +17,7 @@ struct GettingStartView: View {
     let authProvider = MoyaProvider<AuthAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
     
     var body: some View {
-        VStack (alignment: .leading, spacing: 8){
+        VStack(alignment: .leading, spacing: 8) {
             
             Group {
                 Image("TestApp")
@@ -42,7 +42,7 @@ struct GettingStartView: View {
             
             Button(action: {
                 print(authenticationData)
-            }){
+            }) {
                 Text("Data확인")
             }
             

@@ -9,8 +9,6 @@ import Foundation
 import Moya
 import UIKit
 
-
-
 class AuthNetworkService {
     
 //    private let authPlugin = AccessTokenPlugin { _ in API.token }

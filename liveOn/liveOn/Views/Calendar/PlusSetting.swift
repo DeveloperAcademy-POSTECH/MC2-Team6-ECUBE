@@ -65,7 +65,8 @@ struct PlusSetting: View {
                 
                 DatePicker("기념일 추가", selection: $eventbaseDate, displayedComponents: .date)
                     .datePickerStyle(GraphicalDatePickerStyle())
-                    .applyTextColor(Color("Burgundy"))
+                    .accentColor(.black)
+                    .applyTextColor(burgundyColor)
                     .frame(height: 370)
             }
             
