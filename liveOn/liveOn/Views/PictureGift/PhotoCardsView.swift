@@ -202,10 +202,11 @@ struct PhotoCardSheet: View {
                 .frame(width: UIScreen.main.bounds.width * 0.7, height: UIScreen.main.bounds.height * 0.4, alignment: .center)
             
             Text(PhotoCardDetail.photoText)
+                .setHandWritten()
                 .foregroundColor(.bodyTextColor)
-                .bold()
-                .padding(.leading, 6)
-                .padding(.vertical, 8)
+//                .bold()
+//                .padding(.leading, 6)
+//                .padding(.vertical, 8)
         }
         .frame(width: UIScreen.main.bounds.width * 0.7, height: UIScreen.main.bounds.height * 0.45, alignment: .center)
         .padding(8)
