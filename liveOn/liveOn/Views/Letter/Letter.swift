@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+
 class Letter: Identifiable, ObservableObject {
     let id: UUID
     @Published var content: String

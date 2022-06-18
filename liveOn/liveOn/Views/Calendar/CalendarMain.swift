@@ -188,7 +188,7 @@ struct CalendarMain: View {
                 }
             }
             .padding(.vertical)
-            .background(ivoryColor)
+//            .background(ivoryColor)
             .navigationToBack(dismiss)
             .navigationTitle("달력")
             
