@@ -95,7 +95,9 @@ struct PhotoGiftView: View {
                 
                 if showLoading == true {
                     Image(loadingState == 0 ? "DeliverGift" : "")
-                        .frame(width: 300, height: 300, alignment: .center)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 254, alignment: .center)
                 }
                 
             }

@@ -118,8 +118,8 @@ struct PhotoCard: View {
                     
                     // TODO: 정해진 네모 프레임 안에 사진 꽉 차게(비율은 그대로 찌그러지지 않게) 할 것
                     Rectangle()
-                        .foregroundColor(.black)
-                        .opacity(0.88)
+                        .foregroundColor(.gray)
+                        .opacity(0.6)
                     
                     Rectangle()
                         .foregroundColor(.white.opacity(0.0))
