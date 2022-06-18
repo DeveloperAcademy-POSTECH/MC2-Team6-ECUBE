@@ -47,12 +47,14 @@ struct EnterCodeView: View {
                 Spacer()
                 // MARK: 코드 확인
                 Button {
-                    if code == currentUser.userCode && code.count == 5 {
-                        checkCode.toggle()
-                    }
-                    else {
-                        presentFailAlert.toggle()
-                    }
+                    // MARK: 조건 체크 임시 비활성화
+//                    if code == currentUser.userCode && code.count == 5 {
+//                        checkCode.toggle()
+//                    }
+//                    else {
+//                        presentFailAlert.toggle()
+//                    }
+                    checkCode.toggle()
                 }
             label: {
                 Text("초대코드 확인")
