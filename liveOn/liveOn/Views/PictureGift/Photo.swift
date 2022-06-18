@@ -40,9 +40,9 @@ var temporaryData: [PhotoCardInformation] = [
     // 사진 출처 : https://unsplash.com/photos/w5hhoYM_JsU
     
     PhotoCardInformation(
-        imageName: "photo_sky",
+        imageName: "photo_flower",
         photoText: "별 보러 갔던 날"),
-    // 사진 출처 : https://unsplash.com/photos/5LOhydOtTKU
+    // 사진 출처 : https://unsplash.com/photos/Ggv3i6oxPcg
     
     PhotoCardInformation(
         imageName: "photo_plant",
