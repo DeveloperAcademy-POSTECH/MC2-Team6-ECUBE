@@ -55,8 +55,6 @@ class AuthenticationViewModel: ObservableObject {
                     // 이 아래 함수는 그냥 에러 처리 및 토큰을 찍는 함수
                     tokenData = authNetworkService.login(accessToken: appleUser.identityToken)
                     
-                
-                        
                     default:
                         print(auth.credential)
                 }
