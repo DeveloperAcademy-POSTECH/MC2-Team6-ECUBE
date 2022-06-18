@@ -14,71 +14,83 @@ struct PhotoCardsView: View {
     @State private var loadedImage = ImageGetResponse(createdAt: "", giftPolaroidId: 0, giftPolaroidImage: "", userNickName: "")
     @State private var PhotoGiftDataList: [PhotoGiftData] = [PhotoGiftData(photoURL: "", photoComment: "")]
     
-    var columns: [GridItem] = Array(repeating: GridItem(GridItem.Size.fixed(174)), count: 2)
+    var columns: [GridItem] = [GridItem(.flexible()), GridItem(.flexible())]
     
     var body: some View {
-        
-        ScrollView {
-            HStack(alignment: .center, spacing: 12) {
-                
-                // 샘플 데이터들이 반복문으로 그려지는 곳
-                LazyVGrid(columns: columns, spacing: 8) {
-                    ForEach(temporaryData, id: \.self) { data in
+            ZStack {
+            ScrollView {
+                VStack(spacing: 12) {
+                    
+                    // 샘플 데이터들이 반복문으로 그려지는 곳
+                    LazyVGrid(columns: columns, spacing: 12) {
+                        ForEach(temporaryData, id: \.self) { data in
+                            
+                            Button(action: {
+                                withAnimation(.easeIn){
+                                    isTapped.toggle()
+                                }
+                            }) {
+                                PhotoCard(PhotoCardDetail: data, isTapped: $isTapped)
+                                    .padding(4)
+                            }
+                            
+                            
+                        } // ForEach
                         
-                        Button(action: {
-                            isTapped.toggle()
-                        }) {
-                            PhotoCard(PhotoCardDetail: data)
-                        }
-                    } // ForEach
-                    
-                    // 전달 받은 사진이 표시되는 곳
-                    // LoadedPhotoCard(imageURL: loadedImage.giftPolaroidImage)
-                    
-                } // LazyVGrid
-                .frame(width: .infinity, alignment: .center)
-                .opacity(isTapped ? 0.2 : 1)
-                .onTapGesture {
-                    isTapped.toggle()
+                        // 전달 받은 사진이 표시되는 곳
+                        // LoadedPhotoCard(imageURL: loadedImage.giftPolaroidImage)
+                        
+                    } // LazyVGrid
+                    .opacity(isTapped ? 0.2 : 1)
+                    .onTapGesture {
+                        isTapped.toggle()
+                    }
+                } // ScrollView
+                .edgesIgnoringSafeArea(.horizontal)
+                .padding(.top)
+                .navigationTitle("")
+                .navigationBarTitleDisplayMode(.inline)
+                .task {
+                    imageGet()
+                    print("이미지 로딩이 수행되었습니다.")
+                    PhotoGiftDataList.append(PhotoGiftData(photoURL: loadedImage.giftPolaroidImage, photoComment: loadedImage.userNickName))
                 }
-            } // ScrollView
-            .edgesIgnoringSafeArea(.horizontal)
-            .padding(.top)
-            .navigationTitle("")
-            .navigationBarTitleDisplayMode(.inline)
-            .task {
-                imageGet()
-                print("이미지 로딩이 수행되었습니다.")
-                PhotoGiftDataList.append(PhotoGiftData(photoURL: loadedImage.giftPolaroidImage, photoComment: loadedImage.userNickName))
-            }
-            .navigationBarBackButtonHidden(true)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(action: {
-                        dismiss()
-                    }) {
-                        Image(systemName: "chevron.left")
-                        //                                .font(.system(size: 20))
+                .navigationBarBackButtonHidden(true)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button(action: {
+                            dismiss()
+                        }) {
+                            Image(systemName: "chevron.left")
+                            //                                .font(.system(size: 20))
+                                .foregroundColor(.black)
+                        }
+                    }
+                    ToolbarItem(placement: .principal) {
+                        Text("사진 선물함")
                             .foregroundColor(.black)
                     }
+                    
                 }
-                ToolbarItem(placement: .principal) {
-                    Text("사진 선물함")
-                        .foregroundColor(.black)
+                .padding()
                 }
-                
+            .blur(radius: isTapped ? 6 : 0)
             }
-        }
         .background(Color.background)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .ignoresSafeArea( edges: .bottom)
         
-        if isTapped == true {
-            Button(action: {
-                isTapped.toggle()
-            }) {
+        .overlay {
+            if isTapped {
                 PhotoCardSheet(PhotoCardDetail: temporaryData[1])
+                    .onTapGesture {
+                        withAnimation(.easeIn){
+                            isTapped.toggle()
+                        }
+                    }
             }
         }
-        
+       Circle()
     } // body
     
     
@@ -103,55 +115,38 @@ struct PhotoCardsView: View {
 struct PhotoCard: View {
     
     var PhotoCardDetail: PhotoCardInformation
-    
+    @Binding var isTapped : Bool
     var body: some View {
+
         
-        ZStack {
-            // 폴라로이드 연출을 위한 흰 네모
-            RoundedRectangle(cornerRadius: 4)
-                .foregroundColor(.white)
-                .shadow(color: .gray, radius: 6, x: 2, y: 2).opacity(0.8)
-            
-            VStack(alignment: .leading, spacing: 5) {
-                
-                // 사진이 들어가는 곳
-                ZStack {
-                    
-                    // TODO: 정해진 네모 프레임 안에 사진 꽉 차게(비율은 그대로 찌그러지지 않게) 할 것
-                    Rectangle()
-                        .foregroundColor(.black)
-                        .opacity(0.88)
-                    
-                    Rectangle()
-                        .foregroundColor(.white.opacity(0.0))
-                        .background(                    Image(PhotoCardDetail.imageName)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .scaledToFit()
-                            .clipped())
-                        .frame(width: 164, height: 192, alignment: .center)
+        GeometryReader { proxy in
+            VStack {
+                VStack(alignment: .leading) {
+                Image(PhotoCardDetail.imageName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: proxy.size.width*0.85, height: proxy.size.width, alignment: .center)
+                    .clipped()
+                    .border(Color.gray, width: 1.0)
+                Text(PhotoCardDetail.photoText)
+                    .setHandWritten()
+                    .padding(.horizontal, 4)
+                    .multilineTextAlignment(.leading)
+                    .frame(width: proxy.size.width*0.8, alignment: .center)
                 }
-                .padding(.top, 10)
-                .padding(.horizontal, 6)
-                
-                VStack(alignment: .leading, spacing: 6) {
-                    Rectangle()
-                        .foregroundColor(.placeHolderColor)
-                        .frame(width: 88, height: 5)
-                        .cornerRadius(15)
-                    
-                    Rectangle()
-                        .foregroundColor(.placeHolderColor)
-                        .frame(width: 66, height: 5)
-                        .cornerRadius(15)
-                        .padding(.bottom, 6)
-                    
-                } // VStack
-                .padding(.vertical, 6)
-                .padding(.leading, 8)
-                
-            } // VStack
-        } // ZStack
+                .foregroundColor(.bodyTextColor)
+                .padding(12)
+              
+            }
+            .padding(.bottom, 12)
+            .background(RoundedRectangle(cornerRadius: 6).fill(.thickMaterial)  .border(Color.shadowColor, width: 1.0).shadow(color: .gray.opacity(0.4), radius: 10, x: 0, y: 0))
+
+
+        }
+        .frame(height: 240)
+        .onTapGesture {
+            isTapped.toggle()
+        }
     } // body
 }
 
@@ -164,8 +159,10 @@ struct LoadedPhotoCard: View {
             AsyncImage(url: URL(string: imageURL), scale: 2) { image in
                 image
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
+                  //  .aspectRatio(contentMode: .fit)
                     .frame(width: UIScreen.main.bounds.width * 0.36, height: UIScreen.main.bounds.height * 0.2, alignment: .center)
+                    .clipped()
+                
             } placeholder: {
                 ProgressView()
                     .progressViewStyle(.circular)
@@ -204,9 +201,6 @@ struct PhotoCardSheet: View {
             Text(PhotoCardDetail.photoText)
                 .setHandWritten()
                 .foregroundColor(.bodyTextColor)
-//                .bold()
-//                .padding(.leading, 6)
-//                .padding(.vertical, 8)
         }
         .frame(width: UIScreen.main.bounds.width * 0.7, height: UIScreen.main.bounds.height * 0.45, alignment: .center)
         .padding(8)
@@ -215,6 +209,7 @@ struct PhotoCardSheet: View {
         .background(Color.white
             .cornerRadius(4)
             .shadow(color: Color.black.opacity(0.25), radius: 4, x: 0, y: 4))
+        
     }
 }
 
