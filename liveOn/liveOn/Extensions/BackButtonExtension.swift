@@ -15,4 +15,19 @@ extension View {
             }
         }
     }
+    
+    func navigationCancel( _ dismissAction: DismissAction) -> some View {
+        navigationBarBackButtonHidden(true)
+            .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: {
+                    dismissAction()
+                }) {
+                    Image(systemName: "xmark")
+                        .font(.system(size: 16))
+                        .foregroundColor(.black)
+                }
+            }
+        }
+    }
 }
