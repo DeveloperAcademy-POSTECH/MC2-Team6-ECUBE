@@ -178,6 +178,7 @@ struct EmojiView: View {
             }
             .padding()
         }
+        .padding(.bottom, -60)
     }
     
     // 이모지 키보드에 뜨는 이모지 종류 리스트
