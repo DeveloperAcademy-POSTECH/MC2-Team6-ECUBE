@@ -21,23 +21,12 @@ struct VoicemailPopUpView: View {
         ZStack {
             VStack {
                 Spacer()
-                    .frame(height: 140)
-                
-                Text(vm.title)
-                    .font(.system(size: 24))
-                    .fontWeight(.heavy)
-                    .foregroundColor(Color.bodyTextColor)
-                    .frame(width: 300, height: 20)
-                
-                Text(vm.createDate)
-                    .font(.system(size: 20))
-                    .fontWeight(.heavy)
-                    .foregroundColor(Color.bodyTextColor)
                 
                 Image("cassette_horizontal")
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 350)
                     .padding()
+                    .shadow(color:Color(hex: "D2D2D2"), radius: 10, x: 0, y: 1)
                 
                 Spacer()
                 
@@ -45,7 +34,8 @@ struct VoicemailPopUpView: View {
                     Image(systemName: "circle.fill")
                         .resizable()
                         .frame(width: 80, height: 80)
-                        .foregroundColor(Color.recordingBtnBackground)
+                        .foregroundColor(Color.shadowColor)
+                        .blendMode(.multiply)
                     
                     Image(systemName: isPlaying ? "pause.fill": "play.fill")
                         .resizable()
@@ -69,16 +59,33 @@ struct VoicemailPopUpView: View {
                         .padding(.leading, isPlaying ? 0 : 5)
                     
                 }
-                
-                Spacer()
-                
+                .frame(maxWidth: .infinity, maxHeight: 340, alignment: .center)
+                .overlay(
+                    VStack {
+                        Text(vm.title)
+                            .font(.title2)
+                            .fontWeight(.heavy)
+                            .foregroundColor(Color.bodyTextColor)
+
+                        Text(vm.createDate)
+                            .font(.subheadline)
+                            .foregroundColor(Color.bodyTextColor)
+                            .opacity(0.8)
+                    }
+                        .padding(.top, 32)
+                    .frame(maxWidth: .infinity, maxHeight: 300, alignment: .top)
+                )
+                .background(RoundedRectangle(cornerRadius: 20).fill(.white).shadow(color:Color.shadowColor, radius: 12, x: 0, y: -3))
+//
+//                Spacer()
+//
             }
             
         }
         .task {
             getSingleVoicemail(id: vm.voiceMailId)
         }
-        .background(Color.white.opacity(0))
+        .ignoresSafeArea(edges: .bottom)
         
     }
     

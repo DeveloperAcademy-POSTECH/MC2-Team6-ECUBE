@@ -31,6 +31,7 @@ struct PhotoGiftView: View {
                         }
                     }
                     TextField("Comment", text: $comment, prompt: Text("한 줄 편지를 써주세요!"))
+                        .setHandWritten()
                         .limitInputLength(value: $comment, length: 20)
                         .foregroundColor(.bodyTextColor)
                         .frame(width: 300, height: 20, alignment: .leading)
