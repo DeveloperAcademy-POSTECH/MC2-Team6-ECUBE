@@ -12,7 +12,7 @@ struct LetterListView: View {
     @State var doshowDetail: Bool = false
     @Environment(\.dismiss) private var dismiss
     
-    @State var chosenLetter = Letter(content: "", createdDate: Date(), writer: "")
+    @State var selectedLetter = Letter(content: "", createdDate: Date(), writer: "")
     //    @State var index: Int = 0
     
     var body: some View {
@@ -23,13 +23,13 @@ struct LetterListView: View {
                 LazyVGrid(columns: columns, spacing: 1) {
                     ForEach(store.list) { letter in
                         // TODO: 작성자 연결하기
-                        LetterView(doshowDetail: $doshowDetail, letter: letter)
-//                            .onTapGesture {
-//                                chosenLetter = letter
-//                                withAnimation(.easeIn(duration: 1)) {
-//                                    doshowDetail.toggle()
-//                                }
-//                            }
+                        LetterView(letter: letter)
+                            .onTapGesture {
+                                withAnimation(.easeOut) {
+                                    doshowDetail.toggle()
+                                }
+                                selectedLetter = letter
+                            }
                         
                     }
                 }
@@ -37,16 +37,21 @@ struct LetterListView: View {
                 
             }
             .blur(radius: doshowDetail ? 5 : 0)
-            Color(uiColor: .systemBackground).opacity(doshowDetail ? 0.5 : 0)
+            .onTapGesture {
+                withAnimation(.easeOut) {
+                    doshowDetail = false
+                }
+            }
+//            Color(uiColor: .systemBackground).opacity(doshowDetail ? 0.5 : 0)
             
             if doshowDetail {
-                LetterDetail(letter: chosenLetter)
+                LetterDetail(letter: selectedLetter)
                     .padding()
-                    .onTapGesture {
-                        withAnimation {
-                            doshowDetail.toggle()
-                        }
-                    }
+//                    .onTapGesture {
+//                        withAnimation {
+//                            selectedLetter.toggle()
+//                        }
+//                    }
             }
             
         }
@@ -59,73 +64,58 @@ struct LetterListView: View {
 extension LetterListView {
     struct LetterView: View {
         
-        @Binding var doshowDetail: Bool
         @State var letterStyle: String?
+        
         let letter: Letter
+        
         var body: some View {
             ZStack {
-                itemPreview
-                    .onTapGesture {
-                        withAnimation(.easeOut) {
-                            doshowDetail = true
-                        }
-                    }
-//                if doshowDetail {
-//                    LetterDetail(letter: letter)
-//                        .padding()
-//                        .onTapGesture {
-//                            withAnimation {
-//                                doshowDetail.toggle()
-//                            }
-//                        }
-//                }
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(letter.content)
+                        .setHandWritten()
+                        .lineLimit(1)
+                    
+                    Text("from \(letter.writer)")
+                        .setHandWritten()
+                        .font(.caption)
+                        .opacity(0.8)
+                    
+                }
+                .padding()
+                .frame(width: UIScreen.main.bounds.width*0.45, height: UIScreen.main.bounds.width*0.45, alignment: .center)
+                .foregroundColor(.bodyTextColor)
+                .background(Image(letter.letterStyle).resizable().scaledToFit().shadow(color: .shadowColor, radius: 2, x: 1, y: 1))
             }
             
         }
         
-        //        func showDetail() -> some View {
-        //            VStack {
-        //                LetterDetail()
-        //                    .padding()
-        //                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-        //
-        //            }
-        //
-        //            .background(Image(""))
-        //            .ignoresSafeArea()
-        //            .transition(.opacity)
-        //            .onTapGesture {
-        //                doshowDetail.toggle()
-        //            }
-        //
-        //        }
-        
-        var itemPreview: some View {
-            VStack(alignment: .leading, spacing: 4) {
-                Text(letter.content)
-                    .setHandWritten()
-                    .lineLimit(1)
-                
-                Text("from \(letter.writer)")
-                    .setHandWritten()
-                    .font(.caption)
-                    .opacity(0.8)
-                
-            }
-            .padding()
-            .frame(width: UIScreen.main.bounds.width*0.45, height: UIScreen.main.bounds.width*0.45, alignment: .center)
-            .foregroundColor(.bodyTextColor)
-            .background(Image(letter.letterStyle).resizable().scaledToFit().shadow(color: .shadowColor, radius: 2, x: 1, y: 1))
-            
-        }
+//        var itemPreview: some View {
+//            VStack(alignment: .leading, spacing: 4) {
+//                Text(letter.content)
+//                    .setHandWritten()
+//                    .lineLimit(1)
+//
+//                Text("from \(letter.writer)")
+//                    .setHandWritten()
+//                    .font(.caption)
+//                    .opacity(0.8)
+//
+//            }
+//            .padding()
+//            .frame(width: UIScreen.main.bounds.width*0.45, height: UIScreen.main.bounds.width*0.45, alignment: .center)
+//            .foregroundColor(.bodyTextColor)
+//            .background(Image(letter.letterStyle).resizable().scaledToFit().shadow(color: .shadowColor, radius: 2, x: 1, y: 1))
+//
+//        }
         
     }
     
 }
 
 struct LetterDetail: View {
-    @EnvironmentObject var store: LetterStore
-    @State var letter: Letter
+    
+    var letter: Letter
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             VStack {
