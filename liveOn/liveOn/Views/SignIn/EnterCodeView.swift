@@ -68,7 +68,7 @@ struct EnterCodeView: View {
                 
             }
             .background(Color.background)
-            .navigationXmark(dismiss)
+            .navigationCancel(dismiss)
             .navigationBarTitleDisplayMode(.inline)
         }
         

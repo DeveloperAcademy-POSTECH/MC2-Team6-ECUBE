@@ -16,7 +16,7 @@ extension View {
         }
     }
     
-    func navigationXmark( _ dismissAction: DismissAction) -> some View {
+    func navigationCancel( _ dismissAction: DismissAction) -> some View {
         navigationBarBackButtonHidden(true)
             .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
