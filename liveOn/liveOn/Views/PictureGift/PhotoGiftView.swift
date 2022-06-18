@@ -97,9 +97,10 @@ struct PhotoGiftView: View {
                     Image(loadingState == 0 ? "LoadingCharacter" : "")
                         .frame(width: 300, height: 300, alignment: .center)
                 }
-                
+//                Spacer()
             }
             .padding()
+            .padding(.top, 80)
             .onTapGesture {
                 hideKeyboard()
         }

@@ -17,69 +17,70 @@ struct PhotoCardsView: View {
     var columns: [GridItem] = Array(repeating: GridItem(GridItem.Size.fixed(174)), count: 2)
     
     var body: some View {
-        ZStack {
-            ScrollView {
-                HStack(alignment: .center, spacing: 12) {
-                    
-                    // 샘플 데이터들이 반복문으로 그려지는 곳
-                    LazyVGrid(columns: columns, spacing: 8) {
-                        ForEach(temporaryData, id: \.self) { data in
-                            
-                            Button(action: {
-                                isTapped.toggle()
-                            }) {
-                                PhotoCard(PhotoCardDetail: data)
-                            }
-                        } // ForEach
-                        
-                        // 전달 받은 사진이 표시되는 곳
-                        // LoadedPhotoCard(imageURL: loadedImage.giftPolaroidImage)
-                        
-                    } // LazyVGrid
-                    .frame(width: .infinity, alignment: .center)
-                    .opacity(isTapped ? 0.2 : 1)
-                    .onTapGesture {
-                        isTapped.toggle()
-                    }
-                } // ScrollView
-                .edgesIgnoringSafeArea(.horizontal)
+        
+        ScrollView {
+            HStack(alignment: .center, spacing: 12) {
                 
-                .navigationTitle("")
-                .navigationBarTitleDisplayMode(.inline)
-                .task {
-                    imageGet()
-                    print("이미지 로딩이 수행되었습니다.")
-                    PhotoGiftDataList.append(PhotoGiftData(photoURL: loadedImage.giftPolaroidImage, photoComment: loadedImage.userNickName))
-                }
-                .background(Color.background)
-                .navigationBarBackButtonHidden(true)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
+                // 샘플 데이터들이 반복문으로 그려지는 곳
+                LazyVGrid(columns: columns, spacing: 8) {
+                    ForEach(temporaryData, id: \.self) { data in
+                        
                         Button(action: {
-                            dismiss()
+                            isTapped.toggle()
                         }) {
-                            Image(systemName: "chevron.left")
-//                                .font(.system(size: 20))
-                                .foregroundColor(.black)
+                            PhotoCard(PhotoCardDetail: data)
                         }
-                    }
-                    ToolbarItem(placement: .principal) {
-                        Text("사진 선물함")
+                    } // ForEach
+                    
+                    // 전달 받은 사진이 표시되는 곳
+                    // LoadedPhotoCard(imageURL: loadedImage.giftPolaroidImage)
+                    
+                } // LazyVGrid
+                .frame(width: .infinity, alignment: .center)
+                .opacity(isTapped ? 0.2 : 1)
+                .onTapGesture {
+                    isTapped.toggle()
+                }
+            } // ScrollView
+            .edgesIgnoringSafeArea(.horizontal)
+            .padding(.top)
+            .navigationTitle("")
+            .navigationBarTitleDisplayMode(.inline)
+            .task {
+                imageGet()
+                print("이미지 로딩이 수행되었습니다.")
+                PhotoGiftDataList.append(PhotoGiftData(photoURL: loadedImage.giftPolaroidImage, photoComment: loadedImage.userNickName))
+            }
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        dismiss()
+                    }) {
+                        Image(systemName: "chevron.left")
+                        //                                .font(.system(size: 20))
                             .foregroundColor(.black)
                     }
                 }
-            }
-            
-            if isTapped == true {
-                Button(action: {
-                    isTapped.toggle()
-                }) {
-                    PhotoCardSheet(PhotoCardDetail: temporaryData[1])
+                ToolbarItem(placement: .principal) {
+                    Text("사진 선물함")
+                        .foregroundColor(.black)
                 }
+                
             }
-            
-        } // body
-    }
+        }
+        .background(Color.background)
+        
+        if isTapped == true {
+            Button(action: {
+                isTapped.toggle()
+            }) {
+                PhotoCardSheet(PhotoCardDetail: temporaryData[1])
+            }
+        }
+        
+    } // body
+    
     
     func imageGet() {
         moyaService.request(.imageGet) { response in

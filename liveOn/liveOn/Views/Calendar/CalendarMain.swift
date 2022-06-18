@@ -202,7 +202,7 @@ struct CalendarMain: View {
         }
             
         }
-        .background(ivoryColor)
+        .background(Color.background)
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
         
