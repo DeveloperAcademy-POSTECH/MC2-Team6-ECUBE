@@ -35,7 +35,7 @@ struct PillListView: View {
                         }
                         
                         .padding(.horizontal, 16)
-                       
+
                             .edgesIgnoringSafeArea(.all)
                         
                     } // ZStack

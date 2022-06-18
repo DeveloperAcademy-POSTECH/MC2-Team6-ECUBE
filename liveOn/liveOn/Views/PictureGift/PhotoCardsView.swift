@@ -18,21 +18,21 @@ struct PhotoCardsView: View {
     var body: some View {
         ZStack {
             ScrollView {
-                    LazyVGrid(columns: columns) {
-                        ForEach(temporaryData, id: \.self) { data in
-                            Button(action: {
-                                isTapped.toggle()
-                            }) {
-                                PhotoCard(PhotoCardDetail: data)
-                            }
+                LazyVGrid(columns: columns) {
+                    ForEach(temporaryData, id: \.self) { data in
+                        Button(action: {
+                            isTapped.toggle()
+                        }) {
+                            PhotoCard(PhotoCardDetail: data)
                         }
-                        LoadedPhotoCard(imageURL: loadedImage.giftPolaroidImage)
                     }
-                    .opacity(isTapped ? 0.2 : 1)
-                    .onTapGesture {
-                        isTapped.toggle()
-                    }
+                    LoadedPhotoCard(imageURL: loadedImage.giftPolaroidImage)
+                }
+                .onTapGesture {
+                    isTapped.toggle()
+                }
             }
+            .blur(radius: isTapped ? 5 : 0)
             .navigationTitle("")
             .navigationBarTitleDisplayMode(.inline)
             .task {
@@ -57,12 +57,14 @@ struct PhotoCardsView: View {
                     Text("사진 선물함")
                         .foregroundColor(.black)
                 }
-        }
+            }
+            Color(uiColor: .systemBackground).opacity(isTapped ? 0.5 : 0)
+            
             if isTapped == true {
                 Button(action: {
                     isTapped.toggle()
                 }) {
-            PhotoCardSheet(PhotoCardDetail: PhotoCardInformation(imageName: "exampleImage2", photoText: "김치찌개가 존맛입니다!!"))
+                    PhotoCardSheet(PhotoCardDetail: PhotoCardInformation(imageName: "exampleImage2", photoText: "김치찌개가 존맛입니다!!"))
                 }
             }
         }
@@ -109,17 +111,17 @@ struct PhotoCard: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.215, alignment: .center)
             VStack(alignment: .leading) {
-            Rectangle()
-                .foregroundColor(.placeHolderColor)
-                .frame(width: 80, height: 5)
-                .cornerRadius(15)
-                .padding(.leading, 15)
-            
-            Rectangle()
-                .foregroundColor(.placeHolderColor)
-                .frame(width: 60, height: 5)
-                .cornerRadius(15)
-                .padding(.leading, 15)
+                Rectangle()
+                    .foregroundColor(.placeHolderColor)
+                    .frame(width: 80, height: 5)
+                    .cornerRadius(15)
+                    .padding(.leading, 15)
+                
+                Rectangle()
+                    .foregroundColor(.placeHolderColor)
+                    .frame(width: 60, height: 5)
+                    .cornerRadius(15)
+                    .padding(.leading, 15)
             }
             .padding(.vertical, 6)
         }

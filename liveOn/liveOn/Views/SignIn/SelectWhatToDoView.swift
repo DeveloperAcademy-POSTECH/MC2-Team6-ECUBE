@@ -82,6 +82,8 @@ struct SelectWhatToDoView_Previews: PreviewProvider {
 struct EnterCode: View {
     // TODO: 다시해야함.
     @State var code: String = ""
+    @Environment(\.dismiss) private var dismiss
+    
     var body: some View {
         
         OnboardingHeader(title: "5자리 초대코드를 입력해주세요!", description: "먼저 리본에 가입한 상대에게 받은 초대코드를 입력해주세요", inputView: AnyView(
@@ -94,9 +96,11 @@ struct EnterCode: View {
                 Spacer()
             }
         ))
+        .navigationToBack(dismiss)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                NavigationLink(destination: EmptyView()) {
+                NavigationLink(destination: GiftBoxView()
+                    .environmentObject(User())) {
                     Text("다음")
                 }
                 .buttonStyle(.plain)

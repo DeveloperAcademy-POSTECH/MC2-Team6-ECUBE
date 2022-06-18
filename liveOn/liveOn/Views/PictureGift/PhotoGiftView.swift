@@ -14,7 +14,6 @@ struct PhotoGiftView: View {
         ScrollView {
             ZStack {
                 VStack {
-                    
                     Button {
                         imageModel.source = .library
                         imageModel.showPhotoPicker()
@@ -27,8 +26,8 @@ struct PhotoGiftView: View {
                         } else {
                             Text("사진을 선택해주세요!")
                                 .frame(width: 300, height: 400, alignment: .center)
-                                .background(.gray)
-                                .foregroundColor(.bodyTextColor).opacity(0.5)
+                                .background(Color.lightGray)
+                                .foregroundColor(.bodyTextColor)
                         }
                     }
                     TextField("Comment", text: $comment, prompt: Text("한 줄 편지를 써주세요!"))
@@ -92,7 +91,7 @@ struct PhotoGiftView: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color.background)
-                .opacity(showLoading ? 0.05 : 1)
+                .blur(radius: showLoading ? 10 : 0)
                 
                 if showLoading == true {
                     Image(loadingState == 0 ? "LoadingCharacter" : "")

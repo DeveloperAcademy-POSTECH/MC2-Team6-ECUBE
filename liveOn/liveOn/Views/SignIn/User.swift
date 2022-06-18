@@ -10,9 +10,7 @@ import SwiftUI
 class User: Identifiable, ObservableObject {
     let id = UUID()
     @Published var nickname: String  = ""
-    @Published var birth: Date?
-    @Published var firstDay: Date?
-    @Published var userCode: String = "1afsk"
-    init() {
-    }
+    @Published var birth: Date = Date()
+    @Published var firstDay: Date = Date()
+    @Published var userCode: String = "UTest"
 }

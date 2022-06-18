@@ -40,11 +40,11 @@ struct GettingStartView: View {
             
                 .frame(height: 60, alignment: .center)
             
-            Button(action: {
-                print(authenticationData)
-            }){
-                Text("Data확인")
-            }
+//            Button(action: {
+//                print(authenticationData)
+//            }){
+//                Text("Data확인")
+//            }
             
             NavigationLink(destination: SetNicknameView().environmentObject(User()), isActive: $isActive) {
                 Text("")
