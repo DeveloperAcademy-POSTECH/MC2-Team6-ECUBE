@@ -59,27 +59,6 @@ class ServerCommunication {
         }
     }
     
-
-    func getVM() {
-        authProvider.request(.voicemailListGet) { response in
-            
-            switch response {
-            case .success(let result):
-                let data = result.data
-                let decoder = JSONDecoder()
-                let vmData = try? decoder.decode(VoicemailListGetResponse.self, from: data)
-                
-                    print(vmData!)
-                
-//                print(result)
-                
-            case .failure(let err):
-                print(err)
-            }
-        }
-    }
-    
-
     func getData() {
         
         authProvider.request(.getData) { response in

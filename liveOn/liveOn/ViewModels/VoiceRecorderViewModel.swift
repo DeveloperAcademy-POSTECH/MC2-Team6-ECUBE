@@ -16,7 +16,7 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
     @Published var isRecording: Bool = false
     @Published var isRecorded: Bool = false
     @Published var recordingsList = [Recording]()
-
+    
     @Published var countSec = 0
     @Published var timerCount: Timer?
     @Published var blinkingCount: Timer?

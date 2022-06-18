@@ -18,7 +18,7 @@ struct Voicemail {
     let soundLength: String
 }
 
-struct MailConstants {
+struct mailConstants {
     static let user1 = "재헌"
     static let user2 = "유진"
     static let green = Color(hex: "717339")
