@@ -43,7 +43,6 @@ struct GettingStartView: View {
                 Spacer()
                     .frame(height: 120, alignment: .center)
           
-                
                 NavigationLink(destination: SetNicknameView().environmentObject(User()), isActive: $isActive) {
                     Text("")
                 }

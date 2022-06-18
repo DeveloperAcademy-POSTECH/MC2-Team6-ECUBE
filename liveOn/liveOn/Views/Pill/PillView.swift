@@ -14,14 +14,16 @@ struct PillView: View {
     @State var showAlertforSend: Bool = false
     @State var isitEntered: Bool = false
     @Environment(\.dismiss) var dismiss
-        
+    
     var body: some View {
-        
-        VStack {
-            
-            PillBodyView()
-            
-        } // VStack
+        ScrollView {
+            VStack {
+                PillBodyView()
+            }
+        }
+        .onTapGesture {
+            hideKeyboard()
+        }
         .navigationTitle("영양제")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarItems(trailing: Button {
@@ -30,8 +32,7 @@ struct PillView: View {
             Text("선물하기")
                 .fontWeight(.bold)
         }
-            .disabled(!input.inputEntered))
-        // .padding(.horizontal, 32)
+        .disabled(input.inputEntered))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.background)
     } // body
@@ -70,16 +71,16 @@ struct PillBodyView: View {
     
     var body: some View {
         VStack {
-        // Sample data
+            // Sample data
             VStack(alignment: .leading, spacing: 12) {
-            if isShowingPopover {
-                popOverTip
-                    .onTapGesture {
-                        withAnimation(.spring()) {
-                            isShowingPopover.toggle()
+                if isShowingPopover {
+                    popOverTip
+                        .onTapGesture {
+                            withAnimation(.spring()) {
+                                isShowingPopover.toggle()
+                            }
                         }
-                    }
-            }
+                }
             }
             .frame(height: 36)
             .padding(.bottom, 24)
@@ -96,7 +97,7 @@ struct PillBodyView: View {
                         whatPill = String(Int.random(in: 0 ..< 9))
                     }
                 }
-        
+            
             VStack(alignment: .center, spacing: 4) {
                 TextField("어떤 약인가요?", text: $pillName)
                     .multilineTextAlignment(.center)
@@ -110,12 +111,12 @@ struct PillBodyView: View {
                 
                 // Message string counter
                 Text("(\(pillName.count)/12)")
-                        .font(.caption)
+                    .font(.caption)
                     .foregroundColor(pillName.count < 12 ? .gray : .red)
                     .fontWeight(pillName.count < 12 ? .medium : .bold)
                     .frame(maxWidth: .infinity, alignment: .trailing)
             } // Group
-                        TextField("약 효과를 적어보세요", text: $pillEffect)
+            TextField("약 효과를 적어보세요", text: $pillEffect)
                 .foregroundColor(.bodyTextColor)
                 .font(.body)
                 .multilineTextAlignment(.center)
@@ -145,13 +146,13 @@ struct PillBodyView: View {
         .background(Color.background)
         .navigationToBack(dismiss)
     } // VStack
-        
+    
 } // body
 
 struct PillView_Previews: PreviewProvider {
     static var previews: some View {
-        
+        NavigationView{
         PillView()
-        
+        }
     }
 }

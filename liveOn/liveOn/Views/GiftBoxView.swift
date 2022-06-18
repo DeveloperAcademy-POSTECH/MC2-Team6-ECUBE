@@ -12,28 +12,26 @@ struct GiftBoxView: View {
     @EnvironmentObject var imageModel: ImageViewModel
     @EnvironmentObject var currnetUser: User
     @State var isActive: Bool = false
-    
     @StateObject var storedEvent = EventStore()
     
     var body: some View {
-
-            GeometryReader { proxy in
-                    VStack(alignment: .leading, spacing: 0) {
-                        header
-                            .frame(height: proxy.size.height*0.2)
-                        voicemailAndLetter
-                            .frame(height: proxy.size.height*0.25)
-                        medicineAndFlower
-                            .frame(height: proxy.size.height*0.25)
-                        albumAndCalendar
-                            .frame(height: proxy.size.height*0.3)
-                        Spacer()
-                    }
-                    .background(Color.background)
-                }
-            .navigationBarHidden(true)
-            .ignoresSafeArea()
+        GeometryReader { proxy in
+            VStack(alignment: .leading, spacing: 0) {
+                header
+                    .frame(height: proxy.size.height*0.2)
+                voicemailAndLetter
+                    .frame(height: proxy.size.height*0.25)
+                medicineAndFlower
+                    .frame(height: proxy.size.height*0.25)
+                albumAndCalendar
+                    .frame(height: proxy.size.height*0.3)
+                Spacer()
+            }
+            .background(Color.background)
         }
+        .navigationBarHidden(true)
+        .ignoresSafeArea()
+    }
     
     // MARK: 상단 헤더 영역
     var header: some View {
@@ -56,9 +54,7 @@ struct GiftBoxView: View {
     // MARK: 이름+사귄 디데이 계산 정보
     // TODO: 유저 네임, 사귄날 데이터로 디데이 계산
     var coupleInfo: some View {
-
         NavigationLink(destination: CoupleInformation()) {
-          
             HStack(alignment: .center, spacing: 12) {
                 Text("\(currnetUser.nickname)")
                 Image("heart")
@@ -67,7 +63,7 @@ struct GiftBoxView: View {
                     .frame(width: 25, height: 25)
                 Text("유진")
                 HStack(alignment: .center, spacing: 1) {
-
+                    
                     Text("+ \(countDays(from: currnetUser.firstDay ?? Date()))")
                         .fontWeight(.semibold)
                 }

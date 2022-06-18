@@ -106,7 +106,6 @@ struct PhotoCard: View {
     var body: some View {
         
         ZStack {
-            
             // 폴라로이드 연출을 위한 흰 네모
             RoundedRectangle(cornerRadius: 4)
                 .foregroundColor(.white)
