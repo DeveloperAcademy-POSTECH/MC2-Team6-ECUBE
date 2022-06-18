@@ -8,17 +8,18 @@ var loadedImage: ImageGetResponse?
 
 struct GeneralAPI {
     static let baseURL = "http://13.124.90.96:8080"
-    static let token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpbmciLCJyb2xlIjoiVVNFUiIsImV4cCI6MTY1NzkzOTI2NywiaWF0IjoxNjU1MzQ3MjY3fQ.EOwAlXucfoqx9dzUkcheXJAfLSZrfibSiUxDbJbJbSs"
+    static let token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpbmciLCJyb2xlIjoiVVNFUiIsImV4cCI6MTY1ODA0MDg5OSwiaWF0IjoxNjU1NDQ4ODk5fQ.DFLaxRaHMOo7nyDQlwh52ytsroanfFobjmbZHi7bG9M"
 }
 
 // MARK: MoyaTest의 코드들 옮긴 부분
 // API 목록들
 enum ServerCommunications {
-  
+    
     case login(param: LoginRequest) // 파라미터로 스트럭트가 들어갑니다.
     case imagePost(comment: String, polaroid: UIImage)
     case imageGet
-    case voicemailPost(title: String)
+    case voicemailPost(title: String, name: String, duration: String)
+//    case voicemailPost(title: String)
     case voicemailListGet
     case voicemailGet(id: Int)
     case getData
@@ -50,15 +51,62 @@ struct ImageGetResponse: Codable {
     let userNickName: String
 }
 
-struct VoicemailListGetResponse: Codable {
-    let createdAt: String
-    let giftVoiceMailId: Int
+// MARK: Voicemail related models
+ struct VoicemailPostRequest {
     let title: String
-    let userNickName: String
-}
+    let data: MultipartFormData
+ }
+
+let randomLabelList = ["cassetteLabel1", "cassetteLabel2", "cassetteLabel3"]
 
 struct VoicemailGetResponse: Codable {
+    let giftVoiceMailID: Int
+    let giftVoiceMailDuration, title, createdAt, userNickName: String
     
+    let i = Int.random(in: 0..<2)
+
+    enum CodingKeys: String, CodingKey {
+        case giftVoiceMailID = "giftVoiceMailId"
+        case giftVoiceMailDuration, title, createdAt, userNickName
+    }
+    
+    func convertToVoicemail() -> Voicemail {
+        let data = Voicemail(
+            voiceMailId: self.giftVoiceMailID,
+            title: self.title,
+            createDate: self.createdAt,
+            whoSent: {
+                if i == 0 {
+                    return self.userNickName
+                } else {
+                    return "유진"
+                }
+            }(),
+            vmBackgroundColor: {
+                
+                if i == 0 {
+                    return mailConstants.green
+                } else {
+                    return mailConstants.orange
+                }
+            }(),
+            vmIconImageName: {
+                return randomLabelList[i]
+            }(),
+            soundLength: self.giftVoiceMailDuration
+        )
+        return data
+    }
+}
+
+struct SingleVoicemailResponse: Codable {
+    let createdAt, title, userNickName, voiceMail: String
+    let voiceMailID: Int
+
+    enum CodingKeys: String, CodingKey {
+        case createdAt, title, userNickName, voiceMail
+        case voiceMailID = "voiceMailId"
+    }
 }
 
 // http method, URLSession task, header 작성 등을 케이스 분류
@@ -104,6 +152,7 @@ extension ServerCommunications: TargetType, AccessTokenAuthorizable {
     // Task 종류
     var task: Task {
         switch self {
+            
             // MARK: 일반 json 형식 요청
         case .login(let param):
             return .requestJSONEncodable(param)
@@ -117,23 +166,26 @@ extension ServerCommunications: TargetType, AccessTokenAuthorizable {
             return .uploadMultipart(multipartForm)
             
             // MARK: Voicemail Post 요청
-        case .voicemailPost(let title):
-            
+            // title - Model의 title / name - 파일명 / duration - 녹음길이
+        case .voicemailPost(let title, let name, let duration):
+
             var multipartForm: [MultipartFormData] = []
-            
+            let uploadTitle = title.data(using: .utf8) ?? Data()
+            let uploadDuration = duration.data(using: .utf8) ?? Data()
+
             let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
             let directoryContents = try! FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)
             
-//            let audioURLPath = Bundle.main.path(forResource: title, ofType: "m4a")
-//            let audioURL = URL(fileURLWithPath: audioURLPath!)
-            
             guard let audioFile: Data = try? Data(contentsOf: directoryContents[0])
             else {
-                print("")
                 return .uploadMultipart(multipartForm)
             }
             
-            multipartForm.append(MultipartFormData(provider: .data(audioFile), name: "voiceMail", fileName: "\(title).m4a", mimeType: "audio/m4a"))
+            multipartForm.append(MultipartFormData(provider: .data(audioFile), name: "voiceMail", fileName: "\(name).m4a", mimeType: "audio/m4a"))
+            
+            multipartForm.append(MultipartFormData(provider: .data(uploadTitle), name: "title"))
+            
+            multipartForm.append(MultipartFormData(provider: .data(uploadDuration), name: "voiceMailDuration"))
             
             return .uploadMultipart(multipartForm)
             
@@ -154,7 +206,7 @@ extension ServerCommunications: TargetType, AccessTokenAuthorizable {
     var authorizationType: AuthorizationType? {
         switch self {
             
-        case .login, .imagePost, .getData:
+        case .login, .imagePost, .getData, .voicemailPost:
             return nil
             
         default:
@@ -170,8 +222,12 @@ extension ServerCommunications: TargetType, AccessTokenAuthorizable {
             return ["Content-Type": "multipart/form",
                     "Authorization": "Bearer "+GeneralAPI.token]
             
-        case .getData, .voicemailListGet:
+        case .getData:
             return ["Content-Type": "application/json"]
+            
+        case .voicemailListGet:
+            return ["Content-Type": "application/json",
+                    "Authorization": "Bearer "+GeneralAPI.token]
             
         default:
             return ["Content-Type": "application/json",

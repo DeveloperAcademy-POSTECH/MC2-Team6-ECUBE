@@ -8,15 +8,14 @@
 import SwiftUI
 import Alamofire
 
-struct Voicemail: Identifiable {
-    let id = UUID()
+struct Voicemail {
+    let voiceMailId: Int
     let title: String
     let createDate: String
     let whoSent: String
     let vmBackgroundColor: Color
     let vmIconImageName: String
     let soundLength: String
-    
 }
 
 struct MailConstants {
@@ -28,7 +27,9 @@ struct MailConstants {
 
 // 카세트 하나 뷰
 struct VoicemailCassette: View {
-    @State var isShowPopUp = false
+    
+//    @Binding var isShowPopUp: Bool
+    
     let voiceMail: Voicemail
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -61,11 +62,19 @@ struct VoicemailCassette: View {
                     .background(voiceMail.vmBackgroundColor)
                     .foregroundColor(.white)
                     
-                    Text(voiceMail.soundLength)
-                        .rotationEffect(.degrees(-90.0))
-                        .font(.caption)
-                        .foregroundColor(.bodyTextColor)
-                    
+                    VStack(alignment: .center) {
+                        if Int(voiceMail.soundLength)! < 10 {
+                        Text("00:0\(voiceMail.soundLength)")
+                            .rotationEffect(.degrees(-90.0))
+                            .font(.caption)
+                            .foregroundColor(.bodyTextColor)
+                        } else {
+                            Text("00:\(voiceMail.soundLength)")
+                                .rotationEffect(.degrees(-90.0))
+                                .font(.caption)
+                                .foregroundColor(.bodyTextColor)
+                        }
+                    }
                 }
                 .background(.thinMaterial)
                 .frame(maxWidth: .infinity, maxHeight: 60, alignment: .center)
@@ -78,12 +87,5 @@ struct VoicemailCassette: View {
         .border(.white, width: 2)
         .border(.thinMaterial, width: 2)
         .overlay(Rectangle().fill(.regularMaterial).opacity(0.2))
-        
-        .onTapGesture {
-            isShowPopUp.toggle()
-        }
-        .sheet(isPresented: $isShowPopUp ) {
-            Text("dsf")
-        }
     }
 }

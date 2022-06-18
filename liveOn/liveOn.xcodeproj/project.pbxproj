@@ -7,11 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+
+		3E59192E285C0003006207F6 /* UserVoiceMail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E59192D285C0003006207F6 /* UserVoiceMail.swift */; };
+		3E591934285CB926006207F6 /* VoicemailPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E591933285CB926006207F6 /* VoicemailPopUpView.swift */; };
+		3E591936285CD56B006207F6 /* VoicemailPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E591935285CD56B006207F6 /* VoicemailPlayerViewModel.swift */; };
+
 		27393879285B257700836B26 /* LoginResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27393878285B257700836B26 /* LoginResponseDTO.swift */; };
 		2739387B285B2C5B00836B26 /* LoginRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739387A285B2C5B00836B26 /* LoginRequestDTO.swift */; };
 		2739387D285B2CBD00836B26 /* AuthApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739387C285B2CBC00836B26 /* AuthApi.swift */; };
 		2739387F285B2ED400836B26 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739387E285B2ED400836B26 /* API.swift */; };
 		27393882285B313000836B26 /* AuthNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27393881285B313000836B26 /* AuthNetworkService.swift */; };
+
 		3E9206C0284B249C00D064E6 /* VoicemailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206BF284B249C00D064E6 /* VoicemailView.swift */; };
 		3E9206CC284F343200D064E6 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206CB284F343200D064E6 /* Recording.swift */; };
 		3E9206D0284F3BA300D064E6 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9206CF284F3BA300D064E6 /* Test.swift */; };
@@ -93,11 +99,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+
+		3E59192D285C0003006207F6 /* UserVoiceMail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVoiceMail.swift; sourceTree = "<group>"; };
+		3E591933285CB926006207F6 /* VoicemailPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicemailPopUpView.swift; sourceTree = "<group>"; };
+		3E591935285CD56B006207F6 /* VoicemailPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicemailPlayerViewModel.swift; sourceTree = "<group>"; };
+
 		27393878285B257700836B26 /* LoginResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseDTO.swift; sourceTree = "<group>"; };
 		2739387A285B2C5B00836B26 /* LoginRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestDTO.swift; sourceTree = "<group>"; };
 		2739387C285B2CBC00836B26 /* AuthApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthApi.swift; sourceTree = "<group>"; };
 		2739387E285B2ED400836B26 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		27393881285B313000836B26 /* AuthNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNetworkService.swift; sourceTree = "<group>"; };
+
 		3E9206B3284AE2B700D064E6 /* ServerCommunication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerCommunication.swift; sourceTree = "<group>"; };
 		3E9206B5284AE2C400D064E6 /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
 		3E9206BF284B249C00D064E6 /* VoicemailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicemailView.swift; sourceTree = "<group>"; };
@@ -266,6 +278,7 @@
 				3E9206CB284F343200D064E6 /* Recording.swift */,
 				3E9206CF284F3BA300D064E6 /* Test.swift */,
 				77A9654A285A5BFB00511556 /* AppleSocialLogin.swift */,
+				3E59192D285C0003006207F6 /* UserVoiceMail.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -281,6 +294,7 @@
 				C97222EE2859BFCB004B3628 /* DateToStringEvent.swift */,
 				3EDF0F40285868520048A63C /* ServerCommunicationViewModel.swift */,
 				77A9654C285A626800511556 /* AuthenticationViewModel.swift */,
+				3E591935285CD56B006207F6 /* VoicemailPlayerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -292,6 +306,7 @@
 				3EC5EA892856C38100DEBA44 /* VoicemailCassetteView.swift */,
 				77A30A8B285B0588009548E5 /* VoicemailsView.swift */,
 				77A30A8D285B05B9009548E5 /* VoicemailCassette.swift */,
+				3E591933285CB926006207F6 /* VoicemailPopUpView.swift */,
 			);
 			path = Voicemail;
 			sourceTree = "<group>";
@@ -588,6 +603,7 @@
 				C9722306285B7A47004B3628 /* PillView.swift in Sources */,
 				C9722305285B7A3C004B3628 /* DateValue.swift in Sources */,
 				C9722304285B7A16004B3628 /* DateToStringViewModel.swift in Sources */,
+				3E591936285CD56B006207F6 /* VoicemailPlayerViewModel.swift in Sources */,
 				C9722303285B79F7004B3628 /* ImageViewModel.swift in Sources */,
 				C9722302285B79E3004B3628 /* VoiceRecorderViewModel.swift in Sources */,
 				774F915C285C103500D692BE /* FontNames.swift in Sources */,
@@ -641,10 +657,16 @@
 				773C1A58284F3B5500E93BFE /* TextLimiter.swift in Sources */,
 				77196614284B41E8002E6AC0 /* GiftBoxView.swift in Sources */,
 				773C1A54284F37F700E93BFE /* LetterListView.swift in Sources */,
+
 				7745B0B2285D5EA100C47304 /* EnterCodeView.swift in Sources */,
+
 				A92A88C728506B8700A71FCC /* PhotoCardsView.swift in Sources */,
 				3E9206CC284F343200D064E6 /* Recording.swift in Sources */,
+
+				3E591934285CB926006207F6 /* VoicemailPopUpView.swift in Sources */,
+
 				27393882285B313000836B26 /* AuthNetworkService.swift in Sources */,
+
 				C9FE9E0828571F71007B6EA5 /* MoveDatePicker.swift in Sources */,
 				77A30A8C285B0588009548E5 /* VoicemailsView.swift in Sources */,
 				77403C8A2850B7E9000A21EE /* SelectWhatToDoView.swift in Sources */,
@@ -784,9 +806,14 @@
 				DEVELOPMENT_ASSET_PATHS = "\"liveOn/Preview Content\"";
 
 				DEVELOPMENT_TEAM = C95YD9G273;
+
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "마이크 사용 권한";
+
 				INFOPLIST_FILE = liveOn/Info.plist;
+
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -800,6 +827,7 @@
 				MARKETING_VERSION = 1.0;
 
 				PRODUCT_BUNDLE_IDENTIFIER = com.alsehfdl.liveOn;
+
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -821,7 +849,11 @@
 				DEVELOPMENT_TEAM = C95YD9G273;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "마이크 사용 권한";
+
 				INFOPLIST_FILE = liveOn/Info.plist;
+
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
