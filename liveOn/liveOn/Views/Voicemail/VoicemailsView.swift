@@ -74,8 +74,8 @@ struct VoicemailsView: View {
                     .background(Color.background)
                 }
             }
-            .blur(radius: isShowPopUp ? 5 : 0)
-            
+            .blur(radius: isShowPopUp ? 6 : 0)
+            Color(uiColor: .systemBackground).opacity(isShowPopUp ? 0.8 : 0)
             if isShowPopUp {
                 VoicemailPopUpView(vm: loadedVM[selectedVM].convertToVoicemail())
             }
