@@ -4,9 +4,7 @@
 //
 //  Created by Jisu Jang on 2022/06/08.
 //
-
 import SwiftUI
-
 struct PhotoCardsView: View {
     
     @Environment(\.dismiss) private var dismiss
@@ -17,70 +15,74 @@ struct PhotoCardsView: View {
     var columns: [GridItem] = Array(repeating: GridItem(GridItem.Size.fixed(174)), count: 2)
     
     var body: some View {
-        
-        ScrollView {
-            HStack(alignment: .center, spacing: 12) {
-                
-                // 샘플 데이터들이 반복문으로 그려지는 곳
-                LazyVGrid(columns: columns, spacing: 8) {
-                    ForEach(temporaryData, id: \.self) { data in
+        ZStack {
+            ScrollView {
+                HStack(alignment: .center, spacing: 12) {
+                    
+                    // 샘플 데이터들이 반복문으로 그려지는 곳
+                    LazyVGrid(columns: columns, spacing: 8) {
+                        ForEach(temporaryData, id: \.self) { data in
+                            Button(action: {
+                                withAnimation(.easeOut){
+                                    isTapped.toggle()
+                                }
+                            }) {
+                                PhotoCard(PhotoCardDetail: data)
+                            }
+                        } // ForEach
                         
-                        Button(action: {
+                        // 전달 받은 사진이 표시되는 곳
+                        // LoadedPhotoCard(imageURL: loadedImage.giftPolaroidImage)
+                        
+                    } // LazyVGrid
+                    .frame(width: .infinity, alignment: .center)
+                    .opacity(isTapped ? 0.2 : 1)
+                    .onTapGesture {
+                        withAnimation(.easeOut){
                             isTapped.toggle()
-                        }) {
-                            PhotoCard(PhotoCardDetail: data)
                         }
-                    } // ForEach
-                    
-                    // 전달 받은 사진이 표시되는 곳
-                    // LoadedPhotoCard(imageURL: loadedImage.giftPolaroidImage)
-                    
-                } // LazyVGrid
-                .frame(width: .infinity, alignment: .center)
-                .opacity(isTapped ? 0.2 : 1)
-                .onTapGesture {
-                    isTapped.toggle()
+                    }
+                } // ScrollView
+                .edgesIgnoringSafeArea(.horizontal)
+                
+                .navigationTitle("")
+                .navigationBarTitleDisplayMode(.inline)
+                .task {
+                    imageGet()
+                    print("이미지 로딩이 수행되었습니다.")
+                    PhotoGiftDataList.append(PhotoGiftData(photoURL: loadedImage.giftPolaroidImage, photoComment: loadedImage.userNickName))
                 }
-            } // ScrollView
-            .edgesIgnoringSafeArea(.horizontal)
-            .padding(.top)
-            .navigationTitle("")
-            .navigationBarTitleDisplayMode(.inline)
-            .task {
-                imageGet()
-                print("이미지 로딩이 수행되었습니다.")
-                PhotoGiftDataList.append(PhotoGiftData(photoURL: loadedImage.giftPolaroidImage, photoComment: loadedImage.userNickName))
-            }
-            .navigationBarBackButtonHidden(true)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(action: {
-                        dismiss()
-                    }) {
-                        Image(systemName: "chevron.left")
-                        //                                .font(.system(size: 20))
+                .background(Color.background)
+                .navigationBarBackButtonHidden(true)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button(action: {
+                            dismiss()
+                        }) {
+                            Image(systemName: "chevron.left")
+                                .font(.system(size: 20))
+                                .foregroundColor(.black)
+                        }
+                    }
+                    ToolbarItem(placement: .principal) {
+                        Text("사진 선물함")
                             .foregroundColor(.black)
                     }
                 }
-                ToolbarItem(placement: .principal) {
-                    Text("사진 선물함")
-                        .foregroundColor(.black)
+            }
+            
+            if isTapped == true {
+                Button(action: {
+                    withAnimation(.easeOut){
+                        isTapped.toggle()
+                    }
+                }) {
+                    PhotoCardSheet(PhotoCardDetail: temporaryData[1])
                 }
-                
             }
-        }
-        .background(Color.background)
-        
-        if isTapped == true {
-            Button(action: {
-                isTapped.toggle()
-            }) {
-                PhotoCardSheet(PhotoCardDetail: temporaryData[1])
-            }
-        }
-        
-    } // body
-    
+            
+        } // body
+    }
     
     func imageGet() {
         moyaService.request(.imageGet) { response in
@@ -98,15 +100,15 @@ struct PhotoCardsView: View {
         }
     }
 }
-
 // MARK: PhotoCard
 struct PhotoCard: View {
     
     var PhotoCardDetail: PhotoCardInformation
     
     var body: some View {
-        
+
         ZStack {
+
             // 폴라로이드 연출을 위한 흰 네모
             RoundedRectangle(cornerRadius: 4)
                 .foregroundColor(.white)
@@ -154,7 +156,6 @@ struct PhotoCard: View {
         } // ZStack
     } // body
 }
-
 struct LoadedPhotoCard: View {
     
     var imageURL: String
@@ -189,7 +190,6 @@ struct LoadedPhotoCard: View {
             .shadow(color: Color.black.opacity(0.25), radius: 4, x: 0, y: 4))
     }
 }
-
 struct PhotoCardSheet: View {
     
     var PhotoCardDetail: PhotoCardInformation
@@ -216,7 +216,6 @@ struct PhotoCardSheet: View {
             .shadow(color: Color.black.opacity(0.25), radius: 4, x: 0, y: 4))
     }
 }
-
 struct CalendarBaws: PreviewProvider {
     static var previews: some View {
         PhotoCardsView()
