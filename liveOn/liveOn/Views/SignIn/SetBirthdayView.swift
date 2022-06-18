@@ -20,10 +20,10 @@ struct SetBirthdayView: View {
                                         
                                         // 생일을 String으로 표기해주는 캡슐 블럭
                                         Text("\(DateToStringKR(birthday))").font(.title2)
-                                            .padding(.vertical, 16)
-                                            .padding(.horizontal, 32)
-                                            .foregroundColor(.white)
-                                            .background(Capsule().fill(Color.accentColor))
+                                            .padding(.vertical, 12)
+                                            .padding(.horizontal, 24)
+                                            .foregroundColor(.accentColor)
+                                            .background(Capsule().fill(Color.accentColor).opacity(0.32))
                                             .offset(y: -32)
                                         
                                         // TODO: 캘린더 피커 수정하기

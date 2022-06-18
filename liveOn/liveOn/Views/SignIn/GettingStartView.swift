@@ -18,7 +18,7 @@ struct GettingStartView: View {
     
     var body: some View {
         
-        VStack(alignment: .leading, spacing: 8){
+        VStack(alignment: .leading, spacing: 8) {
             Group {
                 Image("TestApp")
                     .frame(width: 64, height: 64)
@@ -85,4 +85,3 @@ struct GettingStart_Previews: PreviewProvider {
         GettingStartView(authenticationViewModel: AuthenticationViewModel())
     }
 }
-
