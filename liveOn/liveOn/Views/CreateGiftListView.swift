@@ -23,7 +23,7 @@ struct CreateGiftListView: View {
                 MakingGift(item: photoItem, destination: AnyView(PhotoGiftView(imageModel: ImageViewModel())))
                 MakingGift(item: voiceItem, destination: AnyView(VoicemailView()))
                 MakingGift(item: pillItem, destination: AnyView(PillView()))
-                MakingGift(item: flowerItem, destination: AnyView(FlowerView()))
+                MakingGift(item: flowerItem, destination: AnyView(FlowerView(whatFlower: Int.random(in: 0 ..<  flowerList.count))))
             }
         }
         .navigationToBack(dismiss)
