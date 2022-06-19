@@ -27,7 +27,7 @@ struct PhotoTransport: View {
                         .foregroundColor(.white)
                         .bold()
                         .padding()
-                        .frame(width: 300, height: 50, alignment: .center)
+                        .frame(width: 300, height: 60, alignment: .center)
                         .background(Color.crimson)
                         .cornerRadius(12)
                 }

@@ -190,7 +190,7 @@ struct CalendarMain: View {
                 }
             }
             .padding(.vertical)
-            .background(ivoryColor)
+//            .background(ivoryColor)
             .navigationToBack(dismiss)
             .navigationTitle("달력")
             
@@ -205,7 +205,7 @@ struct CalendarMain: View {
         }
             
         }
-        .background(ivoryColor)
+        .background(Color.background)
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
         

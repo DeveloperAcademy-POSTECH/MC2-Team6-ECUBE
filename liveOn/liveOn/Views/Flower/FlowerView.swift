@@ -21,19 +21,21 @@ struct FlowerView: View {
     @State var whatFlower = 0
     var body: some View {
         
-        VStack {
-            
+        VStack(alignment: .center, spacing: 0) {
+            Spacer()
             FlowerCardView(content: flowerList[whatFlower])
-            
-            VStack {
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
                 // 메시지 카드
-                ZStack {
-                    
+ 
                     VStack(alignment: .center) {
                         
                         TextEditor(text: $input.value)
+                            .multilineTextAlignment(.center)
                             .foregroundColor(input.value.count < input.limit ? .black : .red)
-                        
+                            .setHandWritten()
+                            .padding(24)
+                            .padding(.top)
+                            .frame(width: 360, height: 200, alignment: .center)
                         // MARK: placeholder 사라지게
                             .onTapGesture {
                                 if input.value == input.placeholder {
@@ -50,30 +52,19 @@ struct FlowerView: View {
                             .opacity(0.6)
                         
                     } // VStack
-                    .frame(maxWidth: UIScreen.main.bounds.width*0.8, maxHeight: UIScreen.main.bounds.width*0.4)
+                
                     .padding()
                     
-                } // ZStack
-                .background(Image("letter_white").resizable().frame(width: 360, height: 240, alignment: .center))
-                .padding(.top, 54)
-                
-            } // VStack
-            .onAppear {
-                // TODO: 서버통신 연결, 랜덤 값 API
-                whatFlower =  Int.random(in: 0..<3)
-            }
+                 // ZStack
+                .background(Image("letter_white").resizable().frame(width: 360, height: 200, alignment: .center))
+             // VStack
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         } // VStack
         .navigationTitle("꽃")
         .navigationBarTitleDisplayMode(.inline)
         .background(Color.background)
+        .navigationToBack(dismiss)
         .navigationBarItems(
-            leading: Button {
-                dismiss()
-            } label: {
-                Image(systemName: "chevron.left")
-                    .font(.system(size: 20))
-                    .foregroundColor(.black)
-            },
             trailing: Button {
             showAlertforSend = true
         } label: {
@@ -119,8 +110,9 @@ struct FlowerCardView: View {
             Image(content.imageName)
                 .resizable()
                 .scaledToFit()
-                .frame(width: 280, height: 168, alignment: .center)
-                .padding(.top, 42)
+                .frame(maxWidth: 250)
+                .padding(.top, 30)
+               
             
         } // VStack
     } // body

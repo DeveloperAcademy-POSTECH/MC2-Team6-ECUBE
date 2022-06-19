@@ -57,7 +57,7 @@ struct CreateLetterView: View {
                         dismiss()
                     } label: {
                         Image(systemName: "chevron.left")
-                            .font(.system(size: 20))
+//                            .font(.system(size: 20))
                             .foregroundColor(.black)
                     }
                ,

@@ -60,8 +60,8 @@ struct PlusSetting: View {
             .offset(x: 0, y: -204)
             
             VStack {
-                Color.gray.frame(height: CGFloat(1) / UIScreen.main.scale)
-                    .padding(.top, 26)
+//                Color.gray.frame(height: CGFloat(1) / UIScreen.main.scale)
+//                    .padding(.top, 26)
                 
                 DatePicker("기념일 추가", selection: $eventbaseDate, displayedComponents: .date)
                     .datePickerStyle(GraphicalDatePickerStyle())
@@ -128,6 +128,7 @@ struct PlusSetting: View {
                 }
             }
         }
+//        .background(Color.background)
         EmojiView(show: self.$show, txt: self.$emoji).offset(y: self.show ?  (window?.safeAreaInsets.bottom)! : UIScreen.main.bounds.height)
     }
 }

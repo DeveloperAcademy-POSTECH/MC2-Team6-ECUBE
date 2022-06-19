@@ -14,25 +14,26 @@ struct SetBirthdayView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-        OnboardingHeader(title: "생일 입력하기", description: " 기념일로 등록해둘게요.", inputView:
-                            AnyView(
-                                VStack {
-                                    Text("\(DateToStringKR(birthday))").font(.title2)
-                                        .padding(.vertical, 16)
-                                        .padding(.horizontal, 32)
-                                        .foregroundColor(.white)
-                                        .background(Capsule().fill(Color.accentColor))
-                                        .offset(y: -10)
-                                    // TODO: 캘린더 피커 수정하기
-                                    DatePicker("생일 선택", selection: $birthday, in: ...Date(), displayedComponents: .date)
-                                        .datePickerStyle(GraphicalDatePickerStyle())
-                                        .applyTextColor(Color.accentColor)
-                                        .padding()
-                                        .background(RoundedRectangle(cornerRadius: 20).fill(Color(uiColor: .systemBackground)).shadow(color: .bodyTextColor.opacity(0.3), radius: 6, x: 0, y: 2))
+            OnboardingHeader(title: "생일 입력하기", description: " 기념일로 등록해둘게요.", inputView:
+                                AnyView(
+                                    VStack {
                                         
-                                        .padding()
-                                })
-        )
+                                        // 생일을 String으로 표기해주는 캡슐 블럭
+                                        Text("\(DateToStringKR(birthday))").font(.title2)
+                                            .padding(.vertical, 12)
+                                            .padding(.horizontal, 24)
+                                            .foregroundColor(.accentColor)
+                                            .background(Capsule().fill(Color.accentColor).opacity(0.32))
+                                            .offset(y: -32)
+                                        
+                                        // TODO: 캘린더 피커 수정하기
+                                        DatePicker("생일 선택", selection: $birthday, in: ...Date(), displayedComponents: .date)
+                                            .datePickerStyle(GraphicalDatePickerStyle())
+                                            .applyTextColor(Color.accentColor)
+                                            .padding(12)
+                                            .background(RoundedRectangle(cornerRadius: 20).fill(Color(uiColor: .systemBackground)).shadow(color: .bodyTextColor.opacity(0.3), radius: 6, x: 0, y: 2))
+                                    })
+            )
         }
         .navigationToBack(dismiss)
         .navigationTitle("")
