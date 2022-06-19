@@ -43,7 +43,8 @@ struct PhotoTransport: View {
         }
         .navigationTitle("배송완료")
         .navigationBarTitleDisplayMode(.inline)
-        .navigationToBack(dismiss)
+        .navigationBarBackButtonHidden(true)
+//        .navigationToBack(dismiss)
     }
 }
 

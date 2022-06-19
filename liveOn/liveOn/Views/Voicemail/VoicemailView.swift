@@ -12,8 +12,10 @@ struct VoicemailView: View {
     @ObservedObject var vm = VoiceRecorderVM()
     
     @State private var showAlertforSend: Bool = false
-    
     @State var gotoTransport: Bool = false
+    @State private var showLoading = false
+    @State private var loadingState: Int = 0
+    
     @Binding var gotoMain: Bool
     
     private let communication = ServerCommunication()
@@ -139,40 +141,58 @@ struct VoicemailView: View {
                 Spacer()
             }
             .toolbar {
-                Button(action: {
-                    showAlertforSend = true
-                }) {
-                    Text("선물하기")
-                }
-                .disabled(!vm.canSend())
-                .background(
-                    NavigationLink(
-                        destination: PhotoTransport(gotoMain: $gotoMain),
-                        isActive: $gotoTransport,
-                        label: {EmptyView()})
-                )
-                .alert(isPresented: $showAlertforSend) {
-                    Alert(
-                        title: Text("선물 보내기"),
-                        message: Text("선물은 하루에 하나만 보낼 수 있어요. 사진을 보낼까요?"),
-                        primaryButton: .cancel(Text("취소")),
-                        secondaryButton: .default(Text("보내기")) {
-                            
-                            gotoTransport = true
-                            
-                            communication.uploadVM(
-                                title: vm.title,
-                                name: vm.getFileName(for: vm.recordingsList[vm.recordingsList.count - 1].fileURL.deletingPathExtension()),
-                                duration: String(vm.countSec)
-                            )}
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    
+                    Button(action: {
+                        showAlertforSend = true
+                        
+                    }) {
+                        Text("선물하기")
+                    }
+                    .disabled(!vm.canSend())
+                    .background(
+                        NavigationLink(
+                            destination: PhotoTransport(gotoMain: $gotoMain),
+                            isActive: $gotoTransport,
+                            label: {EmptyView()})
                     )
+                    .alert(isPresented: $showAlertforSend) {
+                        Alert(
+                            title: Text("선물 보내기"),
+                            message: Text("선물은 하루에 하나만 보낼 수 있어요. 음성메시지를 보낼까요?"),
+                            primaryButton: .cancel(Text("취소")),
+                            secondaryButton: .default(Text("보내기")) {
+                                
+                                communication.uploadVM(
+                                    title: vm.title,
+                                    name: vm.getFileName(for: vm.recordingsList[vm.recordingsList.count - 1].fileURL.deletingPathExtension()),
+                                    duration: String(vm.countSec)
+                                )
+                                
+                                showLoading.toggle()
+                                Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { _ in
+                                    loadingState += 1
+                                    gotoTransport = true
+                                }
+                            }
+                        )
+                    }
                 }
                 
+                
             }
+            .blur(radius: showLoading ? 6 : 0)
             .onTapGesture {
                 hideKeyboard()
             }
             .foregroundColor(Color.bodyTextColor)
+            
+            if showLoading == true {
+                
+                Image(loadingState == 0 ? "LoadingCharacter" : "")
+                    .frame(width: 300, height: 300, alignment: .center)
+                    .frame(maxWidth:.infinity, maxHeight: .infinity)
+            }
         }
         .navigationToBack(dismiss)
     }
