@@ -87,8 +87,6 @@ struct PhotoGiftView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(Color.background)
                     .blur(radius: showLoading ? 6 : 0)
-                    
-                    
         
                 }
 
@@ -101,14 +99,12 @@ struct PhotoGiftView: View {
             }
  
             if showLoading == true {
-              
             
                 Image(loadingState == 0 ? "LoadingCharacter" : "")
                     .frame(width: 300, height: 300, alignment: .center)
                     Spacer()
                 
                 .frame(maxWidth:.infinity, maxHeight: .infinity)
-
                     
             }
         }

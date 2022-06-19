@@ -44,7 +44,7 @@ struct FlowerPopUpView: View {
                                 .setHandWritten()
                                 .font(.callout)
                         }
-                        .frame(width: 280,height: 240, alignment: .center)
+                        .frame(width: 280, height: 240, alignment: .center)
                         .foregroundColor(.bodyTextColor)
                         .background(
                             Image("letter_yellow")
@@ -61,10 +61,10 @@ struct FlowerPopUpView: View {
     } // body
 }
 //
-//struct FlowerPopUpView_Previews: PreviewProvider {
+// struct FlowerPopUpView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        
 //        FlowerPopUpViewTest()
 //        
 //    }
-//}
+// }

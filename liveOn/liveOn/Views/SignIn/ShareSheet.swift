@@ -30,10 +30,7 @@ struct ShareSheet: UIViewControllerRepresentable {
         
     }
     
-   
-    
 }
-
 
 import LinkPresentation
 

@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 extension UINavigationController: ObservableObject, UIGestureRecognizerDelegate {
     override open func viewDidLoad() {
         super.viewDidLoad()

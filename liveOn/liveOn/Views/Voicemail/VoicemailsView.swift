@@ -24,7 +24,7 @@ struct VoicemailsView: View {
                 if loadedVM.count > 8 {
                     ScrollView(.vertical, showsIndicators: false) {
                         VStack {
-
+                            
                             Spacer()
                             
                             VStack(alignment: .trailing, spacing: 16) {
@@ -96,22 +96,22 @@ struct VoicemailsView: View {
     func vmListGet() {
         moyaService.request(.voicemailListGet) { response in
             switch response {
-            case .success(let result):
-                do {
-                    print("result : ", result.data)
-                    let data = try result.map([VoicemailGetResponse].self)
-                    print("Data : \(data)")
-                    
-                    mapListData(data: data)
-                    
-                } catch let err {
+                case .success(let result):
+                    do {
+                        print("result : ", result.data)
+                        let data = try result.map([VoicemailGetResponse].self)
+                        print("Data : \(data)")
+                        
+                        mapListData(data: data)
+                        
+                    } catch let err {
+                        print(err.localizedDescription)
+                        print("음성메시지 리스트를 디코딩하는데 실패했습니다")
+                        break
+                    }
+                case .failure(let err):
                     print(err.localizedDescription)
-                    print("음성메시지 리스트를 디코딩하는데 실패했습니다")
                     break
-                }
-            case .failure(let err):
-                print(err.localizedDescription)
-                break
             }
         }
     }
@@ -120,20 +120,10 @@ struct VoicemailsView: View {
     func vmGet(id: Int) {
         moyaService.request(.voicemailGet(id: id)) { response in
             switch response {
-            case .success(let result):
-                do {
-                    
+                case .success(let result):
                     print("result : ", result.data)
-                    let vmData = try result.map(VoicemailGetResponse.self)
-                    
-                } catch let err {
-                    
+                case .failure(let err):
                     print(err.localizedDescription)
-                    print("음성메시지를 디코딩하는데 실패했습니다")
-                    
-                }
-            case .failure(let err):
-                print(err.localizedDescription)
             }
         }
     }
