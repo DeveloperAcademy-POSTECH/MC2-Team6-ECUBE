@@ -11,7 +11,7 @@ struct WelcomMatchingView: View {
     @EnvironmentObject var currentUser: User
     var body: some View {
         VStack {
-        OnboardingHeader(title: "커플 매칭 완료!", description: "소중한 추억 쌓으러 가볼까요?", inputView: AnyView(VStack {
+        OnboardingHeader(title: "커플 매칭 완료", description: "소중한 추억 쌓으러 가볼까요?", inputView: AnyView(VStack {
             Image("successMatching")
                 .resizable()
                 .aspectRatio(contentMode: .fit)

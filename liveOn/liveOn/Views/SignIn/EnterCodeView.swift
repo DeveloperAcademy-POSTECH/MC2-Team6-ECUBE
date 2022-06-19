@@ -20,7 +20,7 @@ struct EnterCodeView: View {
             VStack(alignment: .center, spacing: 12) {
                 VStack {
                     VStack(alignment: .leading, spacing: 12) {
-                    Text("5자리 초대코드를 \n입력해주세요!")
+                    Text("5자리 초대코드를 \n입력해주세요")
                         .font(.title)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.leading)

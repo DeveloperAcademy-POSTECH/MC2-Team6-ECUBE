@@ -15,7 +15,7 @@ struct SelectWhatToDoView: View {
     @State private var showShareSheet = false
     
     var body: some View {
-        OnboardingHeader(title: "상대방 초대하기!", description: "상대가 앱을 설치하고 초대코드를 입력하면 서로를 이어드릴게요.", inputView:
+        OnboardingHeader(title: "상대방 초대하기", description: "상대가 앱을 설치하고 초대코드를 입력하면 서로를 이어드릴게요.", inputView:
                             AnyView(
                                 VStack {
                                     VStack {
