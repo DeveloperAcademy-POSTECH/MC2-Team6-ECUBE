@@ -22,10 +22,7 @@ struct MoveDatePicker: View {
                     .datePickerStyle(GraphicalDatePickerStyle())
                     .accentColor(.black)
                     .applyTextColor(burgundyColor)
-                
-                Color.gray.frame(height: CGFloat(1) / UIScreen.main.scale)
-                    .padding(.top, -20)
-                
+                                
                 HStack {
                     Button("취소") {
                         showDatePicker = false
@@ -52,6 +49,6 @@ struct MoveDatePicker: View {
             .background(Color.white.cornerRadius(30))
         }
         .frame(width: UIScreen.main.bounds.width * 0.8, height: UIScreen.main.bounds.height * 0.36, alignment: .center)
-        .padding(.bottom, 225)
+        .padding(.bottom, 235)
     }
 }

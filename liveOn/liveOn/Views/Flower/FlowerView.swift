@@ -112,7 +112,6 @@ struct FlowerCardView: View {
                 .scaledToFit()
                 .frame(maxWidth: 250)
                 .padding(.top, 30)
-               
             
         } // VStack
     } // body

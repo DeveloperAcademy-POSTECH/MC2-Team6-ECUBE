@@ -25,15 +25,13 @@ struct PhotoCardsView: View {
                         ForEach(temporaryData, id: \.self) { data in
                             
                             Button(action: {
-                                withAnimation(.easeIn){
+                                withAnimation(.easeIn) {
                                     isTapped.toggle()
                                 }
                             }) {
                                 PhotoCard(PhotoCardDetail: data, isTapped: $isTapped)
                                     .padding(4)
                             }
-                            
-                            
 
                         } // ForEach
                         
@@ -45,7 +43,7 @@ struct PhotoCardsView: View {
                     .frame(width: .infinity, alignment: .center)
                     .opacity(isTapped ? 0.2 : 1)
                     .onTapGesture {
-                        withAnimation(.easeOut){
+                        withAnimation(.easeOut) {
                             isTapped.toggle()
                         }
                     }
@@ -90,14 +88,13 @@ struct PhotoCardsView: View {
             if isTapped {
                 PhotoCardSheet(PhotoCardDetail: temporaryData[1])
                     .onTapGesture {
-                        withAnimation(.easeIn){
+                        withAnimation(.easeIn) {
                             isTapped.toggle()
                         }
                     }
             }
         }
     } // body
-
     
     func imageGet() {
         moyaService.request(.imageGet) { response in
@@ -121,8 +118,6 @@ struct PhotoCard: View {
     var PhotoCardDetail: PhotoCardInformation
     @Binding var isTapped : Bool
     var body: some View {
-
-
         
         GeometryReader { proxy in
             VStack {
@@ -146,7 +141,6 @@ struct PhotoCard: View {
             }
             .padding(.bottom, 12)
             .background(RoundedRectangle(cornerRadius: 6).fill(.thickMaterial)  .border(Color.shadowColor, width: 1.0).shadow(color: .gray.opacity(0.4), radius: 10, x: 0, y: 0))
-
 
         }
         .frame(height: 240)

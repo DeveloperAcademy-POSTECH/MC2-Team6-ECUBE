@@ -41,8 +41,6 @@ struct FlowerListView: View {
                         .padding()
                         .overlay(Circle().fill(.gray).frame(width: 100, height: 100, alignment: .center).opacity(0.9))
                     
-                  
-                    
                     LazyVGrid(columns: columns, spacing: -40) {
                         ForEach(0..<flowerList.count, id: \.self) { index in
                             FlowerPopUp(content: flowerList[index])
@@ -70,7 +68,6 @@ struct FlowerListView: View {
                 FlowerPopUpView(popUpBoolean: $showFlowerPopUp, indexOfCard: $clickedFlowerIndex)
             }
         } // ZStack
-       
         
         .navigationToBack(dismiss)
         .navigationTitle("꽃")

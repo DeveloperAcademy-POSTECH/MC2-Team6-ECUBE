@@ -11,7 +11,7 @@ struct WelcomMatchingView: View {
     @EnvironmentObject var currentUser: User
     var body: some View {
         VStack {
-        OnboardingHeader(title: "커플 매칭 완료!", description: "소중한 추억 쌓으러 가볼까요?", inputView: AnyView(VStack {
+        OnboardingHeader(title: "커플 매칭 완료", description: "소중한 추억 쌓으러 가볼까요?", inputView: AnyView(VStack {
             Image("successMatching")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -19,8 +19,7 @@ struct WelcomMatchingView: View {
             Spacer()
             NavigationLink(destination: GiftBoxView()
                 .navigationBarHidden(true)
-                .environmentObject(currentUser))
-                { Text("시작하기")
+                .environmentObject(currentUser)) { Text("시작하기")
                         .foregroundColor(.white)
                         .fontWeight(.bold)
                         .frame(maxWidth: .infinity, maxHeight: 60, alignment: .center).background(RoundedRectangle(cornerRadius: 10).fill(Color.accentColor))
@@ -31,7 +30,6 @@ struct WelcomMatchingView: View {
         .navigationBarBackButtonHidden(true)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.background)
-        
         
     }
 }
