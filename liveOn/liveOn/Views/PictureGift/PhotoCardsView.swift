@@ -90,7 +90,6 @@ struct PhotoCardsView: View {
                     }
             }
         }
-       Circle()
     } // body
     
     
@@ -127,7 +126,7 @@ struct PhotoCard: View {
                     .aspectRatio(contentMode: .fill)
                     .frame(width: proxy.size.width*0.85, height: proxy.size.width, alignment: .center)
                     .clipped()
-                    .border(Color.gray, width: 1.0)
+                    .border(Color.gray, width: 0.45)
                 Text(PhotoCardDetail.photoText)
                     .setHandWritten()
                     .padding(.horizontal, 4)

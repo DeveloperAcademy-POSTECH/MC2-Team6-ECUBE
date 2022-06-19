@@ -88,10 +88,14 @@ struct PillCardView: View {
                             Text(content.name)
                                 .font(.title3)
                                 .fontWeight(.bold)
+                                .setHandWritten()
                             Text(content.prescribedDate)
                                 .font(.caption)
+                                .setHandWritten()
                         }
-                        
+                        .setHandWritten()
+                        Divider()
+                            .padding(.top)
                         HStack(spacing: 4) {
                             Image(systemName: "cross.fill")
                             Text("\(content.sender)약국")
@@ -105,6 +109,7 @@ struct PillCardView: View {
                  // ZStack
                 .foregroundColor(Color.bodyTextColor)
                 .frame(maxWidth: .infinity, maxHeight: 200)
+                .border(Color.shadowColor, width: 4)
                 .overlay(LinearGradient(colors: [.white, .clear], startPoint: .leading, endPoint: .bottomTrailing).blendMode(.hardLight).opacity(0.5))
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .background(RoundedRectangle(cornerRadius: 10).fill(.thickMaterial).shadow(color: Color(uiColor: .systemGray5), radius: 5, x: 0, y: 2))
