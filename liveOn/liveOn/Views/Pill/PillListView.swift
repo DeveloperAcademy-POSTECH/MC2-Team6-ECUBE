@@ -10,51 +10,52 @@ import SwiftUI
 struct PillListView: View {
     @Environment(\.dismiss) private var dismiss
     @State var showPillPopUp = false
-    @State var clickedPillIndex = 0
+    @State var clickedPill: Pill = Pill(name: "", color: "", effect: "", prescribedDate: "", sender: "", imageName: "")
     
     var body: some View {
-
+        
         ZStack {
-            ScrollView {
-                    ZStack {
-                        VStack(alignment: .center) {
-                            LazyVGrid(columns: [GridItem(), GridItem()], spacing: 24) {
+            VStack {
+                ScrollView {
+                    VStack(alignment: .center) {
+                        LazyVGrid(columns: [GridItem(), GridItem()], spacing: 24) {
+                            
+                            ForEach(pillList, id: \.id) { pill in
                                 
-                                ForEach(0..<pillList.count, id: \.self) { index in
-                                    
-                                    PillCardView(content: pillList[index])
-                                        .onTapGesture {withAnimation(.linear(duration: 0.5)) {
+                                PillCardView(content: pill)
+                                    .onTapGesture {
+                                        withAnimation(.linear(duration: 0.5)) {
                                             showPillPopUp = true
-                                            clickedPillIndex = index
-                                            
+                                            clickedPill = pill
                                         }
-                                        }
-                                } // ForEach
-                            } // LazyVGrid
-                            .padding(.vertical, 32)
-                        }
-                        
-                        .padding(.horizontal, 16)
-
-                            .edgesIgnoringSafeArea(.all)
-                        
-                    } // ZStack
-                    .blur(radius: showPillPopUp ? 5 : 0)
-                    Color(uiColor: .systemBackground).opacity(showPillPopUp ? 0.5 : 0)
+                                    }
+                            } // ForEach
+                        } // LazyVGrid
+                        .padding(.vertical, 32)
+                    }
+                    .padding(.horizontal, 16)
+                    .edgesIgnoringSafeArea(.all)
                     
                 }// ScrollView
-          
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .clipped()
-           
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .clipped()
+            }
+            .blur(radius: showPillPopUp ? 5 : 0)
+            Color(uiColor: .systemBackground).opacity(showPillPopUp ? 0.5 : 0)
+            
             if showPillPopUp {
                 // show Pill effect PopUp
-                PillPopUpView(showPillPopUp: $showPillPopUp, indexOfCard: $clickedPillIndex)
+                PillPopUpView(clickedPill: clickedPill)
                 // PillPopUpView()
             }
             
         }
         .background(Color.background)
+        .onTapGesture {
+            withAnimation(.easeOut) {
+                showPillPopUp = false
+            }
+        }
         .navigationTitle("약")
         .navigationBarTitleDisplayMode(.inline)
         .ignoresSafeArea( edges: .bottom)
@@ -64,16 +65,16 @@ struct PillListView: View {
     }// body
 }
 
-extension PillCardView {
-    func getRandomPillImage() -> String {
-        return "medicine0" + String(Int.random(in: 0 ..< 8))
-    }
-}
+//extension PillCardView {
+//    func getRandomPillImage() -> String {
+//        return "medicine0" + String(Int.random(in: 0 ..< 8))
+//    }
+//}
 
 struct PillCardView: View {
     
     let content: Pill
-    @State var medicineImage = "medicine00"
+    //    @State var medicineImage = "medicine00"
     var body: some View {
         HStack {
             VStack {
@@ -116,27 +117,27 @@ struct PillCardView: View {
             }
         }
         .padding(.horizontal, 8)
-        .onAppear {
-            medicineImage = getRandomPillImage()
-        }
+        //        .onAppear {
+        //            medicineImage = getRandomPillImage()
+        //        }
         
     } // body
     
     func getPointColor(whoMade: String) -> Color {
         switch whoMade {
-            case "유진" :
-                return Color.coralPink
-            default :
-                return Color.deepGreen
+        case "유진" :
+            return Color.coralPink
+        default :
+            return Color.deepGreen
         }
     }
 }
 
 // MARK: Preview
-struct PillListView_Previews: PreviewProvider {
-    static var previews: some View {
-        
-        PillListView()
-        
-    }
-}
+//struct PillListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//
+//        PillListView()
+//
+//    }
+//}

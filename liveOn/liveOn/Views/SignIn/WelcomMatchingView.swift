@@ -15,7 +15,7 @@ struct WelcomMatchingView: View {
             Image("successMatching")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: UIScreen.main.bounds.width*0.6, alignment: .center)
+                .frame(width: UIScreen.main.bounds.width*0.5, alignment: .center)
             Spacer()
             NavigationLink(destination: GiftBoxView()
                 .navigationBarHidden(true)

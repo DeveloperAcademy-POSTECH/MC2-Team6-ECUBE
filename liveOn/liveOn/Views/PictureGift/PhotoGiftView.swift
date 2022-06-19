@@ -91,11 +91,12 @@ struct PhotoGiftView: View {
                     
         
                 }
+
                 .padding()
                 .padding(.top, 80)
                 .onTapGesture {
                     hideKeyboard()
-                }
+}
                 
             }
  
