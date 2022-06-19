@@ -8,7 +8,7 @@ var loadedImage: ImageGetResponse?
 
 struct GeneralAPI {
     static let baseURL = "http://13.124.90.96:8080"
-    static let token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpbmciLCJyb2xlIjoiVVNFUiIsImV4cCI6MTY1ODA0MDg5OSwiaWF0IjoxNjU1NDQ4ODk5fQ.DFLaxRaHMOo7nyDQlwh52ytsroanfFobjmbZHi7bG9M"
+    static let token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpbmciLCJyb2xlIjoiVVNFUiIsImV4cCI6MTY1ODIxMTAyMywiaWF0IjoxNjU1NjE5MDIzfQ.vtlXNhSoLc_0IXcqO8Ff9kvaqLaPVEn90PC4qvVgntY"
 }
 
 // MARK: MoyaTest의 코드들 옮긴 부분
@@ -63,7 +63,7 @@ struct VoicemailGetResponse: Codable {
     let giftVoiceMailID: Int
     let giftVoiceMailDuration, title, createdAt, userNickName: String
     
-    let i = Int.random(in: 0..<2)
+    let i = Int.random(in: 0..<4)
 
     enum CodingKeys: String, CodingKey {
         case giftVoiceMailID = "giftVoiceMailId"

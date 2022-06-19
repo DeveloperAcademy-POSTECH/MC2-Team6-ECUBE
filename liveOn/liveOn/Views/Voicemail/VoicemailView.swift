@@ -124,16 +124,16 @@ struct VoicemailView: View {
                             }
                         }
                         
-//                        Button(action: {
-//                            vm.deleteAllRecordings()
-//                        }) {
-//                            Text("delete files")
-//                        }
-//                        Button(action: {
-//                            vm.fetchAllRecording()
-//                        }) {
-//                            Text("test")
-//                        }
+                        Button(action: {
+                            vm.deleteAllRecordings()
+                        }) {
+                            Text("delete files")
+                        }
+                        Button(action: {
+                            vm.fetchAllRecording()
+                        }) {
+                            Text("test")
+                        }
                     }
                     Spacer()
                         .frame(height: 90)
@@ -145,7 +145,6 @@ struct VoicemailView: View {
                     
                     Button(action: {
                         showAlertforSend = true
-                        
                     }) {
                         Text("선물하기")
                     }
@@ -178,8 +177,10 @@ struct VoicemailView: View {
                         )
                     }
                 }
-                
-                
+                ToolbarItem(placement: .principal) {
+                    Text("음성메시지")
+                        .foregroundColor(.black)
+                }
             }
             .blur(radius: showLoading ? 6 : 0)
             .onTapGesture {
