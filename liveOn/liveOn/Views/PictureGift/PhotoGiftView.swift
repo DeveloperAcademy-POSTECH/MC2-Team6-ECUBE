@@ -8,6 +8,9 @@ struct PhotoGiftView: View {
     @State private var isSent = false
     @State private var showLoading = false
     @State private var loadingState: Int = 0
+    
+    @Binding var gotoMain: Bool
+    
     var commentLimit: Int = 20
     
     var body: some View {
@@ -43,7 +46,7 @@ struct PhotoGiftView: View {
                                 .foregroundColor(.bodyTextColor).opacity(0.5)
                         }
                         
-                        NavigationLink("", destination: PhotoTransport(), isActive: $isSent)
+                        NavigationLink("", destination: PhotoTransport(gotoMain: $gotoMain), isActive: $isSent)
                     }
                     .padding()
                     .background(Color.white
@@ -56,7 +59,7 @@ struct PhotoGiftView: View {
                                 dismiss()
                             } label: {
                                 Image(systemName: "chevron.left")
-    //                                .font(.system(size: 20))
+                                //                                .font(.system(size: 20))
                                     .foregroundColor(.black)
                             }
                         }
@@ -89,34 +92,34 @@ struct PhotoGiftView: View {
                     .blur(radius: showLoading ? 6 : 0)
                     
                     
-        
+                    
                 }
-
+                
                 .padding()
                 .padding(.top, 80)
                 .onTapGesture {
                     hideKeyboard()
-}
+                }
                 
             }
- 
-            if showLoading == true {
-              
             
+            if showLoading == true {
+                
+                
                 Image(loadingState == 0 ? "LoadingCharacter" : "")
                     .frame(width: 300, height: 300, alignment: .center)
-//                    Spacer()
+                //                    Spacer()
                 
-                .frame(maxWidth:.infinity, maxHeight: .infinity)
-
-                    
+                    .frame(maxWidth:.infinity, maxHeight: .infinity)
+                
+                
             }
         }
         
         .frame(maxWidth:.infinity, maxHeight: .infinity)
         .background(Color.background)
         
-//        Image(showLoading ? "LoadingCharacter" : "")
+        //        Image(showLoading ? "LoadingCharacter" : "")
         
     }
     
@@ -135,19 +138,19 @@ struct PhotoGiftView: View {
             }
         }
     }
-//    private func loadingTime() -> Int {
-//        var timerValue: Int = 0
-//        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { timer in
-//            timerValue += 1
+    //    private func loadingTime() -> Int {
+    //        var timerValue: Int = 0
+    //        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { timer in
+    //            timerValue += 1
+    //        }
+    //        loadingState = timerValue
+    //    }
+}
+//
+//struct PhotoGiftView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationView {
+//            PhotoGiftView()
 //        }
-//        loadingState = timerValue
 //    }
-}
-
-struct PhotoGiftView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            PhotoGiftView()
-        }
-    }
-}
+//}

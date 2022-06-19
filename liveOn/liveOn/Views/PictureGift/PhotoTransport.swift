@@ -9,6 +9,9 @@ import SwiftUI
 
 struct PhotoTransport: View {
     @Environment(\.dismiss) private var dismiss
+    
+    @Binding var gotoMain: Bool
+    
     var body: some View {
         ZStack {
             Rectangle()
@@ -20,9 +23,9 @@ struct PhotoTransport: View {
                 Text("상대방에게 선물이 배송되었어요!")
                     .foregroundColor(.mainBrown)
                 
-                NavigationLink(destination: GiftBoxView()
-                    .environmentObject(User())
-                    .environmentObject(ImageViewModel())) {
+                Button(action: {
+                    gotoMain = false
+                }) {
                     Text("보관함으로 돌아가기")
                         .foregroundColor(.white)
                         .bold()
@@ -31,6 +34,11 @@ struct PhotoTransport: View {
                         .background(Color.crimson)
                         .cornerRadius(12)
                 }
+//                NavigationLink(destination: GiftBoxView()
+//                    .environmentObject(User())
+//                    .environmentObject(ImageViewModel())) {
+//
+//                }
             }
         }
         .navigationTitle("배송완료")
@@ -39,10 +47,10 @@ struct PhotoTransport: View {
     }
 }
 
-struct PhotoTransport_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-        PhotoTransport()
-        }
-    }
-}
+//struct PhotoTransport_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationView {
+//        PhotoTransport()
+//        }
+//    }
+//}
