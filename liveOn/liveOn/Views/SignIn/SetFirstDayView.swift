@@ -11,6 +11,8 @@ struct SetFirstDayView: View {
     @EnvironmentObject var currentUser: User
     @Environment(\.dismiss) private var dismiss
     @State var firstDay: Date = Date.now
+    @State private var burgundyColor = Color("Burgundy")
+
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             OnboardingHeader(title: "첫 만남 기록하기", description: "여러분이 함께한 시간을 기록할게요", inputView:
@@ -21,14 +23,15 @@ struct SetFirstDayView: View {
                                         Text("\(DateToStringKR(firstDay))").font(.title2)
                                             .padding(.vertical, 12)
                                             .padding(.horizontal, 24)
-                                            .foregroundColor(.accentColor)
-                                            .background(Capsule().fill(Color.accentColor).opacity(0.32))
+                                            .foregroundColor(.white)
+                                            .background(Capsule().fill(burgundyColor))
                                             .offset(y: -32)
                                         
                                         // TODO: 캘린더 피커 수정하기
                                         DatePicker("생일 선택", selection: $firstDay, in: ...Date(), displayedComponents: .date)
                                             .datePickerStyle(GraphicalDatePickerStyle())
-                                            .applyTextColor(Color.accentColor)
+                                            .accentColor(.black)
+                                            .applyTextColor(burgundyColor)
                                             .padding(12)
                                             .background(RoundedRectangle(cornerRadius: 20).fill(Color(uiColor: .systemBackground)).shadow(color: .bodyTextColor.opacity(0.3), radius: 6, x: 0, y: 2))
                                         
