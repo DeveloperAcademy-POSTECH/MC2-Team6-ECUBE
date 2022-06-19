@@ -124,16 +124,16 @@ struct VoicemailView: View {
                             }
                         }
                         
-                        Button(action: {
-                            vm.deleteAllRecordings()
-                        }) {
-                            Text("delete files")
-                        }
-                        Button(action: {
-                            vm.fetchAllRecording()
-                        }) {
-                            Text("test")
-                        }
+//                        Button(action: {
+//                            vm.deleteAllRecordings()
+//                        }) {
+//                            Text("delete files")
+//                        }
+//                        Button(action: {
+//                            vm.fetchAllRecording()
+//                        }) {
+//                            Text("test")
+//                        }
                     }
                     Spacer()
                         .frame(height: 90)
@@ -201,8 +201,8 @@ struct VoicemailView: View {
     }
 }
 
-//struct VoicemailView_Previews: PreviewProvider {
+// struct VoicemailView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        VoicemailView()
 //    }
-//}
+// }
