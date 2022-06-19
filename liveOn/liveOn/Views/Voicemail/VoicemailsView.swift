@@ -24,9 +24,7 @@ struct VoicemailsView: View {
                 if loadedVM.count > 8 {
                     ScrollView(.vertical, showsIndicators: false) {
                         VStack {
-                            
                             Spacer()
-                            
                             VStack(alignment: .trailing, spacing: 16) {
                                 ForEach(loadedVM, id: \.giftVoiceMailID) { vm in
                                     VoicemailCassette(voiceMail: vm.convertToVoicemail())
@@ -34,7 +32,8 @@ struct VoicemailsView: View {
                                             withAnimation(.easeOut) {
                                                 isShowPopUp.toggle()
                                             }
-                                            selectedVM = vm.giftVoiceMailID - 1
+                                            selectedVM = findIndex(of: vm.giftVoiceMailID, in: loadedVM)
+                                            print("selectedVM: ", selectedVM)
                                         }
                                 }
                             }
@@ -44,7 +43,7 @@ struct VoicemailsView: View {
                             .padding(16)
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .navigationTitle("카세트테이프")
+                        .navigationTitle("음성메시지")
                         .navigationBarTitleDisplayMode(.inline)
                         .background(Color.background)
                     }
@@ -58,7 +57,8 @@ struct VoicemailsView: View {
                                         withAnimation(.easeOut) {
                                             isShowPopUp.toggle()
                                         }
-                                        selectedVM = vm.giftVoiceMailID - 1
+                                        selectedVM = findIndex(of: vm.giftVoiceMailID, in: loadedVM)
+                                        print("selectedVM: ", selectedVM)
                                     }
                             }
                         }
@@ -69,7 +69,7 @@ struct VoicemailsView: View {
                         
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .navigationTitle("카세트테이프")
+                    .navigationTitle("음성메시지")
                     .navigationBarTitleDisplayMode(.inline)
                     .background(Color.background)
                 }
@@ -136,9 +136,16 @@ struct VoicemailsView: View {
         print("loadedVM : ", loadedVM)
     }
     
-    // MARK: 서버에서 받아온 Voicemail 단일 데이터를 사용 가능한 데이터로 변환
-    func mapData(data: VoicemailGetResponse) {
-        
+    // MARK: VoicemailID로 index 찾기
+    func findIndex(of id: Int, in array: [VoicemailGetResponse]) -> Int {
+        var index: Int = 0
+        for i in 0..<array.count {
+            if array[i].giftVoiceMailID == id {
+                index = i
+                break
+            }
+        }
+        return index
     }
     
 }

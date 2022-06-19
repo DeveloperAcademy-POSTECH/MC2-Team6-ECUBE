@@ -8,6 +8,9 @@ struct PhotoGiftView: View {
     @State private var isSent = false
     @State private var showLoading = false
     @State private var loadingState: Int = 0
+    
+    @Binding var gotoMain: Bool
+    
     var commentLimit: Int = 20
     
     var body: some View {
@@ -43,7 +46,7 @@ struct PhotoGiftView: View {
                                 .foregroundColor(.bodyTextColor).opacity(0.5)
                         }
                         
-                        NavigationLink("", destination: PhotoTransport(), isActive: $isSent)
+                        NavigationLink("", destination: PhotoTransport(gotoMain: $gotoMain), isActive: $isSent)
                     }
                     .padding()
                     .background(Color.white
@@ -56,7 +59,7 @@ struct PhotoGiftView: View {
                                 dismiss()
                             } label: {
                                 Image(systemName: "chevron.left")
-    //                                .font(.system(size: 20))
+                                //                                .font(.system(size: 20))
                                     .foregroundColor(.black)
                             }
                         }
@@ -71,11 +74,14 @@ struct PhotoGiftView: View {
                                 
                             }) {
                                 Text("선물하기")
+                                    .fontWeight(.bold)
                                     .foregroundColor(.black)
+                                    .preferredColorScheme(.light)
                             }
                         }
                         ToolbarItem(placement: .principal) {
-                            Text("선물 종류 선택")
+                            Text("폴라로이드")
+                                .fontWeight(.bold)
                                 .foregroundColor(.black)
                         }
                     } // toolbar 끝
@@ -87,33 +93,28 @@ struct PhotoGiftView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(Color.background)
                     .blur(radius: showLoading ? 6 : 0)
-        
-                }
 
+                }
+                 
                 .padding()
                 .padding(.top, 80)
                 .onTapGesture {
                     hideKeyboard()
-}
+                }
                 
             }
- 
-            if showLoading == true {
             
+            if showLoading == true {
+                
                 Image(loadingState == 0 ? "LoadingCharacter" : "")
                     .frame(width: 300, height: 300, alignment: .center)
-                    Spacer()
+                    .frame(maxWidth:.infinity, maxHeight: .infinity)
                 
-                .frame(maxWidth:.infinity, maxHeight: .infinity)
-                    
+
             }
         }
-        
         .frame(maxWidth:.infinity, maxHeight: .infinity)
         .background(Color.background)
-        
-        Image(showLoading ? "LoadingCharacter" : "")
-        
     }
     
     func imagePost() {
@@ -129,21 +130,6 @@ struct PhotoGiftView: View {
             case .failure(let err):
                 print(err.localizedDescription)
             }
-        }
-    }
-//    private func loadingTime() -> Int {
-//        var timerValue: Int = 0
-//        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { timer in
-//            timerValue += 1
-//        }
-//        loadingState = timerValue
-//    }
-}
-
-struct PhotoGiftView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            PhotoGiftView()
         }
     }
 }

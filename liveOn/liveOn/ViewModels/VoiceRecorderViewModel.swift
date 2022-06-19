@@ -224,10 +224,10 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
     
     // MARK: 현재 녹음파일을 보낼 수 있는 상태인지 확인
     // 제목 & 녹음파일 모두 있어야지 보낼 수 있음
-    func canSend() -> Bool {
+    func cantSend() -> Bool {
         var check: Bool = false
         
-        if !title.isEmpty && !recordingsList.isEmpty {
+        if title.isEmpty || recordingsList.isEmpty {
             check = true
         } else {
             check = false

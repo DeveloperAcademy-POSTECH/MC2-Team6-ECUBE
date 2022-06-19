@@ -9,10 +9,13 @@ import SwiftUI
 
 struct GiftBoxView: View {
     @StateObject var storedLetter = LetterStore()
+    @StateObject var storedEvent = EventStore()
+    
     @EnvironmentObject var imageModel: ImageViewModel
     @EnvironmentObject var currnetUser: User
-    @State var isActive: Bool = false
-    @StateObject var storedEvent = EventStore()
+    
+//    @State var gotoMain: Bool = false
+    @State var toCreateView: Bool = false
     
     var body: some View {
         GeometryReader { proxy in
@@ -38,12 +41,15 @@ struct GiftBoxView: View {
         HStack(alignment: .center, spacing: 0) {
             coupleInfo
             Spacer()
-            NavigationLink(destination: CreateGiftListView().environmentObject(storedLetter), isActive: $isActive) {
+            NavigationLink(destination: CreateGiftListView(gotoMain: $toCreateView).environmentObject(storedLetter), isActive: $toCreateView) {
                 Image(systemName: "gift")
                     .font(.title2)
                     .foregroundColor(.bodyTextColor)
                     .frame(width: 48, height: 48, alignment: .bottom)
                     .padding(.vertical)
+                    .onTapGesture {
+                        toCreateView = true
+                    }
             }
             .background(.yellow)
             .buttonStyle(.plain)

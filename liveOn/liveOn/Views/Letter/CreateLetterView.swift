@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-    func getRandomLetterStyle() -> String {
-        let letterStyle = ["blue", "green", "orange", "pink", "purple", "yellow", "white"]
-        return "letter_"+letterStyle[Int.random(in: 0 ..< letterStyle.count)]
-    }
+func getRandomLetterStyle() -> String {
+    let letterStyle = ["blue", "green", "orange", "pink", "purple", "yellow", "white"]
+    return "letter_"+letterStyle[Int.random(in: 0 ..< letterStyle.count)]
+}
 
 struct CreateLetterView: View {
     init() {
@@ -38,8 +38,8 @@ struct CreateLetterView: View {
                     .alert("쪽지는 \(input.limit)글자까지만 쓸 수 있어요.", isPresented: $input.hasReachedLimit) {
                         Button("확인", role: .cancel) {}
                     }
-
-                    Text("(\(isitEntered ? input.value.count : 0)/\(input.limit))")
+                
+                Text("(\(isitEntered ? input.value.count : 0)/\(input.limit))")
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .foregroundColor(.bodyTextColor)
                     .opacity(0.6)
@@ -57,30 +57,30 @@ struct CreateLetterView: View {
                         dismiss()
                     } label: {
                         Image(systemName: "chevron.left")
-//                            .font(.system(size: 20))
+                        //                            .font(.system(size: 20))
                             .foregroundColor(.black)
                     }
-               ,
+                ,
                 trailing: Button {
                     showAlertforSend = true
                 } label: {
-                    Text("보내기")
+                    Text("선물하기")
                     .fontWeight(.bold)}
                     .disabled(!isitEntered)
                 // MARK: 보내기 전 alert창
                 // TODO: 오늘의선물함(달력상세)뷰로 이동시키기, 1개 제한 두기, 작성자 연결하기
                     .alert(isPresented: $showAlertforSend) {
-                        Alert(title: Text("쪽지 보내기"), message: Text("선물은 하루에 하나만 보낼 수 있어요. 쪽지를 보낼까요?"), primaryButton: .cancel(Text("취소")), secondaryButton: Alert.Button.default(Text("보내기")) {
+                        Alert(title: Text("선물하기"), message: Text("선물은 하루에 하나만 보낼 수 있어요. 쪽지를 보낼까요?"), primaryButton: .cancel(Text("취소")), secondaryButton: Alert.Button.default(Text("보내기")) {
                             store.insert(letter: input.value, writer: "재헌")
                             dismiss()
                         })
                         
                     })
             .preferredColorScheme(.light)
-            .navigationBarTitle("쪽지 쓰기", displayMode: .inline)
+            .navigationBarTitle("쪽지", displayMode: .inline)
             .ignoresSafeArea()
             .navigationBarBackButtonHidden(true)
-
+            
         }
         .onAppear {
             letterStyle = getRandomLetterStyle()
