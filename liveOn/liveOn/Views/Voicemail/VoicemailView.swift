@@ -122,13 +122,18 @@ struct VoicemailView: View {
                                     }
                                 }
                             }
+                            VStack {
+                                Spacer()
+                                Button(action: {
+                                    vm.deleteAllRecordings()
+                                }) {
+                                    Text("delete files")
+                                        .font(.system(size: 25))
+                                        .foregroundColor(Color.background)
+                                }
+                            }
                         }
                         
-//                        Button(action: {
-//                            vm.deleteAllRecordings()
-//                        }) {
-//                            Text("delete files")
-//                        }
 //                        Button(action: {
 //                            vm.fetchAllRecording()
 //                        }) {
