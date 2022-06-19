@@ -86,9 +86,9 @@ let voiceItem = Item(itemImage: "cassettes", itemName: "음성메세지", itemDe
 let pillItem = Item(itemImage: "medicine", itemName: "약", itemDescription: "직접 이름을 지은 약과 짧은 메세지")
 let flowerItem = Item(itemImage: "flower", itemName: "꽃", itemDescription: "따뜻한 꽃말과 함께 짧은 메세지")
 
-//struct CreateGiftListView_Previews: PreviewProvider {
+// struct CreateGiftListView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        CreateGiftListView()
 //            .environmentObject(LetterStore())
 //    }
-//}
+// }
