@@ -48,10 +48,10 @@ struct PhotoTransport: View {
     }
 }
 
-//struct PhotoTransport_Previews: PreviewProvider {
+// struct PhotoTransport_Previews: PreviewProvider {
 //    static var previews: some View {
 //        NavigationView {
 //        PhotoTransport()
 //        }
 //    }
-//}
+// }

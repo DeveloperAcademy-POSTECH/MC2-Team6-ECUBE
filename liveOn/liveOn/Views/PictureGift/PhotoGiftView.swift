@@ -109,7 +109,6 @@ struct PhotoGiftView: View {
                 Image(loadingState == 0 ? "LoadingCharacter" : "")
                     .frame(width: 300, height: 300, alignment: .center)
                     .frame(maxWidth:.infinity, maxHeight: .infinity)
-                
 
             }
         }

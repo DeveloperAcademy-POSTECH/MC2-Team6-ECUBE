@@ -151,7 +151,7 @@ struct PillBodyView: View {
 
 struct PillView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView{
+        NavigationView {
             PillView()
         }
     }
