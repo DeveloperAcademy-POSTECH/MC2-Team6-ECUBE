@@ -71,7 +71,8 @@ struct PhotoCardsView: View {
                     }
 
                     ToolbarItem(placement: .principal) {
-                        Text("사진 선물함")
+                        Text("폴라로이드")
+                            .bold()
                             .foregroundColor(.black)
                     }
                     

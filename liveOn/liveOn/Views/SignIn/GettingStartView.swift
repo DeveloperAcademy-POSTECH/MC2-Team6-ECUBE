@@ -24,7 +24,7 @@ struct GettingStartView: View {
                 Group {
                     Image("TestApp")
                         .resizable()
-                        .frame(width: 64, height: 64)
+                        .frame(width: 120, height: 120)
                         .padding(.vertical)
                     
                     Text("하루에 하나씩,")
@@ -35,7 +35,7 @@ struct GettingStartView: View {
                     
                     Text("live'On")
                         .foregroundColor(.mainBrown)
-                        .font(.system(size: 36))
+                        .font(.system(size: 46))
                         .fontWeight(.heavy)
                 }
                 .padding(.leading, 20)
@@ -54,7 +54,7 @@ struct GettingStartView: View {
                     isActive.toggle()
                 })
                 .frame(width: 280, height: 60)
-                .padding()
+                .padding(.top, 50)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
