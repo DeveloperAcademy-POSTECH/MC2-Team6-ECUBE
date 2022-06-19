@@ -15,7 +15,7 @@ struct SetFirstDayView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            OnboardingHeader(title: "첫 만남 기록하기", description: "여러분이 함께한 시간을 기록할게요", inputView:
+            OnboardingHeader(title: "첫 만남 기록하기", description: "여러분이 함께한 시간을 기록할게요.", inputView:
                                 AnyView(
                                     VStack {
                                         
