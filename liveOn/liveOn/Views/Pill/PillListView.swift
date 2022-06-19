@@ -78,34 +78,39 @@ struct PillCardView: View {
     var body: some View {
         HStack {
             VStack {
-                
-                VStack(alignment: .center, spacing: 1) {
-                    VStack(alignment: .center, spacing: 4) {
-                        Image(content.imageName)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                        Text(content.name)
-                            .font(.title3)
-                            .fontWeight(.bold)
-                        Text(content.prescribedDate)
-                            .font(.caption)
-                    }
-                    
-                    HStack(spacing: 4) {
-                        Image(systemName: "cross.fill")
-                        Text("\(content.sender)약국")
-                            .fontWeight(.heavy)
-                    }
-                    .font(.system(size: 14))
-                    .padding()
-                    .foregroundColor(getPointColor(whoMade: content.sender))
-                    .frame(maxWidth: .infinity, alignment: .center)
-                } // VStack
-                // ZStack
+         
+                    VStack(alignment: .center, spacing: 1) {
+                        VStack(alignment: .center, spacing: 4) {
+                            Image("medicine0"+String(Int.random(in: 0..<8)))
+                                .resizable()
+                                .scaledToFit()
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                            Text(content.name)
+                                .font(.title3)
+                                .fontWeight(.bold)
+                                .setHandWritten()
+                            Text(content.prescribedDate)
+                                .font(.caption)
+                                .setHandWritten()
+                        }
+                        .setHandWritten()
+                        Divider()
+                            .padding(.top)
+                        HStack(spacing: 4) {
+                            Image(systemName: "cross.fill")
+                            Text("\(content.sender)약국")
+                                .fontWeight(.heavy)
+                        }
+                        .font(.system(size: 14))
+                        .padding()
+                        .foregroundColor(getPointColor(whoMade: content.sender))
+                        .frame(maxWidth: .infinity, alignment: .center)
+                    } // VStack
+                 // ZStack
                 .foregroundColor(Color.bodyTextColor)
                 .frame(maxWidth: .infinity, maxHeight: 200)
+                .border(Color.shadowColor, width: 4)
                 .overlay(LinearGradient(colors: [.white, .clear], startPoint: .leading, endPoint: .bottomTrailing).blendMode(.hardLight).opacity(0.5))
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .background(RoundedRectangle(cornerRadius: 10).fill(.thickMaterial).shadow(color: Color(uiColor: .systemGray5), radius: 5, x: 0, y: 2))

@@ -11,104 +11,113 @@ struct PhotoGiftView: View {
     var commentLimit: Int = 20
     
     var body: some View {
-        ScrollView {
-            ZStack {
-                VStack {
-                    Button {
-                        imageModel.source = .library
-                        imageModel.showPhotoPicker()
-                    } label: {
-                        if let image = imageModel.image {
-                            Image(uiImage: image)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 300, height: 400)
-                        } else {
-                            Text("사진을 선택해주세요!")
-                                .frame(width: 300, height: 400, alignment: .center)
-                                .background(Color.lightGray)
-                                .foregroundColor(.bodyTextColor)
-                        }
-                    }
-                    TextField("Comment", text: $comment, prompt: Text("한 줄 편지를 써주세요!"))
-                        .setHandWritten()
-                        .limitInputLength(value: $comment, length: 20)
-                        .foregroundColor(.bodyTextColor)
-                        .frame(width: 300, height: 20, alignment: .leading)
-                    
-                    HStack {
-                        Text("\(comment.count)/20")
-                            .frame(width: 300, height: 20, alignment: .trailing)
-                            .foregroundColor(.bodyTextColor).opacity(0.5)
-                    }
-                    
-                    NavigationLink("", destination: PhotoTransport(), isActive: $isSent)
-                }
-                .padding()
-                .background(Color.white
-                    .cornerRadius(5)
-                    .shadow(color: Color.black.opacity(0.25), radius: 4, x: 0, y: 4))
-                .navigationBarBackButtonHidden(true)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
+        ZStack {
+            ScrollView {
+                ZStack {
+                    VStack {
                         Button {
-                            dismiss()
+                            imageModel.source = .library
+                            imageModel.showPhotoPicker()
                         } label: {
-                            Image(systemName: "chevron.left")
-//                                .font(.system(size: 20))
-                                .foregroundColor(.black)
-                        }
-                    }
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: {
-                            showLoading.toggle()
-                            hideKeyboard()
-                            Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { _ in
-                                loadingState += 1
-                                isSent.toggle()
+                            if let image = imageModel.image {
+                                Image(uiImage: image)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 300, height: 400)
+                            } else {
+                                Text("사진을 선택해주세요!")
+                                    .frame(width: 300, height: 400, alignment: .center)
+                                    .background(Color.lightGray)
+                                    .foregroundColor(.bodyTextColor)
                             }
-                            
-                        }) {
-                            Text("선물하기")
+                        }
+                        TextField("Comment", text: $comment, prompt: Text("한 줄 편지를 써주세요!"))
+                            .setHandWritten()
+                            .limitInputLength(value: $comment, length: 20)
+                            .foregroundColor(.bodyTextColor)
+                            .frame(width: 300, height: 20, alignment: .leading)
+                        
+                        HStack {
+                            Text("\(comment.count)/20")
+                                .frame(width: 300, height: 20, alignment: .trailing)
+                                .foregroundColor(.bodyTextColor).opacity(0.5)
+                        }
+                        
+                        NavigationLink("", destination: PhotoTransport(), isActive: $isSent)
+                    }
+                    .padding()
+                    .background(Color.white
+                        .cornerRadius(5)
+                        .shadow(color: Color.black.opacity(0.25), radius: 4, x: 0, y: 4))
+                    .navigationBarBackButtonHidden(true)
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            Button {
+                                dismiss()
+                            } label: {
+                                Image(systemName: "chevron.left")
+    //                                .font(.system(size: 20))
+                                    .foregroundColor(.black)
+                            }
+                        }
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button(action: {
+                                showLoading.toggle()
+                                hideKeyboard()
+                                Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { _ in
+                                    loadingState += 1
+                                    isSent.toggle()
+                                }
+                                
+                            }) {
+                                Text("선물하기")
+                                    .foregroundColor(.black)
+                            }
+                        }
+                        ToolbarItem(placement: .principal) {
+                            Text("선물 종류 선택")
                                 .foregroundColor(.black)
                         }
-                        //                    .alert(isPresented: $showAlertforSend) {
-                        //                        Alert(title: Text("선물 보내기"), message: Text("선물은 하루에 하나만 보낼 수 있어요. 사진을 보낼까요?"), primaryButton: .cancel(Text("취소")), secondaryButton: .default(Text("보내기")) {
-                        //                            imageModel.isSent = true
-                        //                            showSheet.toggle()
-                        //                            imagePost()
-                        //                        })
-                        //                    }
+                    } // toolbar 끝
+                    // MARK: ImagePicker에 selectedImage가 binding으로 묶여있어 ImaageViewModel 내의 데이터가 바뀌게 됨
+                    .sheet(isPresented: $imageModel.showPicker) {
+                        ImagePicker(sourceType: imageModel.source == .library ? .photoLibrary : .camera, selectedImage: $imageModel.image)
+                            .ignoresSafeArea()
                     }
-                    ToolbarItem(placement: .principal) {
-                        Text("선물 종류 선택")
-                            .foregroundColor(.black)
-                    }
-                } // toolbar 끝
-                // MARK: ImagePicker에 selectedImage가 binding으로 묶여있어 ImaageViewModel 내의 데이터가 바뀌게 됨
-                .sheet(isPresented: $imageModel.showPicker) {
-                    ImagePicker(sourceType: imageModel.source == .library ? .photoLibrary : .camera, selectedImage: $imageModel.image)
-                        .ignoresSafeArea()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color.background)
+                    .blur(radius: showLoading ? 6 : 0)
+                    
+                    
+        
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color.background)
-                .blur(radius: showLoading ? 10 : 0)
+
+                .padding()
+                .padding(.top, 80)
+                .onTapGesture {
+                    hideKeyboard()
+}
                 
-                if showLoading == true {
-                    Image(loadingState == 0 ? "DeliverGift" : "")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 254, alignment: .center)
-                }
-//                Spacer()
             }
-            .padding()
-            .padding(.top, 80)
-            .onTapGesture {
-                hideKeyboard()
+ 
+            if showLoading == true {
+              
+            
+                Image(loadingState == 0 ? "LoadingCharacter" : "")
+                    .frame(width: 300, height: 300, alignment: .center)
+                    Spacer()
+                
+                .frame(maxWidth:.infinity, maxHeight: .infinity)
+
+                    
+            }
         }
-        }
+        
+        .frame(maxWidth:.infinity, maxHeight: .infinity)
         .background(Color.background)
+        
+        Image(showLoading ? "LoadingCharacter" : "")
+        
     }
     
     func imagePost() {
