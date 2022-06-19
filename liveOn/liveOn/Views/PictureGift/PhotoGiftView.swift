@@ -105,7 +105,7 @@ struct PhotoGiftView: View {
             
                 Image(loadingState == 0 ? "LoadingCharacter" : "")
                     .frame(width: 300, height: 300, alignment: .center)
-                    Spacer()
+//                    Spacer()
                 
                 .frame(maxWidth:.infinity, maxHeight: .infinity)
 
@@ -116,7 +116,7 @@ struct PhotoGiftView: View {
         .frame(maxWidth:.infinity, maxHeight: .infinity)
         .background(Color.background)
         
-        Image(showLoading ? "LoadingCharacter" : "")
+//        Image(showLoading ? "LoadingCharacter" : "")
         
     }
     
