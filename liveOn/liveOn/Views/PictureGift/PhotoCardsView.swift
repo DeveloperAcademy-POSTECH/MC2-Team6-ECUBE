@@ -4,9 +4,7 @@
 //
 //  Created by Jisu Jang on 2022/06/08.
 //
-
 import SwiftUI
-
 struct PhotoCardsView: View {
     
     @Environment(\.dismiss) private var dismiss
@@ -17,6 +15,7 @@ struct PhotoCardsView: View {
     var columns: [GridItem] = [GridItem(.flexible()), GridItem(.flexible())]
     
     var body: some View {
+
             ZStack {
             ScrollView {
                 VStack(spacing: 12) {
@@ -35,19 +34,24 @@ struct PhotoCardsView: View {
                             }
                             
                             
+
                         } // ForEach
                         
                         // 전달 받은 사진이 표시되는 곳
                         // LoadedPhotoCard(imageURL: loadedImage.giftPolaroidImage)
                         
                     } // LazyVGrid
+
+                    .frame(width: .infinity, alignment: .center)
                     .opacity(isTapped ? 0.2 : 1)
                     .onTapGesture {
-                        isTapped.toggle()
+                        withAnimation(.easeOut){
+                            isTapped.toggle()
+                        }
                     }
                 } // ScrollView
                 .edgesIgnoringSafeArea(.horizontal)
-                .padding(.top)
+                
                 .navigationTitle("")
                 .navigationBarTitleDisplayMode(.inline)
                 .task {
@@ -55,6 +59,7 @@ struct PhotoCardsView: View {
                     print("이미지 로딩이 수행되었습니다.")
                     PhotoGiftDataList.append(PhotoGiftData(photoURL: loadedImage.giftPolaroidImage, photoComment: loadedImage.userNickName))
                 }
+                .background(Color.background)
                 .navigationBarBackButtonHidden(true)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
@@ -62,10 +67,11 @@ struct PhotoCardsView: View {
                             dismiss()
                         }) {
                             Image(systemName: "chevron.left")
-                            //                                .font(.system(size: 20))
+                                .font(.system(size: 20))
                                 .foregroundColor(.black)
                         }
                     }
+
                     ToolbarItem(placement: .principal) {
                         Text("사진 선물함")
                             .foregroundColor(.black)
@@ -90,9 +96,8 @@ struct PhotoCardsView: View {
                     }
             }
         }
-       Circle()
     } // body
-    
+
     
     func imageGet() {
         moyaService.request(.imageGet) { response in
@@ -110,13 +115,13 @@ struct PhotoCardsView: View {
         }
     }
 }
-
 // MARK: PhotoCard
 struct PhotoCard: View {
     
     var PhotoCardDetail: PhotoCardInformation
     @Binding var isTapped : Bool
     var body: some View {
+
 
         
         GeometryReader { proxy in
@@ -133,6 +138,7 @@ struct PhotoCard: View {
                     .padding(.horizontal, 4)
                     .multilineTextAlignment(.leading)
                     .frame(width: proxy.size.width*0.8, alignment: .center)
+
                 }
                 .foregroundColor(.bodyTextColor)
                 .padding(12)
@@ -149,7 +155,6 @@ struct PhotoCard: View {
         }
     } // body
 }
-
 struct LoadedPhotoCard: View {
     
     var imageURL: String
@@ -186,7 +191,6 @@ struct LoadedPhotoCard: View {
             .shadow(color: Color.black.opacity(0.25), radius: 4, x: 0, y: 4))
     }
 }
-
 struct PhotoCardSheet: View {
     
     var PhotoCardDetail: PhotoCardInformation
@@ -212,7 +216,6 @@ struct PhotoCardSheet: View {
         
     }
 }
-
 struct CalendarBaws: PreviewProvider {
     static var previews: some View {
         PhotoCardsView()
