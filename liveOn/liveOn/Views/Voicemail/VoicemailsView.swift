@@ -43,7 +43,7 @@ struct VoicemailsView: View {
                             .padding(16)
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .navigationTitle("음성메시지")
+                        .navigationTitle("음성메세지")
                         .navigationBarTitleDisplayMode(.inline)
                         .background(Color.background)
                     }
@@ -69,7 +69,7 @@ struct VoicemailsView: View {
                         
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .navigationTitle("음성메시지")
+                    .navigationTitle("음성메세지")
                     .navigationBarTitleDisplayMode(.inline)
                     .background(Color.background)
                 }
@@ -106,7 +106,7 @@ struct VoicemailsView: View {
                         
                     } catch let err {
                         print(err.localizedDescription)
-                        print("음성메시지 리스트를 디코딩하는데 실패했습니다")
+                        print("음성메세지 리스트를 디코딩하는데 실패했습니다")
                         break
                     }
                 case .failure(let err):

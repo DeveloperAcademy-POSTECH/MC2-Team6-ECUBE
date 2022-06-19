@@ -159,7 +159,7 @@ struct VoicemailView: View {
                     .alert(isPresented: $showAlertforSend) {
                         Alert(
                             title: Text("선물 보내기"),
-                            message: Text("선물은 하루에 하나만 보낼 수 있어요. 음성메시지를 보낼까요?"),
+                            message: Text("선물은 하루에 하나만 보낼 수 있어요. 음성메세지를 보낼까요?"),
                             primaryButton: .cancel(Text("취소")),
                             secondaryButton: .default(Text("보내기")) {
                                 
@@ -179,7 +179,7 @@ struct VoicemailView: View {
                     }
                 }
                 ToolbarItem(placement: .principal) {
-                    Text("음성메시지")
+                    Text("음성메세지")
                         .fontWeight(.bold)
                         .foregroundColor(.black)
                 }
