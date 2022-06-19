@@ -15,7 +15,7 @@ struct SelectWhatToDoView: View {
     @State private var showShareSheet = false
     
     var body: some View {
-        OnboardingHeader(title: "상대방 초대하기!", description: "상대가 앱을 설치하고 초대코드를 입력하면 서로를 이어드릴게요.", inputView:
+        OnboardingHeader(title: "상대방 초대하기", description: "상대가 앱을 설치하고 초대코드를 입력하면 서로를 이어드릴게요.", inputView:
                             AnyView(
                                 VStack {
                                     VStack {
@@ -26,16 +26,15 @@ struct SelectWhatToDoView: View {
                                             .frame(width: 268, height: 170, alignment: .center)
                                             .background(RoundedRectangle(cornerRadius: 20).fill(Color(uiColor: .systemBackground)).shadow(color: .bodyTextColor.opacity(0.3), radius: 6, x: 0, y: 2))
                                             .padding(.top, 40)
-                                        Button{
+                                        Button {
                                             showShareSheet.toggle()
                                         }
-                                    label:{
+                                    label: {
                                         copyButton
                                     }
                                     .sheet(isPresented: $showShareSheet) {
                                         ShareSheet(activityItems: [ MyActivityItemSource(title: "liveOn 초대코드 보내기", text: "똑똑! \(currentUser.nickname)님으로부터 초대장이 왔어요! liveOn앱에서 초대코드를 입력해주세요 :) 초대코드 : [ \(currentUser.userCode) ]")])
                                            }
-                                        
                                         
                                     }
                                     Spacer()
@@ -46,7 +45,7 @@ struct SelectWhatToDoView: View {
 //                                            .padding()
 //                                            .background(RoundedRectangle(cornerRadius: 10).fill(Color.bodyTextColor).opacity(0.1))
 //                                    }// nav link
-                                    Button{
+                                    Button {
                                         showEnterCodeSheet.toggle()
                                     }
                                 label: {
@@ -55,7 +54,7 @@ struct SelectWhatToDoView: View {
                                         .padding()
                                         .background(RoundedRectangle(cornerRadius: 10).fill(Color.bodyTextColor).opacity(0.1))
                                 }
-                                        .fullScreenCover(isPresented: $showEnterCodeSheet){
+                                        .fullScreenCover(isPresented: $showEnterCodeSheet) {
                                             EnterCodeView().environmentObject(currentUser)
                                         }
                                 }.frame(maxWidth: .infinity))
@@ -86,4 +85,3 @@ struct SelectWhatToDoView_Previews: PreviewProvider {
         }
     }
 }
-

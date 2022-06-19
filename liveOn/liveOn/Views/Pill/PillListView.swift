@@ -65,11 +65,11 @@ struct PillListView: View {
     }// body
 }
 
-//extension PillCardView {
+// extension PillCardView {
 //    func getRandomPillImage() -> String {
 //        return "medicine0" + String(Int.random(in: 0 ..< 8))
 //    }
-//}
+// }
 
 struct PillCardView: View {
     
@@ -134,10 +134,10 @@ struct PillCardView: View {
 }
 
 // MARK: Preview
-//struct PillListView_Previews: PreviewProvider {
+// struct PillListView_Previews: PreviewProvider {
 //    static var previews: some View {
 //
 //        PillListView()
 //
 //    }
-//}
+// }

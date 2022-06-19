@@ -15,19 +15,18 @@ struct EnterCodeView: View {
     @State var presentFailAlert: Bool = false
     var body: some View {
         NavigationView {
-           
                 
 //                OnboardingHeader(title: "5자리 초대코드를 입력해주세요!", description: "먼저 리본에 가입한 상대에게 받은 초대코드를 입력해주세요", inputView: AnyView(
             VStack(alignment: .center, spacing: 12) {
                 VStack {
                     VStack(alignment: .leading, spacing: 12) {
-                    Text("5자리 초대코드를 \n입력해주세요!")
+                    Text("5자리 초대코드를 \n입력해주세요")
                         .font(.title)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.leading)
                         .frame(maxWidth: .infinity, alignment: .topLeading)
                     
-                    Text("먼저 리본에 가입한 상대방에게 받은 초대코드를 입력해주세요")
+                    Text("먼저 리본에 가입한 상대방에게 받은 초대코드를 입력해주세요.")
                         .multilineTextAlignment(.leading)
                         .truncationMode(.head)
                       
@@ -40,7 +39,6 @@ struct EnterCodeView: View {
                                         .limitInputLength(value: $code, length: 5)
                                         .multilineTextAlignment(.center)
                                         .padding(16)
-                       
                         
             }
                  

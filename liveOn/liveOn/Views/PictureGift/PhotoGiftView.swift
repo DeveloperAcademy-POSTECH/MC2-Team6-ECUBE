@@ -93,7 +93,7 @@ struct PhotoGiftView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(Color.background)
                     .blur(radius: showLoading ? 6 : 0)
-                    
+
                 }
                  
                 .padding()
@@ -108,9 +108,9 @@ struct PhotoGiftView: View {
                 
                 Image(loadingState == 0 ? "LoadingCharacter" : "")
                     .frame(width: 300, height: 300, alignment: .center)
-                
                     .frame(maxWidth:.infinity, maxHeight: .infinity)
                 
+
             }
         }
         .frame(maxWidth:.infinity, maxHeight: .infinity)

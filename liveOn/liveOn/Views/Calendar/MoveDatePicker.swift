@@ -13,24 +13,23 @@ struct MoveDatePicker: View {
     @Binding var showDatePicker: Bool
     @Binding var popUpBoolean: Bool
     @Binding var isClicked: Bool
-    
+    @Binding var burgundyColor: Color
+
     var body: some View {
         ZStack {
             VStack {
                 DatePicker("Test", selection: $autoDate, displayedComponents: [.date])
                     .datePickerStyle(GraphicalDatePickerStyle())
-                    .applyTextColor(Color("Burgundy"))
-                
-                Color.gray.frame(height: CGFloat(1) / UIScreen.main.scale)
-                    .padding(.top, -20)
-                
+                    .accentColor(.black)
+                    .applyTextColor(burgundyColor)
+                                
                 HStack {
                     Button("취소") {
                         showDatePicker = false
                         isClicked.toggle()
                     }
                     .font(.system(size: 18).bold())
-                    .foregroundColor(Color("Burgundy"))
+                    .foregroundColor(burgundyColor)
                     .padding(.top, -16)
                     
                     Spacer()
@@ -41,7 +40,7 @@ struct MoveDatePicker: View {
                         isClicked.toggle()
                     }
                     .font(.system(size: 18).bold())
-                    .foregroundColor(Color("Burgundy"))
+                    .foregroundColor(burgundyColor)
                     .padding(.top, -16)
                 }
                 .padding(.horizontal)
@@ -50,6 +49,6 @@ struct MoveDatePicker: View {
             .background(Color.white.cornerRadius(30))
         }
         .frame(width: UIScreen.main.bounds.width * 0.8, height: UIScreen.main.bounds.height * 0.36, alignment: .center)
-        .padding(.bottom, 225)
+        .padding(.bottom, 235)
     }
 }
