@@ -26,7 +26,7 @@ struct EnterCodeView: View {
                         .multilineTextAlignment(.leading)
                         .frame(maxWidth: .infinity, alignment: .topLeading)
                     
-                    Text("먼저 리본에 가입한 상대방에게 받은 초대코드를 입력해주세요")
+                    Text("먼저 리본에 가입한 상대방에게 받은 초대코드를 입력해주세요.")
                         .multilineTextAlignment(.leading)
                         .truncationMode(.head)
                       
