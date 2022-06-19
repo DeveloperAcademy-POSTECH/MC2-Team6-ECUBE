@@ -74,11 +74,14 @@ struct PhotoGiftView: View {
                                 
                             }) {
                                 Text("선물하기")
+                                    .fontWeight(.bold)
                                     .foregroundColor(.black)
+                                    .preferredColorScheme(.light)
                             }
                         }
                         ToolbarItem(placement: .principal) {
-                            Text("선물 종류 선택")
+                            Text("폴라로이드")
+                                .fontWeight(.bold)
                                 .foregroundColor(.black)
                         }
                     } // toolbar 끝
@@ -91,10 +94,8 @@ struct PhotoGiftView: View {
                     .background(Color.background)
                     .blur(radius: showLoading ? 6 : 0)
                     
-                    
-                    
                 }
-                
+                 
                 .padding()
                 .padding(.top, 80)
                 .onTapGesture {
@@ -105,22 +106,15 @@ struct PhotoGiftView: View {
             
             if showLoading == true {
                 
-                
                 Image(loadingState == 0 ? "LoadingCharacter" : "")
                     .frame(width: 300, height: 300, alignment: .center)
-                //                    Spacer()
                 
                     .frame(maxWidth:.infinity, maxHeight: .infinity)
                 
-                
             }
         }
-        
         .frame(maxWidth:.infinity, maxHeight: .infinity)
         .background(Color.background)
-        
-        //        Image(showLoading ? "LoadingCharacter" : "")
-        
     }
     
     func imagePost() {
@@ -138,19 +132,4 @@ struct PhotoGiftView: View {
             }
         }
     }
-    //    private func loadingTime() -> Int {
-    //        var timerValue: Int = 0
-    //        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { timer in
-    //            timerValue += 1
-    //        }
-    //        loadingState = timerValue
-    //    }
 }
-//
-//struct PhotoGiftView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NavigationView {
-//            PhotoGiftView()
-//        }
-//    }
-//}

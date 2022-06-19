@@ -147,8 +147,9 @@ struct VoicemailView: View {
                         showAlertforSend = true
                     }) {
                         Text("선물하기")
+                            .fontWeight(.bold)
                     }
-                    .disabled(!vm.canSend())
+                    .disabled(vm.cantSend())
                     .background(
                         NavigationLink(
                             destination: PhotoTransport(gotoMain: $gotoMain),
@@ -179,6 +180,7 @@ struct VoicemailView: View {
                 }
                 ToolbarItem(placement: .principal) {
                     Text("음성메시지")
+                        .fontWeight(.bold)
                         .foregroundColor(.black)
                 }
             }

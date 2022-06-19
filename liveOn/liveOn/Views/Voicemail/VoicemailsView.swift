@@ -43,7 +43,7 @@ struct VoicemailsView: View {
                             .padding(16)
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .navigationTitle("카세트테이프")
+                        .navigationTitle("음성메시지")
                         .navigationBarTitleDisplayMode(.inline)
                         .background(Color.background)
                     }
@@ -69,7 +69,7 @@ struct VoicemailsView: View {
                         
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .navigationTitle("카세트테이프")
+                    .navigationTitle("음성메시지")
                     .navigationBarTitleDisplayMode(.inline)
                     .background(Color.background)
                 }
