@@ -24,7 +24,7 @@ struct PillView: View {
         .onTapGesture {
             hideKeyboard()
         }
-        .navigationTitle("영양제")
+        .navigationTitle("약")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarItems(trailing: Button {
             showAlertforSend = true
@@ -32,7 +32,7 @@ struct PillView: View {
             Text("선물하기")
                 .fontWeight(.bold)
         }
-        .disabled(input.inputEntered))
+            .disabled(input.inputEntered))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.background)
     } // body
@@ -151,8 +151,8 @@ struct PillBodyView: View {
 
 struct PillView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView{
-        PillView()
+        NavigationView {
+            PillView()
         }
     }
 }

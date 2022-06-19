@@ -7,82 +7,64 @@
 
 import SwiftUI
 
-struct FlowerPopUpViewTest: View {
-    @Environment(\.dismiss) private var dismiss
-    @State var showPopUp: Bool = false
-    
-    var body: some View {
-        ZStack {
-            Button(
-                action: {
-                    withAnimation(.linear(duration: 0.2)) {
-                        showPopUp.toggle()
-                    }},
-                label: {
-                    Text("POPUP")
-                })
-            
-            if showPopUp {
-                FlowerPopUpView(popUpBoolean: $showPopUp)
-            }
-        }
-        .navigationToBack(dismiss)
-        .background(.background)
-    } // body
-}
-
 struct FlowerPopUpView: View {
-    
     @Binding var popUpBoolean: Bool
+    @Binding var indexOfCard: Int
     
     var body: some View {
         ZStack {
-            
-            Color.white.opacity(popUpBoolean ? 0.88 : 0).edgesIgnoringSafeArea(.all)
-            
             VStack(alignment: .center) {
                 Button {
                     withAnimation(.linear(duration: 0.24)) {
-                        popUpBoolean = false
+                        popUpBoolean.toggle()
                     }
                 } label: {
-                    Text("Dismiss")
-                }
-                
-                VStack {
-                    ZStack {
-                            
-                        VStack {
-                            FlowerCardView(content: flowerList[0])
+                    VStack(spacing: 4) {
+                        Image(flowerList[indexOfCard].imageName)
+                            .resizable()
+                            .padding()
+                            .frame(width: 300, height: 300, alignment: .center)
+                        
+                        Text(flowerList[indexOfCard].name)
+                            .font(.title3)
+                            .foregroundColor(.bodyTextColor)
+                            .fontWeight(.bold)
+                        Text(flowerList[indexOfCard].meaning)
+                            .font(.subheadline)
+                            .foregroundColor(.bodyTextColor)
+                            .opacity(0.9)
+                        
+                        // 쪽지
+                        VStack(alignment: .center, spacing: 4) {
+                            Text(flowerList[indexOfCard].message)
+                                .setHandWritten()
+                                .frame(maxWidth:.infinity)
                                 .padding()
-                            ZStack {
-                                Image("letter_yellow")
-                                    .resizable()
-
-                                VStack {
-                                    Text("점마 로맨틱한 멘트 좀 써봤는갑네")
-                                        .foregroundColor(.bodyTextColor)
-                                                                        
-                                    Text("20220613")
-                                        .foregroundColor(.bodyTextColor)
-                                        .padding(.top, 8)
-                                } // VStack
-
-                            } // ZStack
-                        } // VStack
+                            Text("20220613")
+                                .setHandWritten()
+                                .font(.callout)
+                        }
+                        .frame(width: 280, height: 240, alignment: .center)
+                        .foregroundColor(.bodyTextColor)
+                        .background(
+                            Image("letter_yellow")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity))
+                        
                     } // VStack
-                    .frame(width: UIScreen.main.bounds.width * 0.7, height: UIScreen.main.bounds.height * 0.64, alignment: .center)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                     
                 } // VStack
             } // VStack
         } // ZStack
     } // body
 }
-
-struct FlowerPopUpView_Previews: PreviewProvider {
-    static var previews: some View {
-        
-        FlowerPopUpViewTest()
-        
-    }
-}
+//
+// struct FlowerPopUpView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        
+//        FlowerPopUpViewTest()
+//        
+//    }
+// }

@@ -25,8 +25,9 @@ struct PhotoGiftData: Hashable {
 var temporaryData: [PhotoCardInformation] = [
     
     PhotoCardInformation(
-        imageName: "exampleImage1",
-        photoText: "WWDC 오프닝!"),
+        imageName: "photo_dinner",
+        photoText: "첫 저녁 식사"),
+    // 사진 출처 : https://unsplash.com/photos/Jh-3BU7C014
     
     PhotoCardInformation(
         imageName: "photo_picnic",
@@ -35,17 +36,21 @@ var temporaryData: [PhotoCardInformation] = [
     
     PhotoCardInformation(
         imageName: "photo_wedding",
-        photoText: "추억의 웨딩 사진"),
+        photoText: "추억의 컨셉 사진"),
     // 사진 출처 : https://unsplash.com/photos/w5hhoYM_JsU
     
     PhotoCardInformation(
-        imageName: "photo_sky",
+        imageName: "photo_flower",
         photoText: "별 보러 갔던 날"),
-    // 사진 출처 : https://unsplash.com/photos/5LOhydOtTKU
+    // 사진 출처 : https://unsplash.com/photos/Ggv3i6oxPcg
     
     PhotoCardInformation(
-        imageName: "photo_aquarium",
-        photoText: "아쿠아리움에서 해파리만 보다가 온 사진")
-    // 사진 출처 : https://unsplash.com/photos/5LOhydOtTKU
-
+        imageName: "photo_plant",
+        photoText: "우리가 같이 키운 자식"),
+    // 사진 출처 : https://unsplash.com/photos/UcfKYTan-LU
+    
+    PhotoCardInformation(
+        imageName: "photo_sand",
+        photoText: "우리가 같이 키운 자식")
+    // 사진 출처 : https://unsplash.com/photos/FHT0KEOwtyg
 ]

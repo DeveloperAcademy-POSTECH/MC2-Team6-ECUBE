@@ -8,7 +8,7 @@ var loadedImage: ImageGetResponse?
 
 struct GeneralAPI {
     static let baseURL = "http://13.124.90.96:8080"
-    static let token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpbmciLCJyb2xlIjoiVVNFUiIsImV4cCI6MTY1ODA0MDg5OSwiaWF0IjoxNjU1NDQ4ODk5fQ.DFLaxRaHMOo7nyDQlwh52ytsroanfFobjmbZHi7bG9M"
+    static let token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpbmciLCJyb2xlIjoiVVNFUiIsImV4cCI6MTY1ODIxNTgwMSwiaWF0IjoxNjU1NjIzODAxfQ.grBYdobpNbQ80e-OdqAED0DD-jjRF10a-vaKam06fHk"
 }
 
 // MARK: MoyaTest의 코드들 옮긴 부분
@@ -57,13 +57,13 @@ struct ImageGetResponse: Codable {
     let data: MultipartFormData
  }
 
-let randomLabelList = ["cassetteLabel1", "cassetteLabel2", "cassetteLabel3"]
+let randomLabelList = ["cassetteIcon01", "cassetteIcon02", "cassetteIcon03", "cassetteIcon04"]
 
 struct VoicemailGetResponse: Codable {
     let giftVoiceMailID: Int
     let giftVoiceMailDuration, title, createdAt, userNickName: String
     
-    let i = Int.random(in: 0..<2)
+    let i = Int.random(in: 0..<4)
 
     enum CodingKeys: String, CodingKey {
         case giftVoiceMailID = "giftVoiceMailId"
@@ -85,9 +85,9 @@ struct VoicemailGetResponse: Codable {
             vmBackgroundColor: {
                 
                 if i == 0 {
-                    return mailConstants.green
+                    return MailConstants.green
                 } else {
-                    return mailConstants.orange
+                    return MailConstants.orange
                 }
             }(),
             vmIconImageName: {

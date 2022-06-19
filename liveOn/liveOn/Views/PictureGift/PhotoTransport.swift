@@ -10,6 +10,7 @@ import SwiftUI
 struct PhotoTransport: View {
     
     @Environment(\.dismiss) private var dismiss
+    @Binding var gotoMain: Bool
     
     var body: some View {
         
@@ -28,35 +29,27 @@ struct PhotoTransport: View {
                         .foregroundColor(.mainBrown)
                         .padding(.vertical)
                     
-                    NavigationLink(destination: GiftBoxView()
-                        .environmentObject(User())
-                        .environmentObject(ImageViewModel())) {
-                            
-                            Text("보관함으로 돌아가기")
-                                .foregroundColor(.white)
-                                .bold()
-                                .padding()
-                                .frame(width: 300, height: 60, alignment: .center)
-                                .background(Color.crimson)
-                                .cornerRadius(12)
-                        }
+                    Button {
+                        gotoMain = false
+
+                    } label: {
+                        Text("보관함으로 돌아가기")
+                            .foregroundColor(.white)
+                            .bold()
+                            .padding()
+                            .frame(width: 300, height: 60, alignment: .center)
+                            .background(Color.crimson)
+                            .cornerRadius(12)
+                    }
                     
                 } // VStack
             } // VStack
         } // ZStack
         .navigationTitle("배송완료")
         .navigationBarTitleDisplayMode(.inline)
-        .navigationToBack(dismiss)
+        .navigationBarBackButtonHidden(true)
         .background(.background)
         .ignoresSafeArea()
         
     } // body
-}
-
-struct PhotoTransport_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            PhotoTransport()
-        }
-    }
 }

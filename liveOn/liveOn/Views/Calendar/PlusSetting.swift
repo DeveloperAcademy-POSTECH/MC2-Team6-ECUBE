@@ -57,23 +57,23 @@ struct PlusSetting: View {
                 .foregroundColor(burgundyColor)
             }
             .padding([.trailing, .leading], 15)
-            .offset(x: 0, y: -204)
+            .padding(.top, -255)
             
             VStack {
-                Color.gray.frame(height: CGFloat(1) / UIScreen.main.scale)
-                    .padding(.top, 26)
                 
                 DatePicker("기념일 추가", selection: $eventbaseDate, displayedComponents: .date)
                     .datePickerStyle(GraphicalDatePickerStyle())
-                    .applyTextColor(Color("Burgundy"))
+                    .accentColor(.black)
+                    .applyTextColor(burgundyColor)
                     .frame(height: 370)
             }
+            .padding(.top, -50)
             
             VStack {
                 RoundedRectangle(cornerRadius: 10)
                     .fill(Color.gray).opacity(0.3)
                     .frame(width: 85, height: 85)
-                    .offset(x: -132, y: 336)
+                    .offset(x: -137, y: 296)
                 
                 HStack {
                     TextField("Emoji", text: $emoji, prompt: Text("☺︎"))
@@ -81,7 +81,7 @@ struct PlusSetting: View {
                         .multilineTextAlignment(TextAlignment.center)
                         .font(.system(size: 60))
                         .frame(width: 80, height: 100)
-                        .offset(x: -130, y: 236)
+                        .offset(x: -136, y: 196)
                 }
                 
                 Button(action: {
@@ -92,7 +92,7 @@ struct PlusSetting: View {
                         .font(.callout)
                         .foregroundColor(.gray)
                 }
-                .offset(x: -130, y: 230)
+                .offset(x: -135, y: 186)
             }
             
             VStack {
@@ -102,13 +102,13 @@ struct PlusSetting: View {
                     .foregroundColor(.bodyTextColor)
                     .frame(width: 250, height: 20)
                     .font(.system(size: 18))
-                    .offset(x: 56, y: 285)
+                    .offset(x: 46, y: 245)
                 
                 VStack {
                     Text("(\(eventTitle.count)/15)")
                         .frame(width: 300, height: 20, alignment: .trailing)
                         .foregroundColor(.bodyTextColor).opacity(0.5)
-                        .offset(x: 38, y: 272)
+                        .offset(x: 38, y: 232)
                 }
                 
                 TextField("Comment", text: $eventMemo, prompt: Text("메모를 입력해주세요."))
@@ -117,17 +117,20 @@ struct PlusSetting: View {
                     .foregroundColor(.bodyTextColor)
                     .frame(width: 250, height: 20)
                     .font(.system(size: 18))
-                    .offset(x: 56, y: 270)
+                    .offset(x: 46, y: 230)
                 
                 VStack {
                     Text("(\(eventMemo.count)/20)")
                         .frame(width: 300, height: 20, alignment: .trailing)
                         .foregroundColor(.bodyTextColor).opacity(0.5)
-                        .offset(x: 38, y: 257)
+                        .offset(x: 38, y: 217)
                 }
             }
         }
+        .padding(.bottom, 20)
+//        .background(Color.background)
         EmojiView(show: self.$show, txt: self.$emoji).offset(y: self.show ?  (window?.safeAreaInsets.bottom)! : UIScreen.main.bounds.height)
+            .padding(.bottom, -65)
     }
 }
 
@@ -177,6 +180,7 @@ struct EmojiView: View {
             }
             .padding()
         }
+        .padding(.bottom, -60)
     }
     
     // 이모지 키보드에 뜨는 이모지 종류 리스트
@@ -185,7 +189,7 @@ struct EmojiView: View {
         var emojis: [[Int]] = []
         
         // 이모지 유니코드 리스트
-        for i in stride(from: 0x1f302, through: 0x1F999, by: 4) {
+        for i in stride(from: 0x1f36A, through: 0x1F379, by: 4) {
             
             var temp: [Int] = []
             

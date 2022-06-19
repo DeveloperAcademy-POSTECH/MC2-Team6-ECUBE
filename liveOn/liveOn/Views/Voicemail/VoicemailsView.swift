@@ -8,13 +8,10 @@
 import SwiftUI
 
 struct VoicemailsView: View {
-
-    @Environment(\.dismiss) private var dismiss
-    var body: some View {
     
-    //    private let communication = ServerCommunication()
+    @Environment(\.dismiss) var dismiss
+    
     @State var loadedVM: [VoicemailGetResponse] = []
-    //    @State var vmList: [Voicemail] = []
     @State var selectedVM: Int = 0
     @State var isShowPopUp: Bool = false
     
@@ -27,9 +24,7 @@ struct VoicemailsView: View {
                 if loadedVM.count > 8 {
                     ScrollView(.vertical, showsIndicators: false) {
                         VStack {
-
                             Spacer()
-                            
                             VStack(alignment: .trailing, spacing: 16) {
                                 ForEach(loadedVM, id: \.giftVoiceMailID) { vm in
                                     VoicemailCassette(voiceMail: vm.convertToVoicemail())
@@ -37,7 +32,8 @@ struct VoicemailsView: View {
                                             withAnimation(.easeOut) {
                                                 isShowPopUp.toggle()
                                             }
-                                            selectedVM = vm.giftVoiceMailID - 1
+                                            selectedVM = findIndex(of: vm.giftVoiceMailID, in: loadedVM)
+                                            print("selectedVM: ", selectedVM)
                                         }
                                 }
                             }
@@ -47,7 +43,7 @@ struct VoicemailsView: View {
                             .padding(16)
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .navigationTitle("카세트테이프")
+                        .navigationTitle("음성메시지")
                         .navigationBarTitleDisplayMode(.inline)
                         .background(Color.background)
                     }
@@ -61,7 +57,8 @@ struct VoicemailsView: View {
                                         withAnimation(.easeOut) {
                                             isShowPopUp.toggle()
                                         }
-                                        selectedVM = vm.giftVoiceMailID - 1
+                                        selectedVM = findIndex(of: vm.giftVoiceMailID, in: loadedVM)
+                                        print("selectedVM: ", selectedVM)
                                     }
                             }
                         }
@@ -72,13 +69,13 @@ struct VoicemailsView: View {
                         
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .navigationTitle("카세트테이프")
+                    .navigationTitle("음성메시지")
                     .navigationBarTitleDisplayMode(.inline)
                     .background(Color.background)
                 }
             }
-            .blur(radius: isShowPopUp ? 5 : 0)
-            
+            .blur(radius: isShowPopUp ? 6 : 0)
+            Color(uiColor: .systemBackground).opacity(isShowPopUp ? 0.8 : 0)
             if isShowPopUp {
                 VoicemailPopUpView(vm: loadedVM[selectedVM].convertToVoicemail())
             }
@@ -92,57 +89,44 @@ struct VoicemailsView: View {
                 isShowPopUp = false
             }
         }
+        .navigationToBack(dismiss)
     }
-    .navigationBarBackButtonHidden(true)
-    .navigationToBack(dismiss)
     
     // MARK: Voicemail List 가져오기
     func vmListGet() {
         moyaService.request(.voicemailListGet) { response in
             switch response {
-            case .success(let result):
-                do {
-                    print("result : ", result.data)
-                    let data = try result.map([VoicemailGetResponse].self)
-                    print("Data : \(data)")
-                    
-                    mapListData(data: data)
-                    
-                } catch let err {
+                case .success(let result):
+                    do {
+                        print("result : ", result.data)
+                        let data = try result.map([VoicemailGetResponse].self)
+                        print("Data : \(data)")
+                        
+                        mapListData(data: data)
+                        
+                    } catch let err {
+                        print(err.localizedDescription)
+                        print("음성메시지 리스트를 디코딩하는데 실패했습니다")
+                        break
+                    }
+                case .failure(let err):
                     print(err.localizedDescription)
-                    print("음성메시지 리스트를 디코딩하는데 실패했습니다")
                     break
-                }
-            case .failure(let err):
-                print(err.localizedDescription)
-                break
             }
         }
-
     }
     
     // MARK: Voicemail 하나를 클릭했을 때 그 특정 Voicemail에 관한 데이터 받기
     func vmGet(id: Int) {
         moyaService.request(.voicemailGet(id: id)) { response in
             switch response {
-            case .success(let result):
-                do {
-                    
+                case .success(let result):
                     print("result : ", result.data)
-                    let vmData = try result.map(VoicemailGetResponse.self)
-                    
-                } catch let err {
-                    
+                case .failure(let err):
                     print(err.localizedDescription)
-                    print("음성메시지를 디코딩하는데 실패했습니다")
-                    
-                }
-            case .failure(let err):
-                print(err.localizedDescription)
             }
         }
     }
-
     
     // MARK: 서버에서 받아온 데이터를 사용 가능한 데이터로 변환
     func mapListData(data: [VoicemailGetResponse]) {
@@ -152,9 +136,16 @@ struct VoicemailsView: View {
         print("loadedVM : ", loadedVM)
     }
     
-    // MARK: 서버에서 받아온 Voicemail 단일 데이터를 사용 가능한 데이터로 변환
-    func mapData(data: VoicemailGetResponse) {
-        
+    // MARK: VoicemailID로 index 찾기
+    func findIndex(of id: Int, in array: [VoicemailGetResponse]) -> Int {
+        var index: Int = 0
+        for i in 0..<array.count {
+            if array[i].giftVoiceMailID == id {
+                index = i
+                break
+            }
+        }
+        return index
     }
     
 }

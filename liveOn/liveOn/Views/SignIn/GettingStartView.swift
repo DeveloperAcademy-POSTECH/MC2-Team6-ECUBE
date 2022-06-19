@@ -19,7 +19,7 @@ struct GettingStartView: View {
     var body: some View {
 
         VStack {
-            VStack (alignment: .leading, spacing: 4){
+            VStack(alignment: .leading, spacing: 4) {
                 
                 Group {
                     Image("TestApp")

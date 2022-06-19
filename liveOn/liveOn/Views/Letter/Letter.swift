@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+
 class Letter: Identifiable, ObservableObject {
     let id: UUID
     @Published var content: String
@@ -38,7 +39,7 @@ class LetterStore: ObservableObject {
     func insert(letter: String, writer: String) {
         list.insert(Letter(content: letter, createdDate: Date.now, writer: writer), at: 0)
     }
-        
+
     func update(letter: Letter?, content: String) {
         guard let letter = letter else {
             return

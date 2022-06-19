@@ -12,6 +12,11 @@ struct VoicemailView: View {
     @ObservedObject var vm = VoiceRecorderVM()
     
     @State private var showAlertforSend: Bool = false
+    @State var gotoTransport: Bool = false
+    @State private var showLoading = false
+    @State private var loadingState: Int = 0
+    
+    @Binding var gotoMain: Bool
     
     private let communication = ServerCommunication()
     let nowDate = Date.now
@@ -124,13 +129,6 @@ struct VoicemailView: View {
                         }) {
                             Text("delete files")
                         }
-                        
-                        //                        Button(action: {
-                        //                            vm.getFileName(for: vm.recordingsList[vm.recordingsList.count - 1].fileURL)
-                        //                        }) {
-                        //                            Text("get file name")
-                        //                        }
-                        
                         Button(action: {
                             vm.fetchAllRecording()
                         }) {
@@ -143,40 +141,68 @@ struct VoicemailView: View {
                 Spacer()
             }
             .toolbar {
-                Button(action: {
-                    showAlertforSend = true
-                }) {
-                    Text("선물하기")
-                }
-                .disabled(!vm.canSend())
-                .alert(isPresented: $showAlertforSend) {
-                    Alert(
-                        title: Text("선물 보내기"),
-                        message: Text("선물은 하루에 하나만 보낼 수 있어요. 사진을 보낼까요?"),
-                        primaryButton: .cancel(Text("취소")),
-                        secondaryButton: .default(Text("보내기")) {
-                            
-                        communication.uploadVM(
-                            title: vm.title,
-                            name: vm.getFileName(for: vm.recordingsList[vm.recordingsList.count - 1].fileURL.deletingPathExtension()),
-                            duration: String(vm.countSec)
-                        
-                        )}
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    
+                    Button(action: {
+                        showAlertforSend = true
+                    }) {
+                        Text("선물하기")
+                            .fontWeight(.bold)
+                    }
+                    .disabled(vm.cantSend())
+                    .background(
+                        NavigationLink(
+                            destination: PhotoTransport(gotoMain: $gotoMain),
+                            isActive: $gotoTransport,
+                            label: {EmptyView()})
                     )
+                    .alert(isPresented: $showAlertforSend) {
+                        Alert(
+                            title: Text("선물 보내기"),
+                            message: Text("선물은 하루에 하나만 보낼 수 있어요. 음성메시지를 보낼까요?"),
+                            primaryButton: .cancel(Text("취소")),
+                            secondaryButton: .default(Text("보내기")) {
+                                
+                                communication.uploadVM(
+                                    title: vm.title,
+                                    name: vm.getFileName(for: vm.recordingsList[vm.recordingsList.count - 1].fileURL.deletingPathExtension()),
+                                    duration: String(vm.countSec)
+                                )
+                                
+                                showLoading.toggle()
+                                Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { _ in
+                                    loadingState += 1
+                                    gotoTransport = true
+                                }
+                            }
+                        )
+                    }
                 }
-                
+                ToolbarItem(placement: .principal) {
+                    Text("음성메시지")
+                        .fontWeight(.bold)
+                        .foregroundColor(.black)
+                }
             }
+            .blur(radius: showLoading ? 6 : 0)
             .onTapGesture {
                 hideKeyboard()
             }
             .foregroundColor(Color.bodyTextColor)
+            
+            if showLoading == true {
+                
+                Image(loadingState == 0 ? "LoadingCharacter" : "")
+                    .frame(width: 300, height: 300, alignment: .center)
+                    .frame(maxWidth:.infinity, maxHeight: .infinity)
+            }
         }
         .navigationToBack(dismiss)
     }
 }
 
-struct VoicemailView_Previews: PreviewProvider {
-    static var previews: some View {
-        VoicemailView()
-    }
-}
+// struct VoicemailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        VoicemailView()
+//    }
+// }
