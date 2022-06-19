@@ -65,7 +65,8 @@ struct PlusSetting: View {
                 
                 DatePicker("기념일 추가", selection: $eventbaseDate, displayedComponents: .date)
                     .datePickerStyle(GraphicalDatePickerStyle())
-                    .applyTextColor(Color("Burgundy"))
+                    .accentColor(.black)
+                    .applyTextColor(burgundyColor)
                     .frame(height: 370)
             }
             
@@ -81,7 +82,7 @@ struct PlusSetting: View {
                         .multilineTextAlignment(TextAlignment.center)
                         .font(.system(size: 60))
                         .frame(width: 80, height: 100)
-                        .offset(x: -130, y: 236)
+                        .offset(x: -131, y: 236)
                 }
                 
                 Button(action: {
@@ -178,6 +179,7 @@ struct EmojiView: View {
             }
             .padding()
         }
+        .padding(.bottom, -60)
     }
     
     // 이모지 키보드에 뜨는 이모지 종류 리스트
