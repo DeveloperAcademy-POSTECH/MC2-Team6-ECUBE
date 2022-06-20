@@ -220,6 +220,7 @@ class VoiceRecorderVM: NSObject, ObservableObject, AVAudioPlayerDelegate {
             }
         }
         recordingsList.removeAll()
+        print("deleted")
     }
     
     // MARK: 현재 녹음파일을 보낼 수 있는 상태인지 확인
